@@ -1,0 +1,12 @@
+<scroll-view class="chips" scroll-x enable-flex show-scrollbar="{{false}}">
+  <view
+    wx:for="{{list}}"
+    wx:key="value"
+    class="chip {{item.value === value ? 'on' : ''}}"
+    data-value="{{item.value}}"
+    bindtap="onTap"
+  >
+    <view wx:if="{{item.color}}" class="swatch" style="background:{{item.color}}"></view>
+    <text>{{item.name}}</text>
+  </view>
+</scroll-view>

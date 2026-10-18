@@ -1,0 +1,93 @@
+<view class="page theme-{{theme}}">
+  <scroll-view class="scroller" scroll-y show-scrollbar="{{false}}">
+    <view style="padding-top:{{statusBarHeight}}px">
+
+      <!-- 顶部导航 -->
+      <view class="nav" style="padding-right:{{capsuleRight}}px">
+        <view class="nav-btn press" bindtap="onBack">‹</view>
+        <view class="nav-title">项目详情</view>
+        <view class="nav-btn press" bindtap="onFav">{{faved ? '★' : '☆'}}</view>
+      </view>
+
+      <!-- 注意：wx:if / wx:elif / wx:else 之间不能夹注释，否则链断掉 -->
+      <view wx:if="{{loading}}" class="loading-hint">正在读取项目…</view>
+      <block wx:elif="{{item}}">
+        <!-- Hero -->
+        <view class="dhero">
+          <view class="badge">⚡ {{badgeText}}</view>
+          <view class="dname">
+            <text class="owner">{{item.owner}}/</text><text class="repo">{{item.repo}}</text>
+          </view>
+          <view class="dsub">{{item.purpose}}</view>
+          <view class="rank-note" wx:if="{{rankNote}}">· {{rankNote}}</view>
+
+          <view class="dstats">
+            <view class="stat">
+              <view class="k">STARS</view>
+              <view class="v">{{starsText}}</view>
+            </view>
+            <view class="stat">
+              <view class="k">{{hotLabel}}</view>
+              <view class="v up">+{{hotText}}</view>
+            </view>
+            <view class="stat">
+              <view class="k">FORKS</view>
+              <view class="v">{{forkText}}</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 趋势图 -->
+        <view class="panel">
+          <view class="panel-head">
+            <text class="panel-title">近 30 天 Star 走势</text>
+            <text class="panel-hint">{{rangeText}}</text>
+          </view>
+
+          <canvas type="2d" id="trendCanvas" class="chart-canvas"></canvas>
+
+          <view class="axis">
+            <text wx:for="{{axis}}" wx:for-item="label" wx:key="*this">{{label}}</text>
+          </view>
+
+          <!-- canvas 不可用时的兜底 -->
+          <view wx:if="{{chartFailed}}" class="chart-fallback">
+            <text class="fb-text">当前环境无法绘制图表，趋势区间：{{rangeText}}</text>
+          </view>
+        </view>
+
+        <!-- 用途说明 -->
+        <view class="panel">
+          <view class="panel-head">
+            <text class="panel-title">这个项目是做什么的</text>
+            <text class="panel-hint">中文用途</text>
+          </view>
+
+          <view class="prose">{{item.detail}}</view>
+
+          <view class="en-block">
+            <view class="en-lbl">ORIGINAL DESCRIPTION · 原文</view>
+            <view class="en-text">{{item.descEn}}</view>
+          </view>
+
+          <view class="tagrow">
+            <view class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
+          </view>
+        </view>
+
+        <!-- 操作 -->
+        <view class="cta press" bindtap="onOpen">↗ 复制 GitHub 链接</view>
+        <view class="ghost-row">
+          <view class="ghost press" bindtap="onFav">{{faved ? '★ 已收藏' : '☆ 收藏'}}</view>
+          <button class="ghost press ghost-btn" open-type="share">⤴ 分享给朋友</button>
+        </view>
+      </block>
+      <view wx:else class="state">
+        <view class="state-ico">🫥</view>
+        <view class="state-title">没找到这个项目</view>
+        <view class="state-desc">可能榜单已刷新，回到列表重新看看</view>
+        <view class="state-btn press" bindtap="onBack">返回榜单</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

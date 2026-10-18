@@ -1,0 +1,153 @@
+.nav {
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+}
+
+.nav-btn {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 22rpx;
+  border: 1rpx solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font-size: 34rpx;
+}
+
+.nav-btn.dim {
+  opacity: 0.35;
+}
+
+.nav-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.head {
+  padding: 20rpx 40rpx 34rpx;
+}
+
+.head-title {
+  font-size: 44rpx;
+  font-weight: 800;
+  letter-spacing: -1rpx;
+}
+
+.head-sub {
+  margin-top: 12rpx;
+  font-size: 23rpx;
+  color: var(--text-faint);
+}
+
+/* ---------- 收藏项 ---------- */
+.fav {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 36rpx 20rpx;
+  padding: 26rpx;
+  border-radius: 32rpx;
+  background: var(--surface);
+  border: 1rpx solid var(--border);
+}
+
+.thumb {
+  flex: 0 0 74rpx;
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 22rpx;
+  margin-right: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #fff;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  box-shadow: inset 0 0 0 1rpx rgba(255, 255, 255, 0.14);
+}
+
+.fav-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.fav-name {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 25rpx;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fav-name .owner {
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.fav-name .repo {
+  color: var(--text);
+}
+
+.fav-purpose {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.86;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fav-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+  font-size: 21rpx;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  margin-right: 18rpx;
+}
+
+.swatch {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  margin-right: 9rpx;
+}
+
+.star {
+  margin-right: 18rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+.saved {
+  color: var(--text-faint);
+}
+
+.del {
+  flex: 0 0 48rpx;
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 8rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: var(--text-faint);
+  background: var(--surface-2);
+}

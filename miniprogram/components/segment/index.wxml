@@ -1,0 +1,10 @@
+<view class="seg">
+  <view class="thumb" style="transform:translateX({{activeIndex * 100}}%)"></view>
+  <view
+    wx:for="{{items}}"
+    wx:key="value"
+    class="item {{index === activeIndex ? 'on' : ''}}"
+    data-index="{{index}}"
+    bindtap="onTap"
+  >{{item.label}}</view>
+</view>

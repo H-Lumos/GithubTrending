@@ -1,0 +1,35 @@
+.chips {
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 14rpx 25rpx;
+  margin-right: 16rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1rpx solid var(--border);
+}
+
+.chip.on {
+  background: #e8f0fb;
+  border-color: #e8f0fb;
+  color: #10203a;
+}
+
+.swatch {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.chip.on .swatch {
+  box-shadow: 0 0 0 4rpx rgba(16, 32, 58, 0.14);
+}

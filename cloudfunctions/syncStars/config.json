@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "openapi": []
+  },
+  "triggers": [
+    {
+      "name": "syncStarsTimer",
+      "type": "timer",
+      "config": "0 10 0 * * * *"
+    }
+  ]
+}

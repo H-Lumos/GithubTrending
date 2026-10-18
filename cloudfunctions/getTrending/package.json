@@ -1,0 +1,10 @@
+{
+  "name": "getTrending",
+  "version": "1.0.0",
+  "description": "抓取 GitHub Trending 并补齐中文用途与 star 趋势",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

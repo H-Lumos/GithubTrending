@@ -1,0 +1,39 @@
+<view class="card {{item.rank <= 3 ? 'top' : ''}} press" bindtap="onTap" hover-class="none">
+  <view class="rank">{{item.rank}}</view>
+
+  <view class="thumb" style="background:{{grad}}">{{item.initial}}</view>
+
+  <view class="body">
+    <view class="name">
+      <text class="owner">{{item.owner}}/</text><text class="repo">{{item.repo}}</text>
+      <text wx:if="{{badge}}" class="rk rk-{{badgeType}}">{{badge}}</text>
+    </view>
+
+    <view class="purpose">{{item.purpose}}</view>
+
+    <view class="desc-en" wx:if="{{showEn}}">
+      <text class="en-tag">EN</text>{{item.descEn}}
+    </view>
+
+    <view class="meta">
+      <view class="lang">
+        <view class="swatch" style="background:{{item.languageColor}}"></view>
+        <text>{{item.language}}</text>
+      </view>
+      <view class="star">
+        <text class="star-ico">★</text><text>{{starsText}}</text>
+      </view>
+      <view class="boost">▲ {{hotText}}</view>
+      <view class="bars">
+        <view
+          wx:for="{{bars}}"
+          wx:for-item="h"
+          wx:for-index="bi"
+          wx:key="bi"
+          class="bar {{bi >= hotFrom ? 'hot' : ''}}"
+          style="height:{{h}}rpx"
+        ></view>
+      </view>
+    </view>
+  </view>
+</view>

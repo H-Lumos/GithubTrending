@@ -1,0 +1,87 @@
+<!--
+  fixture：模拟 GitHub 经典 trending 页面（服务端渲染版）的 <article class="Box-row"> 结构。
+  用途：在不联网的情况下单测 parseOfficialTrending 的正则解析。
+  字段覆盖：仓库名、描述（含 HTML 实体）、语言 + 语言色、star/fork 总数、
+           stars today、Built by 头像。
+-->
+<html><body>
+<div class="Box">
+  <article class="Box-row">
+
+    <h2 class="h3 lh-condensed">
+      <a href="/anthropics/claude-plugins-official" data-view-component="true" class="Link">
+        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-repo mr-1 color-fg-muted"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path></svg>
+        <span data-view-component="true" class="text-normal">anthropics /</span>
+        claude-plugins-official
+      </a>
+    </h2>
+
+    <p class="col-9 color-fg-muted my-1 pr-4">
+      Official, Anthropic-managed directory of high quality Claude Code Plugins.
+    </p>
+
+    <div class="f6 color-fg-muted mt-2">
+      <span class="d-inline-block ml-0 mr-3">
+        <span class="repo-language-color" style="background-color: #3572A5"></span>
+        <span itemprop="programmingLanguage">Python</span>
+      </span>
+
+      <a href="/anthropics/claude-plugins-official/stargazers" data-view-component="true" class="Link--muted d-inline-block mr-3">
+        <svg aria-label="star" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-star"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path></svg>
+        42,115
+      </a>
+
+      <a href="/anthropics/claude-plugins-official/forks" data-view-component="true" class="Link--muted d-inline-block mr-3">
+        <svg aria-label="fork" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-repo-forked"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0Z"></path></svg>
+        4,492
+      </a>
+
+      <span class="d-inline-block mr-3">
+        Built by
+        <a href="/anthropics"><img src="https://avatars.githubusercontent.com/u/76263028?s=40&amp;v=4" class="avatar mr-1" alt="@anthropics" width="20" height="20"></a>
+        <a href="/bob"><img src="https://avatars.githubusercontent.com/u/1111?s=40&amp;v=4" class="avatar mr-1" alt="@bob" width="20" height="20"></a>
+      </span>
+
+      <span class="d-inline-block float-sm-right">
+        <svg aria-label="star" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" class="octicon octicon-star"><path d="M8 .25Z"></path></svg>
+        1,397 stars today
+      </span>
+    </div>
+  </article>
+
+  <article class="Box-row">
+
+    <h2 class="h3 lh-condensed">
+      <a href="/HKUDS/CLI-Anything" data-view-component="true" class="Link">
+        <span data-view-component="true" class="text-normal">HKUDS /</span>
+        CLI-Anything
+      </a>
+    </h2>
+
+    <p class="col-9 color-fg-muted my-1 pr-4">
+      &quot;CLI-Anything: Making ALL Software Agent-Native&quot; &amp; more &lt;docs&gt;
+    </p>
+
+    <div class="f6 color-fg-muted mt-2">
+      <span class="d-inline-block ml-0 mr-3">
+        <span class="repo-language-color" style="background-color: #f1e05a"></span>
+        <span itemprop="programmingLanguage">JavaScript</span>
+      </span>
+
+      <a href="/HKUDS/CLI-Anything/stargazers" data-view-component="true" class="Link--muted d-inline-block mr-3">
+        <svg aria-label="star" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M8 .25Z"></path></svg>
+        54,247
+      </a>
+
+      <a href="/HKUDS/CLI-Anything/forks" data-view-component="true" class="Link--muted d-inline-block mr-3">
+        <svg aria-label="fork" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16"><path d="M5 5.372Z"></path></svg>
+        4,915
+      </a>
+
+      <span class="d-inline-block float-sm-right">
+        574 stars today
+      </span>
+    </div>
+  </article>
+</div>
+</body></html>

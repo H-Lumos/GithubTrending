@@ -1,0 +1,55 @@
+name: Update trending data
+
+# 每天定时抓一次 GitHub 官方 Trending，把结果写进 web/data/trending.js 后提交
+# runner 在 GitHub 自己的机房里，访问 github.com 最稳，不需要任何代理
+on:
+  schedule:
+    # UTC 00:17 ≈ 北京时间 08:17；想更频繁可以加一行（注意别把 Actions 额度刷爆）
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-trending
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 抓取官方榜单并生成数据
+        run: node scripts/snapshot.js
+
+      - name: 有变化才提交
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/data/trending.js miniprogram/data/snapshot.js
+          if git diff --staged --quiet; then
+            echo "榜单没有变化，跳过提交"
+          else
+            git commit -m "chore(data): update trending $(date -u +%F)"
+            git push
+          fi
+
+  deploy:
+    needs: fetch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deployment
+        uses: actions/deploy-pages@v4

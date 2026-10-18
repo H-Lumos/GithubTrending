@@ -1,0 +1,58 @@
+<view class="page theme-{{theme}}">
+  <scroll-view class="scroller" scroll-y show-scrollbar="{{false}}">
+    <view style="padding-top:{{statusBarHeight}}px">
+
+      <view class="nav" style="padding-right:{{capsuleRight}}px">
+        <view class="nav-btn press" bindtap="onBack">‹</view>
+        <view class="nav-title">关于</view>
+        <view class="nav-btn" style="opacity:0"></view>
+      </view>
+
+      <view class="brand">
+        <view class="brand-logo">GH</view>
+        <view class="brand-name">GithubTrending</view>
+        <view class="brand-sub">中文读懂 GitHub 热榜 · v{{version}}</view>
+      </view>
+
+      <view class="group">
+        <view class="row press" bindtap="switchTheme">
+          <text class="row-k">外观</text>
+          <text class="row-v">{{theme === 'dark' ? '深色（GitHub 原生）' : '浅色'}} ›</text>
+        </view>
+        <view class="row press" bindtap="copySource">
+          <text class="row-k">数据来源</text>
+          <text class="row-v">github.com/trending ›</text>
+        </view>
+        <view class="row">
+          <text class="row-k">当前数据模式</text>
+          <text class="row-v">{{modeText}}</text>
+        </view>
+        <view class="row press" bindtap="clearFavs">
+          <text class="row-k">我的收藏</text>
+          <text class="row-v">{{favCount}} 个 · 清空 ›</text>
+        </view>
+      </view>
+
+      <view class="note">
+        <view class="note-title">中文用途是怎么来的</view>
+        <view class="note-body">
+          榜单的原始信息只有英文一句话描述。这里为每个项目补了一层中文用途说明：
+          列表页给「一句话能看懂的用途」，详情页给 2~3 句展开说明，同时保留 GitHub 原英文描述。
+          中文内容来自人工整理 + 云函数侧的模型生成与缓存，同一天不会重复翻译。
+        </view>
+      </view>
+
+      <view class="note">
+        <view class="note-title">Star 趋势怎么算</view>
+        <view class="note-body">
+          每天定时把榜单项目的累计 star 数写入数据库快照，用近 30 天的快照画折线。
+          新收录的项目快照不足时会自动只画已有天数。
+        </view>
+      </view>
+
+      <view class="footer">
+        <view>Made for reading GitHub in Chinese</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,92 @@
+<view class="page theme-{{theme}}">
+  <scroll-view
+    class="scroller"
+    scroll-y
+    enhanced
+    show-scrollbar="{{false}}"
+    scroll-top="{{scrollTop}}"
+    bindscroll="onScroll"
+    refresher-enabled
+    refresher-threshold="80"
+    refresher-default-style="none"
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="onRefresh"
+  >
+    <!-- 自定义下拉刷新指示器 -->
+    <view class="refresher" wx:if="{{refreshing}}">
+      <view class="refresher-dot"></view>
+      <text>正在刷新榜单…</text>
+    </view>
+
+    <view class="content" style="padding-top:{{statusBarHeight}}px">
+      <!-- ============ 标题区 ============ -->
+      <view class="hero">
+        <view class="hero-line">
+          <view>
+            <view class="kicker">GitHub</view>
+            <view class="title">Trending</view>
+            <view class="subtitle">
+              <view class="dot-live"></view>
+              <text>{{updatedText || '正在获取…'}} · 共 {{count}} 个</text>
+            </view>
+          </view>
+          <view class="hero-actions" style="padding-right:{{capsuleRight}}px">
+            <view class="icon-btn press" bindtap="goFavorites">
+              <text class="ico-star">☆</text>
+              <view wx:if="{{favCount}}" class="ico-badge">{{favCount}}</view>
+            </view>
+            <view class="icon-btn press" bindtap="goAbout">⋯</view>
+          </view>
+        </view>
+      </view>
+
+      <!-- ============ 周期切换 ============ -->
+      <segment class="cmp-segment" items="{{periods}}" value="{{period}}" bind:change="onPeriod" />
+
+      <!-- ============ 语言筛选 ============ -->
+      <lang-chips class="cmp-langs" list="{{langList}}" value="{{language}}" bind:change="onLang" />
+
+      <!-- ============ 榜单 ============ -->
+      <view class="listhead">
+        <text>按{{unitLabel}} ★ 排序</text>
+        <text>{{count}} 个上榜</text>
+      </view>
+
+      <skeleton wx:if="{{loading}}" rows="4" />
+
+      <block wx:else>
+        <!-- 注意：wx:if / wx:elif / wx:else 之间不能夹注释和空元素，否则链断掉报
+             "Bad attr wx:else with message: wx:if not found" -->
+        <view wx:if="{{error}}" class="state">
+          <view class="state-ico" style="background:rgba(248,81,73,.1);border-color:rgba(248,81,73,.24)">⚡</view>
+          <view class="state-title">数据没拉下来</view>
+          <view class="state-desc">{{error}}</view>
+          <view class="state-btn press" bindtap="onRetry">重试一次</view>
+        </view>
+        <view wx:elif="{{!list.length}}" class="state">
+          <view class="state-ico">🔍</view>
+          <view class="state-title">这个筛选下暂时没有项目</view>
+          <view class="state-desc">GitHub 每个周期只收录 25 个仓库，可能刚好没覆盖到</view>
+          <view class="state-btn ghost press" bindtap="onResetLang">看全部语言</view>
+        </view>
+        <view wx:else>
+          <repo-card
+            class="cmp-card"
+            wx:for="{{list}}"
+            wx:key="id"
+            item="{{item}}"
+            bind:opentap="openDetail"
+          />
+        </view>
+      </block>
+
+      <!-- ============ 底部 ============ -->
+      <view class="footer">
+        <view wx:if="{{sourceText}}">数据源：{{sourceText}}</view>
+        <view wx:if="{{sourceIsSnapshot}}" class="footer-warn">快照模式：内容与 GitHub 官方榜单一致，但不会自动更新，也没有中文说明</view>
+        <view>数据来源 GitHub Trending · {{updatedText}}</view>
+        <view>中文用途为人工/AI 整理，原英文描述同时保留</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

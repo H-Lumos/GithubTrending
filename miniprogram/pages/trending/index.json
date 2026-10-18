@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "repo-card": "../../components/repo-card/index",
+    "segment": "../../components/segment/index",
+    "lang-chips": "../../components/lang-chips/index",
+    "skeleton": "../../components/skeleton/index"
+  }
+}

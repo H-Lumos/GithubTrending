@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GithubTrending · UI 设计稿</title>
+<script src="../miniprogram/data/mock.js"></script>
+<style>
+  :root{
+    --bg:#0b0e14;
+    --surface:#131820;
+    --surface-2:#1a212b;
+    --surface-3:#222b38;
+    --border:rgba(255,255,255,.075);
+    --border-strong:rgba(255,255,255,.14);
+    --text:#e8eef6;
+    --text-dim:#93a1b3;
+    --text-faint:#63707f;
+    --accent:#4f9cf9;
+    --green:#3fb950;
+    --gold:#e3b341;
+    --radius:18px;
+    --font: -apple-system, "SF Pro SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+  html,body{ margin:0; }
+  body{
+    background:
+      radial-gradient(1000px 600px at 15% -10%, #16233a 0%, transparent 60%),
+      radial-gradient(800px 500px at 95% 10%, #1a1526 0%, transparent 55%),
+      #06080c;
+    font-family:var(--font);
+    color:var(--text);
+    padding:36px 28px 56px;
+    display:flex; flex-wrap:wrap; gap:40px; align-items:flex-start;
+  }
+  .stage{ display:flex; flex-direction:column; gap:12px; }
+  .stage-label{
+    font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    color:#5d6b7c; font-weight:600; padding-left:6px;
+  }
+  .phone{
+    width:390px; height:844px; border-radius:46px; overflow:hidden; position:relative;
+    background:var(--bg);
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.9), 0 0 0 10px #0f1218, 0 0 0 11px rgba(255,255,255,.06);
+  }
+  .screen{ position:absolute; inset:0; display:flex; flex-direction:column; }
+  /* status bar */
+  .statusbar{
+    height:52px; flex:0 0 52px; display:flex; align-items:center; justify-content:space-between;
+    padding:0 26px; font-size:13.5px; font-weight:600; color:#fff; letter-spacing:.02em;
+  }
+  .statusbar .right{ display:flex; align-items:center; gap:5px; font-size:12px; }
+  .bars{ display:flex; align-items:flex-end; gap:2px; }
+  .bars i{ width:3px; background:#fff; border-radius:1px; display:block; }
+  .bars i:nth-child(1){height:4px;opacity:.5}
+  .bars i:nth-child(2){height:6px;opacity:.65}
+  .bars i:nth-child(3){height:8px;opacity:.8}
+  .bars i:nth-child(4){height:10px}
+  .batt{ width:22px; height:11px; border:1.4px solid rgba(255,255,255,.6); border-radius:3.5px; position:relative; }
+  .batt::after{ content:""; position:absolute; inset:1.5px; width:64%; background:#fff; border-radius:2px; }
+  .batt::before{ content:""; position:absolute; right:-3.5px; top:3px; width:2px; height:5px; background:rgba(255,255,255,.5); border-radius:0 1px 1px 0; }
+
+  /* scroll body */
+  .scroll{ flex:1; overflow:hidden; }
+  .content{ padding:0 18px 120px; }
+
+  /* ============ header ============ */
+  .hero{ padding:6px 4px 16px; }
+  .hero-top{ display:flex; align-items:flex-start; justify-content:space-between; }
+  .kicker{ font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-faint); font-weight:600; }
+  h1{ font-size:33px; line-height:1.05; margin:7px 0 0; letter-spacing:-.025em; font-weight:800; }
+  h1 em{ font-style:normal; background:linear-gradient(96deg,#6cb6ff,#8b7dff 58%,#ff8ab5); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero-date{ margin-top:9px; display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--text-dim); }
+  .dot-live{ width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(63,185,80,.16); }
+  .icon-btn{
+    width:38px; height:38px; border-radius:12px; border:1px solid var(--border);
+    background:var(--surface); display:grid; place-items:center; color:var(--text-dim);
+    font-size:15px; flex:0 0 auto;
+  }
+
+  /* ============ segment ============ */
+  .segment{
+    position:relative; display:grid; grid-template-columns:repeat(3,1fr);
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:4px; margin:4px 0 14px;
+  }
+  .segment .thumb{
+    position:absolute; top:4px; left:4px; width:calc((100% - 8px)/3); height:calc(100% - 8px);
+    background:linear-gradient(180deg,#2b3a52,#223046);
+    border:1px solid rgba(120,170,255,.22);
+    border-radius:11px; box-shadow:0 6px 16px -8px rgba(0,80,200,.7);
+  }
+  .segment .thumb.p2{ transform:translateX(100%); }
+  .segment button{
+    position:relative; z-index:1; border:0; background:none; color:var(--text-dim);
+    font:600 13.5px/1 var(--font); padding:10px 0; cursor:default; letter-spacing:.02em;
+  }
+  .segment button.on{ color:#fff; }
+
+  /* ============ language chips ============ */
+  .chips{ display:flex; gap:8px; overflow:hidden; padding:0 0 16px; margin:0 -18px; padding-left:18px; }
+  .chip{
+    flex:0 0 auto; display:inline-flex; align-items:center; gap:6px;
+    padding:7px 13px; border-radius:999px; font-size:12.5px; font-weight:600;
+    background:var(--surface); border:1px solid var(--border); color:var(--text-dim);
+    white-space:nowrap;
+  }
+  .chip .swatch{ width:8px; height:8px; border-radius:50%; }
+  .chip.on{ background:#e8f0fb; border-color:#e8f0fb; color:#10203a; }
+  .chip.on .swatch{ box-shadow:0 0 0 2px rgba(16,32,58,.14); }
+
+  /* ============ rank list label ============ */
+  .listhead{ display:flex; align-items:baseline; justify-content:space-between; padding:0 4px 10px; }
+  .listhead span{ font-size:11.5px; color:var(--text-faint); letter-spacing:.06em; }
+
+  /* ============ repo card ============ */
+  .card{
+    position:relative; display:flex; gap:12px; padding:14px 14px 13px;
+    background:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,0) 42%), var(--surface);
+    border:1px solid var(--border); border-radius:var(--radius);
+    margin-bottom:10px;
+  }
+  .card.top{ border-color:rgba(230,180,65,.28); background:linear-gradient(180deg, rgba(230,180,65,.055), rgba(255,255,255,0) 46%), var(--surface); }
+  .rank{
+    flex:0 0 22px; font:800 20px/1 var(--mono); text-align:center;
+    padding-top:2px; color:#3c4a5c;
+  }
+  .card.top .rank{ background:linear-gradient(180deg,#ffd479,#e39b2e); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .thumb-sq{
+    flex:0 0 42px; width:42px; height:42px; border-radius:13px;
+    display:grid; place-items:center; font:800 18px/1 var(--mono); color:#fff;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.14), 0 8px 18px -10px rgba(0,0,0,.9);
+    letter-spacing:-.02em;
+  }
+  .body{ flex:1; min-width:0; }
+  .name{ display:flex; align-items:center; font:600 13.5px/1.2 var(--mono); letter-spacing:-.01em; white-space:nowrap; overflow:hidden; }
+  .name b{ color:var(--text-faint); font-weight:500; overflow:hidden; text-overflow:ellipsis; }
+  .name i{ font-style:normal; color:#fff; overflow:hidden; text-overflow:ellipsis; }
+  /* 榜单位置变化徽章 */
+  .rk{
+    flex:0 0 auto; margin-left:7px; padding:1px 5px; border-radius:4px;
+    font:800 9px/1.6 var(--font); letter-spacing:.04em;
+  }
+  .rk-new{ color:#67d98b; background:rgba(63,185,80,.14); box-shadow:inset 0 0 0 1px rgba(63,185,80,.3); }
+  .rk-up{ color:var(--green); background:rgba(63,185,80,.1); }
+  .rk-down{ color:var(--text-faint); background:var(--surface-2); }
+  .purpose{
+    margin-top:6px; font-size:12.8px; line-height:1.52; color:#c3cedd;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .desc-en{
+    margin-top:4px; font-size:11.5px; line-height:1.45; color:#6d7b8c;
+    letter-spacing:0;
+    display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .desc-en::before{ content:"EN"; font-size:8.5px; font-weight:800; letter-spacing:.12em; color:#4a5768; margin-right:5px; vertical-align:1px; }
+  .meta{ display:flex; align-items:center; gap:9px; margin-top:9px; font-size:11.5px; color:var(--text-dim); white-space:nowrap; }
+  .lang{ display:inline-flex; align-items:center; gap:5px; flex:0 0 auto; max-width:96px; overflow:hidden; text-overflow:ellipsis; }
+  .lang .swatch{ width:8px; height:8px; border-radius:50%; flex:0 0 8px; }
+  .star{ display:inline-flex; align-items:center; gap:4px; font-variant-numeric:tabular-nums; flex:0 0 auto; }
+  .star svg{ opacity:.55; }
+  .boost{ display:inline-flex; align-items:center; gap:3px; color:var(--green); font-weight:700; font-variant-numeric:tabular-nums; flex:0 0 auto; }
+  .bars-mini{ margin-left:auto; display:flex; align-items:flex-end; gap:2px; height:20px; flex:0 0 auto; }
+  .bars-mini i{ width:3px; border-radius:1.5px; background:#2f4157; display:block; }
+  .bars-mini i.hot{ background:linear-gradient(180deg,#63d38c,#2f9e63); }
+
+  /* ============ detail screen ============ */
+  .nav{ height:48px; flex:0 0 48px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; }
+  .nav .back{ width:34px; height:34px; border-radius:11px; border:1px solid var(--border); background:var(--surface); display:grid; place-items:center; color:var(--text); }
+  .nav .title{ font-size:14px; font-weight:600; color:var(--text-dim); }
+
+  .detail-hero{
+    margin:2px 18px 18px; padding:20px; border-radius:24px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(400px 200px at 100% 0%, rgba(110,150,255,.22), transparent 65%),
+      linear-gradient(160deg, #1b2433, #131820 70%);
+    border:1px solid rgba(120,160,220,.16);
+  }
+  .detail-hero .badge{
+    display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:.1em;
+    color:#9fc4ff; background:rgba(79,156,249,.12); border:1px solid rgba(79,156,249,.28);
+    padding:5px 10px; border-radius:999px; text-transform:uppercase;
+  }
+  .detail-hero h2{ margin:14px 0 0; font:700 22px/1.25 var(--mono); letter-spacing:-.02em; }
+  .detail-hero h2 b{ color:#7f92a8; font-weight:500; }
+  .detail-hero .sub{ margin-top:10px; font-size:13px; line-height:1.6; color:#b9c6d6; }
+  .stat-row{ display:flex; gap:22px; margin-top:18px; }
+  .stat .k{ font-size:10.5px; letter-spacing:.12em; color:var(--text-faint); text-transform:uppercase; font-weight:700; }
+  .stat .v{ margin-top:4px; font:700 19px/1 var(--mono); font-variant-numeric:tabular-nums; }
+  .stat .v.up{ color:var(--green); }
+
+  .panel{
+    margin:0 18px 14px; padding:16px; border-radius:20px;
+    background:var(--surface); border:1px solid var(--border);
+  }
+  .panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .panel-head h3{ margin:0; font-size:13px; font-weight:700; letter-spacing:.02em; }
+  .panel-head .hint{ font-size:11px; color:var(--text-faint); }
+
+  .tagrow{ display:flex; flex-wrap:wrap; gap:7px; }
+  .tag{ font-size:11.5px; padding:5px 10px; border-radius:8px; background:var(--surface-2); border:1px solid var(--border); color:#a8b6c7; }
+
+  .prose{ font-size:13.2px; line-height:1.75; color:#bfcbda; margin:0; }
+  .prose + .prose{ margin-top:10px; }
+  .en-block{
+    margin-top:14px; padding:12px 13px; border-radius:12px;
+    background:rgba(255,255,255,.028); border:1px solid var(--border);
+    border-left:2px solid rgba(110,150,255,.45);
+  }
+  .en-block .lbl{
+    font-size:9.5px; font-weight:700; letter-spacing:.16em; color:#5c6b7d; text-transform:uppercase;
+  }
+  .en-block p{
+    margin:6px 0 0; font-family:var(--mono); font-size:12px; line-height:1.62; color:#93a2b4;
+  }
+
+  .cta{
+    margin:6px 18px 0; height:50px; border-radius:16px; display:flex; align-items:center; justify-content:center; gap:8px;
+    font-size:14.5px; font-weight:700; color:#07121f;
+    background:linear-gradient(180deg,#8fc4ff,#4f9cf9);
+    box-shadow:0 16px 34px -18px rgba(79,156,249,.9);
+  }
+  .ghost-row{ display:flex; gap:10px; margin:10px 18px 0; }
+  .ghost{
+    flex:1; height:44px; border-radius:14px; border:1px solid var(--border); background:transparent;
+    display:flex; align-items:center; justify-content:center; gap:6px; font-size:13px; font-weight:600; color:var(--text-dim);
+  }
+
+  /* home indicator */
+  .homebar{ position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:134px; height:5px; border-radius:3px; background:rgba(255,255,255,.28); }
+
+  /* dim second-stage scrollbar simulation */
+  .fade-bottom{ position:absolute; left:0; right:0; bottom:0; height:90px; background:linear-gradient(180deg, transparent, var(--bg) 78%); pointer-events:none; }
+
+  /* ============ 顶部操作区 ============ */
+  .hero-actions{ display:flex; align-items:center; }
+  .hero-actions .icon-btn{ position:relative; margin-left:7px; }
+  .ico-badge{
+    position:absolute; top:-3px; right:-3px; min-width:15px; height:15px; padding:0 4px;
+    border-radius:999px; background:var(--accent); color:#06101c;
+    font:800 9px/15px var(--font); text-align:center;
+  }
+
+  /* ============ 收藏页 ============ */
+  .fav{
+    display:flex; gap:11px; margin-bottom:10px; padding:13px;
+    border-radius:16px; background:var(--surface); border:1px solid var(--border);
+  }
+  .fav .thumb-sq{ flex:0 0 37px; width:37px; height:37px; border-radius:11px; font-size:16px; }
+  .fav-body{ flex:1; min-width:0; }
+  .fav-name{ font:600 12.5px/1.2 var(--mono); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .fav-name b{ color:var(--text-faint); font-weight:500; }
+  .fav-name i{ font-style:normal; color:#fff; }
+  .fav-purpose{
+    margin-top:5px; font-size:12px; line-height:1.45; color:#c3cedd;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .fav-meta{ display:flex; align-items:center; gap:9px; margin-top:7px; font-size:10.5px; color:var(--text-dim); }
+  .fav-meta .saved{ color:var(--text-faint); }
+  .fav-meta .del{
+    margin-left:auto; width:21px; height:21px; border-radius:7px; display:grid; place-items:center;
+    background:var(--surface-2); color:var(--text-faint); font-size:10px;
+  }
+  .head-block{ padding:2px 4px 20px; }
+  .head-block h2{ margin:0; font-size:23px; font-weight:800; letter-spacing:-.02em; }
+  .head-block .sub{ margin-top:6px; font-size:12px; color:var(--text-faint); }
+
+  /* ============ 骨架屏 ============ */
+  @keyframes shimmer{ 0%{ background-position:-320px 0; } 100%{ background-position:320px 0; } }
+  .sk{
+    background:#151b24 linear-gradient(90deg,#151b24 0%,#1e2734 42%,#151b24 84%);
+    background-size:320px 100%; animation:shimmer 1.35s linear infinite; border-radius:6px;
+  }
+  .skel-card{
+    display:flex; gap:12px; padding:14px; border-radius:var(--radius);
+    background:var(--surface); border:1px solid var(--border); margin-bottom:10px;
+  }
+  .skel-card .sq{ flex:0 0 42px; width:42px; height:42px; border-radius:13px; }
+  .skel-card .lines{ flex:1; display:flex; flex-direction:column; gap:8px; padding-top:2px; }
+
+  /* ============ 状态卡片 ============ */
+  .states{ display:flex; flex-direction:column; gap:16px; }
+  .state{
+    width:390px; border-radius:26px; padding:26px 22px; text-align:center;
+    background:var(--surface); border:1px solid var(--border);
+    box-shadow:0 30px 60px -40px #000;
+  }
+  .state .ico{
+    width:52px; height:52px; margin:0 auto 14px; border-radius:16px; display:grid; place-items:center;
+    font-size:22px; background:var(--surface-2); border:1px solid var(--border);
+  }
+  .state h4{ margin:0 0 6px; font-size:15px; font-weight:700; }
+  .state p{ margin:0; font-size:12.5px; line-height:1.6; color:var(--text-dim); }
+  .state .btn{
+    display:inline-flex; align-items:center; gap:6px; margin-top:16px; padding:9px 18px;
+    border-radius:11px; font-size:12.5px; font-weight:700; color:#0a1524;
+    background:linear-gradient(180deg,#9fcbff,#5aa2f8);
+  }
+  .state .btn.ghost{ background:transparent; border:1px solid var(--border-strong); color:var(--text-dim); }
+
+
+/* ============ 骨架屏（页面主体） ============ */</style>
+</head>
+<body>
+
+<!-- ================= 列表页 ================= -->
+<div class="stage">
+  <div class="stage-label">01 · Trending 榜单</div>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">
+        <div>11:30</div>
+        <div class="right">
+          <div class="bars"><i></i><i></i><i></i><i></i></div>
+          <span style="font-size:11px;font-weight:700">5G</span>
+          <div class="batt"></div>
+        </div>
+      </div>
+      <div class="scroll">
+        <div class="content">
+          <div class="hero">
+            <div class="hero-top">
+              <div>
+                <div class="kicker">GitHub</div>
+                <h1><em>Trending</em></h1>
+                <div class="hero-date"><span class="dot-live"></span> 10月18日 · 每日 08:00 更新 · 共 25 个</div>
+              </div>
+              <div class="hero-actions">
+                <div class="icon-btn">☆<div class="ico-badge">3</div></div>
+                <div class="icon-btn">⋯</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="segment">
+            <div class="thumb p2"></div>
+            <button>今日</button>
+            <button class="on">本周</button>
+            <button>本月</button>
+          </div>
+
+          <div class="chips" id="chips"></div>
+
+          <div class="listhead">
+            <span>按本周新增 ★ 排序</span>
+            <span>下滑刷新</span>
+          </div>
+
+          <div id="list"></div>
+        </div>
+      </div>
+      <div class="fade-bottom"></div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 详情页 ================= -->
+<div class="stage">
+  <div class="stage-label">02 · 项目详情</div>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">
+        <div>11:30</div>
+        <div class="right">
+          <div class="bars"><i></i><i></i><i></i><i></i></div>
+          <span style="font-size:11px;font-weight:700">5G</span>
+          <div class="batt"></div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="back">‹</div>
+        <div class="title">项目详情</div>
+        <div class="back">⋯</div>
+      </div>
+      <div class="scroll">
+        <div class="content" style="padding:0 0 40px">
+          <div class="detail-hero" id="dhero"></div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>近 30 天 Star 走势</h3>
+              <span class="hint" id="chart-hint"></span>
+            </div>
+            <div id="chart"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head"><h3>这个项目是做什么的</h3><span class="hint">中文用途</span></div>
+            <p class="prose" id="dprose"></p>
+            <div class="en-block">
+              <div class="lbl">Original description · 原文</div>
+              <p id="den"></p>
+            </div>
+            <div class="tagrow" id="dtags" style="margin-top:14px"></div>
+          </div>
+
+          <div class="cta">↗ 在 GitHub 打开</div>
+          <div class="ghost-row">
+            <div class="ghost">☆ 收藏</div>
+            <div class="ghost">⤴ 分享</div>
+          </div>
+        </div>
+      </div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 骨架屏 ================= -->
+<div class="stage">
+  <div class="stage-label">03 · 加载骨架屏</div>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">
+        <div>11:30</div>
+        <div class="right"><div class="bars"><i></i><i></i><i></i><i></i></div><span style="font-size:11px;font-weight:700">5G</span><div class="batt"></div></div>
+      </div>
+      <div class="scroll">
+        <div class="content">
+          <div class="hero">
+            <div class="kicker">GitHub</div>
+            <h1><em>Trending</em></h1>
+            <div class="sk" style="width:196px;height:13px;margin-top:12px"></div>
+          </div>
+          <div class="segment"><div class="thumb"></div><button>今日</button><button>本周</button><button>本月</button></div>
+          <div class="chips">
+            <div class="sk" style="width:74px;height:31px;border-radius:999px"></div>
+            <div class="sk" style="width:96px;height:31px;border-radius:999px"></div>
+            <div class="sk" style="width:80px;height:31px;border-radius:999px"></div>
+            <div class="sk" style="width:70px;height:31px;border-radius:999px"></div>
+          </div>
+          <div class="listhead"><div class="sk" style="width:120px;height:11px"></div></div>
+
+          <div class="skel-card">
+            <div class="sq sk"></div>
+            <div class="lines">
+              <div class="sk" style="width:52%;height:13px"></div>
+              <div class="sk" style="width:100%;height:12px"></div>
+              <div class="sk" style="width:78%;height:12px"></div>
+              <div class="sk" style="width:44%;height:11px;margin-top:2px"></div>
+            </div>
+          </div>
+          <div class="skel-card">
+            <div class="sq sk"></div>
+            <div class="lines">
+              <div class="sk" style="width:44%;height:13px"></div>
+              <div class="sk" style="width:96%;height:12px"></div>
+              <div class="sk" style="width:64%;height:12px"></div>
+              <div class="sk" style="width:38%;height:11px;margin-top:2px"></div>
+            </div>
+          </div>
+          <div class="skel-card">
+            <div class="sq sk"></div>
+            <div class="lines">
+              <div class="sk" style="width:58%;height:13px"></div>
+              <div class="sk" style="width:88%;height:12px"></div>
+              <div class="sk" style="width:72%;height:12px"></div>
+              <div class="sk" style="width:50%;height:11px;margin-top:2px"></div>
+            </div>
+          </div>
+          <div class="skel-card">
+            <div class="sq sk"></div>
+            <div class="lines">
+              <div class="sk" style="width:40%;height:13px"></div>
+              <div class="sk" style="width:92%;height:12px"></div>
+              <div class="sk" style="width:56%;height:12px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-bottom"></div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 空态 / 错误态 ================= -->
+<div class="stage">
+  <div class="stage-label">04 · 空态 / 错误态</div>
+  <div class="states">
+    <div class="state">
+      <div class="ico">🔍</div>
+      <h4>这个语言今天没上榜</h4>
+      <p>GitHub 每日榜单只有 25 个名额<br />换个语言或切到「本周 / 本月」看看</p>
+      <div class="btn ghost">看全部语言</div>
+    </div>
+    <div class="state">
+      <div class="ico" style="background:rgba(248,81,73,.1);border-color:rgba(248,81,73,.24)">⚡</div>
+      <h4>数据没拉下来</h4>
+      <p>GitHub 接口超时或触发限流<br />已为你展示 2 小时前的缓存</p>
+      <div class="btn">重试一次</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 收藏页 ================= -->
+<div class="stage">
+  <div class="stage-label">05 · 我的收藏</div>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">
+        <div>11:30</div>
+        <div class="right"><div class="bars"><i></i><i></i><i></i><i></i></div><span style="font-size:11px;font-weight:700">5G</span><div class="batt"></div></div>
+      </div>
+      <div class="nav">
+        <div class="back">‹</div>
+        <div class="title">收藏</div>
+        <div class="back">⋯</div>
+      </div>
+      <div class="scroll">
+        <div class="content" style="padding:0 0 40px">
+          <div class="head-block" style="padding-left:22px;padding-right:22px">
+            <h2>我的收藏</h2>
+            <div class="sub">3 个项目 · 仅存在本机</div>
+          </div>
+          <div id="favlist" style="padding:0 18px"></div>
+          <div class="footer" style="padding:14px 24px 0;line-height:1.9">
+            <div>收藏保存的是当时的快照，star 数不会自动刷新</div>
+            <div>点进详情页会重新拉最新数据</div>
+          </div>
+        </div>
+      </div>
+      <div class="homebar"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var M = window.GHTrendMock;
+  var list = M.trending('weekly').slice(0, 7);
+
+  /* ---- 语言筛选 chips ---- */
+  var langs = M.languages.slice(0, 7);
+  document.getElementById('chips').innerHTML = langs.map(function(l, i){
+    var sw = l.color ? '<span class="swatch" style="background:'+l.color+'"></span>' : '';
+    return '<div class="chip'+(i===0?' on':'')+'">'+sw+l.name+'</div>';
+  }).join('');
+
+  /* ---- 迷你柱状图 ---- */
+  function miniBars(trend){
+    var tail = trend.slice(-14);
+    var min = Math.min.apply(null, tail), max = Math.max.apply(null, tail);
+    var span = Math.max(1, max - min);
+    return '<div class="bars-mini">' + tail.map(function(v, i){
+      var h = 4 + Math.round((v - min) / span * 15);
+      var hot = i >= tail.length - 3 ? ' class="hot"' : '';
+      return '<i'+hot+' style="height:'+h+'px"></i>';
+    }).join('') + '</div>';
+  }
+
+  function fmtN(n){
+    if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'k';
+    return String(n);
+  }
+
+  /* ---- 卡片列表 ---- */
+  function rankBadge(r){
+    if (r.isNew) return '<span class="rk rk-new">NEW</span>';
+    if (typeof r.rankChange === 'number' && r.rankChange !== 0) {
+      return '<span class="rk '+(r.rankChange>0?'rk-up':'rk-down')+'">'+
+        (r.rankChange>0?'↑':'↓') + Math.abs(r.rankChange) + '</span>';
+    }
+    return '';
+  }
+
+  document.getElementById('list').innerHTML = list.map(function(r){
+    var isTop = r.rank <= 3;
+    var g = 'linear-gradient(145deg,'+r.languageColor+'dd,'+r.languageColor+'55 65%, #1b2430)';
+    return '<div class="card'+(isTop?' top':'')+'">'
+      + '<div class="rank">'+r.rank+'</div>'
+      + '<div class="thumb-sq" style="background:'+g+'">'+r.initial+'</div>'
+      + '<div class="body">'
+        + '<div class="name"><b>'+r.owner+'/</b><i>'+r.repo+'</i>'+rankBadge(r)+'</div>'
+        + '<div class="purpose">'+r.purpose+'</div>'
+        + '<div class="desc-en">'+r.descEn+'</div>'
+        + '<div class="meta">'
+          + '<span class="lang"><span class="swatch" style="background:'+r.languageColor+'"></span>'+r.language+'</span>'
+          + '<span class="star"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25l2.36 4.78 5.28.77-3.82 3.73.9 5.26L8 12.31l-4.72 2.48.9-5.26L.36 5.8l5.28-.77z"/></svg>'+fmtN(r.stars)+'</span>'
+          + '<span class="boost">▲ '+r.hot+'</span>'
+          + miniBars(r.trend)
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }).join('');
+
+  /* ---- 详情页 ---- */
+  var d = list[0];
+  var g2 = 'linear-gradient(145deg,'+d.languageColor+'99,'+d.languageColor+'22 70%, #101720)';
+  document.getElementById('dhero').innerHTML =
+      '<div class="badge">⚡ 本周热榜 #1 · '+d.language+'</div>'
+    + '<h2><b>'+d.owner+'/</b>'+d.repo+'</h2>'
+    + '<div class="sub">'+d.purpose+'</div>'
+    + '<div class="stat-row">'
+      + '<div class="stat"><div class="k">Stars</div><div class="v">'+d.stars.toLocaleString()+'</div></div>'
+      + '<div class="stat"><div class="k">本周新增</div><div class="v up">+'+d.delta.w+'</div></div>'
+      + '<div class="stat"><div class="k">Forks</div><div class="v">'+fmtN(d.forks)+'</div></div>'
+      + '</div>';
+
+  document.getElementById('dprose').textContent = d.detail;
+  document.getElementById('den').textContent = d.descEn;
+  document.getElementById('dtags').innerHTML = d.tags.map(function(t){
+    return '<span class="tag">'+t+'</span>';
+  }).join('');
+
+  /* ---- 30 天折线图（SVG，小程序端用 canvas 2d 复刻） ---- */
+  var W = 322, H = 108, P = 6;
+  var t = d.trend, min = Math.min.apply(null,t), max = Math.max.apply(null,t);
+  var span = Math.max(1, max-min);
+  var pts = t.map(function(v,i){
+    var x = P + i*(W-2*P)/(t.length-1);
+    var y = H - P - ((v-min)/span)*(H-2*P);
+    return [x,y];
+  });
+  var line = pts.map(function(p,i){ return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1); }).join(' ');
+  var area = line + ' L'+pts[pts.length-1][0].toFixed(1)+' '+H+' L'+pts[0][0].toFixed(1)+' '+H+' Z';
+  document.getElementById('chart').innerHTML =
+    '<svg width="100%" viewBox="0 0 '+W+' '+H+'" style="display:block">'
+    + '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">'
+      + '<stop offset="0%" stop-color="#4f9cf9" stop-opacity=".38"/>'
+      + '<stop offset="100%" stop-color="#4f9cf9" stop-opacity="0"/>'
+    + '</linearGradient></defs>'
+    + '<path d="'+area+'" fill="url(#ag)"/>'
+    + '<path d="'+line+'" fill="none" stroke="#6cb6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'
+    + '<circle cx="'+pts[pts.length-1][0].toFixed(1)+'" cy="'+pts[pts.length-1][1].toFixed(1)+'" r="3.5" fill="#0b0e14" stroke="#8fc4ff" stroke-width="2"/>'
+    + '</svg>'
+    + '<div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10.5px;color:#63707f;font-variant-numeric:tabular-nums">'
+      + '<span>9/19</span><span>9/26</span><span>10/03</span><span>10/10</span><span>10/18</span>'
+    + '</div>';
+  document.getElementById('chart-hint').textContent = '+' + (d.trend[29]-d.trend[0]).toLocaleString() + ' ★';
+
+  /* ---- 收藏页 ---- */
+  var favs = [list[0], list[2], list[4]];
+  var savedTexts = ['3 小时前', '昨天', '2 天前'];
+  document.getElementById('favlist').innerHTML = favs.map(function(r, i){
+    var g = 'linear-gradient(145deg,'+r.languageColor+'dd,'+r.languageColor+'55 65%, #1b2430)';
+    return '<div class="fav">'
+      + '<div class="thumb-sq" style="background:'+g+'">'+r.initial+'</div>'
+      + '<div class="fav-body">'
+        + '<div class="fav-name"><b>'+r.owner+'/</b><i>'+r.repo+'</i></div>'
+        + '<div class="fav-purpose">'+r.purpose+'</div>'
+        + '<div class="fav-meta">'
+          + '<span class="lang"><span class="swatch" style="background:'+r.languageColor+'"></span>'+r.language+'</span>'
+          + '<span>★ '+fmtN(r.stars)+'</span>'
+          + '<span class="saved">'+savedTexts[i]+'收藏</span>'
+          + '<span class="del">✕</span>'
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

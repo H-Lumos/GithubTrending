@@ -1,0 +1,16 @@
+# 依赖
+node_modules/
+miniprogram/miniprogram_npm/
+
+# 微信开发者工具私有配置
+project.private.config.json
+
+# 测试产物
+.test/sample-*.html
+.test/sample-*.json
+design/shots/dbg-*.png
+design/shots/debug-*.png
+
+# 系统
+.DS_Store
+Thumbs.db

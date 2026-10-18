@@ -1,0 +1,58 @@
+<view class="page theme-{{theme}}">
+  <scroll-view class="scroller" scroll-y show-scrollbar="{{false}}">
+    <view style="padding-top:{{statusBarHeight}}px">
+
+      <view class="nav" style="padding-right:{{capsuleRight}}px">
+        <view class="nav-btn press" bindtap="onBack">‹</view>
+        <view class="nav-title">收藏</view>
+        <view class="nav-btn press {{count ? '' : 'dim'}}" bindtap="onClearAll">⋯</view>
+      </view>
+
+      <view class="head">
+        <view class="head-title">我的收藏</view>
+        <view class="head-sub">{{count}} 个项目 · 仅存在本机</view>
+      </view>
+
+      <block wx:if="{{count}}">
+        <view
+          wx:for="{{list}}"
+          wx:key="id"
+          class="fav press"
+          data-id="{{item.id}}"
+          bindtap="onOpen"
+        >
+          <view class="thumb" style="background:{{item.grad}}">{{item.initial}}</view>
+
+          <view class="fav-body">
+            <view class="fav-name">
+              <text class="owner">{{item.owner}}/</text><text class="repo">{{item.repo}}</text>
+            </view>
+            <view class="fav-purpose">{{item.purpose}}</view>
+            <view class="fav-meta">
+              <view class="lang">
+                <view class="swatch" style="background:{{item.languageColor}}"></view>
+                <text>{{item.language}}</text>
+              </view>
+              <text class="star">★ {{item.starsText}}</text>
+              <text class="saved">{{item.savedText}}收藏</text>
+            </view>
+          </view>
+
+          <view class="del press" data-id="{{item.id}}" catchtap="onRemove">✕</view>
+        </view>
+
+        <view class="footer">
+          <view>收藏保存的是当时的快照，star 数不会自动刷新</view>
+          <view>点进详情页会重新拉最新数据</view>
+        </view>
+      </block>
+
+      <view wx:else class="state">
+        <view class="state-ico">☆</view>
+        <view class="state-title">还没有收藏</view>
+        <view class="state-desc">在榜单或详情页点「收藏」，<br />觉得有用的项目就会攒在这里</view>
+        <view class="state-btn press" bindtap="goTrending">去逛榜单</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

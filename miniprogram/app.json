@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/trending/index",
+    "pages/detail/index",
+    "pages/favorites/index",
+    "pages/about/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#0b0e14",
+    "backgroundColorTop": "#0b0e14",
+    "backgroundColorBottom": "#0b0e14",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "darkmode": false
+}

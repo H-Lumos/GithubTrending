@@ -1,0 +1,10 @@
+{
+  "name": "seedZh",
+  "version": "1.0.0",
+  "description": "把人工撰写的中文用途文案导入 repo_zh 缓存",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

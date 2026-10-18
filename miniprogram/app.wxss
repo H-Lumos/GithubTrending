@@ -1,0 +1,218 @@
+/* ==========================================================================
+   GithubTrending · 全局样式
+   设计语言：GitHub 原生深色底 + 少量毛玻璃/渐变强调，中文优先排版
+   注：切到浅色主题时，所有色值走 .theme-light 下的变量覆盖
+   ========================================================================== */
+
+page {
+  --bg: #0b0e14;
+  --surface: #131820;
+  --surface-2: #1a212b;
+  --surface-3: #222b38;
+  --border: rgba(255, 255, 255, 0.075);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #e8eef6;
+  --text-dim: #93a1b3;
+  --text-faint: #63707f;
+  --accent: #4f9cf9;
+  --accent-soft: rgba(79, 156, 249, 0.12);
+  --green: #3fb950;
+  --gold: #e3b341;
+  --red: #f85149;
+
+  background: var(--bg);
+  font-family: -apple-system, "SF Pro SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.theme-light {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-2: #eff3f7;
+  --surface-3: #e6ebf1;
+  --border: rgba(31, 35, 40, 0.1);
+  --border-strong: rgba(31, 35, 40, 0.18);
+  --text: #1f2328;
+  --text-dim: #59636e;
+  --text-faint: #8c959f;
+  --accent: #0969da;
+  --accent-soft: rgba(9, 105, 218, 0.08);
+  --green: #1a7f37;
+  --gold: #9a6700;
+  --red: #cf222e;
+}
+
+view,
+text,
+scroll-view {
+  box-sizing: border-box;
+}
+
+/* ---------- 页面骨架 ---------- */
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.scroller {
+  height: 100vh;
+}
+
+.content {
+  padding: 0 36rpx 160rpx;
+}
+
+/* ---------- 顶部标题区 ---------- */
+.hero {
+  padding: 8rpx 8rpx 28rpx;
+}
+
+.kicker {
+  font-size: 22rpx;
+  letter-spacing: 6rpx;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.hero-line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 64rpx;
+  line-height: 1.05;
+  margin-top: 12rpx;
+  font-weight: 800;
+  letter-spacing: -1rpx;
+  background: linear-gradient(96deg, #6cb6ff, #8b7dff 58%, #ff8ab5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin-top: 16rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: var(--text-dim);
+}
+
+.dot-live {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 12rpx;
+  box-shadow: 0 0 0 6rpx rgba(63, 185, 80, 0.16);
+}
+
+.icon-btn {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 22rpx;
+  /* 不用描边：右上角已有微信原生胶囊，描边按钮会和它撞脸 */
+  background: rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 30rpx;
+}
+
+.theme-light .icon-btn {
+  background: rgba(31, 35, 40, 0.06);
+}
+
+/* ---------- 列表小标题 ---------- */
+.listhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 8rpx 18rpx;
+  font-size: 22rpx;
+  color: var(--text-faint);
+  letter-spacing: 1rpx;
+}
+
+/* ---------- 底部说明 ---------- */
+.footer {
+  margin-top: 30rpx;
+  text-align: center;
+  font-size: 21rpx;
+  color: var(--text-faint);
+  line-height: 1.9;
+}
+
+.footer .link {
+  color: var(--accent);
+}
+
+/* ---------- 空态 / 错误态 ---------- */
+.state {
+  margin: 90rpx 20rpx 0;
+  padding: 50rpx 40rpx;
+  border-radius: 32rpx;
+  background: var(--surface);
+  border: 1rpx solid var(--border);
+  text-align: center;
+}
+
+.state-ico {
+  width: 104rpx;
+  height: 104rpx;
+  margin: 0 auto 26rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  background: var(--surface-2);
+  border: 1rpx solid var(--border);
+}
+
+.state-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+}
+
+.state-desc {
+  font-size: 24rpx;
+  line-height: 1.65;
+  color: var(--text-dim);
+}
+
+.state-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32rpx;
+  padding: 18rpx 38rpx;
+  border-radius: 22rpx;
+  font-size: 25rpx;
+  font-weight: 700;
+  color: #0a1524;
+  background: linear-gradient(180deg, #9fcbff, #5aa2f8);
+}
+
+.state-btn.ghost {
+  color: var(--text-dim);
+  background: transparent;
+  border: 1rpx solid var(--border-strong);
+}
+
+/* ---------- 通用微交互 ---------- */
+.press {
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.press:active {
+  transform: scale(0.985);
+  opacity: 0.9;
+}

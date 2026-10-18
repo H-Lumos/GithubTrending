@@ -1,0 +1,69 @@
+@keyframes shimmer {
+  0% {
+    background-position: -320rpx 0;
+  }
+  100% {
+    background-position: 320rpx 0;
+  }
+}
+
+.sk {
+  border-radius: 12rpx;
+  background: #151b24;
+  background-image: linear-gradient(90deg, #151b24 0%, #1e2734 42%, #151b24 84%);
+  background-size: 640rpx 100%;
+  animation: shimmer 1.35s linear infinite;
+}
+
+.sk-wrap {
+  padding: 0 4rpx;
+}
+
+.sk-hero {
+  padding: 8rpx 4rpx 28rpx;
+}
+
+.sk-title {
+  width: 420rpx;
+  height: 66rpx;
+  border-radius: 16rpx;
+  margin-top: 18rpx;
+}
+
+.sk-chips {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.sk-chips .sk {
+  margin-right: 16rpx;
+  flex: 0 0 auto;
+}
+
+.sk-card {
+  display: flex;
+  padding: 27rpx;
+  border-radius: 34rpx;
+  border: 1rpx solid var(--border);
+  background: var(--surface);
+  margin-bottom: 20rpx;
+}
+
+.sk-sq {
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 25rpx;
+}
+
+.sk-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 22rpx;
+  padding-top: 2rpx;
+}
+
+.sk-lines .sk {
+  margin-bottom: 14rpx;
+}

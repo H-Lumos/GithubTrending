@@ -1,0 +1,10 @@
+{
+  "name": "syncStars",
+  "version": "1.0.0",
+  "description": "每日抓取榜单项目的 star 快照，写入 star_history",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
