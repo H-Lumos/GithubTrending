@@ -410,6 +410,30 @@ function rpc(ws, id, method, params) {
   check('重复关键词不影响结果', hlCase.dupToken === hlCase.oneToken, hlCase.dupToken + ' = ' + hlCase.oneToken);
   check('清空后恢复全量', hlCase.restored > 0, hlCase.restored + ' 条');
 
+  /* ---------- 12. 静态资源指纹（防止改了 JS 却跑旧代码） ---------- */
+  console.log('\n[12] 静态资源指纹');
+  const ver = await evalJs(`(() => {
+    const js = document.querySelector('script[src*="app.js"]');
+    const css = document.querySelector('link[href*="app.css"]');
+    return {
+      js: js ? js.getAttribute('src') : '',
+      css: css ? css.getAttribute('href') : '',
+      // 直接量 computed style（file:// 下读 cssRules 会被安全策略拦）
+      markStyle: (() => {
+        const m = document.createElement('mark');
+        m.className = 'hl';
+        m.textContent = 'x';
+        document.body.appendChild(m);
+        const bg = getComputedStyle(m).backgroundColor;
+        m.remove();
+        return bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent';
+      })()
+    };
+  })()`);
+  check('app.js 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.js), ver.js);
+  check('app.css 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.css), ver.css);
+  check('高亮样式已生效', ver.markStyle === true);
+
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');
 
@@ -426,6 +450,8 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
 
 
 

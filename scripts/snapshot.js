@@ -180,6 +180,36 @@ function applyAuto(items, entry) {
   });
 }
 
+/* ---------------------------------------------------------------- 静态资源版本号 */
+
+/**
+ * 给 index.html 里的 app.js / app.css 加上内容指纹（?v=xxxx）。
+ * 原因：GitHub Pages 给静态资源的是 Cache-Control: max-age=600，
+ * 改了 JS/CSS 之后 10 分钟内浏览器还在跑旧文件（踩过：新功能上线但看不到）。
+ * 加了指纹后，内容一变 URL 就变，浏览器必然重新拉取。
+ */
+function versionAssets() {
+  const crypto = require('crypto');
+  const idxPath = path.join(ROOT, 'web', 'index.html');
+  let html = fs.readFileSync(idxPath, 'utf8');
+
+  const digest = (rel) =>
+    crypto
+      .createHash('sha1')
+      .update(fs.readFileSync(path.join(ROOT, 'web', rel)))
+      .digest('hex')
+      .slice(0, 8);
+
+  const jsV = digest('assets/app.js');
+  const cssV = digest('assets/app.css');
+
+  html = html.replace(/assets\/app\.css(\?v=[0-9a-f]+)?/g, 'assets/app.css?v=' + cssV);
+  html = html.replace(/assets\/app\.js(\?v=[0-9a-f]+)?/g, 'assets/app.js?v=' + jsV);
+
+  fs.writeFileSync(idxPath, html, 'utf8');
+  return { js: jsV, css: cssV };
+}
+
 /* ---------------------------------------------------------------- 主流程 */
 
 async function run() {
@@ -335,6 +365,9 @@ async function run() {
   console.log('\n已写入 ' + mpFile);
   console.log('已写入 ' + webFile);
   console.log('已写入 ' + HISTORY_FILE + '（' + pruned.length + ' 天）');
+
+  const ver = versionAssets();
+  console.log('静态资源指纹 app.js?v=' + ver.js + '  app.css?v=' + ver.css);
   console.log(
     '大小 ' + Math.round(fs.statSync(webFile).size / 1024) + ' KB ｜ 语言 ' + (langs.length - 1) + ' 种 ｜ ' +
     (prevDay ? '对比基准 ' + prevDay.d : '首次快照（明天起会有升降标记）')
