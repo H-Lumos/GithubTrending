@@ -337,7 +337,78 @@ function rpc(ws, id, method, params) {
   check('详情显示原仓库名', /ghost|not-on-any-list/.test(ghostDetail.name), ghostDetail.name);
 
   await evalJs('document.getElementById("btnClose").click(); localStorage.removeItem("ght:favs"); 1');
-  await sleep(200);
+  await send('Page.reload', { ignoreCache: true });
+  await sleep(1600);
+
+  /* ---------- 11. 搜索高亮 / 命中片段 ---------- */
+  console.log('\n[11] 搜索高亮与命中片段');
+  const hlCase = await evalJs(`(() => {
+    const q = document.getElementById('q');
+    const T = window.TRENDING;
+    const daily = T.periods.daily;
+
+    // 找一个「只在英文描述靠后位置命中」的仓库（正是 rea→creation 那种情况）
+    let late = null;
+    const probe = (kw) => daily.find(it => {
+      const p = String(it.purpose || '').toLowerCase();
+      const n = it.fullName.toLowerCase();
+      const e = String(it.descEn || '').toLowerCase();
+      const i = e.indexOf(kw);
+      return i > 60 && p.indexOf(kw) === -1 && n.indexOf(kw) === -1;
+    });
+    const kw = 'rea';
+    late = probe(kw);
+
+    function search(v) {
+      q.value = v;
+      q.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+
+    const out = {};
+
+    search(kw);
+    const cards = [].slice.call(document.querySelectorAll('.card'));
+    out.count = cards.length;
+    out.marks = document.querySelectorAll('.card mark.hl').length;
+    const enSnippet = cards.map(c => {
+      const en = c.querySelector('.en');
+      const mk = en ? en.querySelector('mark.hl') : null;
+      return mk ? { text: en.textContent, mark: mk.textContent } : null;
+    }).filter(Boolean);
+    out.hasSnippet = enSnippet.some(s => s.text.indexOf('…') > -1);
+    out.markTexts = enSnippet.map(s => s.mark.toLowerCase());
+    out.lateId = late ? late.id : null;
+
+    // 语言命中
+    search('python');
+    const pyCards = [].slice.call(document.querySelectorAll('.card'));
+    out.langMarked = pyCards.every(c => {
+      const lang = c.querySelector('.lang');
+      return lang && lang.querySelector('mark.hl');
+    });
+
+    // 多关键词 AND：用一个存在的词 + 一个不存在的词，结果必须是 0（若是 OR 会保留前者）
+    const langA = String(T.periods.daily[0].language || 'python').toLowerCase();
+    search(langA);
+    out.oneToken = document.querySelectorAll('.card').length;
+    search(langA + ' zzznotexist');
+    out.andZero = document.querySelectorAll('.card').length;
+    search(langA + ' ' + langA);
+    out.dupToken = document.querySelectorAll('.card').length;
+    search(langA + ' ' + langA.split('')[0]);
+    out.andLabel2 = document.getElementById('sortLabel').textContent.trim();
+
+    search('');
+    out.restored = document.querySelectorAll('.card').length;
+    return out;
+  })()`);
+  check('搜索命中处有高亮', hlCase.marks > 0, hlCase.marks + ' 处 mark');
+  check('英文描述截取命中片段（不是从开头截断）', hlCase.hasSnippet === true, hlCase.lateId || '');
+  check('片段里高亮的就是搜索词', (hlCase.markTexts || []).indexOf('rea') > -1, (hlCase.markTexts || []).join(','));
+  check('语言命中也高亮', hlCase.langMarked === true);
+  check('多关键词按 AND 匹配', hlCase.oneToken > 0 && hlCase.andZero === 0, hlCase.oneToken + ' 条 → 加无关词后 ' + hlCase.andZero + ' 条');
+  check('重复关键词不影响结果', hlCase.dupToken === hlCase.oneToken, hlCase.dupToken + ' = ' + hlCase.oneToken);
+  check('清空后恢复全量', hlCase.restored > 0, hlCase.restored + ' 条');
 
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');

@@ -92,6 +92,16 @@ function rpc(ws, id, method, params) {
 
   // 可选：截图前先注入状态（例如造几个收藏、切到收藏视图）
   // 用法：SCENE=favs node .test/cdp-shot.js ...
+  if (process.env.SCENE && process.env.SCENE.indexOf('q:') === 0) {
+    const kw = process.env.SCENE.slice(2);
+    await send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: '(() => { const q = document.getElementById("q"); q.value = ' + JSON.stringify(kw) +
+        '; q.dispatchEvent(new Event("input", { bubbles: true })); return 1; })()'
+    });
+    await sleep(400);
+  }
+
   if (process.env.SCENE === 'favs') {
     await send('Runtime.evaluate', {
       returnByValue: true,
@@ -165,6 +175,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(1);
 });
+
 
 
 

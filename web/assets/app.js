@@ -60,6 +60,74 @@
       .replace(/"/g, '&quot;');
   }
 
+  /* ---------------- 搜索匹配工具 ---------------- */
+
+  /** 把搜索词切成关键词（空格分词，全部命中才算匹配） */
+  function searchTokens() {
+    return state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  function escRe(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  /** 每个关键词都出现在文本里 */
+  function matchAll(text, toks) {
+    var t = String(text == null ? '' : text).toLowerCase();
+    for (var i = 0; i < toks.length; i++) {
+      if (t.indexOf(toks[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  /** 转义 + 把命中的关键词包成 <mark>，让用户看得出为什么这条被搜出来 */
+  function hl(text, toks) {
+    var s = String(text == null ? '' : text);
+    if (!toks || !toks.length) return esc(s);
+
+    var re = new RegExp('(' + toks.map(escRe).join('|') + ')', 'gi');
+    var out = '';
+    var last = 0;
+    var m;
+    while ((m = re.exec(s)) !== null) {
+      if (m[0] === '') {
+        re.lastIndex++;
+        continue;
+      }
+      out += esc(s.slice(last, m.index)) + '<mark class="hl">' + esc(m[0]) + '</mark>';
+      last = m.index + m[0].length;
+    }
+    return out + esc(s.slice(last));
+  }
+
+  /**
+   * 命中位置靠后时，截一段窗口出来，前面加省略号。
+   * 解决「搜到了但卡片上被截断看不见」的问题（例如 rea 命中 audiobook creation）。
+   */
+  function snippet(text, toks, max) {
+    var s = String(text == null ? '' : text);
+    if (!toks || !toks.length) return s;
+    var lower = s.toLowerCase();
+    var idx = -1;
+    toks.forEach(function (k) {
+      var i = lower.indexOf(k);
+      if (i > -1 && (idx === -1 || i < idx)) idx = i;
+    });
+    if (idx === -1) return s;
+    max = max || 88;
+    if (idx < max * 0.45) return s.length > max ? s.slice(0, max) : s;
+
+    var start = Math.max(0, idx - Math.floor(max * 0.35));
+    // 从词边界开始，避免出现「…n, transcription」这种切断单词的片段
+    if (start > 0) {
+      var sp = s.indexOf(' ', start);
+      if (sp > -1 && sp < idx) start = sp + 1;
+    }
+    var end = Math.min(s.length, start + max);
+    var tail = end < s.length ? '…' : '';
+    return (start > 0 ? '…' : '') + s.slice(start, end).trim() + tail;
+  }
+
   function hexToRgb(hex) {
     var h = String(hex || '').replace('#', '');
     if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
@@ -176,8 +244,8 @@
         return i.language === display;
       });
     }
-    var q = state.q.trim().toLowerCase();
-    if (q) {
+    var q = searchTokens();
+    if (q.length) {
       items = items.filter(function (i) {
         var hay = [
           i.fullName,
@@ -185,10 +253,8 @@
           i.descEn,
           i.language,
           (i.tags || []).join(' ')
-        ]
-          .join(' ')
-          .toLowerCase();
-        return hay.indexOf(q) > -1;
+        ].join(' ');
+        return matchAll(hay, q);
       });
     }
     return items;
@@ -319,18 +385,38 @@
     var showEn = item.descEn && String(item.descEn).trim() !== String(item.purpose || '').trim();
     // GitHub 有些仓库没识别出主语言（API 里 language 为 null），别直接显示英文 Unknown
     var langText = !item.language || item.language === 'Unknown' ? '未标注' : item.language;
+
+    var toks = searchTokens();
+    var searching = toks.length > 0;
+
+    // 英文描述：命中点在后面时截一段窗口，保证高亮的部分真的能看见
+    var enText = item.descEn;
+    if (searching && enText) enText = snippet(enText, toks, 88);
+
+    // 命中的标签单独显示（标签平时不在卡片上，不显示的话用户不知道为啥匹配）
+    var hitTags = searching
+      ? (item.tags || []).filter(function (t) {
+          return matchAll(t, toks);
+        })
+      : [];
+
     return (
       '<article class="card" data-id="' + esc(item.id) + '" tabindex="0">' +
       '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : item.rank) + '</div>' +
       '<div class="thumb" style="background:' + gradient(item.languageColor) + '">' + esc(initial) + '</div>' +
       '<div class="body">' +
-      '<div class="name"><span class="owner">' + esc(item.owner) + '/</span><b>' + esc(item.repo) + '</b>' +
+      '<div class="name"><span class="owner">' + hl(item.owner, toks) + '/</span><b>' + hl(item.repo, toks) + '</b>' +
       rankBadge(item) +
       '</div>' +
-      '<p class="purpose">' + esc(item.purpose) + '</p>' +
-      (showEn ? '<p class="en"><span class="en-tag">EN</span>' + esc(item.descEn) + '</p>' : '') +
+      '<p class="purpose">' + hl(item.purpose, toks) + '</p>' +
+      (showEn ? '<p class="en"><span class="en-tag">EN</span>' + hl(enText, toks) + '</p>' : '') +
       '<div class="meta">' +
-      '<span class="lang"><i style="background:' + esc(item.languageColor) + '"></i>' + esc(langText) + '</span>' +
+      '<span class="lang"><i style="background:' + esc(item.languageColor) + '"></i>' + hl(langText, toks) + '</span>' +
+      hitTags
+        .map(function (t) {
+          return '<span class="tag">' + hl(t, toks) + '</span>';
+        })
+        .join('') +
       '<span class="stars">★ ' + fmtNum(item.stars) + '</span>' +
       '<span class="hot">▲ ' + fmtNum(item.hot) + '</span>' +
       '<span class="spark">' + sparkHtml(item.trend) + '</span>' +

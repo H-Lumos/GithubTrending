@@ -312,6 +312,25 @@ html[data-theme='light'] .seg button.on {
 
 /* ---------------- 搜索 ---------------- */
 
+mark.hl {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* 搜索命中的标签（平时不显示标签，命中时才露出来解释匹配原因） */
+.meta .tag {
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+
 .search {
   position: relative;
   display: flex;
@@ -950,5 +969,6 @@ html[data-theme='light'] .btn-primary {
     font-size: 16px;
   }
 }
+
 
 
