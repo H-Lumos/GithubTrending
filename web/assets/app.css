@@ -480,6 +480,8 @@ mark.hl {
 }
 
 .thumb {
+  position: relative;
+  overflow: hidden;
   flex: 0 0 auto;
   width: 46px;
   height: 46px;
@@ -640,6 +642,23 @@ mark.hl {
 }
 
 /* 窄屏：卡片正文只有 ~220px，迷你柱会把星星数挤到换行，直接隐藏 */
+/* 作者头像：覆盖在字母块上；加载失败时被 onerror 移除，露出底下的渐变字母 */
+.thumb .ini {
+  position: relative;
+  z-index: 1;
+}
+
+.thumb img.av {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--surface-2);
+}
+
 @media (max-width: 520px) {
   .meta {
     gap: 9px;
@@ -969,6 +988,7 @@ html[data-theme='light'] .btn-primary {
     font-size: 16px;
   }
 }
+
 
 
 

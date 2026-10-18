@@ -379,6 +379,29 @@
     return '';
   }
 
+  /**
+   * 卡片缩略图：作者头像 + 首字母兜底
+   * - 头像走 https://github.com/{owner}.png?size=96（302 到 GitHub 头像 CDN）
+   *   仓库和 Actions 都不增加任何体积/开销，只有访客浏览器去取（约 3~5 KB，会被缓存）
+   * - 加载失败（离线、被墙、403）就自动移除，露出底下的渐变字母块
+   */
+  function thumbHtml(item, initial) {
+    var owner = String(item.owner || '').trim();
+    var img = '';
+    if (owner && owner !== 'ghost' && /^[A-Za-z0-9._-]+$/.test(owner)) {
+      img =
+        '<img class="av" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"' +
+        ' src="https://github.com/' + esc(owner) + '.png?size=96"' +
+        ' onerror="this.remove()">';
+    }
+    return (
+      '<div class="thumb" style="background:' + gradient(item.languageColor) + '">' +
+      '<span class="ini">' + esc(initial) + '</span>' +
+      img +
+      '</div>'
+    );
+  }
+
   function cardHtml(item, idx) {
     var rankClass = idx === 0 ? ' top1' : idx === 1 ? ' top2' : idx === 2 ? ' top3' : '';
     var initial = (item.repo || item.fullName || '?').charAt(0).toUpperCase();
@@ -403,7 +426,7 @@
     return (
       '<article class="card" data-id="' + esc(item.id) + '" tabindex="0">' +
       '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : item.rank) + '</div>' +
-      '<div class="thumb" style="background:' + gradient(item.languageColor) + '">' + esc(initial) + '</div>' +
+      thumbHtml(item, initial) +
       '<div class="body">' +
       '<div class="name"><span class="owner">' + hl(item.owner, toks) + '/</span><b>' + hl(item.repo, toks) + '</b>' +
       rankBadge(item) +

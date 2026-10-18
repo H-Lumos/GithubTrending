@@ -452,6 +452,50 @@ function rpc(ws, id, method, params) {
   check('app.css 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.css), ver.css);
   check('高亮样式已生效', ver.markStyle === true);
 
+  /* ---------- 13. 作者头像与字母兜底 ---------- */
+  console.log('\n[13] 作者头像 / 字母兜底');
+  const av = await evalJs(`(() => {
+    const cards = [].slice.call(document.querySelectorAll('.card'));
+    const imgs = cards.map(c => c.querySelector('.thumb img.av')).filter(Boolean);
+    const ini = cards.filter(c => {
+      const i = c.querySelector('.thumb .ini');
+      return !!i;
+    });
+    return {
+      file: location.protocol === 'file:',
+      cards: cards.length,
+      withImg: imgs.length,
+      firstSrc: imgs[0] ? imgs[0].getAttribute('src') : '',
+      lazy: imgs[0] ? imgs[0].getAttribute('loading') : '',
+      iniCount: ini.length
+    };
+  })()`);
+  check('每张卡片都有字母兜底', av.iniCount === av.cards, av.iniCount + '/' + av.cards);
+  if (av.file) {
+    // 离线环境下头像请求会一直挂起，不会触发 error。
+    // 这里主动派发一次 error，验证「加载失败 → 自动移除 → 露出字母」这条兜底路径。
+    const fb = await evalJs(`(() => {
+      const img = document.querySelector('.card .thumb img.av');
+      const before = document.querySelectorAll('.card .thumb img.av').length;
+      if (!img) return { before: before, after: before, ini: !!document.querySelector('.card .thumb .ini') };
+      img.dispatchEvent(new Event('error'));
+      return {
+        before: before,
+        after: document.querySelectorAll('.card .thumb img.av').length,
+        ini: !!document.querySelector('.card .thumb .ini')
+      };
+    })()`);
+    check(
+      '头像加载失败会自动移除、露出字母',
+      fb.ini === true && (fb.before === 0 || fb.after === fb.before - 1),
+      fb.before + ' → ' + fb.after + ' 张'
+    );
+  } else {
+    check('线上头像已加载', av.withImg > 0, av.withImg + ' 张');
+    check('头像地址为 github.com/{owner}.png', /^https:\/\/github\.com\/[^/]+\.png\?size=96$/.test(av.firstSrc), av.firstSrc);
+    check('头像使用懒加载', av.lazy === 'lazy', String(av.lazy));
+  }
+
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');
 
@@ -468,6 +512,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 
