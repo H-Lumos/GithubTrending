@@ -95,7 +95,12 @@ function rpc(ws, id, method, params) {
   await send('Runtime.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: W < 600 });
   await send('Page.navigate', { url: URL });
-  await sleep(2000);
+  await sleep(1500);
+
+  // 清掉上一轮留下的收藏/主题，保证每次都是确定状态
+  await evalJs('localStorage.clear(); 1');
+  await send('Page.reload');
+  await sleep(1500);
 
   /* ---------- 1. 首屏 ---------- */
   console.log('\n[1] 首屏');
@@ -214,6 +219,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 
