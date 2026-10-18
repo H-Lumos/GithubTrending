@@ -98,8 +98,75 @@
     });
   }
 
+  /** 所有周期里出现过的条目，按 id 建索引（收藏查找用） */
+  function allPeriodIndex() {
+    var idx = {};
+    PERIODS.forEach(function (p) {
+      (DATA.periods[p.value] || []).forEach(function (it) {
+        if (!idx[it.id]) {
+          var copy = {};
+          for (var k in it) copy[k] = it[k];
+          copy.fromPeriod = p.value; // 记住它来自哪个周期，避免跨周期收藏显示错的名次文案
+          idx[it.id] = copy;
+        }
+      });
+    });
+    return idx;
+  }
+
+  /** 把周期值翻成中文，用于「本周榜 #N」这类文案 */
+  function periodLabel(value) {
+    for (var i = 0; i < PERIODS.length; i++) {
+      if (PERIODS[i].value === value) return PERIODS[i].label || PERIODS[i].unit.replace('新增', '');
+    }
+    return '';
+  }
+
+  /**
+   * 收藏列表
+   * 关键：不能从「当前周期的榜单」里过滤——收藏的项目掉榜后就不在榜单里了，
+   * 那样会凭空消失（这就是之前只显示一个的 bug）。
+   * 这里直接读收藏库：榜单里还有就用最新数据，掉榜了就用收藏时的快照。
+   */
+  function favItems() {
+    var idx = allPeriodIndex();
+    var list = [];
+
+    Object.keys(state.favs).forEach(function (id) {
+      var saved = state.favs[id];
+      var cur = idx[id];
+
+      if (cur) {
+        var merged = {};
+        for (var k in cur) merged[k] = cur[k];
+        merged.savedAt = saved && saved.ts;
+        list.push(merged);
+        return;
+      }
+
+      // 掉出所有榜单：用收藏时的快照兜底
+      var snap = saved && saved.id ? saved : null;
+      if (!snap) {
+        // 兼容早期只存 true 的旧数据
+        var parts = String(id).split('/');
+        snap = { id: id, owner: parts[0], repo: parts[1] || id, fullName: id, purpose: '', descEn: '' };
+      }
+      var copy = {};
+      for (var k2 in snap) copy[k2] = snap[k2];
+      copy.offList = true;
+      copy.rank = null;
+      copy.rankChange = null;
+      copy.isNew = false;
+      list.push(copy);
+    });
+
+    return list.sort(function (a, b) {
+      return (b.savedAt || 0) - (a.savedAt || 0);
+    });
+  }
+
   function visibleItems() {
-    var items = periodItems();
+    var items = state.onlyFavs ? favItems() : periodItems();
     if (state.lang) {
       var display = state.lang;
       languages().forEach(function (l) {
@@ -107,11 +174,6 @@
       });
       items = items.filter(function (i) {
         return i.language === display;
-      });
-    }
-    if (state.onlyFavs) {
-      items = items.filter(function (i) {
-        return state.favs[i.id];
       });
     }
     var q = state.q.trim().toLowerCase();
@@ -241,6 +303,7 @@
   }
 
   function rankBadge(item) {
+    if (item.offList) return '<span class="rk rk-off">已下榜</span>';
     if (item.rankChange == null) {
       if (item.isNew) return '<span class="rk rk-new">NEW</span>';
       return '';
@@ -258,7 +321,7 @@
     var langText = !item.language || item.language === 'Unknown' ? '未标注' : item.language;
     return (
       '<article class="card" data-id="' + esc(item.id) + '" tabindex="0">' +
-      '<div class="rank' + rankClass + '">' + item.rank + '</div>' +
+      '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : item.rank) + '</div>' +
       '<div class="thumb" style="background:' + gradient(item.languageColor) + '">' + esc(initial) + '</div>' +
       '<div class="body">' +
       '<div class="name"><span class="owner">' + esc(item.owner) + '/</span><b>' + esc(item.repo) + '</b>' +
@@ -284,8 +347,10 @@
 
     $('sortLabel').textContent = searching
       ? '搜索「' + state.q.trim() + '」'
+      : state.onlyFavs
+      ? '按收藏时间排序'
       : '按' + unitLabel() + '排序';
-    $('total').textContent = items.length + ' 个上榜';
+    $('total').textContent = items.length + (state.onlyFavs ? ' 个收藏' : ' 个上榜');
 
     if (!items.length) {
       var icon = searching ? '⌕' : state.onlyFavs ? '★' : '🔍';
@@ -338,6 +403,13 @@
       history = '这是首日快照，升降标记（↑N / ↓N / NEW）从明天起才会出现；star 曲线目前按日均增量回推。';
     }
     warn.textContent = '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' + history;
+
+    var zhLine = $('foot-zh');
+    if (zhLine) {
+      var aiPart = DATA.zhAi > 0 ? ' + DeepSeek 自动补齐（本次新增 ' + DATA.zhAi + ' 条）' : '（缺的条目会自动调用 DeepSeek 补齐）';
+      zhLine.textContent =
+        '中文用途：人工对照表' + aiPart + '；AI 生成的条目会在详情页标注来源';
+    }
   }
 
   /* ---------------- 详情 ---------------- */
@@ -353,6 +425,15 @@
         if (arr[j].id === id) return arr[j];
       }
     }
+    // 榜单里都没有：可能是收藏过、后来掉榜的项目，用收藏快照兜底
+    var saved = state.favs[id];
+    if (saved && saved.id) {
+      var copy = {};
+      for (var k in saved) copy[k] = saved[k];
+      copy.offList = true;
+      copy.rank = null;
+      return copy;
+    }
     return null;
   }
 
@@ -366,7 +447,10 @@
     }).join('');
 
     return (
-      '<div class="dbadge">⚡ ' + esc(unitLabel().replace('新增', '')) + '榜 #' + item.rank +
+      '<div class="dbadge">' +
+      (item.offList
+        ? '📌 已下榜' + (item.ts ? ' · 收藏于 ' + String(timeAgo(item.ts)).replace('更新', '') : '')
+        : '⚡ ' + esc(periodLabel(item.fromPeriod || state.period)) + '榜 #' + item.rank) +
       ' · ' + esc(!item.language || item.language === 'Unknown' ? '未标注语言' : item.language) + '</div>' +
       '<h2 class="dname"><span class="owner">' + esc(item.owner) + '/</span>' + esc(item.repo) + '</h2>' +
       '<p class="dpurpose">' + esc(item.purpose) + '</p>' +
@@ -686,5 +770,8 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
+
 
 

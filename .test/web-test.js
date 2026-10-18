@@ -99,7 +99,7 @@ function rpc(ws, id, method, params) {
 
   // 清掉上一轮留下的收藏/主题，保证每次都是确定状态
   await evalJs('localStorage.clear(); 1');
-  await send('Page.reload');
+  await send('Page.reload', { ignoreCache: true });
   await sleep(1500);
 
   /* ---------- 1. 首屏 ---------- */
@@ -279,6 +279,66 @@ function rpc(ws, id, method, params) {
     copy.zhTotal + '/' + copy.total + (copy.missingZh ? '（缺 ' + copy.missingZh + '）' : '')
   );
 
+  /* ---------- 10. 收藏视图：跨周期 + 掉榜 ---------- */
+  console.log('\n[10] 收藏视图（跨周期 / 已下榜）');
+  const favCase = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const dailyId = T.periods.daily[0].id;
+    // 找一个不在今日榜、但在本周或本月榜的项目（跨周期收藏）
+    const dailyIds = T.periods.daily.map(d => d.id);
+    const cross = (T.periods.weekly || []).concat(T.periods.monthly || [])
+      .find(w => dailyIds.indexOf(w.id) === -1);
+    // 造一个「已掉出所有榜单」的收藏快照（真实场景：收藏后掉榜）
+    const ghost = {
+      id: 'ghost/not-on-any-list', owner: 'ghost', repo: 'not-on-any-list', fullName: 'ghost/not-on-any-list',
+      purpose: '收藏时的中文快照', descEn: 'collected snapshot',
+      language: 'TypeScript', languageColor: '#3178c6',
+      stars: 314548, hot: 239923, trend: [1,2,3,4], ts: Date.now() - 86400000
+    };
+    const favs = {};
+    favs[dailyId] = { id: dailyId, ts: Date.now() };
+    if (cross) favs[cross.id] = { id: cross.id, ts: Date.now() - 1000 };
+    favs[ghost.id] = ghost;
+    localStorage.setItem('ght:favs', JSON.stringify(favs));
+    return { dailyId, crossId: cross ? cross.id : null, count: Object.keys(favs).length };
+  })()`);
+  await send('Page.reload', { ignoreCache: true });
+  await sleep(1600);
+
+  const favView = await evalJs(`(() => {
+    document.getElementById('btnFav').click();
+    return new Promise(r => setTimeout(() => r({
+      cards: document.querySelectorAll('.card').length,
+      total: document.getElementById('total').textContent.trim(),
+      sort: document.getElementById('sortLabel').textContent.trim(),
+      offBadge: document.querySelectorAll('.rk-off').length,
+      names: [].slice.call(document.querySelectorAll('.card .name b')).map(e => e.textContent)
+    }), 350));
+  })()`);
+  check('收藏视图显示全部收藏（不再漏）', favView.cards === favCase.count, favView.cards + ' / 期望 ' + favCase.count);
+  check('计数文案为「N 个收藏」', /个收藏/.test(favView.total), favView.total);
+  check('排序文案为按收藏时间', /收藏时间/.test(favView.sort), favView.sort);
+  check('掉榜项目标「已下榜」', favView.offBadge === 1, favView.offBadge + ' 个');
+  check('掉榜项目仍在列表里', favView.names.indexOf('not-on-any-list') > -1, favView.names.join(','));
+
+  const ghostDetail = await evalJs(`(() => {
+    const cards = [].slice.call(document.querySelectorAll('.card'));
+    const g = cards.filter(c => c.getAttribute('data-id') === 'ghost/not-on-any-list')[0];
+    if (!g) return { opened: false };
+    g.click();
+    return new Promise(r => setTimeout(() => r({
+      opened: document.getElementById('drawer').classList.contains('on'),
+      badge: (document.querySelector('.dbadge') || {}).textContent || '',
+      name: (document.querySelector('.dname') || {}).textContent || ''
+    }), 350));
+  })()`);
+  check('掉榜项目能打开详情', ghostDetail.opened === true);
+  check('详情标注「已下榜」', /已下榜/.test(ghostDetail.badge), ghostDetail.badge.trim().slice(0, 30));
+  check('详情显示原仓库名', /ghost|not-on-any-list/.test(ghostDetail.name), ghostDetail.name);
+
+  await evalJs('document.getElementById("btnClose").click(); localStorage.removeItem("ght:favs"); 1');
+  await sleep(200);
+
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');
 
@@ -295,6 +355,9 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
+
 
 
 

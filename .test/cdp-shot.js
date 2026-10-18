@@ -90,6 +90,41 @@ function rpc(ws, id, method, params) {
   await send('Page.navigate', { url: URL });
   await sleep(2500);
 
+  // 可选：截图前先注入状态（例如造几个收藏、切到收藏视图）
+  // 用法：SCENE=favs node .test/cdp-shot.js ...
+  if (process.env.SCENE === 'favs') {
+    await send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `(() => {
+        const T = window.TRENDING;
+        const daily = T.periods.daily;
+        const dailyIds = daily.map(d => d.id);
+        const cross = (T.periods.weekly || []).concat(T.periods.monthly || [])
+          .find(w => dailyIds.indexOf(w.id) === -1);
+        const favs = {};
+        favs[daily[1].id] = { id: daily[1].id, ts: Date.now() };
+        if (cross) favs[cross.id] = { id: cross.id, ts: Date.now() - 3600000 };
+        favs['ghost/not-on-any-list'] = {
+          id: 'ghost/not-on-any-list', owner: 'ghost', repo: 'not-on-any-list',
+          fullName: 'ghost/not-on-any-list',
+          purpose: '收藏时的中文快照（该项目已掉出所有榜单）',
+          descEn: 'Collected snapshot of a repo that has dropped off every list.',
+          language: 'TypeScript', languageColor: '#3178c6',
+          stars: 314548, hot: 239923, trend: [1, 2, 3, 4, 5], ts: Date.now() - 86400000
+        };
+        localStorage.setItem('ght:favs', JSON.stringify(favs));
+        return 1;
+      })()`
+    });
+    await send('Page.reload');
+    await sleep(1800);
+    await send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `(() => { document.getElementById('btnFav').click(); return 1; })()`
+    });
+    await sleep(400);
+  }
+
   // 关键测量：页面是否横向溢出 / 卡片宽度 / 抽屉位置
   const measure = await send('Runtime.evaluate', {
     returnByValue: true,

@@ -529,6 +529,12 @@ html[data-theme='light'] .seg button.on {
   background: color-mix(in srgb, var(--text-muted) 12%, transparent);
 }
 
+.rk-off {
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
 .purpose {
   margin: 6px 0 0;
   font-size: 13.5px;
@@ -944,4 +950,5 @@ html[data-theme='light'] .btn-primary {
     font-size: 16px;
   }
 }
+
 
