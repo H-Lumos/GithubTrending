@@ -51,6 +51,7 @@ BLUE   = (79, 156, 249)   # 高柱 / 强调色
 改完重新执行：
 
 ```powershell
-cd G:\newscollecting\GithubTrending\design\icon
+cd <项目根目录>\design\icon
 F:\python\python.exe make_icon.py
 ```
+

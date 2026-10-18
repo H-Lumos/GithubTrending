@@ -33,7 +33,7 @@
 ### 1.2 本地起个静态服务（推荐调试用）
 
 ```powershell
-cd G:\newscollecting\GithubTrending
+cd <项目根目录>
 python -m http.server 8899
 # 打开 http://127.0.0.1:8899/web/
 ```
@@ -367,7 +367,7 @@ $c = $c.Replace(
 这台机器直连 GitHub 会被重置，所以测试脚本走本地 SOCKS5（`127.0.0.1:10808`）。腾讯云上的云函数是直连，不需要代理。
 
 ```powershell
-$env:NODE_PATH='G:\newscollecting\GithubTrending\.test\node_modules'
+$env:NODE_PATH='<项目根目录>\.test\node_modules'
 node .test\run-normalize.js daily     # 真实 Search API 数据验归一化，也可 weekly / monthly
 node .test\run-rankdiff.js            # computeRankDiff 纯函数单测（不需要网络）
 node .test\run-parse-official.js      # 官方 trending HTML 解析单测（用 fixture，不需要网络）
@@ -420,11 +420,11 @@ total_count = 1816 | 本页 = 40
 **跑**
 
 ```powershell
-cd G:\newscollecting\GithubTrending
+cd <项目根目录>
 
 # 1) 让 DevTools 进入自动化模式（--port 用安全设置里显示的服务端口）
 & "G:\wechatdev\微信web开发者工具\cli.bat" auto `
-    --project "G:\newscollecting\GithubTrending" `
+    --project "<项目根目录>" `
     --auto-port 9420 --port 51730
 
 # 2) 装一次自动化客户端（已装可跳过）
@@ -558,6 +558,7 @@ Bad attr `wx:else` with message: `wx:if not found, then something must be wrong`
 ## License
 
 MIT
+
 
 
 

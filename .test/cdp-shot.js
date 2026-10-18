@@ -9,7 +9,7 @@ const path = require('path');
 
 const W = Number(process.argv[2] || 1280);
 const H = Number(process.argv[3] || 1000);
-const URL = process.argv[4] || 'file:///G:/newscollecting/GithubTrending/web/index.html?theme=dark';
+const URL = process.argv[4] || require('url').pathToFileURL(require('path').join(__dirname, '..', 'web', 'index.html')).href + '?theme=dark';
 const OUT = process.argv[5] || path.join(__dirname, '..', 'design', 'shots', 'cdp.png');
 const DSF = Number(process.argv[6] || 2);
 const PORT = 9333 + (Number(process.env.PORT_OFFSET) || 0);
@@ -130,5 +130,6 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(1);
 });
+
 
 
