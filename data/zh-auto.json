@@ -1,5 +1,18 @@
 {
-  "updatedAt": 0,
+  "updatedAt": 1792324465473,
   "model": "deepseek-chat",
-  "entries": {}
+  "entries": {
+    "Comfy-Org/ComfyUI": {
+      "purpose": "为需要本地运行扩散模型的用户提供节点式图形界面与后端",
+      "detail": "该项目是扩散模型的图形界面、API 与后端，采用图/节点界面组织工作流。它支持模块化搭建流程，并强调本地推理速度。适合希望在本地运行和调试扩散模型的研究者与开发者。",
+      "tags": [
+        "扩散模型",
+        "节点编辑器",
+        "本地推理",
+        "Python"
+      ],
+      "generatedAt": 1792324465473,
+      "model": "deepseek-chat"
+    }
+  }
 }
