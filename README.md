@@ -6,6 +6,14 @@
 
 **零服务器、零数据库、零费用**：GitHub Actions 每天抓一次官方榜单 → 提交成静态数据 → GitHub Pages 托管。
 
+## 🔗 线上地址
+
+**<https://h-lumos.github.io/GithubTrending/>**
+
+仓库：<https://github.com/H-Lumos/GithubTrending>
+
+每天北京时间 08:17 自动更新（`.github/workflows/update-trending.yml`）。
+
 | 桌面端列表 | 项目详情（含 30 天走势） | 移动端 |
 |---|---|---|
 | ![desktop](design/shots/web-desktop.png) | ![detail](design/shots/web-detail.png) | ![mobile](design/shots/web-mobile.png) |
@@ -327,6 +335,8 @@ $c = $c.Replace(
 | 2026-10-18 | 新增 `data/zh.js` 人工中文对照表，覆盖榜单 37 个仓库；缺失时回落英文 |
 | 2026-10-18 | 新增 `.github/workflows/update-trending.yml`：每日抓取 + 自动部署 Pages，零服务器 |
 | 2026-10-18 | 修网页端两个布局 bug：`.grid` 用裸 `1fr` 导致移动端横向溢出；窄屏 meta 行把落星数挤换行 |
+| 2026-10-18 | 上线 GitHub Pages：<https://h-lumos.github.io/GithubTrending/> |
+| 2026-10-18 | **CI 踩坑**：抓取与部署拆成两个 job 时，`deploy` 检出的是触发时旧提交，新数据不会被部署 → 合并成单 job |
 │   ├── getTrending/                    榜单 + 详情（双通道 + 中文补齐 + 趋势 + 名次变化）
 │   ├── syncStars/                      每日 star/名次快照 + 旧数据清理（带定时触发器）
 │   └── seedZh/                         把人工中文文案灌进 repo_zh（seeds.json 由脚本生成）
@@ -548,6 +558,7 @@ Bad attr `wx:else` with message: `wx:if not found, then something must be wrong`
 ## License
 
 MIT
+
 
 
 
