@@ -211,11 +211,33 @@ function parseOfficialTrending(html, period) {
     const descEn = descM ? decodeEntities(descM[1]) : '';
 
     // 语言 + 页面上的语言色点（比本地色表更准）
+    // GitHub 的标记有三种变体，逐级兜底，否则会退化成 Unknown
+    let language = '';
     const langM = b.match(/itemprop="programmingLanguage"[^>]*>([^<]+)</);
-    const language = langM ? decodeEntities(langM[1]) : '';
-    const colorM = b.match(
-      /repo-language-color[^>]*style="[^"]*background-color:\s*(#[0-9a-fA-F]{3,6})/
-    );
+    if (langM) language = decodeEntities(langM[1]).trim();
+
+    if (!language) {
+      // 变体 B：有语言色点，但语言名跟在 </span> 后面，没有 itemprop
+      const m2 = b.match(
+        /repo-language-color[^>]*>[\s\S]{0,60}?<\/span>\s*([A-Za-z][A-Za-z0-9+#.\- ]{1,30}?)\s*</
+      );
+      if (m2) language = m2[1].trim();
+    }
+
+    if (!language) {
+      // 变体 C：整块 d-inline-block ml-0 mr-3 里只有纯文本
+      const m3 = b.match(/<span class="[^"]*h4 mr-3[^"]*">([\s\S]{0,200}?)<\/span>/);
+      if (m3) {
+        const txt = decodeEntities(m3[1].replace(/<[^>]*>/g, ' '))
+          .replace(/\s+/g, ' ')
+          .trim();
+        if (/^[A-Za-z][A-Za-z0-9+#.\- ]{1,30}$/.test(txt)) language = txt;
+      }
+    }
+
+    const colorM =
+      b.match(/repo-language-color[^>]*style="[^"]*background-color:\s*(#[0-9a-fA-F]{3,6})/) ||
+      b.match(/background-color:\s*(#[0-9a-fA-F]{3,6})/);
     const languageColor = (colorM && colorM[1]) || COLOR_BY_NAME[language] || '#8b949e';
 
     // star / fork 总数

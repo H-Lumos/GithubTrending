@@ -259,6 +259,26 @@ function rpc(ws, id, method, params) {
   await evalJs('document.getElementById("btnClose").click(); 1');
   await sleep(300);
 
+  /* ---------- 9. 文案一致性 ---------- */
+  console.log('\n[9] 文案一致性');
+  const copy = await evalJs(`(() => {
+    const body = document.body.innerText;
+    return {
+      hasUnknown: body.indexOf('Unknown') > -1,
+      countText: document.getElementById('count').textContent.trim(),
+      zhTotal: window.TRENDING.periods.daily.filter(i => i.hasZh).length,
+      total: window.TRENDING.periods.daily.length,
+      missingZh: window.TRENDING.periods.daily.filter(i => !i.hasZh).length
+    };
+  })()`);
+  check('页面不出现英文 Unknown', copy.hasUnknown === false);
+  check('顶部计数显示中文覆盖', /共 \d+ 个/.test(copy.countText), copy.countText);
+  check(
+    '今日榜单中文覆盖情况',
+    copy.zhTotal === copy.total,
+    copy.zhTotal + '/' + copy.total + (copy.missingZh ? '（缺 ' + copy.missingZh + '）' : '')
+  );
+
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');
 

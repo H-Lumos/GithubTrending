@@ -254,6 +254,8 @@
     var rankClass = idx === 0 ? ' top1' : idx === 1 ? ' top2' : idx === 2 ? ' top3' : '';
     var initial = (item.repo || item.fullName || '?').charAt(0).toUpperCase();
     var showEn = item.descEn && String(item.descEn).trim() !== String(item.purpose || '').trim();
+    // GitHub 有些仓库没识别出主语言（API 里 language 为 null），别直接显示英文 Unknown
+    var langText = !item.language || item.language === 'Unknown' ? '未标注' : item.language;
     return (
       '<article class="card" data-id="' + esc(item.id) + '" tabindex="0">' +
       '<div class="rank' + rankClass + '">' + item.rank + '</div>' +
@@ -265,7 +267,7 @@
       '<p class="purpose">' + esc(item.purpose) + '</p>' +
       (showEn ? '<p class="en"><span class="en-tag">EN</span>' + esc(item.descEn) + '</p>' : '') +
       '<div class="meta">' +
-      '<span class="lang"><i style="background:' + esc(item.languageColor) + '"></i>' + esc(item.language) + '</span>' +
+      '<span class="lang"><i style="background:' + esc(item.languageColor) + '"></i>' + esc(langText) + '</span>' +
       '<span class="stars">★ ' + fmtNum(item.stars) + '</span>' +
       '<span class="hot">▲ ' + fmtNum(item.hot) + '</span>' +
       '<span class="spark">' + sparkHtml(item.trend) + '</span>' +
@@ -316,8 +318,12 @@
       return;
     }
     var total = periodItems().length;
+    var zhCount = periodItems().filter(function (i) {
+      return i.hasZh;
+    }).length;
     $('updated').textContent = timeAgo(DATA.generatedAt);
-    $('count').textContent = '共 ' + total + ' 个';
+    $('count').textContent =
+      '共 ' + total + ' 个' + (zhCount < total ? ' · 中文 ' + zhCount + '/' + total : '');
     $('source').textContent = '官方榜单快照';
     var warn = $('foot-warn');
     warn.hidden = false;
@@ -361,7 +367,7 @@
 
     return (
       '<div class="dbadge">⚡ ' + esc(unitLabel().replace('新增', '')) + '榜 #' + item.rank +
-      ' · ' + esc(item.language) + '</div>' +
+      ' · ' + esc(!item.language || item.language === 'Unknown' ? '未标注语言' : item.language) + '</div>' +
       '<h2 class="dname"><span class="owner">' + esc(item.owner) + '/</span>' + esc(item.repo) + '</h2>' +
       '<p class="dpurpose">' + esc(item.purpose) + '</p>' +
       (item.rankChange != null
@@ -387,7 +393,7 @@
       '<div class="axis" id="axis"></div>' +
       '</div>' +
       '<div class="panel">' +
-      '<h4>这个项目是做什么的<span>中文说明</span></h4>' +
+      '<h4>这个项目是做什么的<span>' + (item.hasZh ? '中文说明' : '暂无中文，下面是原文') + '</span></h4>' +
       '<p class="dtext">' + esc(item.detail) + '</p>' +
       (tags ? '<div class="tags">' + tags + '</div>' : '') +
       '</div>' +
@@ -678,3 +684,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+

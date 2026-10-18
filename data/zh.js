@@ -192,5 +192,25 @@ module.exports = {
     purpose: '开源 LLM 知识平台：把原始文档变成可查询的 RAG、推理代理和自维护 Wiki。',
     detail:
       '腾讯开源，覆盖文档解析、检索增强、自主推理与知识库自动维护，适合企业内部知识管理与问答场景。'
+  },
+  'mlabonne/llm-course': {
+    purpose: '大模型入门开源课程：路线图 + Colab 笔记本，边看边跑就能上手。',
+    detail:
+      '按主题铺好的学习路径：数学与 Transformer 基础、微调、量化、RAG、评估等，每个知识点配可一键运行的 Colab notebook。适合想系统入门 LLM 又不想只看论文的人，仓库 star 已过 8 万。'
+  },
+  'Kruk2/jasna': {
+    purpose: '视频修复与增强工具：修老旧/损坏画面、提清晰度。',
+    detail:
+      '面向修复类需求（去噪、去划痕、放大提分辨率）。基础功能可用，部分高质量模型需要作者授权的许可证码（README 里注明购买渠道）。'
+  },
+  'Comfy-Org/ComfyUI': {
+    purpose: '节点式搭工作流的扩散模型前端，本地跑 SD / 视频生成的主力方案。',
+    detail:
+      '用节点图把模型、采样器、控制网连起来，比表单式界面灵活得多；同时提供 API 与后端，可嵌进自己的服务。支持扩展节点生态，本地推理速度是它主打的优势。'
+  },
+  'pingdotgg/t3code': {
+    purpose: '用手机 App 远程遥控你电脑上跑的 AI 编程代理。',
+    detail:
+      '作者把它叫「agent harness control surface」：代理仍旧跑在你自己的机器上，手机端（iOS / Android）负责查看进度、下指令、接管会话。适合长时间跑任务时人不在电脑前的情况。仓库本身没有填写描述，信息来自 README。'
   }
 };
