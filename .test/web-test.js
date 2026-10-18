@@ -548,6 +548,26 @@ function rpc(ws, id, method, params) {
   }
   await evalJs('document.getElementById("btnClose").click(); 1');
   await sleep(200);
+  /* ---------- 12.7 迷你柱只在有真实数据时出现 ---------- */
+  console.log('\n[12.7] 迷你柱（spark）诚实性');
+  const spark = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const cards = [].slice.call(document.querySelectorAll('.card'));
+    const real = T.periods.daily.map(i => i.trendRealPoints || 0);
+    const minReal = Math.min.apply(null, real);
+    return {
+      minReal: minReal,
+      sparkCount: document.querySelectorAll('.card .spark').length,
+      barCount: document.querySelectorAll('.card .spark i').length,
+      cards: cards.length
+    };
+  })()`);
+  if (spark.minReal < 2) {
+    // 只有 1 天真实数据：回推曲线每张卡都一样，不该画出来冒充数据
+    check('真实数据不足 2 天时不画迷你柱', spark.sparkCount === 0, spark.sparkCount + ' 个');
+  } else {
+    check('有真实数据后迷你柱出现', spark.barCount > 0, spark.barCount + ' 根柱子');
+  }
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -608,6 +628,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 

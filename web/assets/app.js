@@ -352,9 +352,20 @@
 
   /* ---------------- 渲染：卡片 ---------------- */
 
-  function sparkHtml(trend) {
-    var bars = (trend || []).slice(-12);
-    if (!bars.length) return '';
+  /**
+   * 卡片右下角的迷你柱：近 12 个数据点的 star 走势
+   * 最后 4 根用强调色（= 最近 4 个数据点）
+   *
+   * 但是：只有 1 天真实数据时，其余点都是按同一个公式回推的估算，
+   * 归一化后每张卡形状完全一样（4,5,6,7,...,20），等于零信息还装得像数据。
+   * 所以真实点数 < 2 时干脆不画，等积累了真实数据再出现。
+   */
+  function sparkHtml(item) {
+    var trend = item.trend || [];
+    if (!trend.length) return '';
+    if ((item.trendRealPoints || 0) < 2) return '';
+
+    var bars = trend.slice(-12);
     var min = Math.min.apply(null, bars);
     var max = Math.max.apply(null, bars);
     var span = max - min || 1;
@@ -443,7 +454,10 @@
         .join('') +
       '<span class="stars">★ ' + fmtNum(item.stars) + '</span>' +
       '<span class="hot">▲ ' + fmtNum(item.hot) + '</span>' +
-      '<span class="spark">' + sparkHtml(item.trend) + '</span>' +
+      (function () {
+        var spark = sparkHtml(item);
+        return spark ? '<span class="spark" title="近 12 个数据点的 star 走势，最后 4 根为最近 4 个点">' + spark + '</span>' : '';
+      })() +
       '</div>' +
       '</div>' +
       '</article>'
@@ -920,6 +934,7 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
 
 
 
