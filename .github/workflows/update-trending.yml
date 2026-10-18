@@ -1,11 +1,15 @@
 name: Update trending data
 
 # 每天抓一次 GitHub 官方 Trending → 写进 web/data/trending.js → 提交 → 部署 Pages
-# 关键点：抓取和部署必须在【同一个 job】里。
-# 分成两个 job 时 deploy 会检出触发时的旧提交，抓取到的新数据根本不会被部署（踩过）。
+#
+# 两个注意点：
+# 1) 抓取和部署必须在【同一个 job】里。拆成两个 job 时 deploy 会检出触发时的旧提交，
+#    抓取到的新数据根本不会被部署（踩过）。
+# 2) 钉死 ubuntu-24.04 而不是 ubuntu-latest：GitHub 会在 2026-10-19 把 latest
+#    迁到 Ubuntu 26，钉版本可避免镜像变更带来的意外。
 on:
   schedule:
-    # UTC 00:17 ≈ 北京时间 08:17
+    # UTC 00:17 ≈ 北京时间 08:17（GitHub 的 cron 可能延迟几分钟到几十分钟）
     - cron: '17 0 * * *'
   workflow_dispatch:
 
@@ -20,18 +24,18 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: 抓取官方榜单并生成数据
         env:
           # 在仓库 Settings → Secrets and variables → Actions 里配置
-          # 没配也能跑：缺中文的条目回落英文原文
+          # 没配也能跑：缺中文的条目回落 GitHub 官方英文描述
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           LLM_MODEL: deepseek-chat
           ZH_MAX_PER_RUN: '12'
@@ -50,11 +54,11 @@ jobs:
             git push
           fi
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: web
 
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
