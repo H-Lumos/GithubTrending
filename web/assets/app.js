@@ -20,6 +20,7 @@
   var state = {
     period: 'daily',
     lang: '',
+    q: '',
     onlyFavs: false,
     theme: 'dark',
     favs: {}
@@ -111,6 +112,21 @@
     if (state.onlyFavs) {
       items = items.filter(function (i) {
         return state.favs[i.id];
+      });
+    }
+    var q = state.q.trim().toLowerCase();
+    if (q) {
+      items = items.filter(function (i) {
+        var hay = [
+          i.fullName,
+          i.purpose,
+          i.descEn,
+          i.language,
+          (i.tags || []).join(' ')
+        ]
+          .join(' ')
+          .toLowerCase();
+        return hay.indexOf(q) > -1;
       });
     }
     return items;
@@ -209,14 +225,15 @@
   /* ---------------- 渲染：卡片 ---------------- */
 
   function sparkHtml(trend) {
-    var bars = (trend || []).slice(-14);
+    var bars = (trend || []).slice(-12);
     if (!bars.length) return '';
     var min = Math.min.apply(null, bars);
     var max = Math.max.apply(null, bars);
     var span = max - min || 1;
     return bars
       .map(function (v, i) {
-        var h = 4 + Math.round(((v - min) / span) * 14);
+        // 4~20px：差值更明显，缩小尺寸也能看出趋势
+        var h = 4 + Math.round(((v - min) / span) * 16);
         var on = i >= bars.length - 4;
         return '<i class="' + (on ? 'on' : '') + '" style="height:' + h + 'px"></i>';
       })
@@ -261,19 +278,28 @@
   function renderList() {
     var items = visibleItems();
     var list = $('list');
+    var searching = !!state.q.trim();
 
-    $('sortLabel').textContent = '按' + unitLabel() + '排序';
+    $('sortLabel').textContent = searching
+      ? '搜索「' + state.q.trim() + '」'
+      : '按' + unitLabel() + '排序';
     $('total').textContent = items.length + ' 个上榜';
 
     if (!items.length) {
+      var icon = searching ? '⌕' : state.onlyFavs ? '★' : '🔍';
+      var title = searching
+        ? '没有匹配「' + esc(state.q.trim()) + '」的项目'
+        : state.onlyFavs
+        ? '还没有收藏'
+        : '这个筛选下暂时没有项目';
+      var desc = searching
+        ? '试试仓库名（如 claude）、用途关键词（如 记忆）或语言'
+        : state.onlyFavs
+        ? '点开任意项目，在详情里点「收藏」'
+        : '换一个语言或周期看看';
       list.innerHTML =
-        '<div class="state" style="grid-column:1/-1"><div class="big">' +
-        (state.onlyFavs ? '★' : '🔍') +
-        '</div><h3>' +
-        (state.onlyFavs ? '还没有收藏' : '这个筛选下暂时没有项目') +
-        '</h3><p>' +
-        (state.onlyFavs ? '点开任意项目，在详情里点「收藏」' : '换一个语言或周期看看') +
-        '</p></div>';
+        '<div class="state" style="grid-column:1/-1"><div class="big">' + icon +
+        '</div><h3>' + title + '</h3><p>' + desc + '</p></div>';
       return;
     }
 
@@ -295,10 +321,17 @@
     $('source').textContent = '官方榜单快照';
     var warn = $('foot-warn');
     warn.hidden = false;
-    warn.textContent =
-      '快照模式：内容与 github.com/trending 逐条一致（' +
-      new Date(DATA.generatedAt).toLocaleString('zh-CN') +
-      ' 抓取），但不会实时更新，也没有中文说明。';
+
+    var when = new Date(DATA.generatedAt).toLocaleString('zh-CN');
+    var history;
+    if (DATA.hasPrevDay) {
+      history =
+        '已积累 ' + DATA.historyDays + ' 天数据，升降标记对比的是 ' + DATA.prevDate +
+        ' 的榜单；star 曲线中 ' + Math.min(DATA.historyDays, 30) + ' 天为真实记录。';
+    } else {
+      history = '这是首日快照，升降标记（↑N / ↓N / NEW）从明天起才会出现；star 曲线目前按日均增量回推。';
+    }
+    warn.textContent = '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' + history;
   }
 
   /* ---------------- 详情 ---------------- */
@@ -345,6 +378,11 @@
       '</div>' +
       '<div class="panel">' +
       '<h4>近 30 天 Star 走势<span>' + (delta >= 0 ? '+' : '') + num(delta) + ' ★</span></h4>' +
+      '<div class="chart-note">' +
+      (item.trendRealPoints >= 30
+        ? '全部为真实记录'
+        : '真实记录 ' + (item.trendRealPoints || 1) + ' 天，其余按日均增量回推（估算）') +
+      '</div>' +
       '<div class="chart-wrap"><canvas id="chart"></canvas></div>' +
       '<div class="axis" id="axis"></div>' +
       '</div>' +
@@ -534,6 +572,33 @@
       state.lang = btn.getAttribute('data-lang');
       renderChips();
       renderList();
+    });
+
+    // 搜索：输入即过滤（数据只有几十条，不需要防抖）
+    var q = $('q');
+    q.addEventListener('input', function () {
+      state.q = q.value || '';
+      $('qClear').hidden = !state.q;
+      renderList();
+    });
+    q.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        q.value = '';
+        state.q = '';
+        $('qClear').hidden = true;
+        renderList();
+      }
+      if (e.key === 'Enter') {
+        var first = document.querySelector('.card');
+        if (first) openDetail(first.getAttribute('data-id'));
+      }
+    });
+    $('qClear').addEventListener('click', function () {
+      q.value = '';
+      state.q = '';
+      this.hidden = true;
+      renderList();
+      q.focus();
     });
 
     $('list').addEventListener('click', function (e) {

@@ -310,6 +310,68 @@ html[data-theme='light'] .seg button.on {
   flex: 0 0 auto;
 }
 
+/* ---------------- 搜索 ---------------- */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.search .s-ico {
+  position: absolute;
+  left: 13px;
+  font-size: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px 38px 10px 36px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.16s;
+  -webkit-appearance: none;
+}
+
+.search input::placeholder {
+  color: var(--text-muted);
+}
+
+.search input:focus {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: var(--surface-2);
+}
+
+.search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search .s-clear {
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search .s-clear:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
 /* ---------------- 列表头 ---------------- */
 
 .listhead {
@@ -548,7 +610,7 @@ html[data-theme='light'] .seg button.on {
   display: flex;
   align-items: flex-end;
   gap: 2px;
-  height: 18px;
+  height: 20px;
   flex: 0 0 auto;
 }
 
@@ -759,6 +821,12 @@ html[data-theme='light'] .seg button.on {
   font-weight: 500;
 }
 
+.chart-note {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: -6px 0 8px;
+}
+
 .chart-wrap {
   position: relative;
   height: 168px;
@@ -876,3 +944,4 @@ html[data-theme='light'] .btn-primary {
     font-size: 16px;
   }
 }
+

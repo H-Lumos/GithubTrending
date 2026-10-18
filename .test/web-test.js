@@ -112,11 +112,14 @@ function rpc(ws, id, method, params) {
     hasZh: /[\\u4e00-\\u9fa5]/.test(document.querySelector('.card .purpose')?.textContent || ''),
     overflow: document.documentElement.scrollWidth - window.innerWidth,
     tabs: document.querySelectorAll('#seg button').length,
-    chips: document.querySelectorAll('.chip').length
+    chips: document.querySelectorAll('.chip').length,
+    expectDaily: window.TRENDING.periods.daily.length,
+    expectFirst: window.TRENDING.periods.daily[0].repo,
+    expectFirstId: window.TRENDING.periods.daily[0].id
   }))()`);
   check('默认深色主题', boot.theme === 'dark', boot.theme);
-  check('今日 13 张卡片', boot.cards === 13, boot.cards + ' 张');
-  check('首条是官方第 1 名', boot.first === 'claude-plugins-official', boot.first);
+  check('卡片数 = 数据条数', boot.cards === boot.expectDaily, boot.cards + ' / 期望 ' + boot.expectDaily);
+  check('首条 = 数据第 1 名', boot.first === boot.expectFirst, boot.first);
   check('首条有中文用途', boot.hasZh, (boot.purpose || '').slice(0, 24));
   check('无横向溢出', boot.overflow <= 0, 'overflow=' + boot.overflow);
   check('周期 tab 三个', boot.tabs === 3, boot.tabs + ' 个');
@@ -129,11 +132,13 @@ function rpc(ws, id, method, params) {
     return new Promise(r => setTimeout(() => r({
       cards: document.querySelectorAll('.card').length,
       first: document.querySelector('.card .name b')?.textContent,
-      label: document.getElementById('sortLabel').textContent
+      label: document.getElementById('sortLabel').textContent,
+      expect: window.TRENDING.periods.monthly.length,
+      expectFirst: window.TRENDING.periods.monthly[0].repo
     }), 300));
   })()`);
-  check('本月 21 张卡片', monthly.cards === 21, monthly.cards + ' 张');
-  check('本月第 1 名正确', monthly.first === 'security-audit-skill', monthly.first);
+  check('本月卡片数 = 数据条数', monthly.cards === monthly.expect, monthly.cards + ' / 期望 ' + monthly.expect);
+  check('本月第 1 名 = 数据第 1 名', monthly.first === monthly.expectFirst, monthly.first);
   check('排序文案跟随周期', monthly.label.indexOf('本月') > -1, monthly.label);
 
   /* ---------- 3. 语言筛选 ---------- */
@@ -170,11 +175,11 @@ function rpc(ws, id, method, params) {
     }, 600));
   })()`);
   check('抽屉已打开', detail.open === true);
-  check('标题是首条项目', (detail.title || '').indexOf('claude-plugins-official') > -1, detail.title);
+  check('标题 = 首条项目', (detail.title || '').indexOf(boot.expectFirstId) > -1, detail.title);
   check('canvas 走势图已绘制', detail.hasChart === true);
   check('有英文原文引用块', detail.hasQuote === true);
   check('详情有中文说明', detail.hasZhDetail === true);
-  check('URL 深链已写入', detail.url === 'anthropics/claude-plugins-official', detail.url);
+  check('URL 深链已写入', detail.url === boot.expectFirstId, detail.url);
 
   /* ---------- 5. 收藏 ---------- */
   console.log('\n[5] 收藏');
@@ -203,6 +208,57 @@ function rpc(ws, id, method, params) {
   check('主题切到浅色', misc.theme === 'light', misc.theme);
   check('关闭后 URL 深链已清', misc.url === null, String(misc.url));
 
+  /* ---------- 7. 搜索 ---------- */
+  console.log('\n[7] 搜索');
+  const search = await evalJs(`(() => {
+    const q = document.getElementById('q');
+    function fire(v){ q.value = v; q.dispatchEvent(new Event('input', {bubbles:true})); }
+    fire('claude');
+    const hit = [...document.querySelectorAll('.card')].map(c => ({
+      name: c.querySelector('.name').textContent,
+      text: c.textContent.toLowerCase()
+    }));
+    const allMatch = hit.length > 0 && hit.every(h => h.text.indexOf('claude') > -1);
+    const label = document.getElementById('sortLabel').textContent;
+    fire('zzzzzz');
+    const emptyState = document.querySelector('.state h3');
+    const emptyText = emptyState ? emptyState.textContent : '';
+    fire('');
+    return new Promise(r => setTimeout(() => r({
+      hitCount: hit.length, allMatch, label,
+      emptyText, restored: document.querySelectorAll('.card').length
+    }), 200));
+  })()`);
+  check('搜索 claude 命中且全匹配', search.hitCount > 0 && search.allMatch, search.hitCount + ' 条');
+  check('搜索时列表头文案切换', search.label.indexOf('搜索') > -1, search.label);
+  check('无结果时显示空态', search.emptyText.indexOf('没有匹配') > -1, search.emptyText);
+  check('清空搜索后恢复 13 条', search.restored === 13, search.restored + ' 条');
+
+  /* ---------- 8. 历史与曲线标注 ---------- */
+  console.log('\n[8] 历史字段 / 曲线标注');
+  const hist = await evalJs(`(() => {
+    document.querySelector('.card').click();
+    return new Promise(r => setTimeout(() => {
+      const note = document.querySelector('.chart-note');
+      r({
+        hasPrevDay: window.TRENDING.hasPrevDay,
+        historyDays: window.TRENDING.historyDays,
+        realPoints: window.TRENDING.periods.daily[0].trendRealPoints,
+        hasRankField: 'rankChange' in window.TRENDING.periods.daily[0],
+        noteText: note ? note.textContent.trim() : '',
+        badges: document.querySelectorAll('.rk').length
+      });
+    }, 500));
+  })()`);
+  check('数据里带历史字段', hist.hasPrevDay === false && hist.historyDays === 1, '首日 · ' + hist.historyDays + ' 天');
+  check('条目带 rankChange 字段', hist.hasRankField === true);
+  check('首日真实点数 = 1', hist.realPoints === 1, hist.realPoints + ' 点');
+  check('曲线标注为估算', hist.noteText.indexOf('估算') > -1, hist.noteText);
+  check('首日不显示升降徽章', hist.badges === 0, hist.badges + ' 个');
+
+  await evalJs('document.getElementById("btnClose").click(); 1');
+  await sleep(300);
+
   console.log('\n=== 运行时异常 ===');
   console.log(errors.length ? errors.slice(0, 5).join('\n') : '  （无）');
 
@@ -219,6 +275,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 

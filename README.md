@@ -81,7 +81,26 @@ node scripts\snapshot.js
 
 同时写两份产物：`web/data/trending.js`（网页用）、`miniprogram/data/snapshot.js`（小程序用）。
 
-### 2.2 自动更新
+### 2.2 历史库：升降徽章 + 真实曲线
+
+data/history.json 每天追加一条记录（d / stars / anks），保留 45 天：
+
+`json
+{ "d": "2026-10-18",
+  "stars": { "owner/repo": 51314 },
+  "ranks": { "daily": ["owner/repo", ...], "weekly": [...], "monthly": [...] } }
+`
+
+它支撑两个功能：
+
+| 功能 | 依赖 | 说明 |
+|---|---|---|
+| **名次徽章** NEW / ↑N / ↓N | 与「上一个有记录的日期」对比 | **首日不会有徽章**，第二天起才会出现 |
+| **真实 star 曲线** | 历史上每天记录的 star 数 | 攒满 30 天即全真实；不足时按增量回推，详情页会标注「估算」 |
+
+回推规则（只有一个真实点时）：用该周期的 hot ÷ 周期天数 作为日增，并**按 0.93 衰减**往更早推——否则「今天涨了 2213」会被当成涨了一整月，曲线会先撞 0 再陡升。
+
+### 2.3 自动更新
 
 `.github/workflows/update-trending.yml`：每天 UTC 00:17（北京 08:17）跑一次，有变化才提交，然后自动部署 Pages。也能手动触发（Actions → Run workflow）。
 
@@ -320,7 +339,8 @@ GithubTrending/
 │   ├── assets/app.js                   渲染 / 筛选 / 收藏 / 走势图（无依赖）
 │   └── data/trending.js                数据（脚本生成，勿手改）
 ├── data/
-│   └── zh.js                           人工中文对照表（owner/repo → 中文用途）
+│   ├── zh.js                           人工中文对照表（owner/repo → 中文用途）
+│   └── history.json                    每日历史（名次 + star），保留 45 天
 ├── .github/workflows/
 │   └── update-trending.yml             每日抓取 + 部署 Pages
 ├── cloudfunctions/'
@@ -590,6 +610,7 @@ git reset HEAD canary.md && del canary.md
 ## License
 
 MIT
+
 
 
 
