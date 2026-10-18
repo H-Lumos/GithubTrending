@@ -403,7 +403,7 @@
     );
   }
 
-  function cardHtml(item, idx) {
+  function cardHtml(item, idx, renumber) {
     var rankClass = idx === 0 ? ' top1' : idx === 1 ? ' top2' : idx === 2 ? ' top3' : '';
     var initial = (item.repo || item.fullName || '?').charAt(0).toUpperCase();
     var showEn = item.descEn && String(item.descEn).trim() !== String(item.purpose || '').trim();
@@ -426,7 +426,7 @@
 
     return (
       '<article class="card" data-id="' + esc(item.id) + '" tabindex="0">' +
-      '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : item.rank) + '</div>' +
+      '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : renumber ? idx + 1 : item.rank) + '</div>' +
       thumbHtml(item, initial) +
       '<div class="body">' +
       '<div class="name"><span class="owner">' + hl(item.owner, toks) + '/</span><b>' + hl(item.repo, toks) + '</b>' +
@@ -454,12 +454,25 @@
     var items = visibleItems();
     var list = $('list');
     var searching = !!state.q.trim();
+    // 筛选后序号要重排：语言筛选或搜索时，序号代表「当前列表内第几个」
+    var renumber = !!state.lang || searching;
 
-    $('sortLabel').textContent = searching
+    var head = searching
       ? '搜索「' + state.q.trim() + '」'
       : state.onlyFavs
       ? '按收藏时间排序'
       : '按' + unitLabel() + '排序';
+
+    if (renumber && !state.onlyFavs) {
+      var langName = state.lang;
+      languages().forEach(function (l) {
+        if (l.value === state.lang) langName = l.name;
+      });
+      if (!searching && state.lang) head += '（' + langName + ' 内序号）';
+      else if (searching) head += '（结果内序号）';
+    }
+
+    $('sortLabel').textContent = head;
     $('total').textContent = items.length + (state.onlyFavs ? ' 个收藏' : ' 个上榜');
 
     if (!items.length) {
@@ -480,7 +493,11 @@
       return;
     }
 
-    list.innerHTML = items.map(cardHtml).join('');
+    list.innerHTML = items
+      .map(function (it, i) {
+        return cardHtml(it, i, renumber);
+      })
+      .join('');
   }
 
   function renderMeta() {
@@ -880,6 +897,7 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
 
 
 

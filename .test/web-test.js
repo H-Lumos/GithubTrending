@@ -452,6 +452,58 @@ function rpc(ws, id, method, params) {
   check('app.css 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.css), ver.css);
   check('高亮样式已生效', ver.markStyle === true);
 
+  /* ---------- 12.5 筛选后序号重排 ---------- */
+  console.log('\n[12.5] 筛选后序号重排');
+  const renum = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const ranks = () => [].slice.call(document.querySelectorAll('.card .rank')).map(e => e.textContent.trim());
+
+    // 1) 未筛选：序号应等于官方名次
+    const chipAll = document.querySelector('.chip[data-lang=""]');
+    if (chipAll) chipAll.click();
+    const all = ranks();
+    const official = T.periods.daily.map(i => String(i.rank));
+
+    // 2) 按语言筛选：序号应从 1 连续排到 N
+    //    选一个数量 >=3 的语言，才能看出重排
+    const counts = {};
+    T.periods.daily.forEach(i => { counts[i.language] = (counts[i.language] || 0) + 1; });
+    const lang = Object.keys(counts).filter(k => counts[k] >= 3 && k !== 'Unknown')[0] || T.periods.daily[0].language;
+    const chip = [].slice.call(document.querySelectorAll('.chip')).filter(c => c.textContent.trim() === lang)[0];
+    if (chip) chip.click();
+    const filtered = ranks();
+    const label = document.getElementById('sortLabel').textContent.trim();
+    const officialOfFiltered = [].slice.call(document.querySelectorAll('.card')).map(c => c.getAttribute('data-id'))
+      .map(id => { const it = T.periods.daily.filter(x => x.id === id)[0]; return it ? it.rank : null; });
+
+    // 3) 搜索：序号也从 1 开始
+    if (chipAll) chipAll.click();
+    const q = document.getElementById('q');
+    q.value = 'a';
+    q.dispatchEvent(new Event('input', { bubbles: true }));
+    const searched = ranks();
+    q.value = '';
+    q.dispatchEvent(new Event('input', { bubbles: true }));
+
+    return { all, official, filtered, label, officialOfFiltered, searched, lang };
+  })()`);
+  check('未筛选时序号 = 官方名次', JSON.stringify(renum.all) === JSON.stringify(renum.official), renum.all.join(','));
+  check(
+    '按语言筛选后从 1 连续排列',
+    JSON.stringify(renum.filtered) === JSON.stringify(renum.filtered.map((_, i) => String(i + 1))),
+    renum.lang + ' → ' + renum.filtered.join(',')
+  );
+  check(
+    '筛选后序号与原名次不同（确实重排了）',
+    JSON.stringify(renum.filtered) !== JSON.stringify(renum.officialOfFiltered.map(String)),
+    '原 ' + renum.officialOfFiltered.join(',') + ' → 现 ' + renum.filtered.join(',')
+  );
+  check('列表头标注了筛选内序号', /内序号/.test(renum.label), renum.label);
+  check(
+    '搜索结果序号也从 1 开始',
+    renum.searched.length > 0 && renum.searched[0] === '1',
+    renum.searched.slice(0, 5).join(',')
+  );
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -512,6 +564,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 
