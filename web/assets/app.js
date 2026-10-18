@@ -391,6 +391,7 @@
     if (owner && owner !== 'ghost' && /^[A-Za-z0-9._-]+$/.test(owner)) {
       img =
         '<img class="av" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"' +
+        ' style="opacity:0" onload="this.style.opacity=1"' +
         ' src="https://github.com/' + esc(owner) + '.png?size=96"' +
         ' onerror="this.remove()">';
     }

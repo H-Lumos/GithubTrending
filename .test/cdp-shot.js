@@ -135,6 +135,17 @@ function rpc(ws, id, method, params) {
     await sleep(400);
   }
 
+  // 等图片加载完（头像走懒加载 + 302，截图太早会拍到空白块）
+  for (let i = 0; i < 24; i++) {
+    const done = await send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: '(() => { const imgs = [...document.images]; return imgs.length === 0 || imgs.every(im => im.complete); })()'
+    });
+    if (done.result.value) break;
+    await sleep(400);
+  }
+  await sleep(300);
+
   // 关键测量：页面是否横向溢出 / 卡片宽度 / 抽屉位置
   const measure = await send('Runtime.evaluate', {
     returnByValue: true,
@@ -175,6 +186,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(1);
 });
+
 
 
 
