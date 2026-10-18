@@ -81,6 +81,27 @@ function rpc(ws, id, method, params) {
     return r.result.value;
   };
 
+  /**
+   * 等页面真正就绪：数据已加载 + 目标元素存在。
+   * 线上走代理比 file:// 慢，固定 sleep 容易在 reload 后抢跑（踩过）。
+   */
+  const waitReady = async (selector, timeoutMs) => {
+    const deadline = Date.now() + (timeoutMs || 12000);
+    while (Date.now() < deadline) {
+      const ok = await evalJs(`!!(window.TRENDING && document.querySelector(${JSON.stringify(selector || '#q')}))`);
+      if (ok) return true;
+      await sleep(250);
+    }
+    return false;
+  };
+
+  /** reload 并等到就绪 */
+  const reloadReady = async () => {
+    await send('Page.reload', { ignoreCache: true });
+    await sleep(600);
+    return waitReady('#q');
+  };
+
   const errors = [];
   ws.addEventListener('message', (ev) => {
     try {
@@ -99,8 +120,7 @@ function rpc(ws, id, method, params) {
 
   // 清掉上一轮留下的收藏/主题，保证每次都是确定状态
   await evalJs('localStorage.clear(); 1');
-  await send('Page.reload', { ignoreCache: true });
-  await sleep(1500);
+  await reloadReady();
 
   /* ---------- 1. 首屏 ---------- */
   console.log('\n[1] 首屏');
@@ -302,8 +322,7 @@ function rpc(ws, id, method, params) {
     localStorage.setItem('ght:favs', JSON.stringify(favs));
     return { dailyId, crossId: cross ? cross.id : null, count: Object.keys(favs).length };
   })()`);
-  await send('Page.reload', { ignoreCache: true });
-  await sleep(1600);
+  await reloadReady();
 
   const favView = await evalJs(`(() => {
     document.getElementById('btnFav').click();
@@ -337,8 +356,7 @@ function rpc(ws, id, method, params) {
   check('详情显示原仓库名', /ghost|not-on-any-list/.test(ghostDetail.name), ghostDetail.name);
 
   await evalJs('document.getElementById("btnClose").click(); localStorage.removeItem("ght:favs"); 1');
-  await send('Page.reload', { ignoreCache: true });
-  await sleep(1600);
+  await reloadReady();
 
   /* ---------- 11. 搜索高亮 / 命中片段 ---------- */
   console.log('\n[11] 搜索高亮与命中片段');
@@ -450,6 +468,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 
