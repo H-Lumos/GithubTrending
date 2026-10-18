@@ -28,6 +28,31 @@ try {
   console.warn('[zh] 未找到 data/zh.js，中文说明将缺失');
 }
 
+const llm = require('./lib/llm.js');
+const AUTO_FILE = path.join(ROOT, 'data', 'zh-auto.json');
+
+/** AI 生成的中文缓存（会被 Actions 提交回仓库，所以同一条只花钱一次） */
+let AUTO = { updatedAt: 0, model: llm.MODEL, entries: {} };
+try {
+  const raw = JSON.parse(fs.readFileSync(AUTO_FILE, 'utf8'));
+  if (raw && raw.entries) AUTO = raw;
+} catch (e) {
+  /* 第一次跑：还没有缓存 */
+}
+
+/**
+ * 取中文文案，优先级：人工对照表 > AI 缓存（未过期）> 无
+ */
+function pickZh(id) {
+  const human = ZH[id];
+  if (human && human.purpose) return { entry: human, source: 'manual' };
+
+  const auto = AUTO.entries[id];
+  if (auto && auto.purpose && llm.isFresh(auto, Date.now())) return { entry: auto, source: 'auto' };
+
+  return { entry: null, source: 'none' };
+}
+
 const PERIODS = ['daily', 'weekly', 'monthly'];
 const HISTORY_FILE = path.join(ROOT, 'data', 'history.json');
 const KEEP_DAYS = 45;
@@ -124,7 +149,8 @@ function trendOf(history, id, currentStars, hot, periodDays) {
 
 function toSnapshotItem(raw, extra) {
   const desc = (raw.descEn || '').trim();
-  const zh = ZH[raw.id] || null;
+  const picked = pickZh(raw.id);
+  const zh = picked.entry;
   const t = trendOf(extra.history, raw.id, raw.stars, raw.hot, extra.periodDays);
   return Object.assign({}, raw, {
     purpose: (zh && zh.purpose) || desc || '（这个项目没有填写描述）',
@@ -137,7 +163,20 @@ function toSnapshotItem(raw, extra) {
     trendRealPoints: t.realPoints,
     rankChange: extra.rankChange,
     isNew: extra.isNew,
-    hasZh: !!(zh && zh.purpose)
+    hasZh: !!(zh && zh.purpose),
+    zhSource: zh ? picked.source : 'none' // manual | auto | none
+  });
+}
+
+/** AI 生成结果回填到已构建的条目上 */
+function applyAuto(items, entry) {
+  items.forEach(function (it) {
+    if (it.id !== entry.id) return;
+    it.purpose = entry.text.purpose;
+    it.detail = entry.text.detail;
+    it.tags = entry.text.tags;
+    it.hasZh = true;
+    it.zhSource = 'auto';
   });
 }
 
@@ -207,6 +246,52 @@ async function run() {
   if (empty.length) {
     console.error('\n❌ 以下周期没有数据，未写入：' + empty.join(', '));
     return 1;
+  }
+
+  /* ---- AI 补齐中文：只对人工表里没有的条目调一次，结果缓存进 data/zh-auto.json ---- */
+  const apiKey = process.env.DEEPSEEK_API_KEY || '';
+  const seenIds = {};
+  const missing = [];
+  PERIODS.forEach(function (p) {
+    (snapshot.periods[p] || []).forEach(function (it) {
+      if (seenIds[it.id] || it.zhSource !== 'none') return;
+      seenIds[it.id] = 1;
+      missing.push({ id: it.id, fullName: it.fullName, language: it.language, descEn: it.descEn, topics: it.tags });
+    });
+  });
+
+  snapshot.zhMissing = missing.length;
+  snapshot.zhAi = 0;
+
+  if (!missing.length) {
+    console.log('\n[zh] 榜单中文已全覆盖，无需调用模型');
+  } else if (!apiKey) {
+    console.log('\n[zh] 缺 ' + missing.length + ' 条中文，但未配置 DEEPSEEK_API_KEY，本次跳过（页面显示英文原文）');
+  } else {
+    const limit = Number(process.env.ZH_MAX_PER_RUN || 12);
+    console.log('\n[zh] 缺 ' + missing.length + ' 条中文，本次最多生成 ' + limit + ' 条（模型 ' + llm.MODEL + '）');
+    const result = await llm.generateMany(apiKey, missing, {
+      limit: limit,
+      onResult: function (item, entry, err) {
+        if (err) {
+          console.log('    ✗ ' + item.id + '：' + err.message);
+          return;
+        }
+        AUTO.entries[item.id] = entry;
+        PERIODS.forEach(function (p) {
+          applyAuto(snapshot.periods[p] || [], { id: item.id, text: entry });
+        });
+        snapshot.zhAi++;
+        console.log('    ✓ ' + item.id + ' → ' + entry.purpose);
+      }
+    });
+    if (result.skipped) console.log('    （还有 ' + result.skipped + ' 条留到下次运行）');
+    if (snapshot.zhAi) {
+      AUTO.updatedAt = Date.now();
+      AUTO.model = llm.MODEL;
+      fs.writeFileSync(AUTO_FILE, JSON.stringify(AUTO, null, 2), 'utf8');
+      console.log('    已写入 ' + AUTO_FILE + '（累计缓存 ' + Object.keys(AUTO.entries).length + ' 条）');
+    }
   }
 
   /* ---- 语言清单：按当天实际出现的语言生成 ---- */

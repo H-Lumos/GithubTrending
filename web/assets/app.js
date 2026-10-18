@@ -393,7 +393,9 @@
       '<div class="axis" id="axis"></div>' +
       '</div>' +
       '<div class="panel">' +
-      '<h4>这个项目是做什么的<span>' + (item.hasZh ? '中文说明' : '暂无中文，下面是原文') + '</span></h4>' +
+      '<h4>这个项目是做什么的<span>' +
+      (item.zhSource === 'auto' ? 'AI 生成' : item.hasZh ? '中文说明' : '暂无中文，下面是原文') +
+      '</span></h4>' +
       '<p class="dtext">' + esc(item.detail) + '</p>' +
       (tags ? '<div class="tags">' + tags + '</div>' : '') +
       '</div>' +
@@ -684,4 +686,5 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
 

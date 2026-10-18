@@ -235,7 +235,9 @@ monthly → created:>=90天前  stars:>=150  → 4312 个候选
 
 ## 4. 中文用途怎么来
 
-### 4.1 网页版：人工对照表（零成本）
+### 4.1 三层供给：人工 > AI 缓存 > 英文原文
+
+### 4.1.1 人工对照表（优先级最高，零成本）
 
 `data/zh.js` 是一份 `owner/repo → { purpose, detail }` 的对照表，随仓库一起提交。
 
@@ -248,6 +250,43 @@ monthly → created:>=90天前  stars:>=150  → 4312 个候选
 目前覆盖榜单上的 **37 个仓库全部有中文**。榜单以后出现新项目时会自动回落英文，往 `data/zh.js` 补一条再重跑 `node scripts/snapshot.js` 即可。
 
 这样做的取舍：**不用付 API 费用，也不用纠结模型胡说**，代价是新项目首次出现时可能只有英文。
+
+### 4.1.2 AI 自动补齐（DeepSeek）
+
+人工表覆盖不到的仓库，抓取时会自动调 DeepSeek 生成中文，**结果落盘到 data/zh-auto.json 并提交回仓库**——同一条只花钱一次。
+
+`
+data/zh.js       人工撰写，41 条，优先级最高（不会被 AI 覆盖）
+data/zh-auto.json AI 生成缓存，90 天过期（ZH_AUTO_TTL_DAYS 可调）
+两者都没有     → 回落 GitHub 官方英文描述
+`
+
+**开启方式**（只需一次）：
+
+`
+仓库 → Settings → Secrets and variables → Actions → New repository secret
+  Name : DEEPSEEK_API_KEY
+  Value: sk-xxxxx
+`
+
+没配也能跑：日志会打印「缺 N 条中文，但未配置 DEEPSEEK_API_KEY，本次跳过」，页面照常显示英文。
+
+**成本与限流**：每条约 400 token；单次最多生成 12 条（ZH_MAX_PER_RUN），剩余留到下次运行。首次全量补齐约 30 条，成本在几分钱量级。
+
+**质量控制**（scripts/lib/llm.js）：
+
+| 约束 | 做法 |
+|---|---|
+| 输出格式 | esponse_format: json_object + 提示词要求只输出 JSON |
+| 字段校验 | purpose ≥4 字、detail ≥8 字、	ags 是数组，不合格就丢弃（不写缓存） |
+| 容错 | 模型把 JSON 包在 `` `json `` 里也能解析 |
+| 防编造 | 提示词明确「只能基于给定信息推断，禁止编造未提及的功能/公司/数据」 |
+| 失败隔离 | 单条失败只记日志，不影响其它条目和整次抓取 |
+
+界面会标注来源：详情页标题显示「AI 生成」或「中文说明」，不把机器产物混同人工文案。
+
+离线测试（不需要 Key、不联网）用本地 mock 服务验证协议与容错：
+ode .test/run-llm.js（20 项）。
 
 ### 4.2 小程序版遗留：三层供给（已归档）
 
@@ -666,3 +705,4 @@ git reset HEAD canary.md && del canary.md
 ## License
 
 MIT
+
