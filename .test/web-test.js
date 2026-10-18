@@ -437,6 +437,7 @@ function rpc(ws, id, method, params) {
       js: js ? js.getAttribute('src') : '',
       css: css ? css.getAttribute('href') : '',
       // 直接量 computed style（file:// 下读 cssRules 会被安全策略拦）
+      file: location.protocol === 'file:',
       markStyle: (() => {
         const m = document.createElement('mark');
         m.className = 'hl';
@@ -448,8 +449,13 @@ function rpc(ws, id, method, params) {
       })()
     };
   })()`);
-  check('app.js 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.js), ver.js);
-  check('app.css 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.css), ver.css);
+  // 指纹只在部署副本里注入（仓库文件保持干净，避免 CI 与本地互相冲突）
+  if (ver.file) {
+    check('本地文件不带 ?v=（指纹只在部署时注入）', ver.js.indexOf('?v=') === -1 && ver.css.indexOf('?v=') === -1, ver.js);
+  } else {
+    check('线上 app.js 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.js), ver.js);
+    check('线上 app.css 引用带 ?v= 指纹', /\?v=[0-9a-f]{6,}/.test(ver.css), ver.css);
+  }
   check('高亮样式已生效', ver.markStyle === true);
 
   /* ---------- 12.5 筛选后序号重排 ---------- */
@@ -602,6 +608,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 

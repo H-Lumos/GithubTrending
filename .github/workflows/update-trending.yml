@@ -56,9 +56,15 @@ jobs:
 
       - uses: actions/configure-pages@v6
 
+      # 资源指纹只在「部署副本」里注入，不改仓库里的 index.html。
+      # 原因：仓库文件被 CI 改写会跟本地开发互相冲突（踩过 4 次），
+      #      而浏览器缓存只影响线上，本地 file:// 根本不需要指纹。
+      - name: 准备部署目录（复制 web/ 并注入资源指纹）
+        run: node scripts/build-dist.js
+
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: web
+          path: dist
 
       - id: deployment
         uses: actions/deploy-pages@v5

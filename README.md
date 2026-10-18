@@ -115,7 +115,32 @@ anks），保留 45 天：
 
 实际例子：搜 ea 会命中 VoiceStudio，因为英文描述里的 udiobook creation 含 ea——卡片会显示 …transcription & audiobook **creation** in 646 languages.，一眼能看出是子串命中。
 
-### 2.4 自动更新
+### 2.4 部署流程与「生成物冲突」
+
+`
+执行顺序（.github/workflows/update-trending.yml）：
+  1. node scripts/snapshot.js     抓榜单 → 写 web/data/trending.js、data/history.json
+  2. 有变化就 commit + push        （CI 提交生成物）
+  3. node scripts/build-dist.js   复制 web/ → dist/，并给资源注入 ?v= 指纹
+  4. upload-pages-artifact(dist) → deploy-pages
+`
+
+**为什么指纹只在 dist/ 里注入**：GitHub Pages 对静态资源是 Cache-Control: max-age=600，
+URL 不变浏览器就跑缓存（改完 JS 看不到新功能，踩过）。但如果让 CI 去改写仓库里的
+web/index.html，本地开发时又会被改回来，两边必然冲突。所以仓库里的 index.html
+永远是干净的，指纹只加在部署副本上。
+
+**本地推送前先对齐生成物**：
+
+`powershell
+node scripts\prepare-push.js   # 把 trending.js / history.json 等恢复成远端版本
+git add -A && git commit -m "..." && git push
+`
+
+不这么做的话，CI 每天提交的生成物会和本地生成的内容冲突（git pull --rebase 直接失败）。
+数据仍然入库，所以**双击 web/index.html 依然能离线看到内容**。
+
+### 2.5 自动更新
 
 `.github/workflows/update-trending.yml`：每天 UTC 00:17（北京 08:17）跑一次，有变化才提交，然后自动部署 Pages。也能手动触发（Actions → Run workflow）。
 
@@ -719,5 +744,6 @@ git reset HEAD canary.md && del canary.md
 ## License
 
 MIT
+
 
 
