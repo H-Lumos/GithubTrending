@@ -8,7 +8,7 @@
  *   AWS AKIAxxx
  *   PEM 私钥头
  *   形如 password = "xxx" / token: "xxx" 的赋值
- *   Windows 个人目录 C:\Users\xxx（会泄露用户名）
+ *   Windows 个人目录（形如 C:\ + Users + 用户名，会泄露用户名）
  *
  * 放行的：文档里的示例（xxxx、<token>、***、your-token 等占位写法）
  */
@@ -113,5 +113,6 @@ function main() {
 }
 
 main();
+
 
 
