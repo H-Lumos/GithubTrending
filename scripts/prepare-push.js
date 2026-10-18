@@ -34,23 +34,31 @@ function main() {
     process.exit(1);
   }
 
-  console.log('拉取远端 main …');
-  const fetch = git(['fetch', 'origin', 'main']);
-  if (fetch.code !== 0) {
-    console.error('✖ fetch 失败：' + (fetch.err || fetch.out));
-    process.exit(1);
-  }
-
-  // 1) 先把工作区对齐远端分支头（不移动本地分支，避免破坏正在做的提交）
+  // 关键：恢复成【本地 HEAD】的版本，而不是远端版本。
+  // 冲突的根源是「本地重新生成的内容」和 CI 提交的内容不同；
+  // 只要提交里不含生成物改动，rebase 到新远端时就不会冲突。
+  let changed = 0;
   for (const f of GENERATED) {
-    const r = git(['checkout', 'FETCH_HEAD', '--', f]);
-    if (r.code === 0) console.log('  ↺ ' + f + ' → 远端版本');
-    else if (/did not match any file/.test(r.err)) console.log('  - ' + f + '（远端还没有这个文件）');
-    else console.log('  ! ' + f + '：' + (r.err || r.out));
+    const r = git(['checkout', 'HEAD', '--', f]);
+    if (r.code === 0) {
+      console.log('  ↺ ' + f + ' → 丢弃本地生成内容，恢复为 HEAD 版本');
+      changed++;
+    } else if (/did not match any file/.test(r.err)) {
+      console.log('  - ' + f + '（HEAD 里还没有这个文件）');
+    } else {
+      console.log('  ! ' + f + '：' + (r.err || r.out));
+    }
   }
 
-  console.log('\n完成。生成物已对齐远端，可以只提交代码改动了。');
-  console.log('提示：如果本地分支落后远端，再执行 git pull --rebase 就不会冲突。');
+  const behind = git(['rev-list', '--count', 'HEAD..origin/main']);
+  const n = Number(behind.out || 0);
+
+  console.log('\n完成：生成物已恢复，提交里只会剩代码改动。');
+  if (n > 0) {
+    console.log('本地落后远端 ' + n + ' 个提交，接着执行：git pull --rebase（此时不会冲突）');
+  } else {
+    console.log('可以直接 git add / commit / push。');
+  }
 }
 
 main();
