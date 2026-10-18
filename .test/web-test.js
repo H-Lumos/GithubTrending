@@ -504,6 +504,44 @@ function rpc(ws, id, method, params) {
     renum.searched.length > 0 && renum.searched[0] === '1',
     renum.searched.slice(0, 5).join(',')
   );
+  /* ---------- 12.6 详情徽章显示语言内名次 ---------- */
+  console.log('\n[12.6] 详情徽章的语言内名次');
+  const dbadge = await evalJs(`(() => {
+    // 找一个「官方名次 != 语言内名次」的条目并打开详情
+    const T = window.TRENDING;
+    const daily = T.periods.daily;
+    let target = null;
+    daily.forEach(it => {
+      if (!it.language || it.language === 'Unknown') return;
+      const same = daily.filter(x => x.language === it.language);
+      const idx = same.findIndex(x => x.id === it.id) + 1;
+      if (idx !== it.rank) target = { id: it.id, rank: it.rank, langRank: idx, lang: it.language };
+    });
+    if (!target) return { skipped: true };
+    const card = [].slice.call(document.querySelectorAll('.card')).filter(c => c.getAttribute('data-id') === target.id)[0];
+    if (!card) return { skipped: true };
+    card.click();
+    return new Promise(r => setTimeout(() => r({
+      target,
+      badge: (document.querySelector('.dbadge') || {}).textContent || ''
+    }), 350));
+  })()`);
+  if (dbadge.skipped) {
+    console.log('  - 跳过（当前榜单没有语言内名次不同的条目）');
+  } else {
+    check(
+      '徽章含官方名次',
+      new RegExp('#' + dbadge.target.rank + '\\b').test(dbadge.badge),
+      dbadge.badge.trim()
+    );
+    check(
+      '徽章含语言内名次',
+      dbadge.badge.indexOf('第 ' + dbadge.target.langRank) > -1,
+      dbadge.target.lang + ' 第 ' + dbadge.target.langRank
+    );
+  }
+  await evalJs('document.getElementById("btnClose").click(); 1');
+  await sleep(200);
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -564,6 +602,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 

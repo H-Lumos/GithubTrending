@@ -573,12 +573,35 @@
       return '<span class="tag">' + esc(t) + '</span>';
     }).join('');
 
+    // 该语言在这个周期里的名次（和列表筛选后的序号一致，避免详情与列表对不上）
+    var langName = !item.language || item.language === 'Unknown' ? '' : item.language;
+    var langRank = null;
+    if (!item.offList && langName) {
+      var p = item.fromPeriod || state.period;
+      var same = (DATA.periods[p] || []).filter(function (x) {
+        return x.language === langName;
+      });
+      for (var si = 0; si < same.length; si++) {
+        if (same[si].id === item.id) {
+          langRank = si + 1;
+          break;
+        }
+      }
+    }
+
+    var badgeTail;
+    if (item.offList) {
+      badgeTail = '📌 已下榜' + (item.ts ? ' · 收藏于 ' + String(timeAgo(item.ts)).replace('更新', '') : '');
+    } else {
+      badgeTail =
+        '⚡ ' + esc(periodLabel(item.fromPeriod || state.period)) + '榜 #' + item.rank +
+        ' · ' +
+        (langName ? esc(langName) : '未标注语言') +
+        (langRank && langRank !== item.rank ? ' 第 ' + langRank : '');
+    }
+
     return (
-      '<div class="dbadge">' +
-      (item.offList
-        ? '📌 已下榜' + (item.ts ? ' · 收藏于 ' + String(timeAgo(item.ts)).replace('更新', '') : '')
-        : '⚡ ' + esc(periodLabel(item.fromPeriod || state.period)) + '榜 #' + item.rank) +
-      ' · ' + esc(!item.language || item.language === 'Unknown' ? '未标注语言' : item.language) + '</div>' +
+      '<div class="dbadge">' + badgeTail + '</div>' +
       '<h2 class="dname"><span class="owner">' + esc(item.owner) + '/</span>' + esc(item.repo) + '</h2>' +
       '<p class="dpurpose">' + esc(item.purpose) + '</p>' +
       (item.rankChange != null
