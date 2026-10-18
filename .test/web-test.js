@@ -9,7 +9,7 @@ const path = require('path');
 
 const W = Number(process.argv[2] || 1280);
 const H = Number(process.argv[3] || 900);
-const URL = 'file:///G:/newscollecting/GithubTrending/web/index.html?theme=dark';
+const URL = process.env.WEB_URL || 'file:///G:/newscollecting/GithubTrending/web/index.html?theme=dark';
 const PORT = 9400;
 
 const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
@@ -47,6 +47,7 @@ function rpc(ws, id, method, params) {
     [
       '--headless=new',
       '--disable-gpu',
+      ...(URL && !URL.startsWith('file:') ? ['--proxy-server=http://127.0.0.1:18118'] : []),
       '--hide-scrollbars',
       '--remote-debugging-port=' + PORT,
       '--user-data-dir=' + profile,
@@ -213,3 +214,5 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+

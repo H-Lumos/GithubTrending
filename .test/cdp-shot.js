@@ -44,6 +44,7 @@ function rpc(ws, id, method, params) {
     [
       '--headless=new',
       '--disable-gpu',
+      ...(URL && !URL.startsWith('file:') ? ['--proxy-server=http://127.0.0.1:18118'] : []),
       '--hide-scrollbars',
       '--remote-debugging-port=' + PORT,
       '--user-data-dir=' + profile,
@@ -129,4 +130,5 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(1);
 });
+
 
