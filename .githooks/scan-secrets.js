@@ -14,7 +14,7 @@
  */
 const { execSync } = require('child_process');
 
-const PLACEHOLDER = /(x{3,}|<[^>]*>|your[-_]?|placeholder|example|dummy|\*\*\*|\.\.\.|redacted)/i;
+const PLACEHOLDER = /(x{3,}|<[^>]*>|your[-_]?|placeholder|example|dummy|fake|sample|\*\*\*|\.\.\.|redacted)/i;
 
 const RULES = [
   {
@@ -113,4 +113,5 @@ function main() {
 }
 
 main();
+
 

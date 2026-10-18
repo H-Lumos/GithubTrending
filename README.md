@@ -337,6 +337,7 @@ $c = $c.Replace(
 | 2026-10-18 | 修网页端两个布局 bug：`.grid` 用裸 `1fr` 导致移动端横向溢出；窄屏 meta 行把落星数挤换行 |
 | 2026-10-18 | 上线 GitHub Pages：<https://h-lumos.github.io/GithubTrending/> |
 | 2026-10-18 | **CI 踩坑**：抓取与部署拆成两个 job 时，`deploy` 检出的是触发时旧提交，新数据不会被部署 → 合并成单 job |
+| 2026-10-18 | 安全加固：新增 pre-commit 密钥扫描钩子；`project.config.json`（含 AppID）移出仓库；提交作者邮箱改为 GitHub 匿名地址（含历史重写） |
 │   ├── getTrending/                    榜单 + 详情（双通道 + 中文补齐 + 趋势 + 名次变化）
 │   ├── syncStars/                      每日 star/名次快照 + 旧数据清理（带定时触发器）
 │   └── seedZh/                         把人工中文文案灌进 repo_zh（seeds.json 由脚本生成）
@@ -527,6 +528,37 @@ Bad attr `wx:else` with message: `wx:if not found, then something must be wrong`
 
 ---
 
+## 安全与隐私
+
+这个仓库是公开的，所以做这几件事：
+
+| 措施 | 说明 |
+|---|---|
+| **pre-commit 密钥扫描** | `.githooks/`，拦 GitHub 令牌 / `sk-` 密钥 / AWS Key / PEM 私钥 / `password=` 赋值 / Windows 个人目录路径 |
+| **本机配置不入库** | `project.config.json`（含小程序 AppID）、`project.private.config.json`、`node_modules/` 都在 `.gitignore` 里 |
+| **提交邮箱用匿名地址** | `72478678+H-Lumos@users.noreply.github.com`，不暴露真实邮箱 |
+| **纯静态，无后端** | 没有服务器、数据库、登录，也就没有服务端攻击面；访客只能读页面 |
+
+启用钩子（**每个克隆只做一次**，`core.hooksPath` 是本地配置，不会跟着仓库走）：
+
+```powershell
+git config core.hooksPath .githooks
+```
+
+验证钩子是否生效：
+
+```powershell
+# 故意造一个假令牌，提交应该被拦下
+echo 'token = "gho_FAKEfakeFAKEfake1234567890abcdef"' > canary.md
+git add canary.md && git commit -m test    # 预期：✖ 提交被拦截
+git reset HEAD canary.md && del canary.md
+```
+
+误报时用 `git commit --no-verify` 跳过（慎用）。
+
+> 密钥真的泄露过？**先 Revoke，再改代码**。历史里的密钥靠删文件是删不掉的。
+
+---
 ## 12. 变更记录
 
 | 日期 | 内容 |
@@ -558,6 +590,7 @@ Bad attr `wx:else` with message: `wx:if not found, then something must be wrong`
 ## License
 
 MIT
+
 
 
 
