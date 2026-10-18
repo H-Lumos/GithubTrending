@@ -1,0 +1,4 @@
+#!/bin/sh
+# 提交前拦截：密钥 / 私钥 / 本机个人路径
+# 装了 core.hooksPath=.githooks 后自动生效；紧急情况可 git commit --no-verify 跳过
+exec node "$(git rev-parse --show-toplevel)/.githooks/scan-secrets.js"
