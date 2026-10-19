@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792324465473,
+  "updatedAt": 1792399970156,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -12,6 +12,18 @@
         "Python"
       ],
       "generatedAt": 1792324465473,
+      "model": "deepseek-chat"
+    },
+    "YuJunZhiXue/dsh-purge": {
+      "purpose": "为使用 DeepSeek Harness 的用户提供按模型切换的破甲提示词",
+      "detail": "该项目面向 DeepSeek Harness 使用者，提供一套可替换的提示词，用于对不同模型进行破甲。默认提示词针对国模「小码酱」，并支持按模型更换不同提示词。仓库说明中提到二次开发需查看署名要求。",
+      "tags": [
+        "提示词",
+        "破甲",
+        "DeepSeek",
+        "JavaScript"
+      ],
+      "generatedAt": 1792399970155,
       "model": "deepseek-chat"
     }
   }
