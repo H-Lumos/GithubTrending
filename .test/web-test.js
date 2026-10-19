@@ -265,7 +265,7 @@ function rpc(ws, id, method, params) {
         historyDays: window.TRENDING.historyDays,
         realPoints: window.TRENDING.periods.daily[0].trendRealPoints,
         hasRankField: 'rankChange' in window.TRENDING.periods.daily[0],
-        noteText: note ? note.textContent.trim() : '',
+        noteText: note ? note.textContent.trim() : (document.querySelector('.chart-empty') || {}).textContent || '',
         badges: document.querySelectorAll('.rk').length,
         movedCount: window.TRENDING.periods.daily.filter(function (i) { return i.rankChange; }).length
       });
@@ -274,7 +274,7 @@ function rpc(ws, id, method, params) {
   check('数据里带历史字段', typeof hist.historyDays === 'number' && hist.historyDays >= 1, hist.historyDays + ' 天' + (hist.hasPrevDay ? ' · 有对比基准' : ' · 首日'));
   check('条目带 rankChange 字段', hist.hasRankField === true);
   check('真实点数与历史天数一致', hist.realPoints === Math.min(hist.historyDays, 30), hist.realPoints + ' 点 / ' + hist.historyDays + ' 天');
-  check('曲线标注为估算', hist.noteText.indexOf('估算') > -1, hist.noteText);
+  check('曲线只标注真实记录', hist.noteText.indexOf('真实') > -1 && hist.noteText.indexOf('估算') === -1, hist.noteText);
   // 徽章只在名次真的变了才出现（12 小时内榜单顺序没动就是 0 个，属正常）
   check(
     hist.hasPrevDay ? '名次有变化时徽章数量与数据一致' : '首日不显示升降徽章',
@@ -575,8 +575,8 @@ function rpc(ws, id, method, params) {
   } else {
     check('迷你柱只画真实数据点', spark.barCount === expectBars, spark.barCount + ' 根 / 期望 ' + expectBars);
   }
-  /* ---------- 12.9 曲线标题只报真实增量 ---------- */
-  console.log('\n[12.9] 曲线标题与真实起点');
+  /* ---------- 12.9 走势图：真实数据、标题、悬浮提示 ---------- */
+  console.log('\n[12.9] 走势图（真实数据 / 悬浮提示）');
   const chart = await evalJs(`(() => {
     const T = window.TRENDING;
     const it = T.periods.daily[0];
@@ -584,24 +584,43 @@ function rpc(ws, id, method, params) {
     return new Promise(r => setTimeout(() => {
       const head = (document.querySelector('#drawerBody h4') || {}).textContent || '';
       const note = (document.querySelector('.chart-note') || {}).textContent || '';
-      const trend = it.trend, realPts = it.trendRealPoints;
-      const realIdx = trend.length - realPts;
-      r({
-        head: head.trim(), note: note.trim(), realPts,
-        totalDelta: trend[trend.length - 1] - trend[0],
-        realDelta: realPts >= 2 ? trend[trend.length - 1] - trend[realIdx] : 0,
-        hasZero: trend.some(v => v === 0)
-      });
-    }, 400));
+      const empty = document.querySelector('.chart-empty');
+      const tip = document.getElementById('chartTip');
+      const cv = document.getElementById('chart');
+      const n = it.trend.length;
+      const out = {
+        head: head.trim(), note: note.trim(), n, hasZero: it.trend.some(v => v === 0),
+        hasCanvas: !!cv, hasEmpty: !!empty, emptyText: empty ? empty.textContent.trim() : '',
+        tipHiddenBefore: tip ? tip.hidden : null
+      };
+      // 模拟鼠标移到图表中间，验证悬浮提示
+      if (cv) {
+        const rect = cv.getBoundingClientRect();
+        cv.dispatchEvent(new MouseEvent('mousemove', { clientX: rect.left + rect.width * 0.6, clientY: rect.top + 40, bubbles: true }));
+        out.tipHiddenAfter = tip ? tip.hidden : null;
+        out.tipText = tip ? tip.textContent.trim() : '';
+        cv.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+        out.tipHiddenLeave = tip ? tip.hidden : null;
+      }
+      r(out);
+    }, 450));
   })()`);
-  check('曲线不含 0 值（回推不撞底）', chart.hasZero === false);
-  if (chart.realPts < 30) {
-    check('标题报真实区间增量而非 30 天估算', chart.head.replace(/,/g, '').indexOf(String(chart.realDelta)) > -1 || chart.head.indexOf('仅 1 天') > -1, chart.head);
-    check('标题标注了真实天数', new RegExp('真实 ' + chart.realPts + ' 天|仅 1 天').test(chart.head), chart.head);
+  check('走势数组不含 0 值', chart.hasZero === false);
+  check('标题天数 = 真实数据点数', new RegExp('近 ' + chart.n + ' 天').test(chart.head), chart.head);
+  if (chart.n >= 2) {
+    const totalDelta = (await evalJs('window.TRENDING.periods.daily[0].trend.slice(-1)[0] - window.TRENDING.periods.daily[0].trend[0]'));
+    check('标题增量 = 真实首末差', chart.head.replace(/,/g, '').indexOf(String(totalDelta)) > -1, chart.head + ' / delta=' + totalDelta);
+    check('曲线注明全部为真实记录', /真实记录/.test(chart.note), chart.note);
+    check('有图时画布存在', chart.hasCanvas === true);
+    check('悬浮后提示框出现', chart.tipHiddenAfter === false, chart.tipText);
+    check('悬浮提示里有星数', /\d/.test(chart.tipText), chart.tipText);
+    check('移出后提示框隐藏', chart.tipHiddenLeave === true);
   } else {
-    check('满 30 天时标题报整段增量', chart.head.replace(/,/g, '').indexOf(String(chart.totalDelta)) > -1, chart.head);
+    check('数据不足时显示空态而非假曲线', chart.hasEmpty === true, chart.emptyText.slice(0, 30));
   }
   await evalJs('document.getElementById("btnClose").click(); 1');
+  await sleep(200);
+
   await sleep(200);
   /* ---------- 12.8 数据新鲜度 ---------- */
   console.log('\n[12.8] 数据新鲜度与旧数据警告');
@@ -620,6 +639,75 @@ function rpc(ws, id, method, params) {
   check('历史天数已累积', fresh.historyDays >= 1, fresh.historyDays + ' 天');
   if (fresh.historyDays >= 2) {
     check('第二天的真实点数应为 2', fresh.realPoints === 2, fresh.realPoints + ' 点');
+  }
+  // 语言内名次与官方名次相同时也要显示（用户反馈过「为什么没写 Python 第几」）
+  const sameRank = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const daily = T.periods.daily;
+    const t = daily.filter(it => {
+      if (!it.language || it.language === "Unknown") return false;
+      const same = daily.filter(x => x.language === it.language);
+      return same.findIndex(x => x.id === it.id) + 1 === it.rank;
+    })[0];
+    if (!t) return { skipped: true };
+    const card = [].slice.call(document.querySelectorAll(".card")).filter(c => c.getAttribute("data-id") === t.id)[0];
+    if (!card) return { skipped: true };
+    card.click();
+    return new Promise(r => setTimeout(() => r({
+      badge: (document.querySelector(".dbadge") || {}).textContent || "",
+      lang: t.language, rank: t.rank
+    }), 350));
+  })()`);
+  if (sameRank.skipped) {
+    console.log("  - 跳过（没有「语言内名次 = 官方名次」的条目）");
+  } else {
+    check("名次相同时仍显示语言名次", new RegExp(sameRank.lang + " 第 " + sameRank.rank).test(sameRank.badge), sameRank.badge.trim());
+  }
+  await evalJs("document.getElementById(\"btnClose\").click(); 1");
+  await sleep(200);
+
+  /* ---------- 12.10 语言 chip 与当前周期一致 ---------- */
+  console.log('\n[12.10] 语言 chip 跟随周期');
+  const chipsCase = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const chipNames = () => [].slice.call(document.querySelectorAll('.chip')).map(c => c.textContent.trim()).filter(t => t !== '全部');
+    const presentOf = (p) => {
+      const s = {};
+      (T.periods[p] || []).forEach(i => { if (i.language && i.language !== 'Unknown') s[i.language] = 1; });
+      return Object.keys(s);
+    };
+    const seg = (p) => {
+      const b = [].slice.call(document.querySelectorAll('#seg button')).filter(x => x.getAttribute('data-period') === p)[0];
+      if (b) b.click();
+    };
+    seg('daily');
+    const dailyChips = chipNames();
+    const dailyPresent = presentOf('daily');
+    seg('weekly');
+    const weeklyChips = chipNames();
+    const weeklyPresent = presentOf('weekly');
+    // 选中一个本周没有、但今日有的语言，看是否被自动清空
+    seg('daily');
+    const extra = dailyChips.filter(c => weeklyPresent.indexOf(c) === -1)[0];
+    let resetOk = null;
+    if (extra) {
+      const chip = [].slice.call(document.querySelectorAll('.chip')).filter(c => c.textContent.trim() === extra)[0];
+      if (chip) chip.click();               // 选中它（今日有）
+      seg('weekly');                        // 切到本周（没有它）
+      resetOk = !document.querySelector('.chip.on') || document.querySelector('.chip.on').textContent.trim() === '全部';
+    }
+    seg('daily');
+    return {
+      dailyChips, dailyPresent, weeklyChips, weeklyPresent, extra, resetOk,
+      weeklyOnly: weeklyChips.filter(c => dailyPresent.indexOf(c) === -1)
+    };
+  })()`);
+  check('今日 chip 数 = 今日实际语言数', chipsCase.dailyChips.length === chipsCase.dailyPresent.length, chipsCase.dailyChips.length + ' / ' + chipsCase.dailyPresent.length);
+  check('本周 chip 数 = 本周实际语言数', chipsCase.weeklyChips.length === chipsCase.weeklyPresent.length, chipsCase.weeklyChips.length + ' / ' + chipsCase.weeklyPresent.length);
+  check('本周 chip 全是本周真实存在的语言', chipsCase.weeklyChips.every(function (c) { return chipsCase.weeklyPresent.indexOf(c) > -1; }), chipsCase.weeklyChips.join(','));
+  check('今日 chip 全是今日真实存在的语言', chipsCase.dailyChips.every(function (c) { return chipsCase.dailyPresent.indexOf(c) > -1; }), chipsCase.dailyChips.join(','));
+  if (chipsCase.resetOk !== null) {
+    check('切周期后失效的语言筛选被清空', chipsCase.resetOk === true, '切到本周前选的是 ' + chipsCase.extra);
   }
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
@@ -681,6 +769,9 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
+
 
 
 

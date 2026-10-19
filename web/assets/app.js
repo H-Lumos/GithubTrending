@@ -336,7 +336,30 @@
 
   function renderChips() {
     var chips = $('chips');
-    var langs = languages();
+    var items = periodItems();
+
+    // 只显示「当前周期里真的存在」的语言。
+    // 以前 chips 是全周期并集，切到本周/本月后点某个语言会得到 0 条（空态），看着像坏了。
+    var present = {};
+    items.forEach(function (i) {
+      if (i.language && i.language !== 'Unknown') present[i.language] = 1;
+    });
+
+    // 当前选中的语言在本周期不存在 → 自动回到「全部」
+    if (state.lang) {
+      var current = '';
+      languages().forEach(function (l) {
+        if (l.value === state.lang) current = l.name;
+      });
+      if (!present[current]) {
+        state.lang = '';
+      }
+    }
+
+    var langs = languages().filter(function (l) {
+      return !l.value || present[l.name];
+    });
+
     chips.innerHTML = langs
       .map(function (l) {
         var on = (l.value || '') === state.lang;
@@ -593,22 +616,13 @@
     var initial = (item.repo || '?').charAt(0).toUpperCase();
     var faved = !!state.favs[item.id];
     var trend = item.trend || [];
-    var realPts = item.trendRealPoints || 0;
-    var realIdx = Math.max(0, trend.length - realPts);
-    // 标题数字用真实区间的增量：估算那 28 天不是真实数据，不该当成涨幅报出来
-    var realDelta = realPts >= 2 ? trend[trend.length - 1] - trend[realIdx] : 0;
-    var delta = trend.length ? trend[trend.length - 1] - trend[0] : 0;
-    // 标题只报真实区间的增量。整条曲线 30 天里只有 N 天是真实记录，
-    // 把估算出来的 28 天也算进「涨幅」会严重夸大（实测 1,948 → 报成 53,521）。
-    var chartDeltaText;
-    if (realPts >= 30) {
-      chartDeltaText = (delta >= 0 ? '+' : '') + num(delta) + ' ★';
-    } else if (realPts >= 2) {
-      chartDeltaText =
-        (realDelta >= 0 ? '+' : '') + num(realDelta) + ' ★ · 真实 ' + realPts + ' 天';
-    } else {
-      chartDeltaText = '仅 1 天数据';
-    }
+    var nPts = trend.length; // trend 里现在只有真实记录，nPts 就是真实天数
+    var delta = nPts >= 2 ? trend[nPts - 1] - trend[0] : 0;
+    var chartDeltaText = nPts >= 2 ? (delta >= 0 ? '+' : '') + num(delta) + ' ★' : '—';
+    var chartNote =
+      nPts >= 2
+        ? '全部为真实记录 · 已积累 ' + nPts + ' 天' + (nPts < 30 ? '（每天 1 次抓取，第 30 天起为完整视图）' : '')
+        : '还没有可比的数据点';
     var tags = (item.tags || []).map(function (t) {
       return '<span class="tag">' + esc(t) + '</span>';
     }).join('');
@@ -637,7 +651,7 @@
         '⚡ ' + esc(periodLabel(item.fromPeriod || state.period)) + '榜 #' + item.rank +
         ' · ' +
         (langName ? esc(langName) : '未标注语言') +
-        (langRank && langRank !== item.rank ? ' 第 ' + langRank : '');
+        (langRank ? ' 第 ' + langRank : '');
     }
 
     return (
@@ -657,14 +671,14 @@
       '<div class="stat"><div class="k">FORKS</div><div class="v">' + fmtNum(item.forks) + '</div></div>' +
       '</div>' +
       '<div class="panel">' +
-      '<h4>近 30 天 Star 走势<span>' + chartDeltaText + '</span></h4>' +
-      '<div class="chart-note">' +
-      (item.trendRealPoints >= 30
-        ? '全部为真实记录'
-        : '真实记录 ' + (item.trendRealPoints || 1) + ' 天，其余按日均增量回推（估算）') +
-      '</div>' +
-      '<div class="chart-wrap"><canvas id="chart"></canvas></div>' +
-      '<div class="axis" id="axis"></div>' +
+      '<h4>近 ' + nPts + ' 天 Star 走势<span>' + chartDeltaText + '</span></h4>' +
+      (nPts >= 2
+        ? '<div class="chart-note">' + chartNote + '</div>' +
+          '<div class="chart-wrap"><canvas id="chart"></canvas>' +
+          '<div class="chart-tip" id="chartTip" hidden></div></div>' +
+          '<div class="axis" id="axis"></div>'
+        : '<div class="chart-empty">📈 数据积累中：已有 ' + nPts + ' 天真实记录。' +
+          '每天抓取一次，满 3 天起显示走势图——不足 3 天的「曲线」只能靠猜，所以先不画。</div>') +
       '</div>' +
       '<div class="panel">' +
       '<h4>这个项目是做什么的<span>' +
@@ -687,7 +701,57 @@
     );
   }
 
-  function drawChart(canvas, trend, realStart) {
+  /**
+   * 走势图悬浮交互：鼠标移到任意位置，显示该数据点的日期 / 星数 / 相对前一天的变化
+   * 只读真实数据，所以这里显示的每个数字都是实测值
+   */
+  function bindChartHover(canvas) {
+    var tip = $('chartTip');
+    if (!tip) return;
+
+    function show(e) {
+      var g = canvas.__geo;
+      if (!g || g.n < 2) return;
+      var rect = canvas.getBoundingClientRect();
+      var mx = e.clientX - rect.left;
+      var idx = Math.round(((mx - g.padL) / g.iw) * (g.n - 1));
+      idx = Math.max(0, Math.min(g.n - 1, idx));
+
+      var v = g.trend[idx];
+      var prev = idx > 0 ? g.trend[idx - 1] : null;
+      var diff = prev == null ? null : v - prev;
+      // 第 idx 个点对应「今天往前数 (n-1-idx) 天」
+      var d = new Date(Date.now() - (g.n - 1 - idx) * 86400000);
+      var ds = d.getMonth() + 1 + '/' + d.getDate();
+
+      tip.innerHTML =
+        '<b>' + num(v) + '</b> ★' +
+        '<span>' + ds + (diff == null ? ' · 起点' : ' · ' + (diff >= 0 ? '+' : '') + num(diff)) + '</span>';
+      tip.hidden = false;
+
+      // 定位到数据点正上方，靠边时贴边
+      var px = g.padL + (g.iw * idx) / (g.n - 1);
+      var tw = tip.offsetWidth || 90;
+      var left = Math.max(0, Math.min(rect.width - tw, px - tw / 2));
+      tip.style.left = left + 'px';
+      tip.style.top = '2px';
+
+      drawChart(canvas, g.trend, g.realStart, idx);
+    }
+
+    canvas.addEventListener('mousemove', show);
+    canvas.addEventListener('mouseleave', function () {
+      tip.hidden = true;
+      var g = canvas.__geo;
+      if (g) drawChart(canvas, g.trend, g.realStart, -1);
+    });
+    // 触屏：点一下也能看
+    canvas.addEventListener('touchstart', function (e) {
+      if (e.touches && e.touches[0]) show(e.touches[0]);
+    }, { passive: true });
+  }
+
+  function drawChart(canvas, trend, realStart, activeIdx) {
     if (!canvas || !trend || trend.length < 2) return;
     var dpr = window.devicePixelRatio || 1;
     var w = canvas.clientWidth;
@@ -719,6 +783,8 @@
 
     ctx.clearRect(0, 0, w, h);
     var realStartIdx = realStart > 0 && realStart < trend.length ? trend.length - realStart : -1;
+    // 供悬浮提示反查坐标
+    canvas.__geo = { padL: padL, padT: padT, iw: iw, ih: ih, n: trend.length, trend: trend, realStart: realStart };
 
     // 网格
     ctx.strokeStyle = 'rgba(139,148,158,0.14)';
@@ -753,6 +819,30 @@
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.stroke();
+
+    // 悬浮高亮：在当前鼠标位置画一条竖线 + 一个空心圆点
+    if (typeof activeIdx === 'number' && activeIdx >= 0 && activeIdx < trend.length) {
+      var ax = x(activeIdx);
+      var ay = y(trend[activeIdx]);
+      ctx.save();
+      ctx.setLineDash([2, 3]);
+      ctx.strokeStyle = 'rgba(79,156,249,.75)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(ax, padT);
+      ctx.lineTo(ax, padT + ih);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.arc(ax, ay, 5, 0, Math.PI * 2);
+      ctx.fillStyle = bg;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(ax, ay, 3, 0, Math.PI * 2);
+      ctx.fillStyle = '#4f9cf9';
+      ctx.fill();
+    }
 
     // 末点：先挖一个背景色圆，再画实心点，形成描边效果
     var lx = x(trend.length - 1);
@@ -796,17 +886,41 @@
   function renderAxis(trend) {
     var el = $('axis');
     if (!el) return;
-    var labels = [];
     var n = trend.length;
-    var now = Date.now();
-    for (var i = 0; i < 5; i++) {
-      var idx = Math.round(((n - 1) * i) / 4);
-      var d = new Date(now - (n - 1 - idx) * 86400000);
-      labels.push(d.getMonth() + 1 + '/' + d.getDate());
+    if (n < 2) {
+      el.innerHTML = '';
+      return;
     }
-    el.innerHTML = labels.map(function (t) {
-      return '<span>' + t + '</span>';
-    }).join('');
+    var now = Date.now();
+    var dateAt = function (idx) {
+      var d = new Date(now - (n - 1 - idx) * 86400000);
+      return d.getMonth() + 1 + '/' + d.getDate();
+    };
+
+    // 数据点少时逐个标日期（5 个标签摊到 2 个点上会重复成一串 10/18 10/18 10/19）
+    var idxs;
+    if (n <= 6) {
+      idxs = [];
+      for (var k = 0; k < n; k++) idxs.push(k);
+    } else {
+      idxs = [0, 1, 2, 3, 4].map(function (i) {
+        return Math.round(((n - 1) * i) / 4);
+      });
+      // 去掉重复索引
+      idxs = idxs.filter(function (v, i) {
+        return idxs.indexOf(v) === i;
+      });
+    }
+
+    // 用 flex 均分：索引位置与画布上的点对齐（画布两端各留 0 / 8px，肉眼可对齐）
+    el.innerHTML = idxs
+      .map(function (idx, i) {
+        var first = i === 0;
+        var last = i === idxs.length - 1;
+        var style = first ? 'flex:0 0 auto' : last ? 'flex:0 0 auto;margin-left:auto' : 'flex:1 1 0;text-align:center';
+        return '<span style="' + style + '">' + dateAt(idx) + '</span>';
+      })
+      .join('');
   }
 
   function openDetail(id) {
@@ -832,6 +946,7 @@
       requestAnimationFrame(function () {
         drawChart(canvas, item.trend || [], item.trendRealPoints || 0);
         renderAxis(item.trend || []);
+        bindChartHover(canvas);
       });
     }
 
@@ -869,6 +984,7 @@
       state.period = btn.getAttribute('data-period');
       state.onlyFavs = false;
       renderSeg();
+      renderChips(); // 语言清单跟着周期变：本周榜里没有的语言不该出现
       renderList();
       renderFavCount();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -986,6 +1102,8 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
 
 
 

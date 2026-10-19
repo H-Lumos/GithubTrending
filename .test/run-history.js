@@ -1,5 +1,5 @@
 /**
- * 名次变化 / 真实曲线的纯函数单测（不联网、不写文件）
+ * 名次变化 / 走势的真实值单测（不联网、不写文件）
  * 用法：node .test/run-history.js
  */
 const path = require('path');
@@ -33,68 +33,63 @@ eq('前一天没有该周期 → 无数据', rankDelta({ d: '2026-10-17', ranks:
   isNew: false
 });
 
-/* ---------------- 真实曲线 ---------------- */
-console.log('【真实 star 曲线】');
+/* ---------------- 走势：只存真实值 ---------------- */
+console.log('【走势只存真实记录】');
 const todayStr = new Date().toISOString().slice(0, 10);
-function mk(value, dayOffset) {
-  const d = new Date(Date.now() - dayOffset * 86400000).toISOString().slice(0, 10);
-  return { d: d, v: value };
+function dayAgo(n) {
+  return new Date(Date.now() - n * 86400000).toISOString().slice(0, 10);
 }
 
-// 没有任何历史：只有今天抓到的值
+// 没有任何历史
 const t0 = trendOf({ days: [] }, 'a/x', 1000);
-eq('无历史 → 30 点、真实 1 点、末点=当前值', [t0.trend.length, t0.realPoints, t0.trend[29]], [TREND_DAYS, 1, 1000]);
-eq('无历史时前面是回推值（不超过当前值）', t0.trend.every((v) => v <= 1000), true);
-
-// 只有 1 个真实点 + 已知 hot：用衰减速率回推，不能撞 0 也不能是水平线
-const tHot = trendOf({ days: [] }, 'a/x', 51314, 2213, 1);
-eq('1 点 + hot → 曲线有上升', tHot.trend[29] - tHot.trend[0] > 0, true);
-eq('1 点 + hot → 不含 0 值', tHot.trend.some((v) => v === 0), false);
-eq('1 点 + hot → 单调不减', tHot.trend.every((v, i) => i === 0 || v >= tHot.trend[i - 1]), true);
-eq('1 点 + hot → 末点仍是当前值', tHot.trend[29], 51314);
-
-// 同理 weekly 的费率应更平缓（hot/7 < hot/1）
-const tWeek = trendOf({ days: [] }, 'a/x', 51314, 2213, 7);
-eq('weekly 回推比 daily 平缓', tWeek.trend[0] > tHot.trend[0], true);
-
-// 没有任何增量信息：只能画水平线（诚实结果）
-const tFlat = trendOf({ days: [] }, 'a/x', 1000, 0, 1);
-eq('无 hot → 水平线', tFlat.trend.every((v) => v === 1000), true);
+eq('无历史 → 只有 1 个点（今天的真实值）', [t0.trend.length, t0.realPoints, t0.trend[0]], [1, 1, 1000]);
 
 // 3 天历史
 const hist3 = {
   days: [
-    { d: mk(0, 2).d, stars: { 'a/x': 800 } },
-    { d: mk(0, 1).d, stars: { 'a/x': 900 } },
-    { d: todayStr, stars: { 'a/x': 1000 } }
+    { d: dayAgo(2), stars: { 'a/x': 800 } },
+    { d: dayAgo(1), stars: { 'a/x': 900 } }
   ]
 };
 const t3 = trendOf(hist3, 'a/x', 1000);
-eq('3 天历史 → 真实 3 点', t3.realPoints, 3);
-eq('末点 = 最新 star', t3.trend[29], 1000);
-eq('曲线单调不减', t3.trend.every((v, i) => i === 0 || v >= t3.trend[i - 1]), true);
+eq('2 天历史 + 今天 → 3 个真实点', [t3.trend.length, t3.realPoints], [3, 3]);
+eq('数值顺序为时间正序', t3.trend, [800, 900, 1000]);
 
-// 缺口：中间缺一天，应以前值填充
+// 缺一天：不填充、不编造
 const gap = {
   days: [
-    { d: mk(0, 3).d, stars: { 'a/x': 500 } },
-    { d: mk(0, 1).d, stars: { 'a/x': 700 } },
-    { d: todayStr, stars: { 'a/x': 750 } }
+    { d: dayAgo(4), stars: { 'a/x': 500 } },
+    { d: dayAgo(2), stars: { 'a/x': 700 } }
   ]
 };
 const tg = trendOf(gap, 'a/x', 750);
-eq('缺口被填充（真实点数只算有记录的）', tg.realPoints, 3);
-eq('缺口位置取前值 500', tg.trend.slice(30 - 3, 30 - 2)[0] !== undefined, true);
+eq('有缺口时只保留有记录的天（不填充）', tg.trend, [500, 700, 750]);
+eq('真实点数 = 实际记录数', tg.realPoints, 3);
 
-// 超过 30 天：只取最近 30 点，全部算真实
+// 今天已经跑过一次：不能重复记今天
+const withToday = {
+  days: [
+    { d: dayAgo(1), stars: { 'a/x': 900 } },
+    { d: todayStr, stars: { 'a/x': 999 } }
+  ]
+};
+const tt = trendOf(withToday, 'a/x', 1000);
+eq('同一天重复运行不会产生重复点', tt.trend, [900, 1000]);
+
+// 超过 30 天：只留最近 30 个真实点
 const many = { days: [] };
-for (let i = 0; i < 40; i++) {
-  const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
-  many.days.push({ d: d, stars: { 'a/x': 1000 + (40 - i) } });
+for (let i = 40; i >= 1; i--) {
+  many.days.push({ d: dayAgo(i), stars: { 'a/x': 1000 + (40 - i) } });
 }
-const tm = trendOf(many, 'a/x', 1040);
-eq('40 天历史 → 取最近 30 点', [tm.trend.length, tm.realPoints], [TREND_DAYS, TREND_DAYS]);
-eq('末点 = 当前值', tm.trend[29], 1040);
+const tm = trendOf(many, 'a/x', 9999);
+eq('40 天历史 → 只保留最近 30 个点', [tm.trend.length, tm.realPoints], [TREND_DAYS, TREND_DAYS]);
+eq('末点 = 当前值', tm.trend[29], 9999);
+
+// 关键回归：不能再出现「回推撞 0」
+const cliff = { days: [{ d: dayAgo(1), stars: { 'a/x': 51573 } }] };
+const tc = trendOf(cliff, 'a/x', 53521);
+eq('两天数据不会产出 0 值', tc.trend.some((v) => v === 0), false);
+eq('两天数据只产出 2 个点', tc.trend, [51573, 53521]);
 
 console.log('\n结果：' + pass + ' 通过 / ' + fails.length + ' 失败');
 if (fails.length) {

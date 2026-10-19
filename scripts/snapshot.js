@@ -99,65 +99,34 @@ function rankDelta(prevDay, period, id, currentRank) {
  *   只有 1 个真实点 → 用该周期的 hot（页面上的「N stars today/week/month」）÷ 周期天数
  *   两者都没有     → 0（只能画成水平线，这是最诚实的结果）
  */
-function trendOf(history, id, currentStars, hot, periodDays) {
-  const points = [];
-  history.days.forEach((day) => {
-    const v = day.stars && day.stars[id];
-    if (typeof v === 'number') points.push({ d: day.d, v: v });
-  });
-  const last = points[points.length - 1];
-  if (!last || last.d !== today) points.push({ d: today, v: currentStars });
-  else last.v = currentStars;
+/**
+ * Star 走势：只存【真实记录】。
+ *
+ * 早期版本会用「日均增量 × 衰减」把不足 30 天的部分补成 30 个点，
+ * 结果每个仓库的曲线形状几乎一样（同一个公式），还把估算当成涨幅报出来
+ * （实测两天涨 1,948，标题报 +53,521）。现在不再造数据：
+ * 有几天就存几天，前端也据此显示「近 N 天（全部真实）」。
+ */
+function trendOf(history, id, currentStars) {
+  const values = [];
+  history.days
+    .filter((day) => day.d !== today)
+    .forEach((day) => {
+      const v = day.stars && day.stars[id];
+      if (typeof v === 'number') values.push(v);
+    });
+  values.push(currentStars);
 
-  if (!points.length) return { trend: [], realPoints: 0 };
-
-  const values = points.map((p) => p.v);
-  const realPoints = values.length;
-
-  if (realPoints >= TREND_DAYS) {
-    return { trend: values.slice(-TREND_DAYS), realPoints: TREND_DAYS };
-  }
-
-  const first = values[0];
-  const padCount = TREND_DAYS - values.length;
-
-  // 日均速率的来源：
-  //   有 ≥2 个真实点 → 用首末差（实测日增）
-  //   只有 1 个真实点 → 用页面上的 hot ÷ 周期天数
-  const rateRaw =
-    values.length >= 2
-      ? Math.max(0, (values[values.length - 1] - first) / (values.length - 1))
-      : Math.max(0, (Number(hot) || 0) / Math.max(1, Number(periodDays) || 1));
-
-  // 往更早回推用【衰减速率】，而不是线性。
-  // 线性回推会在大数仓库上直接崩：两天实测日增 1948 × 28 天 = 54544 > 总星数 51573
-  // → 算出负数被截成 0，曲线从 0 直线爬到 5 万（假得离谱）。
-  const decay = 0.93;
-  const decaySum = decay * ((1 - Math.pow(decay, padCount)) / (1 - decay));
-
-  // 双保险：回推总量最多占首个真实值的 70%，避免任何情况下撞 0
-  let rate = rateRaw;
-  if (decaySum > 0 && rate * decaySum > first * 0.7) {
-    rate = (first * 0.7) / decaySum;
-  }
-
-  const back = [];
-  let acc = 0;
-  for (let k = 1; k <= padCount; k++) {
-    acc += rate * Math.pow(decay, k);
-    back.push(Math.max(0, Math.round(first - acc)));
-  }
-  back.reverse();
-  return { trend: back.concat(values), realPoints: realPoints };
+  const trend = values.slice(-TREND_DAYS);
+  return { trend: trend, realPoints: trend.length };
 }
-
 /* ---------------------------------------------------------------- 条目 */
 
 function toSnapshotItem(raw, extra) {
   const desc = (raw.descEn || '').trim();
   const picked = pickZh(raw.id);
   const zh = picked.entry;
-  const t = trendOf(extra.history, raw.id, raw.stars, raw.hot, extra.periodDays);
+  const t = trendOf(extra.history, raw.id, raw.stars);
   return Object.assign({}, raw, {
     purpose: (zh && zh.purpose) || desc || '（这个项目没有填写描述）',
     detail:
@@ -207,7 +176,6 @@ async function run() {
   let allOk = true;
 
   for (const period of PERIODS) {
-    const periodDays = period === 'daily' ? 1 : period === 'weekly' ? 7 : 30;
     process.stdout.write('抓取 ' + period + ' … ');
     try {
       const res = await fn.main({ period: period, language: '', skipZh: true });
@@ -222,7 +190,6 @@ async function run() {
         dayRecord.stars[raw.id] = raw.stars;
         return toSnapshotItem(raw, {
           history: history,
-          periodDays: periodDays,
           rankChange: delta.rankChange,
           isNew: delta.isNew
         });
@@ -364,6 +331,8 @@ if (require.main === module) {
 
 // 纯函数供单测使用（不联网、不写文件）
 module.exports = { rankDelta: rankDelta, trendOf: trendOf, TREND_DAYS: TREND_DAYS };
+
+
 
 
 
