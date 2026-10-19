@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792329080232,
+  "updatedAt": 1792377121752,
   "keepDays": 45,
   "days": [
     {
@@ -39,6 +39,96 @@
         "trycua/cua": 30088,
         "longbridge/gpui-kit": 18048,
         "pingdotgg/t3code": 28228
+      },
+      "ranks": {
+        "daily": [
+          "MadsLorentzen/ai-job-search",
+          "anthropics/claude-plugins-official",
+          "anomalyco/opencode",
+          "cursor/plugins",
+          "ruvnet/ruflo",
+          "akitaonrails/ai-memory",
+          "stablyai/orca",
+          "HKUDS/CLI-Anything",
+          "debpalash/VoiceStudio",
+          "android/skills",
+          "mlabonne/llm-course",
+          "Kruk2/jasna",
+          "Comfy-Org/ComfyUI"
+        ],
+        "weekly": [
+          "morluto/rea",
+          "storytold/artcraft",
+          "boykopovar/AnyPS5",
+          "anthropics/claude-plugins-official",
+          "mksglu/context-mode",
+          "cathrynlavery/diagram-design",
+          "NationalSecurityAgency/ghidra",
+          "heygen-com/hyperframes",
+          "cursor/plugins",
+          "MadsLorentzen/ai-job-search"
+        ],
+        "monthly": [
+          "paperclipai/paperclip",
+          "debpalash/VoiceStudio",
+          "heygen-com/hyperframes",
+          "anthropics/financial-services",
+          "vectorize-io/hindsight",
+          "cloudflare/security-audit-skill",
+          "agent-substrate/substrate",
+          "mksglu/context-mode",
+          "NVIDIA/OpenShell",
+          "affaan-m/ECC",
+          "tashfeenahmed/freellmapi",
+          "anthropics/knowledge-work-plugins",
+          "NationalSecurityAgency/ghidra",
+          "cursor/plugins",
+          "rohitg00/ai-engineering-from-scratch",
+          "anthropics/claude-plugins-official",
+          "TencentCloud/Octop",
+          "trycua/cua",
+          "longbridge/gpui-kit",
+          "pingdotgg/t3code"
+        ]
+      }
+    },
+    {
+      "d": "2026-10-19",
+      "stars": {
+        "MadsLorentzen/ai-job-search": 53508,
+        "anthropics/claude-plugins-official": 42760,
+        "anomalyco/opencode": 216688,
+        "cursor/plugins": 12777,
+        "ruvnet/ruflo": 76573,
+        "akitaonrails/ai-memory": 10551,
+        "stablyai/orca": 96794,
+        "HKUDS/CLI-Anything": 54650,
+        "debpalash/VoiceStudio": 75585,
+        "android/skills": 8810,
+        "mlabonne/llm-course": 84080,
+        "Kruk2/jasna": 2462,
+        "Comfy-Org/ComfyUI": 138691,
+        "morluto/rea": 323517,
+        "storytold/artcraft": 32815,
+        "boykopovar/AnyPS5": 43291,
+        "mksglu/context-mode": 30786,
+        "cathrynlavery/diagram-design": 57765,
+        "NationalSecurityAgency/ghidra": 90959,
+        "heygen-com/hyperframes": 66807,
+        "paperclipai/paperclip": 104171,
+        "anthropics/financial-services": 40293,
+        "vectorize-io/hindsight": 51274,
+        "cloudflare/security-audit-skill": 31184,
+        "agent-substrate/substrate": 5515,
+        "NVIDIA/OpenShell": 16632,
+        "affaan-m/ECC": 283339,
+        "tashfeenahmed/freellmapi": 37113,
+        "anthropics/knowledge-work-plugins": 30225,
+        "rohitg00/ai-engineering-from-scratch": 71063,
+        "TencentCloud/Octop": 9915,
+        "trycua/cua": 30149,
+        "longbridge/gpui-kit": 18137,
+        "pingdotgg/t3code": 28386
       },
       "ranks": {
         "daily": [
