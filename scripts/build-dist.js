@@ -46,6 +46,10 @@ function main() {
   const jsV = digest('assets/app.js');
   const cssV = digest('assets/app.css');
 
+  // 数据文件也要带指纹：它每次抓取都变，而 Pages 给的是 max-age=600，
+  // 不带版本号时新数据可能被浏览器缓存压住 10 分钟（用户会以为「刷新没变化」）。
+  const dataV = digest('data/trending.js');
+
   const idx = path.join(OUT, 'index.html');
   let html = fs.readFileSync(idx, 'utf8');
   const before = html;
@@ -53,13 +57,14 @@ function main() {
   // 先替换已带 ?v= 的，再替换裸引用（幂等，两种情况都能处理）
   html = html
     .replace(/assets\/app\.css(\?v=[0-9a-f]+)?/g, 'assets/app.css?v=' + cssV)
-    .replace(/assets\/app\.js(\?v=[0-9a-f]+)?/g, 'assets/app.js?v=' + jsV);
+    .replace(/assets\/app\.js(\?v=[0-9a-f]+)?/g, 'assets/app.js?v=' + jsV)
+    .replace(/data\/trending\.js(\?v=[0-9a-f]+)?/g, 'data/trending.js?v=' + dataV);
 
   fs.writeFileSync(idx, html, 'utf8');
 
   const refs = html.match(/assets\/app\.\w+\?v=[0-9a-f]+/g) || [];
   console.log('部署目录：' + OUT);
-  console.log('资源指纹：app.js?v=' + jsV + '  app.css?v=' + cssV);
+  console.log('资源指纹：app.js?v=' + jsV + '  app.css?v=' + cssV + '  data/trending.js?v=' + dataV);
   console.log('index.html 引用：' + refs.join(' , '));
 
   if (!refs.length) {
@@ -72,3 +77,4 @@ function main() {
 }
 
 main();
+

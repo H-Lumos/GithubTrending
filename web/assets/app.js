@@ -46,10 +46,10 @@
   function timeAgo(ts) {
     if (!ts) return '';
     var d = Date.now() - ts;
-    if (d < 60000) return '刚刚更新';
-    if (d < 3600000) return Math.floor(d / 60000) + ' 分钟前更新';
-    if (d < 86400000) return Math.floor(d / 3600000) + ' 小时前更新';
-    return Math.floor(d / 86400000) + ' 天前更新';
+    if (d < 60000) return '刚抓取';
+    if (d < 3600000) return '抓取于 ' + Math.floor(d / 60000) + ' 分钟前';
+    if (d < 86400000) return '抓取于 ' + Math.floor(d / 3600000) + ' 小时前';
+    return '抓取于 ' + Math.floor(d / 86400000) + ' 天前';
   }
 
   function esc(s) {
@@ -126,6 +126,16 @@
     var end = Math.min(s.length, start + max);
     var tail = end < s.length ? '…' : '';
     return (start > 0 ? '…' : '') + s.slice(start, end).trim() + tail;
+  }
+
+  /** 纯相对时间（用于「收藏于 X」），不带「抓取于」前缀 */
+  function agoText(ts) {
+    if (!ts) return '';
+    var d = Date.now() - ts;
+    if (d < 60000) return '刚刚';
+    if (d < 3600000) return Math.floor(d / 60000) + ' 分钟前';
+    if (d < 86400000) return Math.floor(d / 3600000) + ' 小时前';
+    return Math.floor(d / 86400000) + ' 天前';
   }
 
   function hexToRgb(hex) {
@@ -577,7 +587,9 @@
         : '';
     warn.textContent =
       (stale ? stale + ' ' : '') +
-      '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' + history;
+      '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' +
+      '每天自动抓取两次（约 08:17 / 12:17），刷新页面不会重新抓取。' +
+      history;
 
     var zhLine = $('foot-zh');
     if (zhLine) {
@@ -645,7 +657,7 @@
 
     var badgeTail;
     if (item.offList) {
-      badgeTail = '📌 已下榜' + (item.ts ? ' · 收藏于 ' + String(timeAgo(item.ts)).replace('更新', '') : '');
+      badgeTail = '📌 已下榜' + (item.ts ? ' · 收藏于 ' + agoText(item.ts) : '');
     } else {
       badgeTail =
         '⚡ ' + esc(periodLabel(item.fromPeriod || state.period)) + '榜 #' + item.rank +
@@ -1102,6 +1114,8 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
 
 
 

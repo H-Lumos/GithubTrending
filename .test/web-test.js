@@ -709,6 +709,15 @@ function rpc(ws, id, method, params) {
   if (chipsCase.resetOk !== null) {
     check('切周期后失效的语言筛选被清空', chipsCase.resetOk === true, '切到本周前选的是 ' + chipsCase.extra);
   }
+  /* ---------- 12.11 数据更新节奏说明 ---------- */
+  console.log('\n[12.11] 刷新语义（刷新不会重新抓取）');
+  const cadence = await evalJs(`(() => {
+    const up = document.getElementById('updated').textContent.trim();
+    const warn = document.getElementById('foot-warn').textContent;
+    return { up, warnsFetch: /抓取于|刚抓取/.test(up), footerCadence: /刷新页面不会重新抓取/.test(warn) };
+  })()`);
+  check('顶部文案说明是「抓取于」而非「更新于」', cadence.warnsFetch === true, cadence.up);
+  check('页脚明确写了刷新不会重新抓取', cadence.footerCadence === true);
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -769,6 +778,7 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
 
 
 
