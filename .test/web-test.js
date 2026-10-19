@@ -568,12 +568,41 @@ function rpc(ws, id, method, params) {
       cards: cards.length
     };
   })()`);
-  if (spark.minReal < 2) {
-    // 只有 1 天真实数据：回推曲线每张卡都一样，不该画出来冒充数据
-    check('真实数据不足 2 天时不画迷你柱', spark.sparkCount === 0, spark.sparkCount + ' 个');
+  const expectBars = spark.minReal >= 3 ? spark.cards * Math.min(12, spark.minReal) : 0;
+  if (spark.minReal < 3) {
+    // 真实点不足 3 天：柱子画出来只能是估算形状（每张卡一样），不该假装是趋势
+    check('真实数据不足 3 天时不画迷你柱', spark.sparkCount === 0, spark.sparkCount + ' 个');
   } else {
-    check('有真实数据后迷你柱出现', spark.barCount > 0, spark.barCount + ' 根柱子');
+    check('迷你柱只画真实数据点', spark.barCount === expectBars, spark.barCount + ' 根 / 期望 ' + expectBars);
   }
+  /* ---------- 12.9 曲线标题只报真实增量 ---------- */
+  console.log('\n[12.9] 曲线标题与真实起点');
+  const chart = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const it = T.periods.daily[0];
+    document.querySelector('.card').click();
+    return new Promise(r => setTimeout(() => {
+      const head = (document.querySelector('#drawerBody h4') || {}).textContent || '';
+      const note = (document.querySelector('.chart-note') || {}).textContent || '';
+      const trend = it.trend, realPts = it.trendRealPoints;
+      const realIdx = trend.length - realPts;
+      r({
+        head: head.trim(), note: note.trim(), realPts,
+        totalDelta: trend[trend.length - 1] - trend[0],
+        realDelta: realPts >= 2 ? trend[trend.length - 1] - trend[realIdx] : 0,
+        hasZero: trend.some(v => v === 0)
+      });
+    }, 400));
+  })()`);
+  check('曲线不含 0 值（回推不撞底）', chart.hasZero === false);
+  if (chart.realPts < 30) {
+    check('标题报真实区间增量而非 30 天估算', chart.head.replace(/,/g, '').indexOf(String(chart.realDelta)) > -1 || chart.head.indexOf('仅 1 天') > -1, chart.head);
+    check('标题标注了真实天数', new RegExp('真实 ' + chart.realPts + ' 天|仅 1 天').test(chart.head), chart.head);
+  } else {
+    check('满 30 天时标题报整段增量', chart.head.replace(/,/g, '').indexOf(String(chart.totalDelta)) > -1, chart.head);
+  }
+  await evalJs('document.getElementById("btnClose").click(); 1');
+  await sleep(200);
   /* ---------- 12.8 数据新鲜度 ---------- */
   console.log('\n[12.8] 数据新鲜度与旧数据警告');
   const fresh = await evalJs(`(() => {
@@ -652,6 +681,9 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
+
 
 
 

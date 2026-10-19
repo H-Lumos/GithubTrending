@@ -363,9 +363,11 @@
   function sparkHtml(item) {
     var trend = item.trend || [];
     if (!trend.length) return '';
-    if ((item.trendRealPoints || 0) < 2) return '';
 
-    var bars = trend.slice(-12);
+    var realPts = item.trendRealPoints || 0;
+    if (realPts < 3) return '';
+    // 只画真实数据点：估算的点画出来会变成「看起来像数据」的假趋势
+    var bars = trend.slice(-Math.min(12, realPts));
     var min = Math.min.apply(null, bars);
     var max = Math.max.apply(null, bars);
     var span = max - min || 1;
@@ -591,7 +593,22 @@
     var initial = (item.repo || '?').charAt(0).toUpperCase();
     var faved = !!state.favs[item.id];
     var trend = item.trend || [];
+    var realPts = item.trendRealPoints || 0;
+    var realIdx = Math.max(0, trend.length - realPts);
+    // 标题数字用真实区间的增量：估算那 28 天不是真实数据，不该当成涨幅报出来
+    var realDelta = realPts >= 2 ? trend[trend.length - 1] - trend[realIdx] : 0;
     var delta = trend.length ? trend[trend.length - 1] - trend[0] : 0;
+    // 标题只报真实区间的增量。整条曲线 30 天里只有 N 天是真实记录，
+    // 把估算出来的 28 天也算进「涨幅」会严重夸大（实测 1,948 → 报成 53,521）。
+    var chartDeltaText;
+    if (realPts >= 30) {
+      chartDeltaText = (delta >= 0 ? '+' : '') + num(delta) + ' ★';
+    } else if (realPts >= 2) {
+      chartDeltaText =
+        (realDelta >= 0 ? '+' : '') + num(realDelta) + ' ★ · 真实 ' + realPts + ' 天';
+    } else {
+      chartDeltaText = '仅 1 天数据';
+    }
     var tags = (item.tags || []).map(function (t) {
       return '<span class="tag">' + esc(t) + '</span>';
     }).join('');
@@ -640,7 +657,7 @@
       '<div class="stat"><div class="k">FORKS</div><div class="v">' + fmtNum(item.forks) + '</div></div>' +
       '</div>' +
       '<div class="panel">' +
-      '<h4>近 30 天 Star 走势<span>' + (delta >= 0 ? '+' : '') + num(delta) + ' ★</span></h4>' +
+      '<h4>近 30 天 Star 走势<span>' + chartDeltaText + '</span></h4>' +
       '<div class="chart-note">' +
       (item.trendRealPoints >= 30
         ? '全部为真实记录'
@@ -670,7 +687,7 @@
     );
   }
 
-  function drawChart(canvas, trend) {
+  function drawChart(canvas, trend, realStart) {
     if (!canvas || !trend || trend.length < 2) return;
     var dpr = window.devicePixelRatio || 1;
     var w = canvas.clientWidth;
@@ -701,6 +718,7 @@
     };
 
     ctx.clearRect(0, 0, w, h);
+    var realStartIdx = realStart > 0 && realStart < trend.length ? trend.length - realStart : -1;
 
     // 网格
     ctx.strokeStyle = 'rgba(139,148,158,0.14)';
@@ -748,6 +766,31 @@
     ctx.arc(lx, ly, 3.4, 0, Math.PI * 2);
     ctx.fillStyle = '#4f9cf9';
     ctx.fill();
+
+    // 真实数据起点：虚线 + 小标签，让「哪段是实测、哪段是推算」一眼可见
+    if (realStartIdx > 0) {
+      var rx = x(realStartIdx);
+      ctx.save();
+      ctx.setLineDash([3, 3]);
+      ctx.strokeStyle = 'rgba(139,148,158,.55)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(rx, padT);
+      ctx.lineTo(rx, padT + ih);
+      ctx.stroke();
+      ctx.restore();
+
+      // 起点小圆点
+      ctx.beginPath();
+      ctx.arc(rx, y(trend[realStartIdx]), 2.6, 0, Math.PI * 2);
+      ctx.fillStyle = '#8b949e';
+      ctx.fill();
+
+      ctx.fillStyle = 'rgba(139,148,158,.9)';
+      ctx.font = '10px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = rx > w - 44 ? 'right' : 'left';
+      ctx.fillText('真实起点', rx > w - 44 ? rx - 4 : rx + 4, padT + 9);
+    }
   }
 
   function renderAxis(trend) {
@@ -787,7 +830,7 @@
     if (canvas) {
       // 等布局完成再画，避免 clientWidth 为 0
       requestAnimationFrame(function () {
-        drawChart(canvas, item.trend || []);
+        drawChart(canvas, item.trend || [], item.trendRealPoints || 0);
         renderAxis(item.trend || []);
       });
     }
@@ -892,7 +935,7 @@
       if (currentId) {
         var canvas = $('chart');
         var item = findItem(currentId);
-        if (canvas && item) drawChart(canvas, item.trend || []);
+        if (canvas && item) drawChart(canvas, item.trend || [], item.trendRealPoints || 0);
       }
     });
 
@@ -906,7 +949,7 @@
       if (!currentId) return;
       var canvas = $('chart');
       var item = findItem(currentId);
-      if (canvas && item) drawChart(canvas, item.trend || []);
+      if (canvas && item) drawChart(canvas, item.trend || [], item.trendRealPoints || 0);
     });
   }
 
@@ -943,6 +986,10 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
+
+
 
 
 

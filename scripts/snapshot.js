@@ -121,28 +121,34 @@ function trendOf(history, id, currentStars, hot, periodDays) {
   const first = values[0];
   const padCount = TREND_DAYS - values.length;
 
-  // 只有 1 个真实点：不能拿「今天涨了多少」当 30 天的日均（会让曲线撞 0 再突然拉升）。
-  // 用衰减速率回推 —— 越往前增速越低，符合真实项目的成长形状。
-  if (values.length === 1) {
-    const rate = Math.max(0, (Number(hot) || 0) / Math.max(1, Number(periodDays) || 1));
-    const decay = 0.93;
-    const back = [];
-    let acc = 0;
-    for (let k = 1; k <= padCount; k++) {
-      acc += rate * Math.pow(decay, k);
-      back.push(Math.max(0, Math.round(first - acc)));
-    }
-    back.reverse();
-    return { trend: back.concat(values), realPoints: realPoints };
+  // 日均速率的来源：
+  //   有 ≥2 个真实点 → 用首末差（实测日增）
+  //   只有 1 个真实点 → 用页面上的 hot ÷ 周期天数
+  const rateRaw =
+    values.length >= 2
+      ? Math.max(0, (values[values.length - 1] - first) / (values.length - 1))
+      : Math.max(0, (Number(hot) || 0) / Math.max(1, Number(periodDays) || 1));
+
+  // 往更早回推用【衰减速率】，而不是线性。
+  // 线性回推会在大数仓库上直接崩：两天实测日增 1948 × 28 天 = 54544 > 总星数 51573
+  // → 算出负数被截成 0，曲线从 0 直线爬到 5 万（假得离谱）。
+  const decay = 0.93;
+  const decaySum = decay * ((1 - Math.pow(decay, padCount)) / (1 - decay));
+
+  // 双保险：回推总量最多占首个真实值的 70%，避免任何情况下撞 0
+  let rate = rateRaw;
+  if (decaySum > 0 && rate * decaySum > first * 0.7) {
+    rate = (first * 0.7) / decaySum;
   }
 
-  // 有 ≥2 个真实点：用首末差估日均，线性回推
-  const perDay = Math.max(0, (values[values.length - 1] - first) / (values.length - 1));
-  const pad = [];
-  for (let k = padCount; k >= 1; k--) {
-    pad.push(Math.max(0, Math.round(first - perDay * k)));
+  const back = [];
+  let acc = 0;
+  for (let k = 1; k <= padCount; k++) {
+    acc += rate * Math.pow(decay, k);
+    back.push(Math.max(0, Math.round(first - acc)));
   }
-  return { trend: pad.concat(values), realPoints: realPoints };
+  back.reverse();
+  return { trend: back.concat(values), realPoints: realPoints };
 }
 
 /* ---------------------------------------------------------------- 条目 */
