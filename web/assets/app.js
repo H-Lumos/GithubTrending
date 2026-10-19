@@ -543,7 +543,16 @@
     } else {
       history = '这是首日快照，升降标记（↑N / ↓N / NEW）从明天起才会出现；star 曲线目前按日均增量回推。';
     }
-    warn.textContent = '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' + history;
+    // 数据太旧就明确警告：定时任务可能被 GitHub 跳过（实测发生过），
+    // 不提示的话用户只会觉得「网站坏了」
+    var ageHours = (Date.now() - Number(DATA.generatedAt)) / 3600000;
+    var stale =
+      ageHours > 30
+        ? '⚠️ 数据已 ' + Math.floor(ageHours) + ' 小时未更新，定时任务可能被跳过——可到仓库 Actions 页点 Run workflow 手动更新。'
+        : '';
+    warn.textContent =
+      (stale ? stale + ' ' : '') +
+      '内容与 github.com/trending 逐条一致（抓取于 ' + when + '）。' + history;
 
     var zhLine = $('foot-zh');
     if (zhLine) {
@@ -934,6 +943,7 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
 
 
 

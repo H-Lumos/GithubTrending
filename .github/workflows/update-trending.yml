@@ -9,8 +9,13 @@ name: Update trending data
 #    迁到 Ubuntu 26，钉版本可避免镜像变更带来的意外。
 on:
   schedule:
-    # UTC 00:17 ≈ 北京时间 08:17（GitHub 的 cron 可能延迟几分钟到几十分钟）
+    # UTC 00:17 ≈ 北京时间 08:17；UTC 03:17 ≈ 北京 11:17
+    # 两个时间点是为了容错：GitHub 的 cron 会排队，实测出现过某个点完全不触发的情况
+    # （2026-10-19 的 00:17 那次就没跑，用户看到的还是前一天的数据）。
+    # 同一天跑多次是安全的：history.json 按 UTC 日期存一条，重复运行只会覆盖当天记录，
+    # 名次对比依旧拿「上一个不同日期」作基准。
     - cron: '17 0 * * *'
+    - cron: '17 3 * * *'
   workflow_dispatch:
 
 permissions:

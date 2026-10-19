@@ -266,15 +266,21 @@ function rpc(ws, id, method, params) {
         realPoints: window.TRENDING.periods.daily[0].trendRealPoints,
         hasRankField: 'rankChange' in window.TRENDING.periods.daily[0],
         noteText: note ? note.textContent.trim() : '',
-        badges: document.querySelectorAll('.rk').length
+        badges: document.querySelectorAll('.rk').length,
+        movedCount: window.TRENDING.periods.daily.filter(function (i) { return i.rankChange; }).length
       });
     }, 500));
   })()`);
-  check('数据里带历史字段', hist.hasPrevDay === false && hist.historyDays === 1, '首日 · ' + hist.historyDays + ' 天');
+  check('数据里带历史字段', typeof hist.historyDays === 'number' && hist.historyDays >= 1, hist.historyDays + ' 天' + (hist.hasPrevDay ? ' · 有对比基准' : ' · 首日'));
   check('条目带 rankChange 字段', hist.hasRankField === true);
-  check('首日真实点数 = 1', hist.realPoints === 1, hist.realPoints + ' 点');
+  check('真实点数与历史天数一致', hist.realPoints === Math.min(hist.historyDays, 30), hist.realPoints + ' 点 / ' + hist.historyDays + ' 天');
   check('曲线标注为估算', hist.noteText.indexOf('估算') > -1, hist.noteText);
-  check('首日不显示升降徽章', hist.badges === 0, hist.badges + ' 个');
+  // 徽章只在名次真的变了才出现（12 小时内榜单顺序没动就是 0 个，属正常）
+  check(
+    hist.hasPrevDay ? '名次有变化时徽章数量与数据一致' : '首日不显示升降徽章',
+    hist.badges === hist.movedCount,
+    hist.badges + ' 个徽章 / 数据里非零变化 ' + hist.movedCount + ' 条'
+  );
 
   await evalJs('document.getElementById("btnClose").click(); 1');
   await sleep(300);
@@ -568,6 +574,24 @@ function rpc(ws, id, method, params) {
   } else {
     check('有真实数据后迷你柱出现', spark.barCount > 0, spark.barCount + ' 根柱子');
   }
+  /* ---------- 12.8 数据新鲜度 ---------- */
+  console.log('\n[12.8] 数据新鲜度与旧数据警告');
+  const fresh = await evalJs(`(() => {
+    const T = window.TRENDING;
+    const ageH = (Date.now() - T.generatedAt) / 3600000;
+    const warn = document.getElementById('foot-warn').textContent;
+    return {
+      ageH: Math.round(ageH * 10) / 10,
+      warnsStale: warn.indexOf('未更新') > -1,
+      historyDays: T.historyDays,
+      realPoints: T.periods.daily[0].trendRealPoints
+    };
+  })()`);
+  check('数据年龄与警告一致', (fresh.ageH <= 30) !== fresh.warnsStale, fresh.ageH + ' 小时' + (fresh.warnsStale ? '（有警告）' : '（无警告）'));
+  check('历史天数已累积', fresh.historyDays >= 1, fresh.historyDays + ' 天');
+  if (fresh.historyDays >= 2) {
+    check('第二天的真实点数应为 2', fresh.realPoints === 2, fresh.realPoints + ' 点');
+  }
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -628,6 +652,8 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
 
 
 
