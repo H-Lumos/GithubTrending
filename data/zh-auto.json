@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792399970156,
+  "updatedAt": 1792471892078,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -24,6 +24,64 @@
         "JavaScript"
       ],
       "generatedAt": 1792399970155,
+      "model": "deepseek-chat"
+    },
+    "headroomlabs-ai/headroom": {
+      "purpose": "为使用 LLM 的开发者压缩工具输出、日志、文件和 RAG 片段，减少输入 token。",
+      "detail": "该项目在内容送入 LLM 前进行压缩，官方称编码代理可减少约 20% token，JSON 可减少 60-95%，并保持答案一致。提供库、代理和 MCP 服务器三种使用形态，适合需要控制上下文长度与调用成本的 LLM 应用开发者。",
+      "tags": [
+        "token压缩",
+        "LLM",
+        "MCP",
+        "上下文优化"
+      ],
+      "generatedAt": 1792471886971,
+      "model": "deepseek-chat"
+    },
+    "withmarbleapp/os-taxonomy": {
+      "purpose": "信息不足，建议进仓库查看",
+      "detail": "仓库未提供描述，无法从现有信息判断其具体用途。仓库主语言为 JavaScript，名称中的 taxonomy 可能暗示与分类体系相关，但缺少说明文档与功能描述，建议进入仓库查看代码与 README 后再评估。",
+      "tags": [
+        "JavaScript",
+        "分类体系",
+        "信息不足"
+      ],
+      "generatedAt": 1792471888339,
+      "model": "deepseek-chat"
+    },
+    "shiyu-coder/Kronos": {
+      "purpose": "面向金融从业者与量化研究者，用基础模型理解金融市场语言",
+      "detail": "Kronos 是一个面向金融市场的开源基础模型，用 Python 实现，官方描述将其定位为理解金融市场语言的基础模型。仓库未提供更多细节，具体能力、训练数据与使用方式需进仓库查看。适合关注金融时序建模与量化研究的人员参考。",
+      "tags": [
+        "金融",
+        "基础模型",
+        "Python",
+        "量化研究"
+      ],
+      "generatedAt": 1792471889585,
+      "model": "deepseek-chat"
+    },
+    "earthtojake/text-to-cad": {
+      "purpose": "让 AI 智能体具备生成 CAD 模型的能力",
+      "detail": "该项目为智能体提供 CAD 相关能力，主语言为 Python。仓库描述较为简短，未说明具体实现方式、支持的 CAD 格式或使用流程。适合希望将 CAD 建模接入 AI 智能体的开发者参考。",
+      "tags": [
+        "CAD",
+        "AI 智能体",
+        "Python"
+      ],
+      "generatedAt": 1792471890797,
+      "model": "deepseek-chat"
+    },
+    "pbakaus/impeccable": {
+      "purpose": "帮助使用 AI 编程工具的人提升生成界面的设计质量",
+      "detail": "该项目以 Rust 实现，提供一套设计语言，用于让 AI 编程助手在生成界面时更符合设计规范。仓库描述强调改善 AI harness 的设计表现，但未说明具体接入方式、支持的工具或使用流程。适合关注 AI 辅助前端与界面生成质量的开发者参考。",
+      "tags": [
+        "Rust",
+        "AI 编程",
+        "设计语言",
+        "界面生成"
+      ],
+      "generatedAt": 1792471892078,
       "model": "deepseek-chat"
     }
   }
