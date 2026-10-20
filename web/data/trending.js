@@ -1,6 +1,6 @@
 /* 自动生成，勿手改：node scripts/snapshot.js */
 window.TRENDING = {
-  "generatedAt": 1792472753522,
+  "generatedAt": 1792472912277,
   "date": "2026-10-20",
   "source": "official-snapshot",
   "historyDays": 3,
@@ -64,8 +64,8 @@ window.TRENDING = {
         "descEn": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 57925,
-        "forks": 18338,
+        "stars": 57930,
+        "forks": 18342,
         "hot": 3856,
         "hotUnit": "今日新增",
         "avatars": [
@@ -86,7 +86,7 @@ window.TRENDING = {
         "trend": [
           51573,
           54694,
-          57925
+          57930
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -105,7 +105,7 @@ window.TRENDING = {
         "descEn": "The open source coding agent.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 218016,
+        "stars": 218017,
         "forks": 29133,
         "hot": 1311,
         "hotUnit": "今日新增",
@@ -127,7 +127,7 @@ window.TRENDING = {
         "trend": [
           215995,
           217027,
-          218016
+          218017
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -146,7 +146,7 @@ window.TRENDING = {
         "descEn": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 11507,
+        "stars": 11508,
         "forks": 817,
         "hot": 666,
         "hotUnit": "今日新增",
@@ -168,7 +168,7 @@ window.TRENDING = {
         "trend": [
           10218,
           10768,
-          11507
+          11508
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -187,7 +187,7 @@ window.TRENDING = {
         "descEn": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 139954,
+        "stars": 139958,
         "forks": 16600,
         "hot": 1011,
         "hotUnit": "今日新增",
@@ -214,7 +214,7 @@ window.TRENDING = {
         "trend": [
           138210,
           139015,
-          139954
+          139958
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -233,7 +233,7 @@ window.TRENDING = {
         "descEn": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 77329,
+        "stars": 77331,
         "forks": 9113,
         "hot": 564,
         "hotUnit": "今日新增",
@@ -254,7 +254,7 @@ window.TRENDING = {
         "trend": [
           76302,
           76766,
-          77329
+          77331
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -273,7 +273,7 @@ window.TRENDING = {
         "descEn": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding agent with your own subscription. Available on desktop, mobile and remote runtime.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 98547,
+        "stars": 98549,
         "forks": 6287,
         "hot": 1590,
         "hotUnit": "今日新增",
@@ -295,7 +295,7 @@ window.TRENDING = {
         "trend": [
           96004,
           97292,
-          98547
+          98549
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -314,7 +314,7 @@ window.TRENDING = {
         "descEn": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 76350,
+        "stars": 76352,
         "forks": 5929,
         "hot": 310,
         "hotUnit": "今日新增",
@@ -339,7 +339,7 @@ window.TRENDING = {
           "上下文优化"
         ],
         "trend": [
-          76350
+          76352
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -358,8 +358,8 @@ window.TRENDING = {
         "descEn": "",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 6264,
-        "forks": 1019,
+        "stars": 6266,
+        "forks": 1020,
         "hot": 284,
         "hotUnit": "今日新增",
         "avatars": [
@@ -371,15 +371,16 @@ window.TRENDING = {
         "initial": "O",
         "rank": 8,
         "dataSource": "official",
-        "purpose": "信息不足，建议进仓库查看",
-        "detail": "仓库未提供描述，无法从现有信息判断其具体用途。仓库主语言为 JavaScript，名称中的 taxonomy 可能暗示与分类体系相关，但缺少说明文档与功能描述，建议进入仓库查看代码与 README 后再评估。",
+        "purpose": "为教育产品开发者提供儿童学习内容的细粒度知识点与先修关系数据",
+        "detail": "该仓库是 Marble 发布的开放课程分类体系，把小学阶段的学习内容拆成 1591 个微主题，覆盖 8 个学科，并用 3225 条先修依赖连成有向图。每个微主题包含通俗描述、掌握证据标准、类型、学科与领域以及大致年龄范围，并对齐各国课程标准。适合做自适应学习、课程可视化或教育数据研究的开发者使用。",
         "tags": [
-          "JavaScript",
-          "分类体系",
-          "信息不足"
+          "教育数据",
+          "知识图谱",
+          "课程体系",
+          "开源数据集"
         ],
         "trend": [
-          6264
+          6266
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -398,7 +399,7 @@ window.TRENDING = {
         "descEn": "Video restoration tool",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 3011,
+        "stars": 3013,
         "forks": 217,
         "hot": 498,
         "hotUnit": "今日新增",
@@ -420,7 +421,7 @@ window.TRENDING = {
         "trend": [
           2228,
           2640,
-          3011
+          3013
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -439,7 +440,7 @@ window.TRENDING = {
         "descEn": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 55370,
+        "stars": 55372,
         "forks": 4995,
         "hot": 606,
         "hotUnit": "今日新增",
@@ -461,7 +462,7 @@ window.TRENDING = {
         "trend": [
           54353,
           54860,
-          55370
+          55372
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -480,7 +481,7 @@ window.TRENDING = {
         "descEn": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 152748,
+        "stars": 152750,
         "forks": 27146,
         "hot": 167,
         "hotUnit": "今日新增",
@@ -500,7 +501,7 @@ window.TRENDING = {
         "detail": "在项目目录里启动，它会自己索引代码结构；你用自然语言描述需求，它去改文件、执行命令、看报错再修。支持 hooks、子代理、MCP 扩展，适合重构、补测试、跨文件改造这类体力活。",
         "tags": [],
         "trend": [
-          152748
+          152750
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -519,7 +520,7 @@ window.TRENDING = {
         "descEn": "Kronos: A Foundation Model for the Language of Financial Markets",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 41812,
+        "stars": 41815,
         "forks": 6940,
         "hot": 363,
         "hotUnit": "今日新增",
@@ -544,7 +545,7 @@ window.TRENDING = {
           "量化研究"
         ],
         "trend": [
-          41812
+          41815
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -565,8 +566,8 @@ window.TRENDING = {
         "descEn": "Reverse engineer anything with agents, from app behavior down to native binaries.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 338952,
-        "forks": 85556,
+        "stars": 338967,
+        "forks": 85561,
         "hot": 201065,
         "hotUnit": "本周新增",
         "avatars": [
@@ -587,7 +588,7 @@ window.TRENDING = {
         "trend": [
           315867,
           328302,
-          338952
+          338967
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -647,8 +648,8 @@ window.TRENDING = {
         "descEn": "ArtCraft is an intentional crafting engine for artists, designers, and filmmakers",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 33878,
-        "forks": 5364,
+        "stars": 33881,
+        "forks": 5363,
         "hot": 13572,
         "hotUnit": "本周新增",
         "avatars": [
@@ -669,7 +670,7 @@ window.TRENDING = {
         "trend": [
           32294,
           33129,
-          33878
+          33881
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -688,8 +689,8 @@ window.TRENDING = {
         "descEn": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 57925,
-        "forks": 18338,
+        "stars": 57930,
+        "forks": 18342,
         "hot": 9073,
         "hotUnit": "本周新增",
         "avatars": [
@@ -710,7 +711,7 @@ window.TRENDING = {
         "trend": [
           51573,
           54694,
-          57925
+          57930
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -811,7 +812,7 @@ window.TRENDING = {
         "descEn": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 31148,
+        "stars": 31149,
         "forks": 2346,
         "hot": 4224,
         "hotUnit": "本周新增",
@@ -833,7 +834,7 @@ window.TRENDING = {
         "trend": [
           30625,
           30880,
-          31148
+          31149
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -852,7 +853,7 @@ window.TRENDING = {
         "descEn": "Write HTML. Render video. Built for agents.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 67816,
+        "stars": 67819,
         "forks": 6126,
         "hot": 5945,
         "hotUnit": "本周新增",
@@ -874,7 +875,7 @@ window.TRENDING = {
         "trend": [
           66374,
           67085,
-          67816
+          67819
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -893,7 +894,7 @@ window.TRENDING = {
         "descEn": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
         "language": "HTML",
         "languageColor": "#e34c26",
-        "stars": 58564,
+        "stars": 58565,
         "forks": 3764,
         "hot": 6638,
         "hotUnit": "本周新增",
@@ -915,7 +916,7 @@ window.TRENDING = {
         "trend": [
           57387,
           58013,
-          58564
+          58565
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1014,7 +1015,7 @@ window.TRENDING = {
         "descEn": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 77824,
+        "stars": 77826,
         "forks": 8532,
         "hot": 17291,
         "hotUnit": "本周新增",
@@ -1036,7 +1037,7 @@ window.TRENDING = {
         "trend": [
           74305,
           76344,
-          77824
+          77826
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1055,7 +1056,7 @@ window.TRENDING = {
         "descEn": "DeepSeek Harness 破甲：让所有模型都能破甲，不同模型可换不同提示词；默认提示词面向国模「小码酱」。Jailbreak for every model — swap prompts per model. 求 Star 收藏 ⭐ 如要二开，请查看署名要求部分",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 9499,
+        "stars": 9508,
         "forks": 1805,
         "hot": 2933,
         "hotUnit": "本周新增",
@@ -1081,7 +1082,7 @@ window.TRENDING = {
         ],
         "trend": [
           7369,
-          9499
+          9508
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1100,7 +1101,7 @@ window.TRENDING = {
         "descEn": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 77329,
+        "stars": 77331,
         "forks": 9113,
         "hot": 2543,
         "hotUnit": "本周新增",
@@ -1121,7 +1122,7 @@ window.TRENDING = {
         "trend": [
           76302,
           76766,
-          77329
+          77331
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1183,7 +1184,7 @@ window.TRENDING = {
         "descEn": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 77824,
+        "stars": 77826,
         "forks": 8532,
         "hot": 44161,
         "hotUnit": "本月新增",
@@ -1205,7 +1206,7 @@ window.TRENDING = {
         "trend": [
           74305,
           76344,
-          77824
+          77826
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1224,7 +1225,7 @@ window.TRENDING = {
         "descEn": "Write HTML. Render video. Built for agents.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 67816,
+        "stars": 67819,
         "forks": 6126,
         "hot": 16049,
         "hotUnit": "本月新增",
@@ -1246,7 +1247,7 @@ window.TRENDING = {
         "trend": [
           66374,
           67085,
-          67816
+          67819
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1265,7 +1266,7 @@ window.TRENDING = {
         "descEn": "Hindsight: Agent Memory That Learns",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 51740,
+        "stars": 51741,
         "forks": 6174,
         "hot": 27932,
         "hotUnit": "本月新增",
@@ -1287,7 +1288,7 @@ window.TRENDING = {
         "trend": [
           51045,
           51400,
-          51740
+          51741
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1352,7 +1353,7 @@ window.TRENDING = {
         "descEn": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 32711,
+        "stars": 32713,
         "forks": 2043,
         "hot": 16536,
         "hotUnit": "本月新增",
@@ -1372,7 +1373,7 @@ window.TRENDING = {
         "trend": [
           30928,
           31322,
-          32711
+          32713
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1391,7 +1392,7 @@ window.TRENDING = {
         "descEn": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 31148,
+        "stars": 31149,
         "forks": 2346,
         "hot": 7498,
         "hotUnit": "本月新增",
@@ -1413,7 +1414,7 @@ window.TRENDING = {
         "trend": [
           30625,
           30880,
-          31148
+          31149
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1514,7 +1515,7 @@ window.TRENDING = {
         "descEn": "7.4 billion tokens per month. 34 free LLM providers. 635 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 37757,
+        "stars": 37758,
         "forks": 5097,
         "hot": 10330,
         "hotUnit": "本月新增",
@@ -1536,7 +1537,7 @@ window.TRENDING = {
         "trend": [
           36863,
           37266,
-          37757
+          37758
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1760,7 +1761,7 @@ window.TRENDING = {
         "descEn": "Learn AI Engineering! Learn it. Build it. Ship it for others.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 71507,
+        "stars": 71508,
         "forks": 12577,
         "hot": 16662,
         "hotUnit": "本月新增",
@@ -1782,7 +1783,7 @@ window.TRENDING = {
         "trend": [
           70860,
           71200,
-          71507
+          71508
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1801,7 +1802,7 @@ window.TRENDING = {
         "descEn": "A smarter, self-hosted AI assistant — multi-user, multi-agent.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 10333,
+        "stars": 10334,
         "forks": 1316,
         "hot": 6077,
         "hotUnit": "本月新增",
@@ -1823,7 +1824,7 @@ window.TRENDING = {
         "trend": [
           9841,
           10006,
-          10333
+          10334
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1885,7 +1886,7 @@ window.TRENDING = {
         "descEn": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 55370,
+        "stars": 55372,
         "forks": 4995,
         "hot": 5545,
         "hotUnit": "本月新增",
@@ -1907,7 +1908,7 @@ window.TRENDING = {
         "trend": [
           54353,
           54860,
-          55370
+          55372
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1926,7 +1927,7 @@ window.TRENDING = {
         "descEn": "The design language that makes your AI harness better at design.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 83323,
+        "stars": 83324,
         "forks": 5041,
         "hot": 14255,
         "hotUnit": "本月新增",
@@ -1951,7 +1952,7 @@ window.TRENDING = {
           "界面生成"
         ],
         "trend": [
-          83323
+          83324
         ],
         "trendEstimated": true,
         "prevRank": null,

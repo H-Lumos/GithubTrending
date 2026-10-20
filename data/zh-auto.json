@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792472758951,
+  "updatedAt": 1792472918250,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -83,6 +83,18 @@
         "Claude"
       ],
       "generatedAt": 1792472758950,
+      "model": "deepseek-chat"
+    },
+    "withmarbleapp/os-taxonomy": {
+      "purpose": "为教育产品开发者提供儿童学习内容的细粒度知识点与先修关系数据",
+      "detail": "该仓库是 Marble 发布的开放课程分类体系，把小学阶段的学习内容拆成 1591 个微主题，覆盖 8 个学科，并用 3225 条先修依赖连成有向图。每个微主题包含通俗描述、掌握证据标准、类型、学科与领域以及大致年龄范围，并对齐各国课程标准。适合做自适应学习、课程可视化或教育数据研究的开发者使用。",
+      "tags": [
+        "教育数据",
+        "知识图谱",
+        "课程体系",
+        "开源数据集"
+      ],
+      "generatedAt": 1792472918250,
       "model": "deepseek-chat"
     }
   }
