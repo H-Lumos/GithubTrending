@@ -187,6 +187,16 @@ async function fetchReadmeExcerpt(owner, repo) {
 /* ---------------------------------------------------------------- 主流程 */
 
 async function run() {
+  // 旧缓存里写着「信息不足」的条目：当时没拿到 README 素材，现在清掉重生成。
+  // 必须在构建条目之前做，否则条目会继续沿用旧文案、也不会进入待生成列表（踩过）。
+  Object.keys(AUTO.entries).forEach(function (id) {
+    const e = AUTO.entries[id];
+    if (e && typeof e.purpose === 'string' && e.purpose.indexOf('信息不足') > -1 && !ZH[id]) {
+      delete AUTO.entries[id];
+      console.log('↻ 清掉旧的「信息不足」缓存：' + id);
+    }
+  });
+
   const history = loadHistory();
   const prevDay = prevDayOf(history);
 
@@ -262,14 +272,6 @@ async function run() {
     });
   });
 
-  // 缓存里存的是「信息不足」的旧条目：当时没有 README 素材，现在重试一次
-  Object.keys(AUTO.entries).forEach(function (id) {
-    const e = AUTO.entries[id];
-    if (e && typeof e.purpose === 'string' && e.purpose.indexOf('信息不足') > -1 && !ZH[id]) {
-      delete AUTO.entries[id];
-      console.log('  ↻ 清掉旧的「信息不足」缓存：' + id);
-    }
-  });
 
   // 没有官方描述的仓库，先抓 README 当素材（否则模型只能写「信息不足」）
   for (const item of missing) {
@@ -385,6 +387,7 @@ module.exports = {
   fetchReadmeExcerpt: fetchReadmeExcerpt,
   TREND_DAYS: TREND_DAYS
 };
+
 
 
 
