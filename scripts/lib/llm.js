@@ -20,13 +20,17 @@ const SYSTEM = [
   '3. purpose 是一句话，40 个汉字以内，说清「给谁用、解决什么问题」，不要复述英文。',
   '4. detail 是 2~4 句，说明用途、关键特点、适合谁；不要营销文案、不要感叹号。',
   '5. 只能基于给定信息推断，禁止编造未提及的功能、公司、数据。',
-  '6. 如果信息不足以判断用途，purpose 写「信息不足，建议进仓库查看」，detail 说明仓库未提供描述。'
+  '6. 如果给了 README 摘录，就以 README 为主要依据来概括，不要再说信息不足。',
+  '7. 只有当「描述和 README 都为空」时，purpose 才写「信息不足，建议进仓库查看」，detail 说明仓库未提供任何说明。'
 ].join('\n');
 
 function buildUserPrompt(item) {
   const lines = ['仓库：' + item.fullName, '主语言：' + (item.language || '未知')];
   if (item.topics && item.topics.length) lines.push('标签：' + item.topics.join(', '));
   lines.push('GitHub 官方描述：' + (item.descEn || '（仓库没有填写描述）'));
+  if (item.readmeExcerpt) {
+    lines.push('', 'README 摘录（用于概括用途）：', item.readmeExcerpt);
+  }
   lines.push('', '请按要求输出 JSON。');
   return lines.join('\n');
 }
@@ -119,3 +123,4 @@ async function generateMany(apiKey, items, opts) {
 }
 
 module.exports = { generateOne, generateMany, isFresh, isValidEntry, buildUserPrompt, SYSTEM, MODEL, TTL_DAYS };
+

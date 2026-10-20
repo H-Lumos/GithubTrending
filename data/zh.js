@@ -38,11 +38,6 @@ module.exports = {
     detail:
       '解决「换个代理就忘光上下文」的问题：把项目记忆持久化下来，Claude Code、Codex 等不同工具可以接力，不用每次重新解释背景。'
   },
-  'android/skills': {
-    purpose: 'Android 官方仓库，内容是面向 AI 代理的技能（skills）集合。',
-    detail:
-      '仓库本身没有填写描述。从所属组织与命名看，是 Android 团队整理的代理技能集，供 AI 编程工具在 Android 开发场景下调用，具体技能请进仓库看目录结构。'
-  },
   'stablyai/orca': {
     purpose: '一个界面同时驾驭一队 AI 代理，可以用自己的订阅跑任意编程代理。',
     detail:
@@ -127,11 +122,6 @@ module.exports = {
     purpose: '用来管理「工作里那些 AI 代理」的开源应用。',
     detail:
       '仓库描述很简短（the open-source app everyone uses to manage agents at work），定位是团队级代理编排与管理，适合多个代理并行时的统一视图。'
-  },
-  'anthropics/financial-services': {
-    purpose: 'Anthropic 官方的金融服务场景仓库。',
-    detail:
-      '仓库没有填写描述。从所属组织与命名看，是面向金融服务的 Claude 应用示例 / 工具集，具体内容建议进仓库看目录与文档。'
   },
   'vectorize-io/hindsight': {
     purpose: '会「学习」的代理记忆系统。',

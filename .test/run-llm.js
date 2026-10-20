@@ -87,6 +87,21 @@ function ok(name, cond, extra) {
   ok('system 提示词已发送', lastBody.messages[0].role === 'system' && lastBody.messages[0].content.length > 50);
   ok('用户提示词包含仓库名与描述', /acme\/demo/.test(lastBody.messages[1].content) && /tiny demo/.test(lastBody.messages[1].content));
 
+  console.log('【README 素材】');
+  mode = 'ok';
+  await llm.generateOne('fake-key', {
+    id: 'no/desc',
+    fullName: 'no/desc',
+    language: 'JavaScript',
+    descEn: '',
+    topics: [],
+    readmeExcerpt: 'An open taxonomy of what children learn across primary years.'
+  });
+  const userMsg = lastBody.messages[1].content;
+  ok('无描述时把 README 摘录发给模型', userMsg.indexOf('open taxonomy of what children learn') > -1);
+  ok('prompt 标明这是 README 摘录', /README 摘录/.test(userMsg));
+  ok('无描述时提示「没有填写描述」', /没有填写描述/.test(userMsg));
+
   console.log('【容错：模型返回 ```json 代码块】');
   mode = 'fenced';
   const r2 = await llm.generateOne('fake-key', item);
@@ -143,6 +158,46 @@ function ok(name, cond, extra) {
   ok('超过 TTL 算过期', llm.isFresh({ purpose: 'x', generatedAt: now - (llm.TTL_DAYS + 1) * 86400000 }, now) === false);
   ok('没有时间戳算过期', llm.isFresh({ purpose: 'x' }, now) === false);
 
+  /* ---------------- README 抓取（本地 mock GitHub API） ---------------- */
+  console.log('【README 抓取】');
+  const gh = http.createServer((req, res) => {
+    if (req.url.indexOf('/readme') === -1) {
+      res.writeHead(404);
+      res.end('{}');
+      return;
+    }
+    if (req.url.indexOf('/no-desc/') > -1) {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('# Title\n\n```js\nconst x = 1;\n```\n![logo](http://x/y.png)\n\nAn open taxonomy of **what children learn** across primary years.');
+      return;
+    }
+    if (req.url.indexOf('/noreadme/') > -1) {
+      res.writeHead(404);
+      res.end('{"message":"Not Found"}');
+      return;
+    }
+    res.writeHead(401);
+    res.end('{"message":"Bad credentials"}');
+  });
+  await new Promise((r) => gh.listen(0, '127.0.0.1', r));
+  process.env.GH_API_BASE = 'http://127.0.0.1:' + gh.address().port;
+  process.env.GITHUB_TOKEN = 'fake';
+
+  const snapMod = require(path.join(__dirname, '..', 'scripts', 'snapshot.js'));
+  const ex1 = await snapMod.fetchReadmeExcerpt('no-desc', 'repo');
+  ok('取到 README 并清理', ex1.indexOf('what children learn') > -1 && ex1.length > 20, ex1.slice(0, 40));
+  ok('去掉了代码块', ex1.indexOf('const x = 1') === -1);
+  ok('去掉了图片标记', ex1.indexOf('logo') === -1);
+  ok('保留正文', ex1.indexOf('An open taxonomy') > -1);
+
+  const ex2 = await snapMod.fetchReadmeExcerpt('noreadme', 'repo');
+  ok('没有 README 时返回空串', ex2 === '');
+
+  const ex3 = await snapMod.fetchReadmeExcerpt('bad', 'repo');
+  ok('401 时返回空串（不抛错）', ex3 === '');
+
+  gh.close();
+  delete process.env.GH_API_BASE;
   server.close();
   console.log('\n结果：' + pass + ' 通过 / ' + fails.length + ' 失败');
   if (fails.length) {
@@ -154,3 +209,5 @@ function ok(name, cond, extra) {
   server.close();
   process.exit(3);
 });
+
+

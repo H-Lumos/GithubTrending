@@ -29,6 +29,7 @@ try {
 }
 
 const llm = require('./lib/llm.js');
+const http = require('./lib/http.js');
 const AUTO_FILE = path.join(ROOT, 'data', 'zh-auto.json');
 
 /** AI 生成的中文缓存（会被 Actions 提交回仓库，所以同一条只花钱一次） */
@@ -155,6 +156,34 @@ function applyAuto(items, entry) {
   });
 }
 
+/* ---- 无描述的仓库：抓 README 当素材，否则只能生成「信息不足」 ---- */
+async function fetchReadmeExcerpt(owner, repo) {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
+  const headers = { Accept: 'application/vnd.github.raw', 'User-Agent': 'ght-trending' };
+  if (token) headers.Authorization = 'Bearer ' + token;
+  try {
+    const apiBase = process.env.GH_API_BASE || 'https://api.github.com';
+    const res = await http.request(
+      'GET',
+      apiBase + '/repos/' + owner + '/' + repo + '/readme',
+      headers
+    );
+    if (res.status !== 200) return '';
+    // 只取前 1200 字：够模型判断用途，又不至于把 prompt 撑大
+    const text = String(res.body)
+      .replace(/\r/g, '')
+      .replace(/```[\s\S]*?```/g, ' ')      // 去掉代码块
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ') // 去掉图片
+      .replace(/<[^>]+>/g, ' ')              // 去掉 HTML
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\n{2,}/g, '\n')
+      .trim();
+    return text.slice(0, 1200);
+  } catch (e) {
+    return '';
+  }
+}
+
 /* ---------------------------------------------------------------- 主流程 */
 
 async function run() {
@@ -232,6 +261,26 @@ async function run() {
       missing.push({ id: it.id, fullName: it.fullName, language: it.language, descEn: it.descEn, topics: it.tags });
     });
   });
+
+  // 缓存里存的是「信息不足」的旧条目：当时没有 README 素材，现在重试一次
+  Object.keys(AUTO.entries).forEach(function (id) {
+    const e = AUTO.entries[id];
+    if (e && typeof e.purpose === 'string' && e.purpose.indexOf('信息不足') > -1 && !ZH[id]) {
+      delete AUTO.entries[id];
+      console.log('  ↻ 清掉旧的「信息不足」缓存：' + id);
+    }
+  });
+
+  // 没有官方描述的仓库，先抓 README 当素材（否则模型只能写「信息不足」）
+  for (const item of missing) {
+    if (item.descEn && item.descEn.trim()) continue;
+    const parts = String(item.id).split('/');
+    if (parts.length !== 2) continue;
+    item.readmeExcerpt = await fetchReadmeExcerpt(parts[0], parts[1]);
+    if (item.readmeExcerpt) {
+      console.log('  📄 取到 README：' + item.id + '（' + item.readmeExcerpt.length + ' 字符）');
+    }
+  }
 
   snapshot.zhMissing = missing.length;
   snapshot.zhAi = 0;
@@ -330,7 +379,15 @@ if (require.main === module) {
 }
 
 // 纯函数供单测使用（不联网、不写文件）
-module.exports = { rankDelta: rankDelta, trendOf: trendOf, TREND_DAYS: TREND_DAYS };
+module.exports = {
+  rankDelta: rankDelta,
+  trendOf: trendOf,
+  fetchReadmeExcerpt: fetchReadmeExcerpt,
+  TREND_DAYS: TREND_DAYS
+};
+
+
+
 
 
 

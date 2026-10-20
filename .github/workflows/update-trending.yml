@@ -42,6 +42,8 @@ jobs:
           # 在仓库 Settings → Secrets and variables → Actions 里配置
           # 没配也能跑：缺中文的条目回落 GitHub 官方英文描述
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          # 无描述的仓库要抓 README 当素材；用内置 token 把限额从 60/h 提到 1000/h
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_MODEL: deepseek-chat
           ZH_MAX_PER_RUN: '12'
         run: node scripts/snapshot.js
@@ -73,3 +75,4 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v5
+
