@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792472918250,
+  "updatedAt": 1792558044150,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -95,6 +95,102 @@
         "开源数据集"
       ],
       "generatedAt": 1792472918250,
+      "model": "deepseek-chat"
+    },
+    "DietrichGebert/ponytail": {
+      "purpose": "让 AI 编程助手像资深开发者一样少写代码、优先复用已有方案",
+      "detail": "该项目面向使用 AI 编程助手的人，通过提示或约束让代理在动手前先考虑是否真的需要写新代码。核心理念是最好的代码就是没写的代码，倾向于复用现有实现、减少冗余改动。适合希望控制 AI 生成代码量、降低维护成本的开发者。",
+      "tags": [
+        "AI 编程助手",
+        "代码复用",
+        "开发效率",
+        "JavaScript"
+      ],
+      "generatedAt": 1792558034348,
+      "model": "deepseek-chat"
+    },
+    "Graphify-Labs/graphify": {
+      "purpose": "把代码库及其文档、SQL、配置和 PDF 转成可查询知识图谱，供 AI 编程助手使用。",
+      "detail": "该项目是一个 /graphify 技能，可接入 Claude Code、Cursor、Codex 和 Gemini CLI。它通过本地确定性的 AST 解析构建知识图谱，每条边都有解释，不依赖向量数据库。适合需要让 AI 助手理解大型代码库结构与关联的开发者。",
+      "tags": [
+        "知识图谱",
+        "代码解析",
+        "AI 编程助手",
+        "AST"
+      ],
+      "generatedAt": 1792558035632,
+      "model": "deepseek-chat"
+    },
+    "msitarzewski/agency-agents": {
+      "purpose": "为需要多角色 AI 协作的开发者提供一套可复用的专家代理集合。",
+      "detail": "仓库以 Shell 脚本组织多个 AI 代理，每个代理对应一个专门角色，如前端开发、社区运营、创意注入和现实校验等。每个代理带有各自的性格设定、工作流程和交付物模板，便于在 AI 工作流中按需调用。适合希望用多角色代理模拟完整团队协作的开发者或内容团队参考使用。",
+      "tags": [
+        "AI代理",
+        "多角色协作",
+        "Shell",
+        "工作流"
+      ],
+      "generatedAt": 1792558037368,
+      "model": "deepseek-chat"
+    },
+    "wshobson/agents": {
+      "purpose": "为多种 AI 编程工具提供统一的智能体插件市场",
+      "detail": "该仓库是一个多平台智能体插件市场，支持 Claude Code、Codex、Cursor、OpenCode、GitHub Copilot、Google Antigravity 和 Pi 等工具。它用 Python 实现，让开发者可以在不同 AI 编程环境中复用同一套插件。适合需要在多个 AI 编码助手之间统一管理智能体扩展的开发者。",
+      "tags": [
+        "插件市场",
+        "AI 编程助手",
+        "多平台",
+        "Python"
+      ],
+      "generatedAt": 1792558038912,
+      "model": "deepseek-chat"
+    },
+    "sickn33/agentic-awesome-skills": {
+      "purpose": "为 AI 智能体提供本地技能目录与选择控制，解决技能发现和规划问题。",
+      "detail": "AAS Core 是面向智能体的本地控制平面，支持完整目录发现、智能体自主选择、技术栈校验和规划。它包含 CLI、本地 MCP、目录、插件和 Workbench，背后有 2600 多个智能体技能。适合需要为智能体配置和管理技能库的开发者。",
+      "tags": [
+        "智能体",
+        "技能目录",
+        "MCP",
+        "CLI"
+      ],
+      "generatedAt": 1792558040145,
+      "model": "deepseek-chat"
+    },
+    "vllm-project/vllm": {
+      "purpose": "为需要部署大语言模型的开发者提供高吞吐、省显存的推理与服务引擎",
+      "detail": "vLLM 是一个面向大语言模型推理和在线服务的引擎，重点优化吞吐量与显存占用。它适合需要自建模型推理服务、关注并发性能和显存效率的开发者与团队。项目以 Python 实现，可作为模型部署与服务化的基础组件。",
+      "tags": [
+        "LLM推理",
+        "模型服务",
+        "显存优化",
+        "Python"
+      ],
+      "generatedAt": 1792558041531,
+      "model": "deepseek-chat"
+    },
+    "android/skills": {
+      "purpose": "为 AI 编程助手提供 Android 开发规范技能，解决其在特定工作流中表现不佳的问题。",
+      "detail": "该仓库以 SKILL.md 形式的模块化指令，向大模型提供 Android 开发任务的技术规范与最佳实践，内容依据 developer.android.com 的官方指导。项目聚焦于评测显示大模型表现较弱的用例和工作流，而非 Jetpack Compose 基础用法等已成熟领域。可通过 Android CLI 安装单个或全部技能，适合使用 AI 代理进行 Android 开发的团队与开发者。",
+      "tags": [
+        "Android",
+        "AI 代理",
+        "开发规范",
+        "Kotlin"
+      ],
+      "generatedAt": 1792558042703,
+      "model": "deepseek-chat"
+    },
+    "VectifyAI/PageIndex": {
+      "purpose": "为需要做 RAG 的开发者提供无需向量检索的文档索引方案",
+      "detail": "PageIndex 是一个面向 RAG 场景的文档索引工具，采用基于推理而非向量相似度的检索方式。项目以 Python 实现，定位为无向量的文档索引层，可用于替代传统向量数据库检索流程。适合正在搭建 RAG 系统、希望尝试推理式检索方案的开发者参考使用。",
+      "tags": [
+        "RAG",
+        "文档索引",
+        "Python",
+        "检索"
+      ],
+      "generatedAt": 1792558044150,
       "model": "deepseek-chat"
     }
   }
