@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792644326092,
+  "updatedAt": 1792658210741,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -215,6 +215,30 @@
         "自托管"
       ],
       "generatedAt": 1792644326091,
+      "model": "deepseek-chat"
+    },
+    "strelov1/freehire": {
+      "purpose": "为求职者提供开源职位搜索引擎，集中检索招聘信息。",
+      "detail": "freehire 是一个用 Go 编写的开源搜索引擎，面向求职者聚合和检索职位信息。项目以搜索为核心，帮助用户在一个入口查找招聘内容，而非依赖多个招聘平台逐一浏览。适合希望自建或使用开源方案找工作的用户，也适合关注 Go 技术栈的开发者参考。",
+      "tags": [
+        "职位搜索",
+        "求职",
+        "Go",
+        "开源"
+      ],
+      "generatedAt": 1792658209253,
+      "model": "deepseek-chat"
+    },
+    "hugohe3/ppt-master": {
+      "purpose": "让需要做 PPT 的人用 AI 把文档或主题直接生成原生 PowerPoint 演示文稿",
+      "detail": "该项目用 AI 将文档或主题转换为真正的原生 PPT 文件，而非图片拼接。生成结果包含原生形状、切换与动画，可按需生成带数据的图表和表格，并能根据演讲者备注生成音频旁白，同时支持使用自己的 .pptx 模板。适合需要快速产出可编辑演示文稿的职场人士和内容创作者。",
+      "tags": [
+        "PPT生成",
+        "AI",
+        "Python",
+        "办公自动化"
+      ],
+      "generatedAt": 1792658210741,
       "model": "deepseek-chat"
     }
   }
