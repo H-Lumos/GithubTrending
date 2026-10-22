@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792558044150,
+  "updatedAt": 1792644326092,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -191,6 +191,30 @@
         "检索"
       ],
       "generatedAt": 1792558044150,
+      "model": "deepseek-chat"
+    },
+    "supabase/supabase": {
+      "purpose": "为开发者提供专用 Postgres 数据库，用于构建 Web、移动和 AI 应用",
+      "detail": "Supabase 是一个基于 Postgres 的开发平台，为每个项目提供独立的 Postgres 数据库。它面向需要数据库后端的 Web、移动和 AI 应用开发者，主仓库以 TypeScript 编写。",
+      "tags": [
+        "Postgres",
+        "后端平台",
+        "数据库",
+        "TypeScript"
+      ],
+      "generatedAt": 1792644324612,
+      "model": "deepseek-chat"
+    },
+    "twentyhq/twenty": {
+      "purpose": "为需要客户关系管理的中小团队提供可自托管的开源 CRM 替代方案",
+      "detail": "Twenty 是 Salesforce 的开源替代品，面向希望自行掌控客户数据的企业与团队。项目以 TypeScript 开发，定位为面向 AI 设计的 CRM，可自行部署使用。适合需要灵活定制、不愿受商业 CRM 订阅约束的团队评估和采用。",
+      "tags": [
+        "开源CRM",
+        "Salesforce替代",
+        "TypeScript",
+        "自托管"
+      ],
+      "generatedAt": 1792644326091,
       "model": "deepseek-chat"
     }
   }
