@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792658210741,
+  "updatedAt": 1792730978651,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -239,6 +239,53 @@
         "办公自动化"
       ],
       "generatedAt": 1792658210741,
+      "model": "deepseek-chat"
+    },
+    "php/php-src": {
+      "purpose": "面向 PHP 开发者，提供 PHP 语言解释器本身的源码实现。",
+      "detail": "这是 PHP 官方解释器的源代码仓库，用 C 语言实现，包含语言运行时、扩展机制和标准库等核心组件。适合需要研究 PHP 内部原理、参与 PHP 语言开发或排查底层问题的开发者。",
+      "tags": [
+        "PHP",
+        "解释器",
+        "C",
+        "编程语言"
+      ],
+      "generatedAt": 1792730974481,
+      "model": "deepseek-chat"
+    },
+    "fastapi/fastapi": {
+      "purpose": "为 Python 开发者提供高性能、易上手的 Web API 框架",
+      "detail": "FastAPI 是一个基于 Python 的 Web 框架，主打高性能、易学习和快速编码，可直接用于生产环境。它适合需要构建 API 服务的后端开发者，兼顾开发效率与运行性能。",
+      "tags": [
+        "Python",
+        "Web框架",
+        "API",
+        "高性能"
+      ],
+      "generatedAt": 1792730975762,
+      "model": "deepseek-chat"
+    },
+    "luongnv89/claude-howto": {
+      "purpose": "面向想系统学习 Claude Code 的开发者，提供可视化示例指南。",
+      "detail": "该项目以可视化、示例驱动的方式讲解 Claude Code，内容从基础概念延伸到进阶 agent 用法。附带可直接复制粘贴的模板，便于读者快速套用到实际工作流中。适合刚接触 Claude Code 或希望深入了解 agent 配置与用法的开发者参考。",
+      "tags": [
+        "Claude Code",
+        "教程",
+        "示例模板",
+        "AI 编程"
+      ],
+      "generatedAt": 1792730977502,
+      "model": "deepseek-chat"
+    },
+    "Meloong-Git/PCL": {
+      "purpose": "给 Minecraft 玩家使用的启动器，用于启动和管理游戏。",
+      "detail": "Plain Craft Launcher（PCL）是一款用 Visual Basic .NET 编写的 Minecraft 启动器。仓库信息仅说明它是 Minecraft 启动器，未提供更多功能细节。适合需要启动器的 Minecraft 玩家了解和使用。",
+      "tags": [
+        "Minecraft",
+        "启动器",
+        "VB.NET"
+      ],
+      "generatedAt": 1792730978650,
       "model": "deepseek-chat"
     }
   }
