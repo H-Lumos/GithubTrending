@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792730978651,
+  "updatedAt": 1792816614545,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -286,6 +286,78 @@
         "VB.NET"
       ],
       "generatedAt": 1792730978650,
+      "model": "deepseek-chat"
+    },
+    "Renhuai123/ziwei-doushu": {
+      "purpose": "为紫微斗数爱好者与开发者提供可编程的开源排盘引擎",
+      "detail": "该项目用 TypeScript 实现紫微斗数排盘算法，依据倪海厦《天纪》体系，包含四化系统、格局知识库和古籍原文数据。适合需要在自己应用中集成排盘功能的前端或全栈开发者，也适合研究紫微斗数规则的数据整理者。",
+      "tags": [
+        "紫微斗数",
+        "排盘引擎",
+        "TypeScript",
+        "命理"
+      ],
+      "generatedAt": 1792816607394,
+      "model": "deepseek-chat"
+    },
+    "SnailSploit/Claude-Red": {
+      "purpose": "为使用 Claude 的安全人员提供攻击性安全技能库，辅助渗透测试与漏洞研究。",
+      "detail": "该库以结构化 SKILL.md 文件组织，每个技能对应一类攻击面，如 SQL 注入、shellcode、EDR 规避和漏洞利用开发。它通过为 Claude 预置专家级方法论，让模型在相关安全任务中给出更专业的分析。适合从事红队、渗透测试和安全研究的人员参考使用。",
+      "tags": [
+        "安全",
+        "渗透测试",
+        "Claude",
+        "技能库"
+      ],
+      "generatedAt": 1792816608878,
+      "model": "deepseek-chat"
+    },
+    "OpenBMB/VoxCPM": {
+      "purpose": "面向需要多语言语音合成与音色克隆的开发者，提供无需分词器的 TTS 方案。",
+      "detail": "VoxCPM2 是一个基于 Python 的文本转语音项目，主打无分词器架构，支持多语言语音生成、创意音色设计和贴近真实的音色克隆。适合需要构建语音合成、配音或个性化音色应用的研究者与开发者使用。",
+      "tags": [
+        "TTS",
+        "语音克隆",
+        "多语言",
+        "Python"
+      ],
+      "generatedAt": 1792816610665,
+      "model": "deepseek-chat"
+    },
+    "nodejs/node": {
+      "purpose": "为开发者提供在服务端运行 JavaScript 的运行时环境",
+      "detail": "Node.js 是一个基于 V8 引擎的 JavaScript 运行时，用于在浏览器之外执行 JavaScript 代码。它适合构建服务端应用、命令行工具和网络服务，拥有跨平台支持和庞大的生态。",
+      "tags": [
+        "JavaScript",
+        "运行时",
+        "服务端",
+        "跨平台"
+      ],
+      "generatedAt": 1792816611877,
+      "model": "deepseek-chat"
+    },
+    "elie222/rakazo": {
+      "purpose": "给需要自托管 AI 助手的用户，可自选模型与沙箱运行。",
+      "detail": "这是一个开源的 Grok Bot 替代方案，使用 TypeScript 编写。用户可以选择自己的模型和沙箱环境来运行机器人。适合希望掌控模型选择与运行隔离、不想依赖单一服务的开发者自行部署。",
+      "tags": [
+        "开源",
+        "AI助手",
+        "自托管",
+        "TypeScript"
+      ],
+      "generatedAt": 1792816613185,
+      "model": "deepseek-chat"
+    },
+    "thedotmack/claude-mem": {
+      "purpose": "为多款 AI 编码代理提供跨会话持久上下文，解决每次会话都从零开始的问题。",
+      "detail": "该工具在会话期间捕获代理的操作记录，用 AI 压缩后存入持久存储，并在后续会话中注入相关上下文。支持 Claude Code、Codex、Gemini、Copilot、OpenCode 等多种代理。适合需要长期保持项目记忆、减少重复说明的开发者。",
+      "tags": [
+        "持久上下文",
+        "AI 编码代理",
+        "会话记忆",
+        "TypeScript"
+      ],
+      "generatedAt": 1792816614545,
       "model": "deepseek-chat"
     }
   }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792744361410,
+  "updatedAt": 1792816614546,
   "keepDays": 45,
   "days": [
     {
@@ -575,6 +575,99 @@
           "pbakaus/impeccable",
           "VectifyAI/PageIndex",
           "HKUDS/CLI-Anything"
+        ]
+      }
+    },
+    {
+      "d": "2026-10-24",
+      "stars": {
+        "cloudflare/security-audit-skill": 42425,
+        "php/php-src": 41594,
+        "anthropics/knowledge-work-plugins": 32316,
+        "NVIDIA/OpenShell": 18907,
+        "Renhuai123/ziwei-doushu": 6989,
+        "SnailSploit/Claude-Red": 8597,
+        "OpenBMB/VoxCPM": 40339,
+        "nodejs/node": 122932,
+        "morluto/rea": 373961,
+        "anthropics/claude-plugins-official": 44162,
+        "ruvnet/ruflo": 78823,
+        "android/skills": 9464,
+        "anomalyco/opencode": 220690,
+        "stablyai/orca": 104052,
+        "cursor/plugins": 13806,
+        "akitaonrails/ai-memory": 13090,
+        "HKUDS/CLI-Anything": 56653,
+        "Comfy-Org/ComfyUI": 142400,
+        "debpalash/VoiceStudio": 83580,
+        "heygen-com/hyperframes": 70907,
+        "K-Dense-AI/scientific-agent-skills": 54275,
+        "NationalSecurityAgency/ghidra": 93701,
+        "elie222/rakazo": 5483,
+        "paperclipai/paperclip": 106648,
+        "vectorize-io/hindsight": 53193,
+        "mksglu/context-mode": 32018,
+        "tashfeenahmed/freellmapi": 40345,
+        "earthtojake/text-to-cad": 22796,
+        "rohitg00/ai-engineering-from-scratch": 72851,
+        "pbakaus/impeccable": 85635,
+        "affaan-m/ECC": 287430,
+        "pingdotgg/t3code": 29687,
+        "TencentCloud/Octop": 10878,
+        "VectifyAI/PageIndex": 39585,
+        "thedotmack/claude-mem": 102605,
+        "supabase/supabase": 113818
+      },
+      "ranks": {
+        "daily": [
+          "cloudflare/security-audit-skill",
+          "php/php-src",
+          "anthropics/knowledge-work-plugins",
+          "NVIDIA/OpenShell",
+          "Renhuai123/ziwei-doushu",
+          "SnailSploit/Claude-Red",
+          "OpenBMB/VoxCPM",
+          "nodejs/node"
+        ],
+        "weekly": [
+          "morluto/rea",
+          "anthropics/claude-plugins-official",
+          "ruvnet/ruflo",
+          "android/skills",
+          "anomalyco/opencode",
+          "stablyai/orca",
+          "cursor/plugins",
+          "akitaonrails/ai-memory",
+          "HKUDS/CLI-Anything",
+          "Comfy-Org/ComfyUI",
+          "debpalash/VoiceStudio",
+          "heygen-com/hyperframes",
+          "K-Dense-AI/scientific-agent-skills",
+          "NationalSecurityAgency/ghidra",
+          "elie222/rakazo"
+        ],
+        "monthly": [
+          "debpalash/VoiceStudio",
+          "heygen-com/hyperframes",
+          "paperclipai/paperclip",
+          "cloudflare/security-audit-skill",
+          "vectorize-io/hindsight",
+          "NVIDIA/OpenShell",
+          "anthropics/knowledge-work-plugins",
+          "mksglu/context-mode",
+          "cursor/plugins",
+          "NationalSecurityAgency/ghidra",
+          "anthropics/claude-plugins-official",
+          "tashfeenahmed/freellmapi",
+          "earthtojake/text-to-cad",
+          "rohitg00/ai-engineering-from-scratch",
+          "pbakaus/impeccable",
+          "affaan-m/ECC",
+          "pingdotgg/t3code",
+          "TencentCloud/Octop",
+          "VectifyAI/PageIndex",
+          "thedotmack/claude-mem",
+          "supabase/supabase"
         ]
       }
     }
