@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792816614545,
+  "updatedAt": 1792903305772,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -358,6 +358,90 @@
         "TypeScript"
       ],
       "generatedAt": 1792816614545,
+      "model": "deepseek-chat"
+    },
+    "aws/agent-toolkit-for-aws": {
+      "purpose": "让 AI 代理通过官方 MCP 服务器和插件在 AWS 上构建应用",
+      "detail": "该项目提供 AWS 官方支持的 MCP 服务器、技能和插件，用于让 AI 代理接入并操作 AWS 服务。仓库以 Python 为主，面向需要在 AWS 上开发或集成 AI 代理的开发者。",
+      "tags": [
+        "AWS",
+        "MCP",
+        "AI 代理",
+        "Python"
+      ],
+      "generatedAt": 1792903296312,
+      "model": "deepseek-chat"
+    },
+    "Nutlope/hallmark": {
+      "purpose": "为 AI 编程工具提供反 AI 套路化设计的技能，帮助开发者做出不落俗套的界面。",
+      "detail": "该项目是一个面向 Claude Code、Cursor 和 Codex 的设计技能，用于避免生成千篇一律的 AI 风格界面。仓库以 CSS 为主，通过技能形式约束和引导 AI 的界面设计输出。适合使用这些 AI 编程工具、希望提升生成界面设计质量的开发者。",
+      "tags": [
+        "AI 编程",
+        "设计规范",
+        "CSS",
+        "开发工具"
+      ],
+      "generatedAt": 1792903297944,
+      "model": "deepseek-chat"
+    },
+    "pollen-robotics/microduck": {
+      "purpose": "面向机器人爱好者与教育者，提供开源小型双足鸭子机器人方案",
+      "detail": "这是一个用 Rust 编写的微型双足鸭子机器人项目，仓库描述仅说明其为小型双足机器人。适合对小型双足机器人、嵌入式控制与开源硬件感兴趣的开发者参考。具体功能与硬件细节需进仓库查看。",
+      "tags": [
+        "双足机器人",
+        "Rust",
+        "开源硬件",
+        "教育机器人"
+      ],
+      "generatedAt": 1792903299550,
+      "model": "deepseek-chat"
+    },
+    "google-gemini/gemini-cli": {
+      "purpose": "为终端用户提供在命令行中直接使用 Gemini 的开源 AI 代理",
+      "detail": "该项目把 Gemini 模型的能力集成到终端环境，让开发者无需离开命令行即可调用 AI。仓库以 TypeScript 实现，定位为开源 AI 代理。适合习惯终端工作流、希望在日常开发中直接使用 Gemini 的开发者。",
+      "tags": [
+        "AI 代理",
+        "终端工具",
+        "Gemini",
+        "TypeScript"
+      ],
+      "generatedAt": 1792903301049,
+      "model": "deepseek-chat"
+    },
+    "jbiaojerry/ebook-treasure-chest": {
+      "purpose": "为电子书读者汇总多个读书平台的下载链接，方便查找和获取书籍。",
+      "detail": "该项目收集帆书、微信读书、京东读书、喜马拉雅等平台的大部分电子书下载链接，覆盖经典文学、经管励志、终身学习、职场创业、技术手册等类型。适合希望集中查找电子书资源的读者使用，仓库以 Python 为主要语言。",
+      "tags": [
+        "电子书",
+        "资源汇总",
+        "下载链接",
+        "Python"
+      ],
+      "generatedAt": 1792903302541,
+      "model": "deepseek-chat"
+    },
+    "makecindy/cindy": {
+      "purpose": "为希望直接使用 AI 智能体自动完成任务的用户提供开箱即用方案",
+      "detail": "这是一个用 TypeScript 开发的开源 AI Agent，主打开箱即用，无需复杂配置即可运行。官方描述强调「想到，就能做到」，定位为可直接上手的智能体工具。适合想快速体验或集成 AI 智能体能力的开发者与个人用户。",
+      "tags": [
+        "AI Agent",
+        "TypeScript",
+        "开源",
+        "开箱即用"
+      ],
+      "generatedAt": 1792903304173,
+      "model": "deepseek-chat"
+    },
+    "Gaurav-Gosain/tuios": {
+      "purpose": "给在终端里同时运行多个编码代理的开发者用的窗口管理器",
+      "detail": "tuios 是一个终端窗口管理器，支持平铺窗格、工作区和重启后仍保留的会话，并把各个编码代理的消息汇总到一个 Inbox。它面向需要在终端中并行管理多个代理任务的开发者，用 Go 编写。",
+      "tags": [
+        "终端",
+        "窗口管理",
+        "编码代理",
+        "Go"
+      ],
+      "generatedAt": 1792903305772,
       "model": "deepseek-chat"
     }
   }
