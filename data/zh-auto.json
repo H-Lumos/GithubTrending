@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792903305772,
+  "updatedAt": 1792990048263,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -442,6 +442,66 @@
         "Go"
       ],
       "generatedAt": 1792903305772,
+      "model": "deepseek-chat"
+    },
+    "TauricResearch/TradingAgents": {
+      "purpose": "为量化研究者提供多智能体大模型金融交易框架",
+      "detail": "该项目用多个 LLM 智能体协作完成金融交易分析与决策，主语言为 Python。适合研究多智能体在交易场景应用的研究者与开发者参考和实验。",
+      "tags": [
+        "多智能体",
+        "金融交易",
+        "LLM",
+        "Python"
+      ],
+      "generatedAt": 1792990042286,
+      "model": "deepseek-chat"
+    },
+    "JetBrains/thinkrail": {
+      "purpose": "给希望用 AI 辅助写代码的开发者提供一个可自我定制的轻量 IDE",
+      "detail": "ThinkRail 是 JetBrains 推出的轻量级真实 IDE，主打以 pi 进行 vibe coding。它会围绕使用者的工作方式自我调整，让开发环境随习惯变化。适合想要轻量编辑器体验、又希望获得 AI 辅助编码的开发者。",
+      "tags": [
+        "IDE",
+        "AI 编程",
+        "TypeScript",
+        "开发工具"
+      ],
+      "generatedAt": 1792990043748,
+      "model": "deepseek-chat"
+    },
+    "coollabsio/coolify": {
+      "purpose": "给想自托管部署应用的开发者，提供开源的 PaaS 替代方案。",
+      "detail": "Coolify 是可自托管的开源 PaaS，用于在自己的服务器上部署静态站点、数据库、全栈应用以及 360 多个一键服务。它面向希望摆脱 Vercel、Heroku、Netlify 等托管平台、自行掌控基础设施的开发者。项目以 PHP 编写，支持一键部署多种服务。",
+      "tags": [
+        "自托管",
+        "PaaS",
+        "部署",
+        "开源"
+      ],
+      "generatedAt": 1792990045273,
+      "model": "deepseek-chat"
+    },
+    "AgriciDaniel/claude-seo": {
+      "purpose": "为使用 Claude Code 的 SEO 从业者提供覆盖多场景的通用 SEO 技能集",
+      "detail": "该项目是 Claude Code 的 SEO 技能包，包含 26 个子技能和 19 个子代理，覆盖技术 SEO、E-E-A-T、结构化数据、GEO/AEO、代理就绪（Lighthouse Agentic Browsing、WebMCP、llms.txt）、外链、本地 SEO、电商、国际 SEO、Google API 以及 PDF/Excel 报告。另有 9 个可选扩展用于接入实时 SEO 数据。适合需要在 Claude Code 中完成 SEO 分析与报告工作的从业者。",
+      "tags": [
+        "SEO",
+        "Claude Code",
+        "技术SEO",
+        "报告生成"
+      ],
+      "generatedAt": 1792990046698,
+      "model": "deepseek-chat"
+    },
+    "multica-ai/andrej-karpathy-skills": {
+      "purpose": "帮助使用 Claude Code 的开发者规避 LLM 编码常见陷阱",
+      "detail": "该仓库提供一个 CLAUDE.md 文件，用于约束和改善 Claude Code 的编码行为。内容源自 Andrej Karpathy 对 LLM 编码常见问题的观察，以单文件形式给出，便于直接放入项目使用。适合希望提升 AI 辅助编码质量的开发者参考。",
+      "tags": [
+        "Claude Code",
+        "LLM 编码",
+        "提示词",
+        "开发工具"
+      ],
+      "generatedAt": 1792990048262,
       "model": "deepseek-chat"
     }
   }
