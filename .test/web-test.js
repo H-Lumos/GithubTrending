@@ -181,7 +181,9 @@ function rpc(ws, id, method, params) {
   /* ---------- 4. 详情抽屉 ---------- */
   console.log('\n[4] 打开详情');
   const detail = await evalJs(`(() => {
-    document.querySelector('.card').click();
+    const it0 = window.TRENDING.periods.daily[0];
+    const card0 = [].slice.call(document.querySelectorAll('.card')).filter(c => c.getAttribute('data-id') === it0.id)[0];
+    (card0 || document.querySelector('.card')).click();
     return new Promise(r => setTimeout(() => {
       const cv = document.getElementById('chart');
       r({
@@ -264,6 +266,7 @@ function rpc(ws, id, method, params) {
         hasPrevDay: window.TRENDING.hasPrevDay,
         historyDays: window.TRENDING.historyDays,
         realPoints: window.TRENDING.periods.daily[0].trendRealPoints,
+      trendLen: window.TRENDING.periods.daily[0].trend.length,
         hasRankField: 'rankChange' in window.TRENDING.periods.daily[0],
         noteText: note ? note.textContent.trim() : (document.querySelector('.chart-empty') || {}).textContent || '',
         badges: document.querySelectorAll('.rk').length,
@@ -273,7 +276,7 @@ function rpc(ws, id, method, params) {
   })()`);
   check('数据里带历史字段', typeof hist.historyDays === 'number' && hist.historyDays >= 1, hist.historyDays + ' 天' + (hist.hasPrevDay ? ' · 有对比基准' : ' · 首日'));
   check('条目带 rankChange 字段', hist.hasRankField === true);
-  check('真实点数与历史天数一致', hist.realPoints === Math.min(hist.historyDays, 30), hist.realPoints + ' 点 / ' + hist.historyDays + ' 天');
+  check('真实点数 = 该条 trend 长度（且不超过历史天数）', hist.realPoints === hist.trendLen && hist.realPoints <= hist.historyDays, hist.realPoints + ' 点 / trend ' + hist.trendLen + ' / 历史 ' + hist.historyDays + ' 天');
   check('曲线只标注真实记录', hist.noteText.indexOf('真实') > -1 && hist.noteText.indexOf('估算') === -1, hist.noteText);
   // 徽章只在名次真的变了才出现（12 小时内榜单顺序没动就是 0 个，属正常）
   check(
@@ -579,8 +582,14 @@ function rpc(ws, id, method, params) {
   console.log('\n[12.9] 走势图（真实数据 / 悬浮提示）');
   const chart = await evalJs(`(() => {
     const T = window.TRENDING;
+    // 先回到「今日 + 全部」：否则可能还停在收藏视图，取不到榜单里的卡片
+    var segD = [].slice.call(document.querySelectorAll("#seg button")).filter(b => b.getAttribute("data-period") === "daily")[0];
+    if (segD) segD.click();
+    var allChip = document.querySelector('.chip');
+    if (allChip) allChip.click();
     const it = T.periods.daily[0];
-    document.querySelector('.card').click();
+    const cardEl = [].slice.call(document.querySelectorAll('.card')).filter(c => c.getAttribute('data-id') === it.id)[0];
+    (cardEl || document.querySelector('.card')).click();
     return new Promise(r => setTimeout(() => {
       const head = (document.querySelector('#drawerBody h4') || {}).textContent || '';
       const note = (document.querySelector('.chart-note') || {}).textContent || '';
@@ -632,13 +641,14 @@ function rpc(ws, id, method, params) {
       ageH: Math.round(ageH * 10) / 10,
       warnsStale: warn.indexOf('未更新') > -1,
       historyDays: T.historyDays,
-      realPoints: T.periods.daily[0].trendRealPoints
+      realPoints: T.periods.daily[0].trendRealPoints,
+      trendLen: T.periods.daily[0].trend.length
     };
   })()`);
   check('数据年龄与警告一致', (fresh.ageH <= 30) !== fresh.warnsStale, fresh.ageH + ' 小时' + (fresh.warnsStale ? '（有警告）' : '（无警告）'));
   check('历史天数已累积', fresh.historyDays >= 1, fresh.historyDays + ' 天');
   if (fresh.historyDays >= 1) {
-    check('真实点数 = 历史天数（上限 30）', fresh.realPoints === Math.min(fresh.historyDays, 30), fresh.realPoints + ' 点 / ' + fresh.historyDays + ' 天');
+    check('真实点数 = 该条 trend 长度（且不超过历史天数）', fresh.realPoints === fresh.trendLen && fresh.realPoints <= fresh.historyDays, fresh.realPoints + ' 点 / trend ' + fresh.trendLen + ' / 历史 ' + fresh.historyDays + ' 天');
   }
   // 语言内名次与官方名次相同时也要显示（用户反馈过「为什么没写 Python 第几」）
   const sameRank = await evalJs(`(() => {
