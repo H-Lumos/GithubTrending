@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1792990048263,
+  "updatedAt": 1793077496786,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -502,6 +502,65 @@
         "开发工具"
       ],
       "generatedAt": 1792990048262,
+      "model": "deepseek-chat"
+    },
+    "NVIDIA/SkillSpector": {
+      "purpose": "给安装 AI 代理技能的用户，在安装前扫描安全风险。",
+      "detail": "SkillSpector 是面向 AI 代理技能的安全扫描器，可在安装前检测 Claude Code、Codex 和 MCP 技能中的漏洞、恶意模式、提示注入、数据外泄和供应链风险。工具用 Python 实现，适合需要评估第三方技能安全性的开发者和安全人员。",
+      "tags": [
+        "安全扫描",
+        "AI代理",
+        "供应链安全",
+        "Python"
+      ],
+      "generatedAt": 1793077489840,
+      "model": "deepseek-chat"
+    },
+    "nightly-labs/openbot": {
+      "purpose": "为需要长期运行 AI 助手的用户提供本地优先的桌面工作区",
+      "detail": "这是一个用 TypeScript 编写的本地优先桌面工作区，用于运行 Codex、Claude、Grok 等 AI 代理。每个代理拥有独立工作区，并支持任务队列、文件共享、浏览器控制和代理间协作。适合希望在本机统一管理多个持久化 AI 助手的开发者。",
+      "tags": [
+        "桌面应用",
+        "AI代理",
+        "本地优先",
+        "TypeScript"
+      ],
+      "generatedAt": 1793077491800,
+      "model": "deepseek-chat"
+    },
+    "Panniantong/Agent-Reach": {
+      "purpose": "让 AI 智能体无需付费 API 即可读取和搜索多个社交平台内容",
+      "detail": "这是一个 Python 命令行工具，为 AI 智能体提供访问互联网内容的统一入口，支持读取和搜索 Twitter、Reddit、YouTube、GitHub、Bilibili、小红书等平台。其特点是单一 CLI 覆盖多平台且不产生 API 费用。适合需要为智能体补充实时网络信息、又不愿承担平台 API 成本的开发者使用。",
+      "tags": [
+        "AI Agent",
+        "命令行工具",
+        "多平台搜索",
+        "Python"
+      ],
+      "generatedAt": 1793077493681,
+      "model": "deepseek-chat"
+    },
+    "gitroomhq/postiz-app": {
+      "purpose": "给需要统一管理多平台社交媒体排期的团队与个人使用",
+      "detail": "Postiz 是一个用 TypeScript 开发的社交媒体排期工具，官方定位为 agentic 调度工具。仓库未提供更多 README 说明，具体支持的平台、调度方式与部署方式需进仓库查看。适合需要集中安排社交内容发布节奏的用户评估。",
+      "tags": [
+        "社交媒体",
+        "排期工具",
+        "TypeScript"
+      ],
+      "generatedAt": 1793077495155,
+      "model": "deepseek-chat"
+    },
+    "alchaincyf/huashu-design": {
+      "purpose": "让 AI agent 用户一句话生成可交付的设计稿，省去手动排版。",
+      "detail": "这是一个面向 Claude Code、Codex、Cursor 等 agent 的 HTML 原生设计技能。输入一句话即可产出网页、App 原型、可编辑 PPTX、动画或信息图，提供六个候选方案并从中挑选三个方向。内置 84 种带样张的风格库，并通过外观账本与设计体检随使用逐步贴合个人偏好。适合用 agent 做原型和视觉交付的开发者与设计者。",
+      "tags": [
+        "AI 设计",
+        "Agent 技能",
+        "原型生成",
+        "HTML"
+      ],
+      "generatedAt": 1793077496786,
       "model": "deepseek-chat"
     }
   }
