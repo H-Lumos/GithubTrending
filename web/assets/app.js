@@ -223,7 +223,7 @@
       }
 
       // 掉出所有榜单：用收藏时的快照兜底
-      var snap = saved && saved.id ? saved : null;
+      var snap = saved && saved.id ? normalizeFav(saved) : null;
       if (!snap) {
         // 兼容早期只存 true 的旧数据
         var parts = String(id).split('/');
@@ -279,10 +279,62 @@
 
   /* ---------------- 收藏 ---------------- */
 
+  /**
+   * 收藏时保存的完整快照。
+   * 早期版本只存了 9 个字段，导致掉榜后的收藏出现：头像丢失、作者名为空、
+   * 「打开 GitHub」点不动（url 没存）。这里把所有渲染要用的字段都存上。
+   */
+  function favSnapshot(item) {
+    return {
+      id: item.id,
+      owner: item.owner || String(item.id).split('/')[0] || '',
+      repo: item.repo || String(item.id).split('/')[1] || item.id,
+      fullName: item.fullName || item.id,
+      url: item.url || 'https://github.com/' + item.id,
+      purpose: item.purpose || '',
+      detail: item.detail || '',
+      descEn: item.descEn || '',
+      language: item.language || '',
+      languageColor: item.languageColor || '#8b949e',
+      stars: item.stars,
+      forks: item.forks,
+      hot: item.hot,
+      trend: item.trend,
+      tags: item.tags || [],
+      zhSource: item.zhSource || 'none',
+      hasZh: !!item.hasZh,
+      rank: item.rank,
+      fromPeriod: item.fromPeriod || state.period,
+      ts: Date.now()
+    };
+  }
+
+  /**
+   * 修复历史收藏记录：老数据缺 owner/repo/url，从 id 里推出来。
+   * 这样用户不用清缓存，旧收藏自动恢复正常显示与正常链接。
+   */
+  function normalizeFav(f) {
+    if (!f || !f.id) return null;
+    var parts = String(f.id).split('/');
+    if (!f.owner) f.owner = parts[0] || '';
+    if (!f.repo) f.repo = parts[1] || f.id;
+    if (!f.fullName) f.fullName = f.id;
+    if (!f.url || !/^https?:\/\//.test(f.url)) f.url = 'https://github.com/' + f.id;
+    return f;
+  }
+
   function loadFavs() {
     try {
       var raw = localStorage.getItem(FAV_KEY);
-      state.favs = raw ? JSON.parse(raw) : {};
+      var parsed = raw ? JSON.parse(raw) : {};
+      state.favs = {};
+      Object.keys(parsed).forEach(function (id) {
+        var v = parsed[id];
+        // 兼容早期只存 true 的记录
+        var rec = v === true ? { id: id, ts: 0 } : v;
+        var fixed = normalizeFav(rec);
+        if (fixed) state.favs[id] = fixed;
+      });
     } catch (e) {
       state.favs = {};
     }
@@ -298,19 +350,7 @@
 
   function toggleFav(item) {
     if (state.favs[item.id]) delete state.favs[item.id];
-    else
-      state.favs[item.id] = {
-        id: item.id,
-        fullName: item.fullName,
-        purpose: item.purpose,
-        descEn: item.descEn,
-        language: item.language,
-        languageColor: item.languageColor,
-        stars: item.stars,
-        hot: item.hot,
-        trend: item.trend,
-        ts: Date.now()
-      };
+    else state.favs[item.id] = favSnapshot(item);
     saveFavs();
     renderFavCount();
   }
@@ -475,7 +515,7 @@
       '<div class="rank' + rankClass + '">' + (state.onlyFavs ? '★' : renumber ? idx + 1 : item.rank) + '</div>' +
       thumbHtml(item, initial) +
       '<div class="body">' +
-      '<div class="name"><span class="owner">' + hl(item.owner, toks) + '/</span><b>' + hl(item.repo, toks) + '</b>' +
+      '<div class="name">' + (item.owner ? '<span class="owner">' + hl(item.owner, toks) + '/</span>' : '') + '<b>' + hl(item.repo || item.id, toks) + '</b>' +
       rankBadge(item) +
       '</div>' +
       '<p class="purpose">' + hl(item.purpose, toks) + '</p>' +
@@ -613,7 +653,7 @@
       }
     }
     // 榜单里都没有：可能是收藏过、后来掉榜的项目，用收藏快照兜底
-    var saved = state.favs[id];
+    var saved = normalizeFav(state.favs[id]);
     if (saved && saved.id) {
       var copy = {};
       for (var k in saved) copy[k] = saved[k];
@@ -668,7 +708,7 @@
 
     return (
       '<div class="dbadge">' + badgeTail + '</div>' +
-      '<h2 class="dname"><span class="owner">' + esc(item.owner) + '/</span>' + esc(item.repo) + '</h2>' +
+      '<h2 class="dname">' + (item.owner ? '<span class="owner">' + esc(item.owner) + '/</span>' : '') + esc(item.repo || item.id) + '</h2>' +
       '<p class="dpurpose">' + esc(item.purpose) + '</p>' +
       (item.rankChange != null
         ? '<div class="dnote">· 比上次榜单 ' +
@@ -694,9 +734,9 @@
       '</div>' +
       '<div class="panel">' +
       '<h4>这个项目是做什么的<span>' +
-      (item.zhSource === 'auto' ? 'AI 生成' : item.hasZh ? '中文说明' : '暂无中文，下面是原文') +
+      (item.zhSource === 'auto' ? 'AI 生成' : item.hasZh || item.purpose ? '中文说明' : '暂无中文，下面是原文') +
       '</span></h4>' +
-      '<p class="dtext">' + esc(item.detail) + '</p>' +
+      '<p class="dtext">' + esc(item.detail || item.purpose || '') + '</p>' +
       (tags ? '<div class="tags">' + tags + '</div>' : '') +
       '</div>' +
       (item.descEn
@@ -704,7 +744,7 @@
           esc(item.descEn) + '</div></div>'
         : '') +
       '<div class="actions">' +
-      '<a class="btn btn-primary" href="' + esc(item.url) + '" target="_blank" rel="noopener">↗ 打开 GitHub</a>' +
+      '<a class="btn btn-primary" href="' + esc(item.url || 'https://github.com/' + item.id) + '" target="_blank" rel="noopener">↗ 打开 GitHub</a>' +
       '<button class="btn btn-ghost' + (faved ? ' on' : '') + '" id="btnFavItem">' +
       (faved ? '★ 已收藏' : '☆ 收藏') +
       '</button>' +
@@ -1114,6 +1154,9 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
+
 
 
 

@@ -252,7 +252,7 @@ function rpc(ws, id, method, params) {
   check('搜索 claude 命中且全匹配', search.hitCount > 0 && search.allMatch, search.hitCount + ' 条');
   check('搜索时列表头文案切换', search.label.indexOf('搜索') > -1, search.label);
   check('无结果时显示空态', search.emptyText.indexOf('没有匹配') > -1, search.emptyText);
-  check('清空搜索后恢复 13 条', search.restored === 13, search.restored + ' 条');
+  check('清空搜索后恢复全部条目', (await evalJs(`(() => document.querySelectorAll('.card').length)()`)) === (await evalJs('window.TRENDING.periods[document.querySelector("#seg button.on").getAttribute("data-period")].length')), '见实际条数');
 
   /* ---------- 8. 历史与曲线标注 ---------- */
   console.log('\n[8] 历史字段 / 曲线标注');
@@ -267,7 +267,7 @@ function rpc(ws, id, method, params) {
         hasRankField: 'rankChange' in window.TRENDING.periods.daily[0],
         noteText: note ? note.textContent.trim() : (document.querySelector('.chart-empty') || {}).textContent || '',
         badges: document.querySelectorAll('.rk').length,
-        movedCount: window.TRENDING.periods.daily.filter(function (i) { return i.rankChange; }).length
+        movedCount: window.TRENDING.periods.daily.filter(function (i) { return (i.rankChange != null && i.rankChange !== 0) || (i.rankChange == null && i.isNew); }).length
       });
     }, 500));
   })()`);
@@ -558,23 +558,23 @@ function rpc(ws, id, method, params) {
   console.log('\n[12.7] 迷你柱（spark）诚实性');
   const spark = await evalJs(`(() => {
     const T = window.TRENDING;
-    const cards = [].slice.call(document.querySelectorAll('.card'));
-    const real = T.periods.daily.map(i => i.trendRealPoints || 0);
-    const minReal = Math.min.apply(null, real);
-    return {
-      minReal: minReal,
-      sparkCount: document.querySelectorAll('.card .spark').length,
-      barCount: document.querySelectorAll('.card .spark i').length,
-      cards: cards.length
-    };
+    const idx = {};
+    ['daily','weekly','monthly'].forEach(p => (T.periods[p] || []).forEach(i => { idx[i.id] = i; }));
+    const favs = {};
+    try { Object.assign(favs, JSON.parse(localStorage.getItem('ght:favs') || '{}')); } catch (e) {}
+    const rows = [].slice.call(document.querySelectorAll('.card')).map(c => {
+      const id = c.getAttribute('data-id');
+      const it = idx[id] || favs[id] || {};
+      const real = it.trendRealPoints || (it.trend ? it.trend.length : 0);
+      const bars = c.querySelectorAll('.spark i').length;
+      return { id: id, real: real, bars: bars };
+    });
+    return { rows: rows };
   })()`);
-  const expectBars = spark.minReal >= 3 ? spark.cards * Math.min(12, spark.minReal) : 0;
-  if (spark.minReal < 3) {
-    // 真实点不足 3 天：柱子画出来只能是估算形状（每张卡一样），不该假装是趋势
-    check('真实数据不足 3 天时不画迷你柱', spark.sparkCount === 0, spark.sparkCount + ' 个');
-  } else {
-    check('迷你柱只画真实数据点', spark.barCount === expectBars, spark.barCount + ' 根 / 期望 ' + expectBars);
-  }
+  const needSpark = spark.rows.filter((r) => r.real >= 3);
+  const noSpark = spark.rows.filter((r) => r.real < 3);
+  check('真实点 ≥3 的卡片有迷你柱', needSpark.every((r) => r.bars === Math.min(12, r.real)), needSpark.length + ' 张');
+  check('真实点 <3 的卡片不画迷你柱', noSpark.every((r) => r.bars === 0), noSpark.length + ' 张');
   /* ---------- 12.9 走势图：真实数据、标题、悬浮提示 ---------- */
   console.log('\n[12.9] 走势图（真实数据 / 悬浮提示）');
   const chart = await evalJs(`(() => {
@@ -637,8 +637,8 @@ function rpc(ws, id, method, params) {
   })()`);
   check('数据年龄与警告一致', (fresh.ageH <= 30) !== fresh.warnsStale, fresh.ageH + ' 小时' + (fresh.warnsStale ? '（有警告）' : '（无警告）'));
   check('历史天数已累积', fresh.historyDays >= 1, fresh.historyDays + ' 天');
-  if (fresh.historyDays >= 2) {
-    check('第二天的真实点数应为 2', fresh.realPoints === 2, fresh.realPoints + ' 点');
+  if (fresh.historyDays >= 1) {
+    check('真实点数 = 历史天数（上限 30）', fresh.realPoints === Math.min(fresh.historyDays, 30), fresh.realPoints + ' 点 / ' + fresh.historyDays + ' 天');
   }
   // 语言内名次与官方名次相同时也要显示（用户反馈过「为什么没写 Python 第几」）
   const sameRank = await evalJs(`(() => {
@@ -718,6 +718,72 @@ function rpc(ws, id, method, params) {
   })()`);
   check('顶部文案说明是「抓取于」而非「更新于」', cadence.warnsFetch === true, cadence.up);
   check('页脚明确写了刷新不会重新抓取', cadence.footerCadence === true);
+  /* ---------- 12.12 旧收藏数据自愈（头像/作者/链接） ---------- */
+  console.log('\n[12.12] 掉榜收藏：头像 / 作者 / GitHub 链接');
+  const legacyFav = await evalJs(`(() => {
+    const KEY = 'ght:favs';
+    const backup = localStorage.getItem(KEY);
+    // 模拟早期版本存下的残缺记录：只有 id / fullName / ts，没有 owner / repo / url
+    const legacy = {
+      'Kronos-Research/Kronos': { id: 'Kronos-Research/Kronos', fullName: 'Kronos-Research/Kronos', purpose: '面向金融从业者', descEn: 'A foundation model', stars: 41815, ts: Date.now() - 7 * 86400000 },
+      'ghost/repo': { id: 'ghost/repo', ts: Date.now() - 86400000 }
+    };
+    localStorage.setItem(KEY, JSON.stringify(legacy));
+    return { backup };
+  })()`);
+  await reloadReady('.card', 12000);
+  const legacyCheck = await evalJs(`(() => {
+    // 切到收藏视图
+    const btn = document.getElementById('btnFav');
+    if (btn) btn.click();
+    const cards = [].slice.call(document.querySelectorAll('.card'));
+    const first = cards[0];
+    const out = {
+      cards: cards.length,
+      rows: cards.map(c => ({
+        id: c.getAttribute('data-id'),
+        owner: (c.querySelector('.name .owner') || {}).textContent || '',
+        hasAvatar: !!c.querySelector('.thumb img.av'),
+        hasLetter: !!(c.querySelector('.thumb .ini') && c.querySelector('.thumb .ini').textContent.trim())
+      })),
+      slashOnly: cards.filter(c => { const n = c.querySelector('.name'); const t = n ? n.textContent.trim() : ''; return t.charAt(0) === '/'; }).length,
+      ids: cards.map(c => c.getAttribute('data-id'))
+    };
+    // 打开第一个，检查链接与中文标注
+    first.click();
+    return new Promise(r => setTimeout(() => {
+      const link = document.querySelector('.drawer a.btn-primary');
+      const heads = [].slice.call(document.querySelectorAll('.panel h4'));
+      const zhHead = heads.filter(h => /做什么/.test(h.textContent))[0];
+      const head = zhHead ? zhHead.textContent : '';
+      const dtext = (document.querySelector('.dtext') || {}).textContent || '';
+      r(Object.assign(out, {
+        href: link ? link.getAttribute('href') : '',
+        firstHead: head,
+        dtext: dtext.trim().slice(0, 20)
+      }));
+    }, 400));
+  })()`);
+  const legacyIds = ['Kronos-Research/Kronos', 'ghost/repo'];
+  const legacyRows = legacyCheck.rows.filter((r) => legacyIds.indexOf(r.id) > -1);
+  check('两条旧格式收藏都渲染出来', legacyRows.length === 2, legacyRows.length + ' 条 / 实际 id: ' + (legacyCheck.ids || []).slice(0, 6).join(','));
+  check('作者名从 id 推导（不再是空 /）', legacyRows.every((r) => r.owner.replace('/', '').length > 0), legacyRows.map((r) => r.owner).join(' | '));
+  check('卡片没有光秃斜杠', legacyCheck.slashOnly === 0, legacyCheck.slashOnly + ' 张');
+  const realRow = legacyRows.filter((r) => r.id === 'Kronos-Research/Kronos')[0];
+  const ghostRow = legacyRows.filter((r) => r.id === 'ghost/repo')[0];
+  check('真实仓库的旧收藏有头像', !!realRow && realRow.hasAvatar === true, realRow ? String(realRow.hasAvatar) : '缺失');
+  check('不存在的仓库回落字母块', !!ghostRow && ghostRow.hasAvatar === false && ghostRow.hasLetter === true, ghostRow ? 'avatar=' + ghostRow.hasAvatar + ' letter=' + ghostRow.hasLetter : '缺失');
+  check('「打开 GitHub」链接有效', /^https:\/\/github\.com\/[^/]+\/[^/]+$/.test(legacyCheck.href), legacyCheck.href);
+  check('有中文显示「中文说明」', /中文说明/.test(legacyCheck.firstHead), legacyCheck.firstHead);
+  check('详情正文有内容', legacyCheck.dtext.length > 0, legacyCheck.dtext);
+  await evalJs(`(() => {
+    document.getElementById('btnClose').click();
+    const KEY = 'ght:favs';
+    const b = ` + JSON.stringify(legacyFav.backup) + `;
+    if (b === null) localStorage.removeItem(KEY); else localStorage.setItem(KEY, b);
+    return 1;
+  })()`);
+  await reloadReady('.card', 12000);
   /* ---------- 13. 作者头像与字母兜底 ---------- */
   console.log('\n[13] 作者头像 / 字母兜底');
   const av = await evalJs(`(() => {
@@ -778,6 +844,8 @@ function rpc(ws, id, method, params) {
   console.error('THROWN:', e.message);
   process.exit(3);
 });
+
+
 
 
 
