@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793077496786,
+  "updatedAt": 1793166137038,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -561,6 +561,65 @@
         "HTML"
       ],
       "generatedAt": 1793077496786,
+      "model": "deepseek-chat"
+    },
+    "elayadesign/ai-design-skills": {
+      "purpose": "为使用 AI 编程工具的开发者提供可安装的设计技能，解决 AI 生成页面缺乏设计规范的问题。",
+      "detail": "仓库收集面向 Claude Code、Cursor、Codex、Windsurf 等 AI 编程工具的设计技能，每个技能是独立文件夹，可按需安装。目前提供 landing-page-design，涵盖需求提问、页面结构、转化文案以及字体、间距、圆角、动效等视觉系统。技能以 markdown 规则文件形式接入各工具的项目规则或系统提示词，适合希望让 AI 按统一设计规范产出页面的开发者。",
+      "tags": [
+        "AI 编程",
+        "设计规范",
+        "提示词",
+        "落地页"
+      ],
+      "generatedAt": 1793166132602,
+      "model": "deepseek-chat"
+    },
+    "obra/superpowers": {
+      "purpose": "为使用 AI 编码代理的开发者提供可复用的技能框架与开发方法论",
+      "detail": "该项目是一个面向 AI 代理的技能框架，同时提供一套软件开发方法论。仓库以 Shell 为主，说明其实现偏向命令行与脚本集成。适合希望把 AI 代理纳入日常开发流程、并需要结构化方法约束的开发者参考使用。",
+      "tags": [
+        "AI 代理",
+        "技能框架",
+        "开发方法论",
+        "Shell"
+      ],
+      "generatedAt": 1793166133572,
+      "model": "deepseek-chat"
+    },
+    "HKUDS/DeepTutor": {
+      "purpose": "为学生提供可长期跟踪的个性化辅导，解决学习缺乏针对性问题。",
+      "detail": "DeepTutor 是一个基于 Python 的个性化辅导项目，强调终身学习场景下的持续陪伴。仓库提供项目主页 deeptutor.info，具体功能与实现细节需进仓库查看。适合希望获得个性化学习支持的学生，以及关注 AI 教育应用的研究者。",
+      "tags": [
+        "个性化学习",
+        "AI教育",
+        "Python"
+      ],
+      "generatedAt": 1793166134689,
+      "model": "deepseek-chat"
+    },
+    "togg53192-cmd/jailbreaks": {
+      "purpose": "为需要查找越狱提示词的用户汇总个人越狱列表",
+      "detail": "仓库以列表形式整理作者发布的各类越狱（jailbreak）内容，供需要参考或复用这些提示词的用户查阅。仓库未提供更多技术说明，主语言标记为 Unknown，具体条目需进入仓库查看。适合关注提示词越狱与相关测试用例的读者。",
+      "tags": [
+        "jailbreak",
+        "prompt",
+        "列表",
+        "AI安全"
+      ],
+      "generatedAt": 1793166135837,
+      "model": "deepseek-chat"
+    },
+    "flutter/flutter": {
+      "purpose": "为移动及多端开发者提供快速构建精美应用的跨平台 UI 框架",
+      "detail": "Flutter 是 Google 开源的跨平台 UI 工具包，使用 Dart 语言编写，可构建移动端及其他平台的应用。它提供丰富的组件与渲染能力，强调开发效率和界面表现的一致性。适合需要在多个平台上复用代码、追求界面效果的开发者。",
+      "tags": [
+        "跨平台",
+        "UI框架",
+        "Dart",
+        "移动开发"
+      ],
+      "generatedAt": 1793166137037,
       "model": "deepseek-chat"
     }
   }
