@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793166137038,
+  "updatedAt": 1793252913631,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -620,6 +620,90 @@
         "移动开发"
       ],
       "generatedAt": 1793166137037,
+      "model": "deepseek-chat"
+    },
+    "macro-inc/macro": {
+      "purpose": "为团队提供整合邮件、聊天、文档、任务与 CRM 的统一协作工作区",
+      "detail": "Macro 将邮件、聊天、文档、任务、AI 代理、通话和 CRM 集中在一个工作区中，各模块通过 @ 关联，并共享 AI 记忆。项目使用 Rust 编写，面向需要减少多工具切换、希望信息互通的小型团队。",
+      "tags": [
+        "团队协作",
+        "统一工作区",
+        "AI 记忆",
+        "Rust"
+      ],
+      "generatedAt": 1793252904189,
+      "model": "deepseek-chat"
+    },
+    "hmjz100/LinkSwift": {
+      "purpose": "为需要从多个网盘下载文件的用户提供直链获取工具",
+      "detail": "该项目基于 JavaScript 开发，由【网盘直链下载助手】修改而来，支持百度网盘、阿里云盘、中国移动云盘、天翼云盘、迅雷云盘、夸克网盘、UC网盘和123云盘共八家网盘。用户可借助它获取网盘文件的下载地址，适合需要绕过客户端、使用第三方下载工具的场景。",
+      "tags": [
+        "网盘",
+        "直链下载",
+        "JavaScript",
+        "多平台"
+      ],
+      "generatedAt": 1793252905760,
+      "model": "deepseek-chat"
+    },
+    "expo/skills": {
+      "purpose": "为使用 Expo 和 EAS 的开发者提供 AI 代理技能集合",
+      "detail": "该仓库收集了面向 Expo 项目及 Expo Application Services 的 AI 代理技能，以 Shell 脚本形式组织。适合在开发 Expo 应用时借助 AI 代理完成相关操作与任务。",
+      "tags": [
+        "Expo",
+        "AI Agent",
+        "Shell",
+        "EAS"
+      ],
+      "generatedAt": 1793252907310,
+      "model": "deepseek-chat"
+    },
+    "ruvnet/RuView": {
+      "purpose": "用普通 WiFi 信号实现空间感知、生命体征监测与存在检测，无需摄像头。",
+      "detail": "RuView 用 Rust 编写，将商用 WiFi 信号转化为实时空间智能，可监测呼吸等生命体征并判断是否有人在场。方案不依赖任何视频画面，适合关注隐私、希望无摄像头感知的开发者与场景。",
+      "tags": [
+        "WiFi感知",
+        "生命体征监测",
+        "Rust",
+        "隐私保护"
+      ],
+      "generatedAt": 1793252908999,
+      "model": "deepseek-chat"
+    },
+    "xiaolai/the-craft-of-selfteaching": {
+      "purpose": "面向想自学的人，讲解如何掌握自我教学的方法与思路。",
+      "detail": "该项目以 Jupyter Notebook 形式组织内容，围绕自我教学这一主题展开。作者的核心观点是：不会自我教学的人没有未来，因此内容侧重培养自学能力。适合希望提升自主学习能力、习惯用 Notebook 阅读和练习的读者。",
+      "tags": [
+        "自学",
+        "自我教学",
+        "Jupyter Notebook",
+        "学习方法"
+      ],
+      "generatedAt": 1793252910646,
+      "model": "deepseek-chat"
+    },
+    "Leonxlnx/taste-skill": {
+      "purpose": "为编码智能体提供审美判断，避免生成千篇一律的 AI 风格页面。",
+      "detail": "该项目以 Agent skill 形式为编码智能体补充艺术指导能力，通过参考图片和浏览器检查来约束页面产出。适合使用 AI 编码代理做前端或网页生成、希望结果更贴近设计意图的开发者。",
+      "tags": [
+        "AI 编码代理",
+        "前端设计",
+        "浏览器检查",
+        "JavaScript"
+      ],
+      "generatedAt": 1793252912297,
+      "model": "deepseek-chat"
+    },
+    "jakubkrehel/skills": {
+      "purpose": "为构建界面的开发者提供一组可复用的 agent 技能。",
+      "detail": "该仓库以 Markdown 组织，收集了若干 agent 技能，用于辅助构建界面。适合在开发界面时借助 AI agent 提升效率的开发者参考使用。仓库未提供更详细的功能说明。",
+      "tags": [
+        "agent",
+        "界面开发",
+        "Markdown",
+        "技能集合"
+      ],
+      "generatedAt": 1793252913631,
       "model": "deepseek-chat"
     }
   }

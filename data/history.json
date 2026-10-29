@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793180419178,
+  "updatedAt": 1793252913632,
   "keepDays": 45,
   "days": [
     {
@@ -1063,6 +1063,101 @@
           "supabase/supabase",
           "HKUDS/CLI-Anything",
           "flutter/flutter"
+        ]
+      }
+    },
+    {
+      "d": "2026-10-29",
+      "stars": {
+        "JetBrains/thinkrail": 5315,
+        "elayadesign/ai-design-skills": 11374,
+        "obra/superpowers": 307638,
+        "HKUDS/DeepTutor": 48464,
+        "macro-inc/macro": 5525,
+        "Nutlope/hallmark": 40997,
+        "pbakaus/impeccable": 93308,
+        "makecindy/cindy": 8262,
+        "nightly-labs/openbot": 3416,
+        "togg53192-cmd/jailbreaks": 7467,
+        "hmjz100/LinkSwift": 35381,
+        "expo/skills": 3658,
+        "ruvnet/RuView": 101234,
+        "xiaolai/the-craft-of-selfteaching": 18656,
+        "cloudflare/security-audit-skill": 51912,
+        "AgriciDaniel/claude-seo": 23509,
+        "multica-ai/andrej-karpathy-skills": 226058,
+        "anthropics/knowledge-work-plugins": 33694,
+        "TauricResearch/TradingAgents": 117991,
+        "Graphify-Labs/graphify": 138027,
+        "Leonxlnx/taste-skill": 104735,
+        "ruvnet/ruflo": 80017,
+        "anomalyco/opencode": 222825,
+        "jakubkrehel/skills": 9034,
+        "heygen-com/hyperframes": 74904,
+        "earthtojake/text-to-cad": 23950,
+        "debpalash/VoiceStudio": 93271,
+        "cursor/plugins": 14509,
+        "anthropics/claude-plugins-official": 45168,
+        "mksglu/context-mode": 32742,
+        "thedotmack/claude-mem": 104098,
+        "affaan-m/ECC": 291937,
+        "NationalSecurityAgency/ghidra": 95594,
+        "pingdotgg/t3code": 31228,
+        "NVIDIA/OpenShell": 20617,
+        "Panniantong/Agent-Reach": 105773,
+        "DietrichGebert/ponytail": 179388,
+        "tashfeenahmed/freellmapi": 43496
+      },
+      "ranks": {
+        "daily": [
+          "JetBrains/thinkrail",
+          "elayadesign/ai-design-skills",
+          "obra/superpowers",
+          "HKUDS/DeepTutor",
+          "macro-inc/macro",
+          "Nutlope/hallmark",
+          "pbakaus/impeccable",
+          "makecindy/cindy",
+          "nightly-labs/openbot",
+          "togg53192-cmd/jailbreaks",
+          "hmjz100/LinkSwift",
+          "expo/skills",
+          "ruvnet/RuView",
+          "xiaolai/the-craft-of-selfteaching"
+        ],
+        "weekly": [
+          "cloudflare/security-audit-skill",
+          "AgriciDaniel/claude-seo",
+          "multica-ai/andrej-karpathy-skills",
+          "anthropics/knowledge-work-plugins",
+          "TauricResearch/TradingAgents",
+          "pbakaus/impeccable",
+          "Graphify-Labs/graphify",
+          "Leonxlnx/taste-skill",
+          "ruvnet/ruflo",
+          "anomalyco/opencode",
+          "jakubkrehel/skills"
+        ],
+        "monthly": [
+          "heygen-com/hyperframes",
+          "cloudflare/security-audit-skill",
+          "anthropics/knowledge-work-plugins",
+          "earthtojake/text-to-cad",
+          "pbakaus/impeccable",
+          "debpalash/VoiceStudio",
+          "cursor/plugins",
+          "anthropics/claude-plugins-official",
+          "mksglu/context-mode",
+          "thedotmack/claude-mem",
+          "affaan-m/ECC",
+          "NationalSecurityAgency/ghidra",
+          "pingdotgg/t3code",
+          "NVIDIA/OpenShell",
+          "Leonxlnx/taste-skill",
+          "Panniantong/Agent-Reach",
+          "DietrichGebert/ponytail",
+          "tashfeenahmed/freellmapi",
+          "Nutlope/hallmark"
         ]
       }
     }
