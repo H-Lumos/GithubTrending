@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793267883566,
+  "updatedAt": 1793339347931,
   "keepDays": 45,
   "days": [
     {
@@ -1158,6 +1158,96 @@
           "DietrichGebert/ponytail",
           "tashfeenahmed/freellmapi",
           "Nutlope/hallmark"
+        ]
+      }
+    },
+    {
+      "d": "2026-10-30",
+      "stars": {
+        "HKUDS/DeepTutor": 50627,
+        "obra/superpowers": 308786,
+        "pbakaus/impeccable": 95796,
+        "JetBrains/thinkrail": 6145,
+        "milind-soni/OpenMausBot": 7651,
+        "nightly-labs/openbot": 4000,
+        "elayadesign/ai-design-skills": 12417,
+        "thedotmack/claude-mem": 105015,
+        "CopilotKit/OpenBot": 8291,
+        "togg53192-cmd/jailbreaks": 9447,
+        "Donchitos/Claude-Code-Game-Studios": 29509,
+        "cloudflare/security-audit-skill": 53082,
+        "php/php-src": 41726,
+        "AgriciDaniel/claude-seo": 24101,
+        "multica-ai/andrej-karpathy-skills": 226530,
+        "TauricResearch/TradingAgents": 118418,
+        "hugohe3/ppt-master": 70982,
+        "anthropics/knowledge-work-plugins": 33892,
+        "Leonxlnx/taste-skill": 105723,
+        "jakubkrehel/skills": 9220,
+        "ruvnet/ruflo": 80180,
+        "heygen-com/hyperframes": 75585,
+        "earthtojake/text-to-cad": 24202,
+        "debpalash/VoiceStudio": 94582,
+        "anthropics/claude-plugins-official": 45336,
+        "mksglu/context-mode": 32868,
+        "cursor/plugins": 14619,
+        "Nutlope/hallmark": 42243,
+        "NationalSecurityAgency/ghidra": 95940,
+        "pingdotgg/t3code": 32062,
+        "flutter/flutter": 180643,
+        "affaan-m/ECC": 292846,
+        "Panniantong/Agent-Reach": 106419,
+        "DietrichGebert/ponytail": 180366,
+        "tashfeenahmed/freellmapi": 44146
+      },
+      "ranks": {
+        "daily": [
+          "HKUDS/DeepTutor",
+          "obra/superpowers",
+          "pbakaus/impeccable",
+          "JetBrains/thinkrail",
+          "milind-soni/OpenMausBot",
+          "nightly-labs/openbot",
+          "elayadesign/ai-design-skills",
+          "thedotmack/claude-mem",
+          "CopilotKit/OpenBot",
+          "togg53192-cmd/jailbreaks",
+          "Donchitos/Claude-Code-Game-Studios"
+        ],
+        "weekly": [
+          "cloudflare/security-audit-skill",
+          "php/php-src",
+          "AgriciDaniel/claude-seo",
+          "pbakaus/impeccable",
+          "multica-ai/andrej-karpathy-skills",
+          "TauricResearch/TradingAgents",
+          "hugohe3/ppt-master",
+          "obra/superpowers",
+          "anthropics/knowledge-work-plugins",
+          "Leonxlnx/taste-skill",
+          "jakubkrehel/skills",
+          "ruvnet/ruflo"
+        ],
+        "monthly": [
+          "cloudflare/security-audit-skill",
+          "heygen-com/hyperframes",
+          "anthropics/knowledge-work-plugins",
+          "earthtojake/text-to-cad",
+          "pbakaus/impeccable",
+          "debpalash/VoiceStudio",
+          "anthropics/claude-plugins-official",
+          "mksglu/context-mode",
+          "cursor/plugins",
+          "thedotmack/claude-mem",
+          "Nutlope/hallmark",
+          "NationalSecurityAgency/ghidra",
+          "pingdotgg/t3code",
+          "flutter/flutter",
+          "affaan-m/ECC",
+          "Leonxlnx/taste-skill",
+          "Panniantong/Agent-Reach",
+          "DietrichGebert/ponytail",
+          "tashfeenahmed/freellmapi"
         ]
       }
     }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793252913631,
+  "updatedAt": 1793339347930,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -704,6 +704,42 @@
         "技能集合"
       ],
       "generatedAt": 1793252913631,
+      "model": "deepseek-chat"
+    },
+    "milind-soni/OpenMausBot": {
+      "purpose": "为需要自动化操作环境的用户提供带虚拟机的开源机器人方案",
+      "detail": "该项目是 Grok Bot 的开源替代实现，核心特点是让机器人能够使用一台虚拟机来执行任务。项目使用 TypeScript 编写，适合希望自建机器人并需要隔离运行环境的开发者参考或二次开发。",
+      "tags": [
+        "TypeScript",
+        "机器人",
+        "虚拟机",
+        "开源替代"
+      ],
+      "generatedAt": 1793339344440,
+      "model": "deepseek-chat"
+    },
+    "CopilotKit/OpenBot": {
+      "purpose": "为需要自动化办公的用户提供各自拥有电脑的开源 AI 同事",
+      "detail": "OpenBot 是开源 AI 同事项目，每个 AI 同事拥有独立的浏览器、文件和工具环境。所有动作在执行前先做决策、执行后留下记录，可接入任意 AG-UI 智能体。适合希望用 AI 代理处理日常电脑任务的开发者与团队。",
+      "tags": [
+        "AI 代理",
+        "开源",
+        "TypeScript",
+        "自动化"
+      ],
+      "generatedAt": 1793339346229,
+      "model": "deepseek-chat"
+    },
+    "Donchitos/Claude-Code-Game-Studios": {
+      "purpose": "让使用 Claude Code 的独立开发者用多智能体协作完成游戏开发全流程。",
+      "detail": "该项目把 Claude Code 扩展成一套模拟真实游戏工作室层级的协作系统，包含 49 个 AI 智能体、72 个工作流技能和完整的协调机制。智能体按工作室分工组织，由协调系统调度，覆盖游戏开发中的多种任务环节。适合希望借助 AI 智能体分工推进游戏项目的开发者，尤其是独立开发者和小团队。",
+      "tags": [
+        "游戏开发",
+        "多智能体",
+        "Claude Code",
+        "工作流"
+      ],
+      "generatedAt": 1793339347930,
       "model": "deepseek-chat"
     }
   }
