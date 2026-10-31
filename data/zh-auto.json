@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793339347930,
+  "updatedAt": 1793425264479,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -740,6 +740,54 @@
         "工作流"
       ],
       "generatedAt": 1793339347930,
+      "model": "deepseek-chat"
+    },
+    "anthropics/skills": {
+      "purpose": "为开发者提供构建和运行 Agent Skills 的公开代码仓库",
+      "detail": "该仓库是 Anthropic 公开的 Agent Skills 相关代码集合，主语言为 Python。可用于了解 Agent Skills 的组织方式与实现示例，适合需要为智能体扩展技能能力的开发者参考使用。",
+      "tags": [
+        "Agent Skills",
+        "Python",
+        "智能体",
+        "Anthropic"
+      ],
+      "generatedAt": 1793425260317,
+      "model": "deepseek-chat"
+    },
+    "lightpanda-io/browser": {
+      "purpose": "为 AI 与自动化场景提供轻量无头浏览器，替代 Chromium 等重型方案。",
+      "detail": "Lightpanda 是一个用 Zig 编写的无头浏览器，面向 AI 代理和自动化任务。它不依赖 Chromium，主打低资源占用和快速启动，适合在服务器或容器中批量运行网页抓取与自动化流程。项目仍处于开发阶段，具体功能以仓库文档为准。",
+      "tags": [
+        "无头浏览器",
+        "自动化",
+        "Zig",
+        "AI"
+      ],
+      "generatedAt": 1793425261748,
+      "model": "deepseek-chat"
+    },
+    "mvschwarz/openrig": {
+      "purpose": "让开发者用 Claude Code、Codex 和 Pi 搭建带角色分工的持久化智能体团队",
+      "detail": "该项目用 TypeScript 实现，支持把多个编码智能体组织成有角色、共享上下文并各自负责任务的持久团队。适合希望自建多智能体协作网络、而非单次调用单个智能体的开发者。",
+      "tags": [
+        "多智能体",
+        "TypeScript",
+        "Claude Code",
+        "协作框架"
+      ],
+      "generatedAt": 1793425263072,
+      "model": "deepseek-chat"
+    },
+    "vercel-labs/skills": {
+      "purpose": "为 AI 代理提供技能管理工具，通过 npx 命令安装和使用。",
+      "detail": "这是一个用 TypeScript 编写的开放代理技能工具，可通过 npx skills 命令直接调用。仓库描述将其定位为开放的 agent skills 工具，便于在代理工作流中安装和管理技能。适合需要为 AI 代理扩展能力的开发者使用。",
+      "tags": [
+        "agent",
+        "skills",
+        "TypeScript",
+        "CLI"
+      ],
+      "generatedAt": 1793425264479,
       "model": "deepseek-chat"
     }
   }
