@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793425264479,
+  "updatedAt": 1793513075059,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -788,6 +788,66 @@
         "CLI"
       ],
       "generatedAt": 1793425264479,
+      "model": "deepseek-chat"
+    },
+    "Orkas-AI/Orkas": {
+      "purpose": "为桌面用户提供本地优先的 AI 团队，把目标拆解成待办并协调多个智能体执行。",
+      "detail": "Orkas 是 MIT 开源的桌面应用，由 Commander 将用户目标转化为待办事项，并调度 16 个内置专家智能体以及 Claude Code、Codex 等外部编码代理。支持项目、定时自动化和连接器，可选用内置模型或自带 API 密钥。适合希望在本地统一管理多智能体工作流的 macOS 与 Windows 用户。",
+      "tags": [
+        "AI 智能体",
+        "桌面应用",
+        "本地优先",
+        "任务编排"
+      ],
+      "generatedAt": 1793513069507,
+      "model": "deepseek-chat"
+    },
+    "THU-MAIC/OpenMAIC": {
+      "purpose": "为学习者提供一键进入的多智能体互动课堂体验",
+      "detail": "该项目是一个基于 TypeScript 实现的多智能体互动课堂系统，用户点击即可进入沉浸式学习场景。课堂由多个智能体协作参与，营造互动式学习体验。适合希望体验多智能体教学或研究互动课堂形态的学习者与开发者参考。",
+      "tags": [
+        "多智能体",
+        "互动课堂",
+        "教育",
+        "TypeScript"
+      ],
+      "generatedAt": 1793513070914,
+      "model": "deepseek-chat"
+    },
+    "bregman-arie/devops-exercises": {
+      "purpose": "面向准备 DevOps 面试的学习者，提供覆盖多领域知识点的练习题与问答。",
+      "detail": "仓库以题目和答案形式整理 Linux、Jenkins、AWS、Kubernetes、Terraform、Docker、Python 等大量 DevOps 相关主题，可用于面试准备和日常查漏补缺。内容以文本练习为主，主语言为 Python，适合求职者、初级运维和 SRE 作为复习资料。",
+      "tags": [
+        "DevOps",
+        "面试题",
+        "学习资源",
+        "SRE"
+      ],
+      "generatedAt": 1793513072481,
+      "model": "deepseek-chat"
+    },
+    "vorssaint/vorssaint-utils": {
+      "purpose": "为 macOS 用户提供免费开源的菜单栏工具集",
+      "detail": "这是一个用 Swift 编写的 macOS 菜单栏工具集，将常用小工具集中放在菜单栏中调用。项目免费且开源，适合希望在菜单栏快速访问实用功能的 macOS 用户。",
+      "tags": [
+        "macOS",
+        "菜单栏工具",
+        "Swift",
+        "开源"
+      ],
+      "generatedAt": 1793513073676,
+      "model": "deepseek-chat"
+    },
+    "AstrBotDevs/AstrBot": {
+      "purpose": "面向想在 IM 平台接入大模型与插件的开发者，提供 AI 助手与开发框架。",
+      "detail": "AstrBot 是一个 Python 编写的 AI Agent 助手与开发框架，可整合多种即时通讯平台、大语言模型、插件和 AI 功能。它支持通过插件扩展能力，并可作为 openclaw 的替代方案。适合需要把 LLM 接入聊天平台、构建自定义机器人或 AI 助手的开发者。",
+      "tags": [
+        "AI Agent",
+        "即时通讯",
+        "插件框架",
+        "Python"
+      ],
+      "generatedAt": 1793513075059,
       "model": "deepseek-chat"
     }
   }
