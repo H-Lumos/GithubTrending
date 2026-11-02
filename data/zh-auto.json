@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793513075059,
+  "updatedAt": 1793599346867,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -848,6 +848,114 @@
         "Python"
       ],
       "generatedAt": 1793513075059,
+      "model": "deepseek-chat"
+    },
+    "public-apis/public-apis": {
+      "purpose": "为开发者提供免费 API 汇总清单，方便查找可用接口。",
+      "detail": "这是一个由社区共同维护的免费 API 列表，按类别整理各类公开接口。项目以 Python 为主要语言，内容以清单形式呈现，便于开发者按需检索。适合需要调用外部数据或服务的开发者、独立项目作者参考使用。",
+      "tags": [
+        "免费API",
+        "API目录",
+        "开发者资源",
+        "Python"
+      ],
+      "generatedAt": 1793599334624,
+      "model": "deepseek-chat"
+    },
+    "cjpais/Handy": {
+      "purpose": "为需要离线语音转文字的用户提供免费开源桌面应用",
+      "detail": "这是一个完全离线运行的语音转文字应用，无需联网即可使用。应用免费且开源，并支持扩展。适合注重隐私或网络受限环境下需要语音输入的用户。",
+      "tags": [
+        "语音识别",
+        "离线",
+        "开源",
+        "Rust"
+      ],
+      "generatedAt": 1793599335930,
+      "model": "deepseek-chat"
+    },
+    "kornia/kornia": {
+      "purpose": "为空间AI开发者提供几何计算机视觉的Python库",
+      "detail": "Kornia 是一个基于 Python 的几何计算机视觉库，面向空间 AI 相关开发。它提供可微分的计算机视觉算法，可与深度学习框架配合使用，覆盖几何变换等常见视觉操作。适合从事三维视觉、机器人感知或空间智能研究的开发者与研究人员。",
+      "tags": [
+        "计算机视觉",
+        "几何视觉",
+        "Python",
+        "空间AI"
+      ],
+      "generatedAt": 1793599337400,
+      "model": "deepseek-chat"
+    },
+    "beenuar/AiSOC": {
+      "purpose": "为安全运营团队提供开源 AI 告警分诊与调查平台",
+      "detail": "该项目是一个开源的 AI 安全运营中心，支持告警融合、LLM 代理分诊和基于 MITRE ATT&CK 的调查，并为每个代理步骤保留可回放的决策记录。可自托管、无需 API 密钥即可运行，采用 MIT 许可，并提供面向 Claude、Cursor 和 Continue 的 MCP 服务器。适合安全运营人员与希望本地部署 AI 辅助调查流程的团队。",
+      "tags": [
+        "安全运营",
+        "告警分诊",
+        "LLM代理",
+        "MITRE ATT&CK"
+      ],
+      "generatedAt": 1793599339099,
+      "model": "deepseek-chat"
+    },
+    "anomalyco/hex": {
+      "purpose": "为桌面用户提供本地语音听写，跨 Mac、Windows 和 Linux 使用",
+      "detail": "这是一个用 Rust 编写的本地语音听写工具，支持 macOS、Windows 和 Linux 三个平台。它把语音转成文字，运行在本机，不依赖云端服务。适合需要在桌面端快速输入文字、又在意隐私或离线可用的用户。",
+      "tags": [
+        "语音听写",
+        "跨平台",
+        "Rust",
+        "本地运行"
+      ],
+      "generatedAt": 1793599340628,
+      "model": "deepseek-chat"
+    },
+    "patchy631/ai-engineering-hub": {
+      "purpose": "面向 AI 工程师，提供 LLM、RAG 与智能体应用的实战教程。",
+      "detail": "仓库以 Jupyter Notebook 形式收录 LLM、RAG 和真实场景 AI 智能体应用的深入教程。内容侧重工程实践，适合希望动手搭建和复现相关应用的开发者与学习者参考。",
+      "tags": [
+        "LLM",
+        "RAG",
+        "AI Agent",
+        "教程"
+      ],
+      "generatedAt": 1793599342317,
+      "model": "deepseek-chat"
+    },
+    "FlashML-org/FreeToken": {
+      "purpose": "让个人用户在桌面本地高效运行大规模模型，无需数据中心。",
+      "detail": "FreeToken 面向希望在本地运行大模型的个人用户，目标是把数据中心级别的模型服务能力带到桌面环境。项目用 Python 实现，强调在本地运行大模型时兼顾速度和效率。适合需要在个人电脑上部署大模型、又不想依赖云端服务的开发者。",
+      "tags": [
+        "本地推理",
+        "大模型",
+        "Python",
+        "桌面部署"
+      ],
+      "generatedAt": 1793599343751,
+      "model": "deepseek-chat"
+    },
+    "hyprwm/Hyprland": {
+      "purpose": "为 Wayland 用户提供可高度定制的动态平铺合成器",
+      "detail": "Hyprland 是一个独立的 Wayland 合成器，采用动态平铺窗口布局，并注重外观表现。它支持高度自定义配置，适合希望摆脱传统桌面环境、追求平铺工作流的 Linux 用户。项目使用 C++ 编写。",
+      "tags": [
+        "Wayland",
+        "平铺窗口管理器",
+        "Linux桌面",
+        "C++"
+      ],
+      "generatedAt": 1793599345371,
+      "model": "deepseek-chat"
+    },
+    "ghostty-org/ghostty": {
+      "purpose": "为需要高性能跨平台终端的开发者提供 GPU 加速的终端模拟器",
+      "detail": "Ghostty 是一个使用 Zig 编写的终端模拟器，采用各平台原生 UI 与 GPU 加速，强调速度与功能丰富。它支持跨平台运行，适合对终端响应速度和原生体验有要求的开发者与命令行用户。",
+      "tags": [
+        "终端模拟器",
+        "GPU加速",
+        "跨平台",
+        "Zig"
+      ],
+      "generatedAt": 1793599346866,
       "model": "deepseek-chat"
     }
   }
