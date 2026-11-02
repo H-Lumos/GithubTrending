@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793599346867,
+  "updatedAt": 1793617611579,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -956,6 +956,101 @@
         "Zig"
       ],
       "generatedAt": 1793599346866,
+      "model": "deepseek-chat"
+    },
+    "vercel-labs/agent-desktop": {
+      "purpose": "让桌面智能体通过系统无障碍树可靠地识别并操作任意应用界面。",
+      "detail": "该项目用 Rust 实现，通过操作系统无障碍树读取任意应用的真实 UI 结构，而不是依赖像素猜测。元素引用保持稳定，操作可安全重试，从而提升桌面自动化的可靠性。适合需要让智能体稳定操控桌面应用的开发者。",
+      "tags": [
+        "Rust",
+        "桌面自动化",
+        "无障碍树",
+        "智能体"
+      ],
+      "generatedAt": 1793617601186,
+      "model": "deepseek-chat"
+    },
+    "D4Vinci/Scrapling": {
+      "purpose": "为需要网页抓取的 Python 开发者提供从单次请求到大规模爬取的统一框架。",
+      "detail": "Scrapling 是一个 Python 网页抓取框架，覆盖单次请求到完整爬取任务。它面向需要编写爬虫或数据采集脚本的开发者，提供统一的使用方式。仓库描述称其能处理各类抓取场景，并提供了 Discord 社区和 X 账号用于交流与获取技巧。",
+      "tags": [
+        "网页抓取",
+        "爬虫框架",
+        "Python"
+      ],
+      "generatedAt": 1793617602679,
+      "model": "deepseek-chat"
+    },
+    "JustVugg/colibri": {
+      "purpose": "让个人在自有硬件上运行大型 MoE 模型，无需高端显卡",
+      "detail": "这是一个纯 C 编写、零依赖的推理引擎，通过从磁盘流式加载专家权重，使显存有限的机器也能运行前沿 MoE 模型。项目体积小，适合想在本地设备上尝试大模型的开发者与爱好者。",
+      "tags": [
+        "C",
+        "MoE",
+        "本地推理",
+        "零依赖"
+      ],
+      "generatedAt": 1793617604029,
+      "model": "deepseek-chat"
+    },
+    "max-sixty/worktrunk": {
+      "purpose": "为并行运行多个 AI 代理的开发者管理 Git worktree 的命令行工具",
+      "detail": "Worktrunk 是一个用 Rust 编写的命令行工具，用于管理 Git worktree，面向需要并行运行多个 AI 代理的工作流。它把 worktree 的创建与切换等操作集中到命令行中，方便同时维护多个独立工作目录。适合在多个分支或任务上并行开发、使用 AI 代理协作的开发者。",
+      "tags": [
+        "Git worktree",
+        "CLI",
+        "AI 代理",
+        "Rust"
+      ],
+      "generatedAt": 1793617605561,
+      "model": "deepseek-chat"
+    },
+    "karpathy/nanochat": {
+      "purpose": "面向想低成本训练 ChatGPT 类模型的开发者，用约 100 美元完成全流程。",
+      "detail": "该项目用 Python 实现一个可从头训练的小型 ChatGPT 类模型，主打极低预算的端到端流程。适合想亲手实践大模型训练、了解数据与训练细节的开发者学习参考。",
+      "tags": [
+        "大模型训练",
+        "ChatGPT",
+        "低成本",
+        "Python"
+      ],
+      "generatedAt": 1793617607032,
+      "model": "deepseek-chat"
+    },
+    "p-e-w/heretic": {
+      "purpose": "给需要调整语言模型行为的开发者，无需训练即可修改模型输出倾向。",
+      "detail": "该项目提供免训练的语言模型修改方法，可移除审查、抑制低质内容、减少谄媚等。基于 Python 实现，适合想快速调整模型行为而不重新训练的研究者与开发者。",
+      "tags": [
+        "语言模型",
+        "免训练修改",
+        "Python",
+        "模型行为"
+      ],
+      "generatedAt": 1793617608540,
+      "model": "deepseek-chat"
+    },
+    "tester-army/e2e": {
+      "purpose": "为 Web 与移动应用开发者提供端到端测试框架",
+      "detail": "这是一个用 TypeScript 编写的端到端测试框架，面向 Web 和移动应用的自动化测试场景。仓库描述称其为下一代测试框架，但未提供更多功能细节。适合需要为 Web 或移动应用搭建 e2e 测试的开发者参考。",
+      "tags": [
+        "e2e测试",
+        "TypeScript",
+        "Web测试",
+        "移动测试"
+      ],
+      "generatedAt": 1793617609915,
+      "model": "deepseek-chat"
+    },
+    "michael-denyer/pstack-claude": {
+      "purpose": "为多种 AI 编程代理提供统一严谨工作流",
+      "detail": "将 Cursor 的 pstack 工作流原语移植到 Claude Code、Codex、Copilot、Gemini 等代理环境。项目用 TypeScript 实现，目标是让不同代理框架都能复用同一套严谨的代理工作流程。适合在多个 AI 编程工具间切换、希望保持流程一致的开发者。",
+      "tags": [
+        "AI 代理",
+        "工作流",
+        "TypeScript",
+        "开发工具"
+      ],
+      "generatedAt": 1793617611578,
       "model": "deepseek-chat"
     }
   }
