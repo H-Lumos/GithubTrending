@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793617611579,
+  "updatedAt": 1793703170885,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1051,6 +1051,42 @@
         "开发工具"
       ],
       "generatedAt": 1793617611578,
+      "model": "deepseek-chat"
+    },
+    "spotify/portal-ai-plugins": {
+      "purpose": "让编码代理在 Claude Code、Cursor 等环境中调用 Spotify Portal 的插件",
+      "detail": "该插件为 Portal CLI 提供面向编码代理的工作流，支持认证配置、软件目录与文档的自然语言搜索、服务简报生成、只读诊断以及带 dry-run 和确认保护的动作调用。还包含 Fleetshift 班次管理与 PR 创建，以及将高 I/O 任务分流到低成本模型的 shunt 插件。适合使用 Claude Code、Codex、Cursor 等代理并接入 Spotify Portal 的开发者。",
+      "tags": [
+        "开发工具",
+        "编码代理",
+        "插件",
+        "Spotify Portal"
+      ],
+      "generatedAt": 1793703167957,
+      "model": "deepseek-chat"
+    },
+    "floci-io/floci": {
+      "purpose": "为需要本地模拟 AWS 服务的开发者提供免费轻量替代方案",
+      "detail": "这是一个用 Java 编写的 AWS 本地模拟器，定位为 LocalStack 等工具的轻量免费替代品。它让开发者在本地运行和调试依赖 AWS 服务的应用，无需连接真实云端。适合需要低成本本地测试环境的开发者。",
+      "tags": [
+        "AWS",
+        "本地模拟",
+        "Java",
+        "开发工具"
+      ],
+      "generatedAt": 1793703169315,
+      "model": "deepseek-chat"
+    },
+    "Usagi-org/ai-goofish-monitor": {
+      "purpose": "帮助用户在闲鱼海量商品中实时监控并筛选心仪商品",
+      "detail": "该项目基于 Playwright 和 AI 实现闲鱼多任务实时或定时监控与智能分析，并提供功能完善的后台管理界面。用户可通过后台配置监控任务，由系统自动抓取并分析商品信息，适合需要从闲鱼大量商品中高效筛选目标商品的用户。",
+      "tags": [
+        "闲鱼监控",
+        "Playwright",
+        "AI分析",
+        "后台管理"
+      ],
+      "generatedAt": 1793703170885,
       "model": "deepseek-chat"
     }
   }
