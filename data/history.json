@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793789725674,
+  "updatedAt": 1793861198078,
   "keepDays": 45,
   "days": [
     {
@@ -1742,6 +1742,101 @@
           "anthropics/claude-plugins-official",
           "tashfeenahmed/freellmapi",
           "michael-denyer/pstack-claude"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-05",
+      "stars": {
+        "NVIDIA/auto-ontology": 5715,
+        "max-sixty/worktrunk": 11183,
+        "mattpocock/skills": 313712,
+        "floci-io/floci": 29814,
+        "thedotmack/claude-mem": 113077,
+        "vercel-labs/agent-desktop": 15704,
+        "github/spec-kit": 147483,
+        "The-PR-Agent/pr-agent": 14900,
+        "harry0703/MoneyPrinterTurbo": 139269,
+        "garrytan/gstack": 139493,
+        "FareedKhan-dev/kimi-k3-in-c": 10500,
+        "JiaFeiMiao-K-Cat/DiscImageStudio": 6810,
+        "MichaelCade/90DaysOfDevOps": 30598,
+        "D4Vinci/Scrapling": 96957,
+        "Thysrael/Horizon": 12691,
+        "scenario-labs/skills": 2603,
+        "Nutlope/hallmark": 48158,
+        "pingdotgg/t3code": 46970,
+        "pbakaus/impeccable": 103114,
+        "obra/superpowers": 312582,
+        "anthropics/skills": 187506,
+        "jakubkrehel/skills": 10866,
+        "JetBrains/thinkrail": 7666,
+        "ghostty-org/ghostty": 63582,
+        "multica-ai/andrej-karpathy-skills": 229595,
+        "hyprwm/Hyprland": 40317,
+        "AgriciDaniel/claude-seo": 26752,
+        "calesthio/OpenMontage": 76720,
+        "morluto/rea": 431896,
+        "boykopovar/AnyPS5": 51255,
+        "cloudflare/security-audit-skill": 59798,
+        "heygen-com/hyperframes": 79108,
+        "debpalash/VoiceStudio": 101237,
+        "NationalSecurityAgency/ghidra": 97921,
+        "anthropics/knowledge-work-plugins": 34764,
+        "earthtojake/text-to-cad": 25492,
+        "anthropics/claude-plugins-official": 46161,
+        "tester-army/e2e": 13237
+      },
+      "ranks": {
+        "daily": [
+          "NVIDIA/auto-ontology",
+          "max-sixty/worktrunk",
+          "mattpocock/skills",
+          "floci-io/floci",
+          "thedotmack/claude-mem",
+          "vercel-labs/agent-desktop",
+          "github/spec-kit",
+          "The-PR-Agent/pr-agent",
+          "harry0703/MoneyPrinterTurbo",
+          "garrytan/gstack",
+          "FareedKhan-dev/kimi-k3-in-c",
+          "JiaFeiMiao-K-Cat/DiscImageStudio",
+          "MichaelCade/90DaysOfDevOps",
+          "D4Vinci/Scrapling",
+          "Thysrael/Horizon",
+          "scenario-labs/skills"
+        ],
+        "weekly": [
+          "thedotmack/claude-mem",
+          "Nutlope/hallmark",
+          "pingdotgg/t3code",
+          "pbakaus/impeccable",
+          "obra/superpowers",
+          "anthropics/skills",
+          "max-sixty/worktrunk",
+          "jakubkrehel/skills",
+          "JetBrains/thinkrail",
+          "ghostty-org/ghostty",
+          "multica-ai/andrej-karpathy-skills",
+          "hyprwm/Hyprland",
+          "AgriciDaniel/claude-seo",
+          "calesthio/OpenMontage"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "boykopovar/AnyPS5",
+          "cloudflare/security-audit-skill",
+          "Nutlope/hallmark",
+          "heygen-com/hyperframes",
+          "debpalash/VoiceStudio",
+          "NationalSecurityAgency/ghidra",
+          "anthropics/knowledge-work-plugins",
+          "thedotmack/claude-mem",
+          "pingdotgg/t3code",
+          "pbakaus/impeccable",
+          "earthtojake/text-to-cad",
+          "anthropics/claude-plugins-official",
+          "tester-army/e2e"
         ]
       }
     }

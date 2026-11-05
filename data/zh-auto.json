@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793703170885,
+  "updatedAt": 1793861198077,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1087,6 +1087,138 @@
         "后台管理"
       ],
       "generatedAt": 1793703170885,
+      "model": "deepseek-chat"
+    },
+    "NVIDIA/auto-ontology": {
+      "purpose": "为 LLM 与智能体工作流构建语义图推理层，解决查询生成与上下文检索问题",
+      "detail": "这是一个 Python 框架，用于在数据之上构建基于图的语义推理层。它支持确定性的查询生成、更好的上下文检索，并提升 AI 的可解释性，面向使用 LLM 和智能体工作流的开发者。",
+      "tags": [
+        "语义图",
+        "知识图谱",
+        "LLM",
+        "智能体"
+      ],
+      "generatedAt": 1793861181939,
+      "model": "deepseek-chat"
+    },
+    "github/spec-kit": {
+      "purpose": "帮助开发者快速上手规范驱动开发流程的工具包",
+      "detail": "这是 GitHub 官方提供的工具包，用于辅助采用 SDD（规范驱动开发）或其他开发流程。仓库以 Python 实现，提供起步所需的脚手架与辅助能力。适合希望引入规范化开发流程的团队和开发者参考使用。",
+      "tags": [
+        "规范驱动开发",
+        "开发流程",
+        "Python",
+        "工具包"
+      ],
+      "generatedAt": 1793861183572,
+      "model": "deepseek-chat"
+    },
+    "The-PR-Agent/pr-agent": {
+      "purpose": "为开发者自动审查代码合并请求，减少人工评审负担",
+      "detail": "PR Agent 是一个开源的 PR 审查工具，可自动分析代码变更并给出评审意见。项目使用 Python 编写，强调自身是原始开源版本，与 Qodo 免费版无关。适合希望为团队引入自动化代码评审流程的开发者。",
+      "tags": [
+        "代码审查",
+        "Pull Request",
+        "Python",
+        "开源工具"
+      ],
+      "generatedAt": 1793861185164,
+      "model": "deepseek-chat"
+    },
+    "harry0703/MoneyPrinterTurbo": {
+      "purpose": "给内容创作者用，输入主题或关键词即可一键生成高清短视频。",
+      "detail": "该项目利用 AI 大模型和自动化工作流，根据主题或关键词自动生成高清短视频。它把文案、素材与合成等环节串联成流水线，降低短视频制作门槛。适合需要批量产出短视频的内容创作者和运营人员。",
+      "tags": [
+        "短视频生成",
+        "AI 大模型",
+        "自动化工作流",
+        "Python"
+      ],
+      "generatedAt": 1793861186813,
+      "model": "deepseek-chat"
+    },
+    "garrytan/gstack": {
+      "purpose": "为使用 Claude Code 的开发者提供一套模拟公司多角色的工具集",
+      "detail": "该项目复刻 Garry Tan 的 Claude Code 配置，包含 23 个带有明确倾向的工具，分别扮演 CEO、设计师、工程经理、发布经理、文档工程师和 QA 等角色。这些工具以 TypeScript 实现，用于在 Claude Code 中按不同职能分工协作。适合希望借鉴成熟配置、快速搭建多角色 AI 工作流的开发者。",
+      "tags": [
+        "Claude Code",
+        "AI 工作流",
+        "TypeScript",
+        "开发工具"
+      ],
+      "generatedAt": 1793861188341,
+      "model": "deepseek-chat"
+    },
+    "FareedKhan-dev/kimi-k3-in-c": {
+      "purpose": "让开发者在单 CPU、8GB 内存下运行超大模型推理",
+      "detail": "该项目用可移植的 C99 实现 Kimi K3 模型推理，不依赖 BLAS、深度学习框架或 GPU。官方描述称其支持 2.78 万亿参数模型在单 CPU、8.24 GB 内存环境下运行。适合关注底层推理实现、资源受限部署和 C 语言系统编程的开发者研究参考。",
+      "tags": [
+        "C99",
+        "CPU推理",
+        "大模型",
+        "无依赖"
+      ],
+      "generatedAt": 1793861189907,
+      "model": "deepseek-chat"
+    },
+    "JiaFeiMiao-K-Cat/DiscImageStudio": {
+      "purpose": "给需要制作光盘盘面可见图案的用户，将图片转为可刻录数据。",
+      "detail": "Disc Image Studio 是一个多平台光盘盘面图像生成与刻录工具，可将图片转换为符合 CD、DVD 与单层 BD-R 物理层约束的数据，刻录后盘面呈现肉眼可见图案。支持导出 ISO、RAW、WAV+CUE，并提供实验性即时刻录功能。适合有刻录光驱、想制作个性化盘面图案的用户。",
+      "tags": [
+        "光盘刻录",
+        "图像生成",
+        "C#",
+        "跨平台"
+      ],
+      "generatedAt": 1793861191576,
+      "model": "deepseek-chat"
+    },
+    "MichaelCade/90DaysOfDevOps": {
+      "purpose": "为想系统学习 DevOps 的人提供结构化学习路线图",
+      "detail": "该仓库最初是作者公开学习的个人项目，现已发展为社区共用的 DevOps 学习地图，已积累三年内容。内容覆盖 DevOps 的原则、流程、工具和用例，按天组织成学习计划。适合入门者按路线自学，也适合作为团队培训参考。",
+      "tags": [
+        "DevOps",
+        "学习路线",
+        "Shell",
+        "开源教程"
+      ],
+      "generatedAt": 1793861193186,
+      "model": "deepseek-chat"
+    },
+    "Thysrael/Horizon": {
+      "purpose": "为需要高效获取资讯的人打造 AI 新闻雷达，自动生成中英双语每日简报。",
+      "detail": "该项目用 AI 聚合新闻并生成每日简报，支持英文与中文两种语言输出。用户可借此建立专属的信息筛选渠道，减少手动浏览多个来源的时间。适合关注行业动态、希望每天快速了解要点的个人使用。",
+      "tags": [
+        "新闻聚合",
+        "AI 摘要",
+        "双语简报",
+        "Python"
+      ],
+      "generatedAt": 1793861194796,
+      "model": "deepseek-chat"
+    },
+    "scenario-labs/skills": {
+      "purpose": "让 AI 智能体生成生产级图像、视频、音频和 3D 内容。",
+      "detail": "该项目提供一组技能，通过 Scenario MCP 让智能体选用合适的模型，在消耗前先估算价格，并在多轮生成中保持角色与品牌一致。它还包含可驱动 Blender、Maya、ZBrush、Unreal 和 Unity 的专家团队。适合需要将多模态内容生成接入智能体工作流的开发者与创意团队。",
+      "tags": [
+        "AI 智能体",
+        "多模态生成",
+        "3D 内容",
+        "MCP"
+      ],
+      "generatedAt": 1793861196640,
+      "model": "deepseek-chat"
+    },
+    "calesthio/OpenMontage": {
+      "purpose": "让 AI 编程助手变成视频制作工作室，帮用户完成视频生产。",
+      "detail": "这是一个开源智能体视频制作系统，内置 12 条制作流水线、100 多个工具，以及 700 多个智能体技能与制作知识文件。它把 AI 编程助手扩展成完整的视频制作环境，适合希望借助 AI 自动化完成视频生产流程的创作者和开发者。",
+      "tags": [
+        "视频制作",
+        "AI 智能体",
+        "开源工具",
+        "Python"
+      ],
+      "generatedAt": 1793861198077,
       "model": "deepseek-chat"
     }
   }
