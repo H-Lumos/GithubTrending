@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793876160093,
+  "updatedAt": 1793947571699,
   "keepDays": 45,
   "days": [
     {
@@ -1839,6 +1839,99 @@
           "mksglu/context-mode",
           "anthropics/claude-plugins-official",
           "tester-army/e2e"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-06",
+      "stars": {
+        "NVIDIA/auto-ontology": 7847,
+        "mattpocock/skills": 315692,
+        "garrytan/gstack": 140143,
+        "Usagi-org/ai-goofish-monitor": 17902,
+        "D4Vinci/Scrapling": 98313,
+        "vercel-labs/agent-desktop": 17298,
+        "max-sixty/worktrunk": 11638,
+        "lz4/lz4": 12463,
+        "google/skills": 22513,
+        "vercel-labs/agent-browser": 46078,
+        "scenario-labs/skills": 3234,
+        "ConardLi/garden-skills": 14317,
+        "microsoft/VibeVoice": 56214,
+        "floci-io/floci": 30588,
+        "JiaFeiMiao-K-Cat/DiscImageStudio": 7450,
+        "thedotmack/claude-mem": 113673,
+        "Nutlope/hallmark": 48977,
+        "pingdotgg/t3code": 48637,
+        "anthropics/skills": 187864,
+        "HKUDS/DeepTutor": 55598,
+        "milind-soni/OpenMausBot": 13830,
+        "obra/superpowers": 313163,
+        "pbakaus/impeccable": 104170,
+        "hyprwm/Hyprland": 40389,
+        "jakubkrehel/skills": 11102,
+        "calesthio/OpenMontage": 77309,
+        "multica-ai/andrej-karpathy-skills": 229984,
+        "ghostty-org/ghostty": 63682,
+        "Leonxlnx/taste-skill": 110866,
+        "The-PR-Agent/pr-agent": 15141,
+        "morluto/rea": 435356,
+        "boykopovar/AnyPS5": 51556,
+        "cloudflare/security-audit-skill": 62130,
+        "heygen-com/hyperframes": 79713,
+        "debpalash/VoiceStudio": 102171,
+        "NationalSecurityAgency/ghidra": 98205,
+        "anthropics/knowledge-work-plugins": 34902
+      },
+      "ranks": {
+        "daily": [
+          "NVIDIA/auto-ontology",
+          "mattpocock/skills",
+          "garrytan/gstack",
+          "Usagi-org/ai-goofish-monitor",
+          "D4Vinci/Scrapling",
+          "vercel-labs/agent-desktop",
+          "max-sixty/worktrunk",
+          "lz4/lz4",
+          "google/skills",
+          "vercel-labs/agent-browser",
+          "scenario-labs/skills",
+          "ConardLi/garden-skills",
+          "microsoft/VibeVoice",
+          "floci-io/floci",
+          "JiaFeiMiao-K-Cat/DiscImageStudio"
+        ],
+        "weekly": [
+          "thedotmack/claude-mem",
+          "Nutlope/hallmark",
+          "pingdotgg/t3code",
+          "anthropics/skills",
+          "HKUDS/DeepTutor",
+          "max-sixty/worktrunk",
+          "milind-soni/OpenMausBot",
+          "obra/superpowers",
+          "pbakaus/impeccable",
+          "hyprwm/Hyprland",
+          "jakubkrehel/skills",
+          "calesthio/OpenMontage",
+          "multica-ai/andrej-karpathy-skills",
+          "ghostty-org/ghostty",
+          "Leonxlnx/taste-skill",
+          "The-PR-Agent/pr-agent"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "boykopovar/AnyPS5",
+          "cloudflare/security-audit-skill",
+          "Nutlope/hallmark",
+          "heygen-com/hyperframes",
+          "debpalash/VoiceStudio",
+          "NationalSecurityAgency/ghidra",
+          "thedotmack/claude-mem",
+          "pingdotgg/t3code",
+          "pbakaus/impeccable",
+          "anthropics/knowledge-work-plugins",
+          "HKUDS/DeepTutor"
         ]
       }
     }

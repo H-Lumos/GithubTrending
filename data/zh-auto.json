@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793861198077,
+  "updatedAt": 1793947571698,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1219,6 +1219,66 @@
         "Python"
       ],
       "generatedAt": 1793861198077,
+      "model": "deepseek-chat"
+    },
+    "lz4/lz4": {
+      "purpose": "为需要高速压缩的开发者提供极快的无损压缩算法实现。",
+      "detail": "LZ4 是一个用 C 编写的无损压缩算法库，主打极高的压缩与解压速度。它提供流式压缩接口，适合对吞吐和延迟敏感的场景，例如日志、缓存、网络传输和内存数据压缩。项目以 C 语言实现，便于在多种平台集成。",
+      "tags": [
+        "压缩算法",
+        "C",
+        "无损压缩",
+        "高性能"
+      ],
+      "generatedAt": 1793947565497,
+      "model": "deepseek-chat"
+    },
+    "google/skills": {
+      "purpose": "为使用谷歌产品与技术的开发者提供智能体技能集合",
+      "detail": "该仓库汇集面向谷歌产品与技术的 Agent Skills，以 Python 实现。适合构建智能体应用的开发者参考和复用，帮助智能体对接谷歌相关技术能力。仓库未提供更详细的说明，具体技能范围需进仓库查看。",
+      "tags": [
+        "Agent Skills",
+        "Google",
+        "Python",
+        "智能体"
+      ],
+      "generatedAt": 1793947567108,
+      "model": "deepseek-chat"
+    },
+    "vercel-labs/agent-browser": {
+      "purpose": "为 AI 代理提供浏览器自动化命令行工具，解决其网页操作问题。",
+      "detail": "这是一个用 Rust 编写的浏览器自动化 CLI，面向 AI 代理场景，让代理通过命令行驱动浏览器完成网页操作。仓库未提供更多 README 说明，具体能力与用法需进仓库查看。",
+      "tags": [
+        "浏览器自动化",
+        "CLI",
+        "AI 代理",
+        "Rust"
+      ],
+      "generatedAt": 1793947568484,
+      "model": "deepseek-chat"
+    },
+    "ConardLi/garden-skills": {
+      "purpose": "为需要扩展 AI 助手能力的人提供开源技能集合",
+      "detail": "该仓库汇集了 ConardLi 开源的一组技能，覆盖网页设计、知识检索、图像生成等方向。项目以 JavaScript 为主，可作为 AI 助手或智能体调用外部能力的参考实现。适合希望为自建助手补充实用技能的开发者参考和复用。",
+      "tags": [
+        "技能集合",
+        "AI 助手",
+        "JavaScript",
+        "开源"
+      ],
+      "generatedAt": 1793947569957,
+      "model": "deepseek-chat"
+    },
+    "microsoft/VibeVoice": {
+      "purpose": "面向需要语音 AI 能力的开发者，提供开源前沿语音模型。",
+      "detail": "微软开源的前沿语音 AI 项目，主语言为 Python。仓库描述仅说明其定位为开源前沿语音 AI，未提供更多功能细节。适合关注语音 AI 模型的研究者与开发者进仓库进一步了解。",
+      "tags": [
+        "语音AI",
+        "开源",
+        "Python",
+        "微软"
+      ],
+      "generatedAt": 1793947571698,
       "model": "deepseek-chat"
     }
   }
