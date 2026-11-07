@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794031097301,
+  "updatedAt": 1794046109299,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1419,6 +1419,18 @@
         "安全"
       ],
       "generatedAt": 1794031097301,
+      "model": "deepseek-chat"
+    },
+    "astral-sh/ruff": {
+      "purpose": "为 Python 开发者提供极快的代码检查与格式化工具",
+      "detail": "用 Rust 编写的 Python linter 和代码格式化工具，速度显著快于传统工具。可替代 Flake8、Black 等，统一完成静态检查与格式化。适合需要提升 CI 与本地开发效率的 Python 项目。",
+      "tags": [
+        "Python",
+        "代码检查",
+        "格式化",
+        "Rust"
+      ],
+      "generatedAt": 1794046109299,
       "model": "deepseek-chat"
     }
   }
