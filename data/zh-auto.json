@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1793947571698,
+  "updatedAt": 1794031097301,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1279,6 +1279,146 @@
         "微软"
       ],
       "generatedAt": 1793947571698,
+      "model": "deepseek-chat"
+    },
+    "zed-industries/zed": {
+      "purpose": "为追求高性能与多人协作的开发者提供代码编辑器",
+      "detail": "Zed 是由 Atom 和 Tree-sitter 作者打造的高性能多人协作代码编辑器，使用 Rust 编写。主打低延迟编辑与实时协作，适合注重响应速度和团队协同开发的程序员。",
+      "tags": [
+        "代码编辑器",
+        "Rust",
+        "多人协作",
+        "高性能"
+      ],
+      "generatedAt": 1794031081264,
+      "model": "deepseek-chat"
+    },
+    "rails/rails": {
+      "purpose": "为 Ruby 开发者提供全栈 Web 应用开发框架",
+      "detail": "Rails 是一个基于 Ruby 的 Web 应用框架，覆盖从数据库操作到前端渲染的完整开发流程。它遵循约定优于配置的原则，内置 MVC 结构、ORM 和路由等组件。适合需要快速构建和维护 Web 应用的 Ruby 开发者与团队。",
+      "tags": [
+        "Ruby",
+        "Web框架",
+        "全栈",
+        "MVC"
+      ],
+      "generatedAt": 1794031082748,
+      "model": "deepseek-chat"
+    },
+    "mpv-player/mpv": {
+      "purpose": "给需要轻量、可脚本控制播放器的用户，解决图形界面播放器不够灵活的问题。",
+      "detail": "mpv 是一款基于命令行的媒体播放器，主语言为 C。它以命令行方式运行，便于脚本调用和自定义控制，适合偏好键盘操作或需要集成到自动化流程中的用户。",
+      "tags": [
+        "媒体播放器",
+        "命令行",
+        "C"
+      ],
+      "generatedAt": 1794031084066,
+      "model": "deepseek-chat"
+    },
+    "rust-lang/rust": {
+      "purpose": "为开发者提供构建可靠高效软件的通用编程语言工具链",
+      "detail": "这是 Rust 编程语言的主仓库，包含编译器、标准库和核心工具链的源码。项目强调内存安全与运行效率，适合系统编程、嵌入式以及需要高性能与可靠性的软件开发场景。开发者可在此获取语言实现、参与贡献或跟踪语言演进。",
+      "tags": [
+        "Rust",
+        "编程语言",
+        "编译器",
+        "系统编程"
+      ],
+      "generatedAt": 1794031085645,
+      "model": "deepseek-chat"
+    },
+    "react/react": {
+      "purpose": "供前端开发者构建 Web 与原生用户界面的 JavaScript 库",
+      "detail": "React 是用于构建用户界面的 JavaScript 库，支持 Web 和原生界面开发。它采用组件化方式组织界面，是前端开发中广泛使用的基础库。适合需要开发交互式界面的前端工程师使用。",
+      "tags": [
+        "前端",
+        "UI库",
+        "JavaScript",
+        "组件化"
+      ],
+      "generatedAt": 1794031087054,
+      "model": "deepseek-chat"
+    },
+    "angular/angular": {
+      "purpose": "面向 Web 开发者，提供构建可靠前端应用的开发框架",
+      "detail": "Angular 是一个基于 TypeScript 的前端框架，用于开发 Web 应用。仓库包含框架核心代码与配套工具，强调以工程化方式构建可维护的应用。适合需要长期维护、团队协作的前端项目开发者使用。",
+      "tags": [
+        "前端框架",
+        "TypeScript",
+        "Web开发"
+      ],
+      "generatedAt": 1794031088466,
+      "model": "deepseek-chat"
+    },
+    "symfony/symfony": {
+      "purpose": "为 PHP 开发者提供构建 Web 应用和服务的全栈框架",
+      "detail": "Symfony 是成熟的 PHP 框架，提供路由、依赖注入、表单、安全等可复用组件，也可单独使用各组件。适合需要长期维护、结构规范的企业级 PHP 项目开发者。",
+      "tags": [
+        "PHP",
+        "Web框架",
+        "后端开发"
+      ],
+      "generatedAt": 1794031089802,
+      "model": "deepseek-chat"
+    },
+    "prometheus/prometheus": {
+      "purpose": "为运维和开发者提供指标采集、存储与告警的监控系统",
+      "detail": "Prometheus 是一个监控系统与时序数据库，通过拉取方式采集指标并存储为时间序列数据。它内置查询语言和告警规则，常与可视化工具配合使用。适合需要监控服务与基础设施状态的运维和开发团队。",
+      "tags": [
+        "监控",
+        "时序数据库",
+        "指标采集",
+        "Go"
+      ],
+      "generatedAt": 1794031091038,
+      "model": "deepseek-chat"
+    },
+    "microsoft/vscode": {
+      "purpose": "为开发者提供跨平台代码编辑与调试环境",
+      "detail": "Visual Studio Code 是微软开源的轻量级代码编辑器，使用 TypeScript 开发。它支持语法高亮、智能补全、调试和扩展插件，可运行于 Windows、macOS 和 Linux。适合各类开发者日常编写和调试代码。",
+      "tags": [
+        "代码编辑器",
+        "TypeScript",
+        "开发工具"
+      ],
+      "generatedAt": 1794031092626,
+      "model": "deepseek-chat"
+    },
+    "nushell/nushell": {
+      "purpose": "面向需要结构化数据处理能力的命令行用户，提供新型 shell。",
+      "detail": "Nushell 是一个用 Rust 编写的 shell，将命令输出组织为结构化表格数据，便于筛选、排序和转换。它支持跨平台使用，适合习惯命令行、又需要处理 JSON、CSV 等数据的开发者和运维人员。",
+      "tags": [
+        "shell",
+        "Rust",
+        "命令行",
+        "数据处理"
+      ],
+      "generatedAt": 1794031093971,
+      "model": "deepseek-chat"
+    },
+    "etcd-io/etcd": {
+      "purpose": "为分布式系统提供关键数据存储的可靠键值数据库",
+      "detail": "etcd 是 Go 编写的分布式键值存储，用于保存分布式系统中最关键的数据。它提供可靠的分布式协调能力，常被用作配置管理、服务发现和集群状态存储的基础组件。适合需要强一致性和高可用性的后端与基础设施开发者使用。",
+      "tags": [
+        "分布式存储",
+        "键值数据库",
+        "Go",
+        "高可用"
+      ],
+      "generatedAt": 1794031095506,
+      "model": "deepseek-chat"
+    },
+    "openssl/openssl": {
+      "purpose": "为开发者提供通用 TLS 与密码学库，用于加密通信与安全实现。",
+      "detail": "OpenSSL 是一个用 C 编写的通用密码学与 TLS 库，提供 SSL/TLS 协议实现以及常用加密算法、证书和密钥管理功能。它常被用于构建需要安全网络通信或数据加密的软件，适合系统开发者、网络服务作者和安全相关项目集成。",
+      "tags": [
+        "TLS",
+        "密码学",
+        "C",
+        "安全"
+      ],
+      "generatedAt": 1794031097301,
       "model": "deepseek-chat"
     }
   }
