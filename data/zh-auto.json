@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794046109299,
+  "updatedAt": 1794117619231,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1431,6 +1431,66 @@
         "Rust"
       ],
       "generatedAt": 1794046109299,
+      "model": "deepseek-chat"
+    },
+    "meta/astryx": {
+      "purpose": "为需要可定制设计系统的前端团队提供组件与规范",
+      "detail": "Astryx 是一个开源设计系统，使用 TypeScript 编写，强调完全可定制，并面向智能体（agent）场景做了适配。适合希望统一界面风格、又需要按品牌或产品调整样式的开发团队参考或直接使用。",
+      "tags": [
+        "设计系统",
+        "TypeScript",
+        "可定制",
+        "前端"
+      ],
+      "generatedAt": 1794117613051,
+      "model": "deepseek-chat"
+    },
+    "sherlock-project/sherlock": {
+      "purpose": "帮用户按用户名跨社交网络查找账号",
+      "detail": "通过用户名在多个社交平台上检索对应账号，用于账号排查与信息核对。项目以 Python 实现，支持命令行方式运行。适合安全研究人员、开源情报分析人员和需要核实账号归属的用户。",
+      "tags": [
+        "账号检索",
+        "开源情报",
+        "Python",
+        "命令行"
+      ],
+      "generatedAt": 1794117614802,
+      "model": "deepseek-chat"
+    },
+    "tailwindlabs/tailwindcss": {
+      "purpose": "为前端开发者提供原子化 CSS 框架，快速构建界面",
+      "detail": "Tailwind CSS 是一个以工具类为核心的 CSS 框架，通过组合细粒度的类名直接编写样式，减少自定义 CSS 的编写。项目使用 TypeScript 开发，适合需要快速搭建和迭代 UI 的前端开发者与团队。",
+      "tags": [
+        "CSS框架",
+        "原子化CSS",
+        "前端开发",
+        "TypeScript"
+      ],
+      "generatedAt": 1794117616171,
+      "model": "deepseek-chat"
+    },
+    "mbillow/localthings": {
+      "purpose": "让 Home Assistant 用户通过本地网络控制三星家电，无需云账号。",
+      "detail": "该项目是一个 Home Assistant 集成，通过家庭局域网直接控制三星家电，不依赖云端账号。适合希望避免云依赖、在本地网络中管理三星设备的 Home Assistant 用户。",
+      "tags": [
+        "Home Assistant",
+        "三星家电",
+        "本地控制",
+        "Python"
+      ],
+      "generatedAt": 1794117617667,
+      "model": "deepseek-chat"
+    },
+    "dsx-ai-factory/nvke": {
+      "purpose": "为裸金属上运行 GPU Kubernetes 的运维人员提供管理平面",
+      "detail": "NVKE 是面向裸金属环境的 GPU Kubernetes 管理平面，用 Go 编写。它聚焦于在裸金属机器上部署和运维带 GPU 的 Kubernetes 集群，适合需要自建 GPU 集群的平台与基础设施团队参考使用。",
+      "tags": [
+        "Kubernetes",
+        "GPU",
+        "裸金属",
+        "Go"
+      ],
+      "generatedAt": 1794117619231,
       "model": "deepseek-chat"
     }
   }

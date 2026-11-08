@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794046109300,
+  "updatedAt": 1794117619232,
   "keepDays": 45,
   "days": [
     {
@@ -2037,6 +2037,96 @@
           "pbakaus/impeccable",
           "HKUDS/DeepTutor",
           "anthropics/knowledge-work-plugins"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-08",
+      "stars": {
+        "vercel-labs/agent-browser": 46988,
+        "cloudflare/security-audit-skill": 66014,
+        "google/skills": 23511,
+        "mattpocock/skills": 317905,
+        "anthropics/skills": 188923,
+        "meta/astryx": 14732,
+        "prometheus/prometheus": 67483,
+        "sherlock-project/sherlock": 101025,
+        "milind-soni/OpenMausBot": 17265,
+        "astral-sh/ruff": 51023,
+        "tailwindlabs/tailwindcss": 98554,
+        "mbillow/localthings": 1096,
+        "zed-industries/zed": 94345,
+        "ranxianglei/billion-context": 4704,
+        "dsx-ai-factory/nvke": 610,
+        "thedotmack/claude-mem": 114586,
+        "max-sixty/worktrunk": 11981,
+        "Donchitos/Claude-Code-Game-Studios": 36679,
+        "Renhuai123/ziwei-doushu": 16771,
+        "pingdotgg/t3code": 51499,
+        "Nutlope/hallmark": 50407,
+        "D4Vinci/Scrapling": 99419,
+        "jakubkrehel/skills": 11556,
+        "hyprwm/Hyprland": 40507,
+        "github/spec-kit": 148484,
+        "obra/superpowers": 314205,
+        "The-PR-Agent/pr-agent": 15485,
+        "pbakaus/impeccable": 105689,
+        "shiyu-coder/Kronos": 47274,
+        "morluto/rea": 441562,
+        "storytold/artcraft": 39629,
+        "boykopovar/AnyPS5": 52119,
+        "debpalash/VoiceStudio": 104088,
+        "heygen-com/hyperframes": 80665
+      },
+      "ranks": {
+        "daily": [
+          "vercel-labs/agent-browser",
+          "cloudflare/security-audit-skill",
+          "google/skills",
+          "mattpocock/skills",
+          "anthropics/skills",
+          "meta/astryx",
+          "prometheus/prometheus",
+          "sherlock-project/sherlock",
+          "milind-soni/OpenMausBot",
+          "astral-sh/ruff",
+          "tailwindlabs/tailwindcss",
+          "mbillow/localthings",
+          "zed-industries/zed",
+          "ranxianglei/billion-context",
+          "dsx-ai-factory/nvke"
+        ],
+        "weekly": [
+          "thedotmack/claude-mem",
+          "max-sixty/worktrunk",
+          "Donchitos/Claude-Code-Game-Studios",
+          "Renhuai123/ziwei-doushu",
+          "pingdotgg/t3code",
+          "anthropics/skills",
+          "Nutlope/hallmark",
+          "milind-soni/OpenMausBot",
+          "D4Vinci/Scrapling",
+          "jakubkrehel/skills",
+          "vercel-labs/agent-browser",
+          "mattpocock/skills",
+          "hyprwm/Hyprland",
+          "github/spec-kit",
+          "obra/superpowers",
+          "The-PR-Agent/pr-agent",
+          "pbakaus/impeccable",
+          "shiyu-coder/Kronos"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "Nutlope/hallmark",
+          "storytold/artcraft",
+          "cloudflare/security-audit-skill",
+          "boykopovar/AnyPS5",
+          "debpalash/VoiceStudio",
+          "heygen-com/hyperframes",
+          "pingdotgg/t3code",
+          "thedotmack/claude-mem",
+          "pbakaus/impeccable"
         ]
       }
     }
