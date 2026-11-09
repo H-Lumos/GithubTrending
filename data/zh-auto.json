@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794117619231,
+  "updatedAt": 1794205715715,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1491,6 +1491,42 @@
         "Go"
       ],
       "generatedAt": 1794117619231,
+      "model": "deepseek-chat"
+    },
+    "anthropics/claude-quickstarts": {
+      "purpose": "帮助开发者快速上手用 Claude API 构建可部署应用",
+      "detail": "这是 Anthropic 官方提供的示例项目集合，面向希望基于 Claude API 开发应用的开发者。包含多个可直接参考的项目，帮助理解 API 用法并搭建可部署的原型。适合需要快速入门 Claude API 开发的人员。",
+      "tags": [
+        "Claude API",
+        "示例项目",
+        "快速入门",
+        "Python"
+      ],
+      "generatedAt": 1794205712287,
+      "model": "deepseek-chat"
+    },
+    "google-deepmind/mujoco": {
+      "purpose": "为机器人控制与强化学习研究者提供通用物理仿真引擎",
+      "detail": "MuJoCo 是一个通用物理仿真器，用于多关节动力学与接触模拟。以 C++ 实现，适合机器人控制、强化学习与生物力学等需要高效刚体仿真的场景。",
+      "tags": [
+        "物理仿真",
+        "机器人",
+        "强化学习",
+        "C++"
+      ],
+      "generatedAt": 1794205713802,
+      "model": "deepseek-chat"
+    },
+    "blader/humanizer": {
+      "purpose": "帮助写作者去除文本中 AI 生成痕迹，让内容更自然。",
+      "detail": "这是一个面向 AI Agent 的技能，用于识别并清理文本中常见的 AI 写作特征。项目以 Python 实现，可作为技能接入 Agent 工作流，对生成文本进行改写。适合需要让输出读起来更像人类写作的开发者和内容创作者。",
+      "tags": [
+        "文本改写",
+        "AI检测规避",
+        "Agent技能",
+        "Python"
+      ],
+      "generatedAt": 1794205715715,
       "model": "deepseek-chat"
     }
   }

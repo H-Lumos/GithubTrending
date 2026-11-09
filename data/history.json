@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794117619232,
+  "updatedAt": 1794205715716,
   "keepDays": 45,
   "days": [
     {
@@ -2127,6 +2127,89 @@
           "pingdotgg/t3code",
           "thedotmack/claude-mem",
           "pbakaus/impeccable"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-09",
+      "stars": {
+        "sherlock-project/sherlock": 104711,
+        "dsx-ai-factory/nvke": 936,
+        "milind-soni/OpenMausBot": 18736,
+        "anthropics/claude-quickstarts": 19592,
+        "vercel-labs/agent-browser": 47881,
+        "meta/astryx": 17609,
+        "anthropics/skills": 189916,
+        "google-deepmind/mujoco": 16567,
+        "ranxianglei/billion-context": 5381,
+        "NVIDIA/auto-ontology": 10587,
+        "thedotmack/claude-mem": 115026,
+        "max-sixty/worktrunk": 12172,
+        "Donchitos/Claude-Code-Game-Studios": 37124,
+        "pingdotgg/t3code": 52830,
+        "Nutlope/hallmark": 51151,
+        "Renhuai123/ziwei-doushu": 17110,
+        "D4Vinci/Scrapling": 100057,
+        "mattpocock/skills": 318820,
+        "jakubkrehel/skills": 11786,
+        "github/spec-kit": 148796,
+        "The-PR-Agent/pr-agent": 15635,
+        "hyprwm/Hyprland": 40580,
+        "blader/humanizer": 66694,
+        "morluto/rea": 444553,
+        "cloudflare/security-audit-skill": 67149,
+        "storytold/artcraft": 40008,
+        "heygen-com/hyperframes": 81239,
+        "debpalash/VoiceStudio": 105293,
+        "boykopovar/AnyPS5": 52397,
+        "pbakaus/impeccable": 106374,
+        "HKUDS/DeepTutor": 57190,
+        "NationalSecurityAgency/ghidra": 98866
+      },
+      "ranks": {
+        "daily": [
+          "sherlock-project/sherlock",
+          "dsx-ai-factory/nvke",
+          "milind-soni/OpenMausBot",
+          "anthropics/claude-quickstarts",
+          "vercel-labs/agent-browser",
+          "meta/astryx",
+          "anthropics/skills",
+          "google-deepmind/mujoco",
+          "ranxianglei/billion-context"
+        ],
+        "weekly": [
+          "NVIDIA/auto-ontology",
+          "thedotmack/claude-mem",
+          "max-sixty/worktrunk",
+          "anthropics/skills",
+          "Donchitos/Claude-Code-Game-Studios",
+          "milind-soni/OpenMausBot",
+          "pingdotgg/t3code",
+          "Nutlope/hallmark",
+          "Renhuai123/ziwei-doushu",
+          "D4Vinci/Scrapling",
+          "vercel-labs/agent-browser",
+          "mattpocock/skills",
+          "jakubkrehel/skills",
+          "github/spec-kit",
+          "The-PR-Agent/pr-agent",
+          "hyprwm/Hyprland",
+          "blader/humanizer"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "Nutlope/hallmark",
+          "cloudflare/security-audit-skill",
+          "storytold/artcraft",
+          "heygen-com/hyperframes",
+          "debpalash/VoiceStudio",
+          "pingdotgg/t3code",
+          "thedotmack/claude-mem",
+          "boykopovar/AnyPS5",
+          "pbakaus/impeccable",
+          "HKUDS/DeepTutor",
+          "NationalSecurityAgency/ghidra"
         ]
       }
     }
