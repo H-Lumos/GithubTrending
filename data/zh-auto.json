@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794205715715,
+  "updatedAt": 1794223850855,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1527,6 +1527,42 @@
         "Python"
       ],
       "generatedAt": 1794205715715,
+      "model": "deepseek-chat"
+    },
+    "garrytan/gbrain": {
+      "purpose": "给使用 OpenClaw/Hermes 的开发者提供带主见的 Agent 大脑配置",
+      "detail": "这是 Garry Tan 分享的 OpenClaw/Hermes Agent 大脑配置，用 TypeScript 编写。仓库名称和描述表明它带有明确的个人偏好与取舍，而非通用模板。适合想参考他人实践来搭建或调整自己 Agent 大脑的开发者。",
+      "tags": [
+        "TypeScript",
+        "Agent",
+        "OpenClaw",
+        "配置"
+      ],
+      "generatedAt": 1794223847922,
+      "model": "deepseek-chat"
+    },
+    "ZhuLinsen/daily_stock_analysis": {
+      "purpose": "为个人投资者提供多市场股票智能分析与决策看板",
+      "detail": "该项目用大模型整合多源行情与实时新闻，生成分析结果并展示在决策看板上，同时支持自动推送和零成本定时运行。适合希望低成本搭建个人股票分析流程的投资者或开发者参考使用。",
+      "tags": [
+        "股票分析",
+        "LLM",
+        "行情数据",
+        "自动化推送"
+      ],
+      "generatedAt": 1794223849518,
+      "model": "deepseek-chat"
+    },
+    "homeassistant-ai/ha-mcp": {
+      "purpose": "让 AI 助手配置和自动化 Home Assistant 智能家居",
+      "detail": "该项目是一个 MCP 服务，用 Python 编写，让 Claude、ChatGPT 等 AI 助手能够配置和自动化 Home Assistant。适合希望用自然语言管理智能家居的 Home Assistant 用户和开发者。",
+      "tags": [
+        "Home Assistant",
+        "MCP",
+        "智能家居",
+        "AI 助手"
+      ],
+      "generatedAt": 1794223850855,
       "model": "deepseek-chat"
     }
   }
