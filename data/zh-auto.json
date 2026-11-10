@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794223850855,
+  "updatedAt": 1794309129094,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1563,6 +1563,28 @@
         "AI 助手"
       ],
       "generatedAt": 1794223850855,
+      "model": "deepseek-chat"
+    },
+    "we-promise/sure": {
+      "purpose": "面向普通用户的个人财务管理应用，帮助记录和掌握收支",
+      "detail": "这是一个用 Ruby 开发的个人财务应用，定位为面向所有人的记账与理财工具。仓库未提供更多功能说明，具体特性需进仓库查看。适合希望自行管理个人或家庭财务的用户。",
+      "tags": [
+        "个人财务",
+        "记账",
+        "Ruby"
+      ],
+      "generatedAt": 1794309127499,
+      "model": "deepseek-chat"
+    },
+    "tokio-rs/topcoat": {
+      "purpose": "为 Rust 开发者提供开箱即用的 Web 应用开发框架",
+      "detail": "这是一个面向 Rust 生态的 Web 应用框架，主打开箱即用，减少自行拼装组件的成本。仓库描述将其定位为构建 Web 应用的一体化框架，适合希望用 Rust 快速搭建 Web 服务的开发者。",
+      "tags": [
+        "Rust",
+        "Web框架",
+        "后端开发"
+      ],
+      "generatedAt": 1794309129094,
       "model": "deepseek-chat"
     }
   }
