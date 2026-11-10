@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794223850856,
+  "updatedAt": 1794295064725,
   "keepDays": 45,
   "days": [
     {
@@ -2164,6 +2164,88 @@
         "NationalSecurityAgency/ghidra": 98924,
         "boykopovar/AnyPS5": 52458,
         "anthropics/claude-plugins-official": 46530
+      },
+      "ranks": {
+        "daily": [
+          "anthropics/skills",
+          "meta/astryx",
+          "sherlock-project/sherlock",
+          "google-deepmind/mujoco",
+          "anthropics/claude-quickstarts",
+          "garrytan/gbrain",
+          "vercel-labs/agent-browser",
+          "ruvnet/RuView",
+          "ZhuLinsen/daily_stock_analysis",
+          "homeassistant-ai/ha-mcp",
+          "milind-soni/OpenMausBot"
+        ],
+        "weekly": [
+          "NVIDIA/auto-ontology",
+          "vercel-labs/agent-desktop",
+          "anthropics/skills",
+          "max-sixty/worktrunk",
+          "milind-soni/OpenMausBot",
+          "thedotmack/claude-mem",
+          "Donchitos/Claude-Code-Game-Studios",
+          "vercel-labs/agent-browser",
+          "pingdotgg/t3code",
+          "D4Vinci/Scrapling",
+          "The-PR-Agent/pr-agent",
+          "cloudflare/security-audit-skill",
+          "Nutlope/hallmark",
+          "mattpocock/skills"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "Nutlope/hallmark",
+          "cloudflare/security-audit-skill",
+          "pingdotgg/t3code",
+          "heygen-com/hyperframes",
+          "thedotmack/claude-mem",
+          "debpalash/VoiceStudio",
+          "HKUDS/DeepTutor",
+          "pbakaus/impeccable",
+          "storytold/artcraft",
+          "NationalSecurityAgency/ghidra",
+          "boykopovar/AnyPS5",
+          "anthropics/claude-plugins-official"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-10",
+      "stars": {
+        "anthropics/skills": 191432,
+        "meta/astryx": 20886,
+        "sherlock-project/sherlock": 107777,
+        "google-deepmind/mujoco": 17060,
+        "anthropics/claude-quickstarts": 20165,
+        "garrytan/gbrain": 32316,
+        "vercel-labs/agent-browser": 48723,
+        "ruvnet/RuView": 103669,
+        "ZhuLinsen/daily_stock_analysis": 69247,
+        "homeassistant-ai/ha-mcp": 6181,
+        "milind-soni/OpenMausBot": 20100,
+        "NVIDIA/auto-ontology": 11161,
+        "vercel-labs/agent-desktop": 20800,
+        "max-sixty/worktrunk": 12314,
+        "thedotmack/claude-mem": 115526,
+        "Donchitos/Claude-Code-Game-Studios": 37726,
+        "pingdotgg/t3code": 54568,
+        "D4Vinci/Scrapling": 100737,
+        "The-PR-Agent/pr-agent": 15769,
+        "cloudflare/security-audit-skill": 68376,
+        "Nutlope/hallmark": 51990,
+        "mattpocock/skills": 320061,
+        "morluto/rea": 447844,
+        "heygen-com/hyperframes": 81864,
+        "debpalash/VoiceStudio": 106502,
+        "HKUDS/DeepTutor": 57746,
+        "pbakaus/impeccable": 107082,
+        "storytold/artcraft": 40349,
+        "NationalSecurityAgency/ghidra": 99166,
+        "boykopovar/AnyPS5": 52742,
+        "anthropics/claude-plugins-official": 46680
       },
       "ranks": {
         "daily": [
