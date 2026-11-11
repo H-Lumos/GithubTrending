@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794309129094,
+  "updatedAt": 1794394636813,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1585,6 +1585,76 @@
         "后端开发"
       ],
       "generatedAt": 1794309129094,
+      "model": "deepseek-chat"
+    },
+    "GoogleChrome/modern-web-guidance-src": {
+      "purpose": "为编写现代 Web 指南的贡献者提供内容创作与评估的源码仓库",
+      "detail": "该仓库是 GoogleChrome/modern-web-guidance 的源仓库，包含编写、校准和评估 Modern Web Guidance 内容的代码与文档。Modern Web Guidance 是一组技能，把 Web 平台知识、最佳实践和浏览器兼容数据嵌入编码代理，引导其避开旧模式。仓库由 Chrome、Edge、Firefox 和 MDN 团队及社区共同维护，适合参与该项目的开发者参考贡献流程与治理规范。",
+      "tags": [
+        "Web开发",
+        "编码代理",
+        "文档工具",
+        "TypeScript"
+      ],
+      "generatedAt": 1794394629003,
+      "model": "deepseek-chat"
+    },
+    "shadcn/improve": {
+      "purpose": "让强模型审计代码库并写计划，供低成本模型执行",
+      "detail": "该项目面向希望用高能力模型做代码审计、再由更便宜的模型按计划执行的开发者。核心思路是把审计与执行拆开，由强模型产出计划，弱模型负责落地。仓库未提供更多实现细节，适合关注多模型分工与成本优化的团队参考。",
+      "tags": [
+        "代码审计",
+        "多模型协作",
+        "成本优化"
+      ],
+      "generatedAt": 1794394630698,
+      "model": "deepseek-chat"
+    },
+    "openai/codex-security": {
+      "purpose": "为开发者提供命令行工具与 TypeScript SDK，用于发现、验证并修复安全漏洞。",
+      "detail": "该项目是 OpenAI 的 Codex Security 工具，包含 CLI 和 TypeScript SDK，主语言为 TypeScript，可通过 npm 包 @openai/codex-security 安装使用。它面向需要在开发流程中查找、确认和修复安全漏洞的开发者与安全团队。",
+      "tags": [
+        "安全漏洞",
+        "TypeScript",
+        "CLI",
+        "SDK"
+      ],
+      "generatedAt": 1794394631921,
+      "model": "deepseek-chat"
+    },
+    "TheAlgorithms/Java": {
+      "purpose": "面向学习算法与数据结构的 Java 开发者，提供可参考的实现代码。",
+      "detail": "仓库用 Java 实现了各类常见算法与数据结构，按主题分类组织，便于按需查找和阅读源码。适合准备面试、复习算法基础或想对照 Java 写法学习的人使用。内容以教学和参考为主，不针对生产环境性能优化。",
+      "tags": [
+        "Java",
+        "算法",
+        "数据结构",
+        "学习资源"
+      ],
+      "generatedAt": 1794394633723,
+      "model": "deepseek-chat"
+    },
+    "herdrdev/herdr": {
+      "purpose": "为多编码智能体提供统一运行时的开发者工具",
+      "detail": "这是一个用 Rust 编写的运行时环境，用于承载和协调编码智能体。仓库描述将其定位为编码智能体所依赖的运行层，但未提供更多功能细节。适合需要同时运行或管理多个编码智能体的开发者关注。",
+      "tags": [
+        "Rust",
+        "编码智能体",
+        "运行时"
+      ],
+      "generatedAt": 1794394635049,
+      "model": "deepseek-chat"
+    },
+    "Vincentwei1021/video-shotcraft": {
+      "purpose": "为用 Claude Code 或 Codex 做产品宣传片的开发者提供 AI 视频技能",
+      "detail": "该项目是面向 Claude Code 与 Codex 的 AI 视频技能，基于 Remotion 生成电影感、可编辑的产品宣传片。内置 124 张镜头配方卡和 150 个动效预览，支持节拍同步与声音设计，并提供 Motion Workbench 及剪映导出。适合需要快速产出可二次编辑宣传视频的开发者与内容创作者。",
+      "tags": [
+        "AI视频",
+        "Remotion",
+        "产品宣传片",
+        "剪映导出"
+      ],
+      "generatedAt": 1794394636813,
       "model": "deepseek-chat"
     }
   }
