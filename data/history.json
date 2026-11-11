@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794309129095,
+  "updatedAt": 1794377995536,
   "keepDays": 45,
   "days": [
     {
@@ -2248,6 +2248,92 @@
         "NationalSecurityAgency/ghidra": 99208,
         "anthropics/knowledge-work-plugins": 35297,
         "tashfeenahmed/freellmapi": 49920
+      },
+      "ranks": {
+        "daily": [
+          "meta/astryx",
+          "anthropics/skills",
+          "addyosmani/agent-skills",
+          "anthropics/claude-quickstarts",
+          "google-deepmind/mujoco",
+          "we-promise/sure",
+          "homeassistant-ai/ha-mcp",
+          "vercel-labs/agent-browser",
+          "sherlock-project/sherlock",
+          "tokio-rs/topcoat",
+          "ranxianglei/billion-context",
+          "mattpocock/skills"
+        ],
+        "weekly": [
+          "NVIDIA/auto-ontology",
+          "vercel-labs/agent-desktop",
+          "anthropics/skills",
+          "milind-soni/OpenMausBot",
+          "max-sixty/worktrunk",
+          "vercel-labs/agent-browser",
+          "Donchitos/Claude-Code-Game-Studios",
+          "mattpocock/skills",
+          "cloudflare/security-audit-skill",
+          "The-PR-Agent/pr-agent",
+          "thedotmack/claude-mem",
+          "D4Vinci/Scrapling",
+          "anomalyco/hex",
+          "pingdotgg/t3code"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "Nutlope/hallmark",
+          "cloudflare/security-audit-skill",
+          "pingdotgg/t3code",
+          "thedotmack/claude-mem",
+          "heygen-com/hyperframes",
+          "HKUDS/DeepTutor",
+          "debpalash/VoiceStudio",
+          "pbakaus/impeccable",
+          "anthropics/claude-plugins-official",
+          "NationalSecurityAgency/ghidra",
+          "ranxianglei/billion-context",
+          "anthropics/knowledge-work-plugins",
+          "tashfeenahmed/freellmapi"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-11",
+      "stars": {
+        "meta/astryx": 23525,
+        "anthropics/skills": 192576,
+        "addyosmani/agent-skills": 115343,
+        "anthropics/claude-quickstarts": 20619,
+        "google-deepmind/mujoco": 17479,
+        "we-promise/sure": 12205,
+        "homeassistant-ai/ha-mcp": 6806,
+        "vercel-labs/agent-browser": 49417,
+        "sherlock-project/sherlock": 109368,
+        "tokio-rs/topcoat": 6939,
+        "ranxianglei/billion-context": 6498,
+        "mattpocock/skills": 321190,
+        "NVIDIA/auto-ontology": 11554,
+        "vercel-labs/agent-desktop": 21568,
+        "milind-soni/OpenMausBot": 20825,
+        "max-sixty/worktrunk": 12418,
+        "Donchitos/Claude-Code-Game-Studios": 38161,
+        "cloudflare/security-audit-skill": 69565,
+        "The-PR-Agent/pr-agent": 15897,
+        "thedotmack/claude-mem": 115924,
+        "D4Vinci/Scrapling": 101278,
+        "anomalyco/hex": 6252,
+        "pingdotgg/t3code": 56037,
+        "morluto/rea": 450676,
+        "Nutlope/hallmark": 52794,
+        "heygen-com/hyperframes": 82426,
+        "HKUDS/DeepTutor": 58076,
+        "debpalash/VoiceStudio": 107506,
+        "pbakaus/impeccable": 107744,
+        "anthropics/claude-plugins-official": 46805,
+        "NationalSecurityAgency/ghidra": 99419,
+        "anthropics/knowledge-work-plugins": 35398,
+        "tashfeenahmed/freellmapi": 50376
       },
       "ranks": {
         "daily": [
