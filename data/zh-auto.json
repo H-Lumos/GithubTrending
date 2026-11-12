@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794394636813,
+  "updatedAt": 1794481741695,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1655,6 +1655,76 @@
         "剪映导出"
       ],
       "generatedAt": 1794394636813,
+      "model": "deepseek-chat"
+    },
+    "nvm-sh/nvm": {
+      "purpose": "帮助开发者在同一台机器上切换和管理多个 Node.js 版本",
+      "detail": "nvm 是一个符合 POSIX 规范的 bash 脚本，用于安装、切换和卸载多个 Node.js 版本，并管理当前激活的版本。它适合需要在不同项目间使用不同 Node.js 版本的开发者，在类 Unix 系统的 shell 环境中运行。",
+      "tags": [
+        "Node.js",
+        "版本管理",
+        "Shell",
+        "开发工具"
+      ],
+      "generatedAt": 1794481733850,
+      "model": "deepseek-chat"
+    },
+    "pookjw/HermesEnabler": {
+      "purpose": "让任意 Apple Watch 用户启用爱马仕表盘",
+      "detail": "该项目用 Objective-C 实现，目标是在非爱马仕版本的 Apple Watch 上启用 Hermès 表盘。仓库描述仅说明这一用途，未提供更多实现细节或使用说明。适合想尝试爱马仕表盘但设备不支持的用户参考。",
+      "tags": [
+        "Apple Watch",
+        "表盘",
+        "Objective-C",
+        "越狱"
+      ],
+      "generatedAt": 1794481735592,
+      "model": "deepseek-chat"
+    },
+    "QwenLM/qwen-code": {
+      "purpose": "给开发者在终端内提供 AI 编码代理，辅助完成编码任务。",
+      "detail": "这是一个运行在终端中的开源 AI 编码代理，使用 TypeScript 编写。它让开发者无需离开命令行即可与 AI 交互处理编码相关工作。适合习惯终端工作流、希望集成 AI 辅助的开发人员。",
+      "tags": [
+        "AI编码",
+        "终端工具",
+        "TypeScript",
+        "开源"
+      ],
+      "generatedAt": 1794481737172,
+      "model": "deepseek-chat"
+    },
+    "ashhart/TensorFold": {
+      "purpose": "为需要在 Metal、CUDA、Vulkan 上运行大模型推理的开发者提供引擎",
+      "detail": "这是一个用 Zig 编写的 LLM 推理引擎，支持 Metal、CUDA 和 Vulkan 三种后端。仓库未提供更多说明，具体功能与使用方式需进仓库查看。适合关注跨平台 GPU 推理实现的开发者参考。",
+      "tags": [
+        "LLM推理",
+        "Zig",
+        "GPU后端"
+      ],
+      "generatedAt": 1794481738370,
+      "model": "deepseek-chat"
+    },
+    "Alishahryar1/free-claude-code": {
+      "purpose": "让开发者在终端、IDE 或手机免费使用多种 AI 编程工具",
+      "detail": "该项目提供免费额度，支持在终端、应用、IDE、手机和浏览器中使用 Claude Code、Codex、Antigravity、VSCode、Pi、OpenCode 等多种编程工具。它支持多工具与多模型组合，并包含浏览器原生会话和语音功能。适合希望低成本使用 AI 编程助手的开发者。",
+      "tags": [
+        "AI编程",
+        "免费额度",
+        "多模型",
+        "开发工具"
+      ],
+      "generatedAt": 1794481740101,
+      "model": "deepseek-chat"
+    },
+    "ggml-org/llama.cpp": {
+      "purpose": "让开发者在本地用 C/C++ 高效运行大语言模型推理",
+      "detail": "该项目用 C/C++ 实现大语言模型推理，支持在本地设备上运行模型。适合需要在无 GPU 或资源受限环境中部署 LLM 的开发者，也便于将推理能力集成进 C/C++ 应用。",
+      "tags": [
+        "LLM推理",
+        "C++",
+        "本地部署"
+      ],
+      "generatedAt": 1794481741695,
       "model": "deepseek-chat"
     }
   }
