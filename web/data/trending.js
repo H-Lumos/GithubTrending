@@ -1,11 +1,11 @@
 /* 自动生成，勿手改：node scripts/snapshot.js */
 window.TRENDING = {
-  "generatedAt": 1794394622817,
-  "date": "2026-11-11",
+  "generatedAt": 1794467412996,
+  "date": "2026-11-12",
   "source": "official-snapshot",
-  "historyDays": 25,
+  "historyDays": 26,
   "hasPrevDay": true,
-  "prevDate": "2026-11-10",
+  "prevDate": "2026-11-11",
   "languages": [
     {
       "name": "全部",
@@ -69,9 +69,9 @@ window.TRENDING = {
         "descEn": "An open source design system that's fully customizable and agent ready",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 24070,
-        "forks": 1880,
-        "hot": 3108,
+        "stars": 25536,
+        "forks": 1988,
+        "hot": 2776,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
@@ -97,13 +97,14 @@ window.TRENDING = {
           14732,
           18229,
           21291,
-          24070
+          24070,
+          25536
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 4,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -116,9 +117,9 @@ window.TRENDING = {
         "descEn": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 69685,
-        "forks": 56740,
-        "hot": 960,
+        "stars": 70705,
+        "forks": 56992,
+        "hot": 278,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/42829555?s=40&amp;v=4",
@@ -142,13 +143,14 @@ window.TRENDING = {
         ],
         "trend": [
           68426,
-          69685
+          69685,
+          70705
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 2,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -161,9 +163,9 @@ window.TRENDING = {
         "descEn": "",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 1387,
-        "forks": 126,
-        "hot": 133,
+        "stars": 2005,
+        "forks": 151,
+        "hot": 159,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/39191?s=40&amp;v=4",
@@ -186,13 +188,14 @@ window.TRENDING = {
           "TypeScript"
         ],
         "trend": [
-          1387
+          1387,
+          2005
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -205,9 +208,9 @@ window.TRENDING = {
         "descEn": "Use your most capable model to audit your codebase and write plans for cheaper models to execute.",
         "language": "Unknown",
         "languageColor": "#8b949e",
-        "stars": 10352,
-        "forks": 427,
-        "hot": 333,
+        "stars": 11168,
+        "forks": 453,
+        "hot": 361,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/124599?s=40&amp;v=4",
@@ -229,13 +232,14 @@ window.TRENDING = {
           "成本优化"
         ],
         "trend": [
-          10352
+          10352,
+          11168
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -248,9 +252,9 @@ window.TRENDING = {
         "descEn": "Production-grade engineering skills for AI coding agents.",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 115516,
-        "forks": 12118,
-        "hot": 465,
+        "stars": 116163,
+        "forks": 12172,
+        "hot": 787,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/110953?s=40&amp;v=4",
@@ -269,13 +273,14 @@ window.TRENDING = {
         "tags": [],
         "trend": [
           114761,
-          115516
+          115516,
+          116163
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -288,9 +293,9 @@ window.TRENDING = {
         "descEn": "Browser automation CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 49553,
-        "forks": 3470,
-        "hot": 780,
+        "stars": 50047,
+        "forks": 3492,
+        "hot": 708,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/366502?s=40&amp;v=4",
@@ -317,13 +322,14 @@ window.TRENDING = {
           46988,
           48099,
           48859,
-          49553
+          49553,
+          50047
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 5,
+        "trendRealPoints": 6,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -336,9 +342,9 @@ window.TRENDING = {
         "descEn": "The personal finance app for everyone (by everyone)",
         "language": "Ruby",
         "languageColor": "#701516",
-        "stars": 12443,
-        "forks": 921,
-        "hot": 159,
+        "stars": 13209,
+        "forks": 975,
+        "hot": 1078,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/187772?s=40&amp;v=4",
@@ -361,13 +367,14 @@ window.TRENDING = {
         ],
         "trend": [
           11383,
-          12443
+          12443,
+          13209
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -380,9 +387,9 @@ window.TRENDING = {
         "descEn": "Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 6935,
-        "forks": 442,
-        "hot": 790,
+        "stars": 7541,
+        "forks": 459,
+        "hot": 645,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
@@ -407,13 +414,14 @@ window.TRENDING = {
         "trend": [
           5530,
           6307,
-          6935
+          6935,
+          7541
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 3,
+        "trendRealPoints": 4,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -426,9 +434,9 @@ window.TRENDING = {
         "descEn": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 11376,
-        "forks": 914,
-        "hot": 20,
+        "stars": 11937,
+        "forks": 950,
+        "hot": 52,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/269034524?s=40&amp;v=4",
@@ -451,13 +459,14 @@ window.TRENDING = {
           "SDK"
         ],
         "trend": [
-          11376
+          11376,
+          11937
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -470,9 +479,9 @@ window.TRENDING = {
         "descEn": "All Algorithms implemented in Java",
         "language": "Java",
         "languageColor": "#b07219",
-        "stars": 66837,
-        "forks": 21488,
-        "hot": 39,
+        "stars": 67145,
+        "forks": 21520,
+        "hot": 51,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/19151554?s=40&amp;v=4",
@@ -495,13 +504,14 @@ window.TRENDING = {
           "学习资源"
         ],
         "trend": [
-          66837
+          66837,
+          67145
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       }
@@ -516,9 +526,9 @@ window.TRENDING = {
         "descEn": "Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 11648,
-        "forks": 956,
-        "hot": 9621,
+        "stars": 11991,
+        "forks": 983,
+        "hot": 7947,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/263323607?s=40&amp;v=4",
@@ -546,13 +556,14 @@ window.TRENDING = {
           9519,
           10757,
           11260,
-          11648
+          11648,
+          11991
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -565,9 +576,9 @@ window.TRENDING = {
         "descEn": "Public repository for Agent Skills",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 192782,
-        "forks": 22682,
-        "hot": 5014,
+        "stars": 193305,
+        "forks": 22746,
+        "hot": 5738,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/122662504?s=40&amp;v=4",
@@ -601,13 +612,14 @@ window.TRENDING = {
           188923,
           190100,
           191723,
-          192782
+          192782,
+          193305
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 12,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -620,9 +632,9 @@ window.TRENDING = {
         "descEn": "Computer use CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 21713,
-        "forks": 1613,
-        "hot": 9502,
+        "stars": 22306,
+        "forks": 1657,
+        "hot": 7772,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/70215676?s=40&amp;v=4",
@@ -652,13 +664,14 @@ window.TRENDING = {
           17613,
           19987,
           20975,
-          21713
+          21713,
+          22306
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 8,
+        "trendRealPoints": 9,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -671,9 +684,9 @@ window.TRENDING = {
         "descEn": "Open-source Grok Bot alternative with a virtual machine that bots can use",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 20965,
-        "forks": 2916,
-        "hot": 8951,
+        "stars": 21395,
+        "forks": 2988,
+        "hot": 9257,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/46266943?s=40&amp;v=4",
@@ -704,13 +717,14 @@ window.TRENDING = {
           17265,
           19132,
           20313,
-          20965
+          20965,
+          21395
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 9,
+        "trendRealPoints": 10,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -723,9 +737,9 @@ window.TRENDING = {
         "descEn": "Browser automation CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 49553,
-        "forks": 3470,
-        "hot": 3606,
+        "stars": 50047,
+        "forks": 3492,
+        "hot": 4183,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/366502?s=40&amp;v=4",
@@ -752,13 +766,14 @@ window.TRENDING = {
           46988,
           48099,
           48859,
-          49553
+          49553,
+          50047
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 5,
+        "trendRealPoints": 6,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -771,9 +786,9 @@ window.TRENDING = {
         "descEn": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 69797,
-        "forks": 4622,
-        "hot": 10967,
+        "stars": 70559,
+        "forks": 4682,
+        "hot": 11507,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/9935415?s=40&amp;v=4",
@@ -813,13 +828,14 @@ window.TRENDING = {
           66014,
           67396,
           68562,
-          69797
+          69797,
+          70559
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 3,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 25,
+        "trendRealPoints": 26,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -832,9 +848,9 @@ window.TRENDING = {
         "descEn": "Skills for Real Engineers. Straight from my .agents directory.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 321452,
-        "forks": 26944,
-        "hot": 9872,
+        "stars": 322281,
+        "forks": 27028,
+        "hot": 9575,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/28293365?s=40&amp;v=4",
@@ -862,13 +878,14 @@ window.TRENDING = {
           317905,
           319102,
           320267,
-          321452
+          321452,
+          322281
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 12,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -881,9 +898,9 @@ window.TRENDING = {
         "descEn": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 101405,
-        "forks": 10575,
-        "hot": 7291,
+        "stars": 101790,
+        "forks": 10602,
+        "hot": 5814,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/20604835?s=40&amp;v=4",
@@ -914,13 +931,14 @@ window.TRENDING = {
           99419,
           100207,
           100845,
-          101405
+          101405,
+          101790
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 4,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 10,
+        "trendRealPoints": 11,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -933,9 +951,9 @@ window.TRENDING = {
         "descEn": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 94729,
-        "forks": 11630,
-        "hot": 2262,
+        "stars": 94750,
+        "forks": 11634,
+        "hot": 2310,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/482957?s=40&amp;v=4",
@@ -960,13 +978,14 @@ window.TRENDING = {
         "trend": [
           93984,
           94345,
-          94729
+          94729,
+          94750
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 3,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 4,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -979,9 +998,9 @@ window.TRENDING = {
         "descEn": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 38251,
-        "forks": 4983,
-        "hot": 3730,
+        "stars": 38580,
+        "forks": 5017,
+        "hot": 3150,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/150119193?s=40&amp;v=4",
@@ -1010,13 +1029,14 @@ window.TRENDING = {
           36679,
           37242,
           37839,
-          38251
+          38251,
+          38580
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -3,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 10,
+        "trendRealPoints": 11,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1029,9 +1049,9 @@ window.TRENDING = {
         "descEn": "Agent Skills for Google products and technologies",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 23851,
-        "forks": 1991,
-        "hot": 2024,
+        "stars": 23979,
+        "forks": 1998,
+        "hot": 2013,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/277152880?s=40&amp;v=4",
@@ -1057,13 +1077,14 @@ window.TRENDING = {
           22592,
           23023,
           23511,
-          23851
+          23851,
+          23979
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 4,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1076,16 +1097,16 @@ window.TRENDING = {
         "descEn": "Multi-Joint dynamics with Contact. A general purpose physics simulator.",
         "language": "C++",
         "languageColor": "#f34b7d",
-        "stars": 17559,
-        "forks": 2160,
-        "hot": 1130,
+        "stars": 17691,
+        "forks": 2174,
+        "hot": 1535,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/6387526?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/102665781?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/29288912?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/42924292?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/2200217?s=40&amp;v=4"
+          "https://avatars.githubusercontent.com/u/12521315?s=40&amp;v=4"
         ],
         "topics": [],
         "license": "",
@@ -1103,13 +1124,14 @@ window.TRENDING = {
         "trend": [
           16703,
           17148,
-          17559
+          17559,
+          17691
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 3,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 4,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1122,9 +1144,9 @@ window.TRENDING = {
         "descEn": "the runtime your coding agents live on",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 50132,
-        "forks": 4052,
-        "hot": 2196,
+        "stars": 50428,
+        "forks": 4068,
+        "hot": 2213,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/7064011?s=40&amp;v=4",
@@ -1146,13 +1168,14 @@ window.TRENDING = {
           "运行时"
         ],
         "trend": [
-          50132
+          50132,
+          50428
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       }
@@ -1167,9 +1190,9 @@ window.TRENDING = {
         "descEn": "Reverse engineer anything with agents, from app behavior down to native binaries.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 451309,
-        "forks": 111047,
-        "hot": 389832,
+        "stars": 453465,
+        "forks": 111466,
+        "hot": 366818,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/76467478?s=40&amp;v=4",
@@ -1204,13 +1227,14 @@ window.TRENDING = {
           441562,
           445355,
           448462,
-          451309
+          451309,
+          453465
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 18,
+        "trendRealPoints": 19,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1223,9 +1247,9 @@ window.TRENDING = {
         "descEn": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
         "languageColor": "#663399",
-        "stars": 52984,
-        "forks": 2816,
-        "hot": 22624,
+        "stars": 53585,
+        "forks": 2854,
+        "hot": 23478,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/154055839?s=40&amp;v=4",
@@ -1265,13 +1289,14 @@ window.TRENDING = {
           50407,
           51371,
           52121,
-          52984
+          52984,
+          53585
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 18,
+        "trendRealPoints": 19,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1284,9 +1309,9 @@ window.TRENDING = {
         "descEn": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 69797,
-        "forks": 4622,
-        "hot": 41811,
+        "stars": 70559,
+        "forks": 4682,
+        "hot": 42138,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/9935415?s=40&amp;v=4",
@@ -1326,13 +1351,14 @@ window.TRENDING = {
           66014,
           67396,
           68562,
-          69797
+          69797,
+          70559
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 25,
+        "trendRealPoints": 26,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1345,15 +1371,15 @@ window.TRENDING = {
         "descEn": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 116025,
-        "forks": 10062,
-        "hot": 17223,
+        "stars": 116330,
+        "forks": 10094,
+        "hot": 17247,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/683968?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/132809511?s=40&amp;v=4",
+          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/199161495?s=40&amp;v=4"
         ],
         "topics": [],
@@ -1388,13 +1414,14 @@ window.TRENDING = {
           114586,
           115153,
           115595,
-          116025
+          116025,
+          116330
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 19,
+        "trendRealPoints": 20,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1407,9 +1434,9 @@ window.TRENDING = {
         "descEn": "",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 56291,
-        "forks": 10409,
-        "hot": 28609,
+        "stars": 57391,
+        "forks": 10558,
+        "hot": 29814,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/51714798?s=40&amp;v=4",
@@ -1450,13 +1477,14 @@ window.TRENDING = {
           51499,
           53216,
           54931,
-          56291
+          56291,
+          57391
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 24,
+        "trendRealPoints": 25,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1469,9 +1497,9 @@ window.TRENDING = {
         "descEn": "Write HTML. Render video. Built for agents.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 82516,
-        "forks": 7630,
-        "hot": 22380,
+        "stars": 83064,
+        "forks": 7659,
+        "hot": 22422,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/229591595?s=40&amp;v=4",
@@ -1513,13 +1541,14 @@ window.TRENDING = {
           80665,
           81362,
           81983,
-          82516
+          82516,
+          83064
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 25,
+        "trendRealPoints": 26,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1532,9 +1561,9 @@ window.TRENDING = {
         "descEn": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 107903,
-        "forks": 6416,
-        "hot": 28598,
+        "stars": 108522,
+        "forks": 6452,
+        "hot": 28902,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43004?s=40&amp;v=4",
@@ -1579,13 +1608,14 @@ window.TRENDING = {
           105689,
           106521,
           107201,
-          107903
+          107903,
+          108522
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 23,
+        "trendRealPoints": 24,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1598,9 +1628,9 @@ window.TRENDING = {
         "descEn": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 58152,
-        "forks": 7075,
-        "hot": 17107,
+        "stars": 58452,
+        "forks": 7105,
+        "hot": 17406,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/150592536?s=40&amp;v=4",
@@ -1631,13 +1661,14 @@ window.TRENDING = {
           56159,
           57373,
           57812,
-          58152
+          58152,
+          58452
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 10,
+        "trendRealPoints": 11,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1650,9 +1681,9 @@ window.TRENDING = {
         "descEn": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 107755,
-        "forks": 11934,
-        "hot": 50753,
+        "stars": 108560,
+        "forks": 12028,
+        "hot": 50619,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/4178343?s=40&amp;v=4",
@@ -1694,13 +1725,14 @@ window.TRENDING = {
           104088,
           105536,
           106714,
-          107755
+          107755,
+          108560
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 25,
+        "trendRealPoints": 26,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1713,9 +1745,9 @@ window.TRENDING = {
         "descEn": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 46839,
-        "forks": 4867,
-        "hot": 9346,
+        "stars": 46954,
+        "forks": 4880,
+        "hot": 9448,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
@@ -1754,13 +1786,14 @@ window.TRENDING = {
           46189,
           46530,
           46696,
-          46839
+          46839,
+          46954
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 22,
+        "trendRealPoints": 23,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -1773,9 +1806,9 @@ window.TRENDING = {
         "descEn": "Public repository for Agent Skills",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 192782,
-        "forks": 22682,
-        "hot": 12271,
+        "stars": 193305,
+        "forks": 22746,
+        "hot": 13018,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/122662504?s=40&amp;v=4",
@@ -1809,13 +1842,14 @@ window.TRENDING = {
           188923,
           190100,
           191723,
-          192782
+          192782,
+          193305
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 12,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1828,9 +1862,9 @@ window.TRENDING = {
         "descEn": "Hunt down social media accounts by username across social networks",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 109714,
-        "forks": 12712,
-        "hot": 15143,
+        "stars": 110278,
+        "forks": 12770,
+        "hot": 16350,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/27065646?s=40&amp;v=4",
@@ -1856,13 +1890,14 @@ window.TRENDING = {
           101025,
           105819,
           108126,
-          109714
+          109714,
+          110278
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 4,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1875,9 +1910,9 @@ window.TRENDING = {
         "descEn": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 113217,
-        "forks": 7622,
-        "hot": 19249,
+        "stars": 113764,
+        "forks": 7658,
+        "hot": 19310,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/219127460?s=40&amp;v=4",
@@ -1906,13 +1941,14 @@ window.TRENDING = {
           107348,
           108237,
           110988,
-          113217
+          113217,
+          113764
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 7,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 8,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1925,9 +1961,9 @@ window.TRENDING = {
         "descEn": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 35417,
-        "forks": 3922,
-        "hot": 6844,
+        "stars": 35506,
+        "forks": 3928,
+        "hot": 6534,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
@@ -1967,58 +2003,16 @@ window.TRENDING = {
           34929,
           35064,
           35297,
-          35417
+          35417,
+          35506
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 23,
+        "trendRealPoints": 24,
         "hasZh": true,
         "zhSource": "manual"
-      },
-      {
-        "id": "Vincentwei1021/video-shotcraft",
-        "owner": "Vincentwei1021",
-        "repo": "video-shotcraft",
-        "fullName": "Vincentwei1021/video-shotcraft",
-        "url": "https://github.com/Vincentwei1021/video-shotcraft",
-        "descEn": "AI video skill for Claude Code & Codex — cinematic, editable product promos with Remotion: 124 shot recipe cards, 150 motion previews, beat sync, sound design, Motion Workbench & JianYing (CapCut CN) export.",
-        "language": "TypeScript",
-        "languageColor": "#3178c6",
-        "stars": 18614,
-        "forks": 1760,
-        "hot": 7518,
-        "hotUnit": "本月新增",
-        "avatars": [
-          "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/18239147?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/15373810?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/184250974?s=40&amp;v=4"
-        ],
-        "topics": [],
-        "license": "",
-        "initial": "V",
-        "rank": 15,
-        "dataSource": "official",
-        "purpose": "为用 Claude Code 或 Codex 做产品宣传片的开发者提供 AI 视频技能",
-        "detail": "该项目是面向 Claude Code 与 Codex 的 AI 视频技能，基于 Remotion 生成电影感、可编辑的产品宣传片。内置 124 张镜头配方卡和 150 个动效预览，支持节拍同步与声音设计，并提供 Motion Workbench 及剪映导出。适合需要快速产出可二次编辑宣传视频的开发者与内容创作者。",
-        "tags": [
-          "AI视频",
-          "Remotion",
-          "产品宣传片",
-          "剪映导出"
-        ],
-        "trend": [
-          18614
-        ],
-        "trendEstimated": true,
-        "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
-        "hasZh": true,
-        "zhSource": "auto"
       },
       {
         "id": "AgriciDaniel/claude-seo",
@@ -2029,9 +2023,9 @@ window.TRENDING = {
         "descEn": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 28005,
-        "forks": 3631,
-        "hot": 9322,
+        "stars": 28356,
+        "forks": 3654,
+        "hot": 9470,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/223140489?s=40&amp;v=4",
@@ -2043,7 +2037,7 @@ window.TRENDING = {
         "topics": [],
         "license": "",
         "initial": "C",
-        "rank": 16,
+        "rank": 15,
         "dataSource": "official",
         "purpose": "为使用 Claude Code 的 SEO 从业者提供覆盖多场景的通用 SEO 技能集",
         "detail": "该项目是 Claude Code 的 SEO 技能包，包含 26 个子技能和 19 个子代理，覆盖技术 SEO、E-E-A-T、结构化数据、GEO/AEO、代理就绪（Lighthouse Agentic Browsing、WebMCP、llms.txt）、外链、本地 SEO、电商、国际 SEO、Google API 以及 PDF/Excel 报告。另有 9 个可选扩展用于接入实时 SEO 数据。适合需要在 Claude Code 中完成 SEO 分析与报告工作的从业者。",
@@ -2065,13 +2059,14 @@ window.TRENDING = {
           26150,
           26480,
           26829,
-          28005
+          28005,
+          28356
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 12,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2084,9 +2079,9 @@ window.TRENDING = {
         "descEn": "Ghidra is a software reverse engineering (SRE) framework",
         "language": "Java",
         "languageColor": "#b07219",
-        "stars": 99469,
-        "forks": 11286,
-        "hot": 17106,
+        "stars": 99687,
+        "forks": 11302,
+        "hot": 16749,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/5378554?s=40&amp;v=4",
@@ -2098,7 +2093,7 @@ window.TRENDING = {
         "topics": [],
         "license": "",
         "initial": "G",
-        "rank": 17,
+        "rank": 16,
         "dataSource": "official",
         "purpose": "美国国家安全局（NSA）开源的软件逆向工程框架。",
         "detail": "业界标准的反汇编 / 反编译平台，支持多架构、脚本扩展和多人协作分析。安全研究、恶意样本分析、漏洞挖掘的常用工具。",
@@ -2127,18 +2122,19 @@ window.TRENDING = {
           98472,
           98924,
           99208,
-          99469
+          99469,
+          99687
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -6,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 24,
+        "trendRealPoints": 25,
         "hasZh": true,
         "zhSource": "manual"
       }
     ]
   },
-  "zhMissing": 6,
-  "zhAi": 6
+  "zhMissing": 0,
+  "zhAi": 0
 };
