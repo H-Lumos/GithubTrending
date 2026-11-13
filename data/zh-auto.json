@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794481741695,
+  "updatedAt": 1794567516358,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1725,6 +1725,113 @@
         "本地部署"
       ],
       "generatedAt": 1794481741695,
+      "model": "deepseek-chat"
+    },
+    "alibaba/open-code-review": {
+      "purpose": "为需要自动化代码审查的团队提供行级评论工具",
+      "detail": "该项目是阿里巴巴开源的代码审查工具，采用确定性流水线加 LLM Agent 的混合架构，可给出精确到行的评论。内置多语言规则集，覆盖空指针、线程安全、XSS、SQL 注入等常见问题，并兼容 OpenAI 与 Anthropic 接口。适合在规模化场景下需要快速、安全代码审查的研发团队。",
+      "tags": [
+        "代码审查",
+        "LLM",
+        "静态分析",
+        "Go"
+      ],
+      "generatedAt": 1794567504599,
+      "model": "deepseek-chat"
+    },
+    "backnotprop/plannotator": {
+      "purpose": "给使用 AI 编码代理的开发者提供规划、批注与代码评审工作区",
+      "detail": "这是一个面向 AI 编码代理使用者的工作区，用于对代理的计划和代码进行批注、评审与决策。它支持把反馈一键回传给代理，并可与团队共享。适合需要持续跟进代理产出、保持人工把关的开发者与团队。",
+      "tags": [
+        "AI 编码代理",
+        "代码评审",
+        "协作",
+        "TypeScript"
+      ],
+      "generatedAt": 1794567506080,
+      "model": "deepseek-chat"
+    },
+    "louislam/uptime-kuma": {
+      "purpose": "给需要自建监控的个人和小团队，用来监测网站与服务可用性。",
+      "detail": "这是一个可自行部署的监控工具，提供较友好的界面来跟踪站点和服务的在线状态。项目以 JavaScript 编写，适合想掌握监控数据、不依赖第三方平台的自托管用户。",
+      "tags": [
+        "监控",
+        "自托管",
+        "JavaScript",
+        "可用性检测"
+      ],
+      "generatedAt": 1794567507876,
+      "model": "deepseek-chat"
+    },
+    "block/buzz": {
+      "purpose": "为团队提供蜂群式协作通信平台，用 Rust 实现",
+      "detail": "这是一个用 Rust 编写的通信平台，定位为蜂群思维式协作工具。仓库仅提供一句官方描述，未说明具体功能、协议或使用方式。适合对去中心化或群体协作通信感兴趣的开发者关注。",
+      "tags": [
+        "Rust",
+        "通信平台",
+        "协作"
+      ],
+      "generatedAt": 1794567509134,
+      "model": "deepseek-chat"
+    },
+    "tradermonty/claude-trading-skills": {
+      "purpose": "为股票投资者和交易者提供 Claude Code 技能，用于市场分析与策略开发",
+      "detail": "该项目是一组面向股票投资者和交易者的 Claude Code 技能集合，覆盖市场分析、技术图表、经济日历、筛选器和交易策略开发等场景。仓库以 Python 为主要语言，未提供更多实现细节。适合使用 Claude Code 并希望把投研与交易流程自动化的个人投资者和交易者参考。",
+      "tags": [
+        "Claude Code",
+        "量化交易",
+        "股票分析",
+        "投资工具"
+      ],
+      "generatedAt": 1794567510623,
+      "model": "deepseek-chat"
+    },
+    "tailscale/tailcat": {
+      "purpose": "给需要点对点传输数据的 Tailscale 用户提供类似 netcat 的工具",
+      "detail": "该工具在 Tailscale 的数据平面上工作，不依赖其控制平面，可用于建立点对点连接并传输数据。使用方式类似 netcat，适合需要在 Tailscale 网络内做调试或数据转发的开发者。",
+      "tags": [
+        "Go",
+        "Tailscale",
+        "netcat",
+        "网络工具"
+      ],
+      "generatedAt": 1794567512306,
+      "model": "deepseek-chat"
+    },
+    "Likely7/Veyra-NRVideo": {
+      "purpose": "为 Windows 用户提供视频播放与采集增强工具，提升画质与帧率。",
+      "detail": "该项目是一个 Windows 视频播放与采集增强工具，支持对视频、图片和采集卡信号进行实时预览。它结合 AI 超分辨率、DLSS5 图像增强和帧生成技术，以改善画面清晰度与流畅度。官方描述提到可将 PS5 GTA6 提升至 120FPS，适合需要高画质高帧率播放或采集的用户。",
+      "tags": [
+        "视频播放",
+        "超分辨率",
+        "帧生成",
+        "Windows"
+      ],
+      "generatedAt": 1794567513733,
+      "model": "deepseek-chat"
+    },
+    "ChromeDevTools/chrome-devtools-mcp": {
+      "purpose": "让编码智能体通过 MCP 控制 Chrome DevTools 调试网页",
+      "detail": "该项目为编码智能体提供 Chrome DevTools 的 MCP 接口，使其能够操作浏览器调试能力。仓库描述仅说明面向编码智能体，未提供更多功能细节。适合需要让 AI 编码工具接入浏览器调试流程的开发者参考。",
+      "tags": [
+        "MCP",
+        "Chrome DevTools",
+        "调试",
+        "TypeScript"
+      ],
+      "generatedAt": 1794567514976,
+      "model": "deepseek-chat"
+    },
+    "lobehub/lobehub": {
+      "purpose": "给团队在现有聊天工具中加入可自主工作的超级智能体",
+      "detail": "LobeHub 是一个 TypeScript 项目，目标是把超级智能体加入团队日常使用的聊天中。这些智能体可以自行承担工作，并随时间持续改进。适合希望用智能体分担团队协作任务的开发者和团队。",
+      "tags": [
+        "智能体",
+        "团队协作",
+        "聊天机器人",
+        "TypeScript"
+      ],
+      "generatedAt": 1794567516357,
       "model": "deepseek-chat"
     }
   }
