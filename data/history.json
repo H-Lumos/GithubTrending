@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794481741696,
+  "updatedAt": 1794552299873,
   "keepDays": 45,
   "days": [
     {
@@ -2427,6 +2427,93 @@
         "Leonxlnx/taste-skill": 113882,
         "AgriciDaniel/claude-seo": 28424,
         "anthropics/knowledge-work-plugins": 35526
+      },
+      "ranks": {
+        "daily": [
+          "GoogleChrome/modern-web-guidance-src",
+          "openai/codex-security",
+          "nvm-sh/nvm",
+          "pookjw/HermesEnabler",
+          "we-promise/sure",
+          "QwenLM/qwen-code",
+          "ashhart/TensorFold",
+          "nodejs/node",
+          "addyosmani/agent-skills",
+          "meta/astryx",
+          "CopilotKit/OpenBot",
+          "Alishahryar1/free-claude-code",
+          "ggml-org/llama.cpp"
+        ],
+        "weekly": [
+          "anthropics/skills",
+          "milind-soni/OpenMausBot",
+          "vercel-labs/agent-browser",
+          "NVIDIA/auto-ontology",
+          "cloudflare/security-audit-skill",
+          "vercel-labs/agent-desktop",
+          "mattpocock/skills",
+          "zed-industries/zed",
+          "google-deepmind/mujoco",
+          "google/skills",
+          "D4Vinci/Scrapling"
+        ],
+        "monthly": [
+          "morluto/rea",
+          "Nutlope/hallmark",
+          "cloudflare/security-audit-skill",
+          "thedotmack/claude-mem",
+          "pingdotgg/t3code",
+          "pbakaus/impeccable",
+          "heygen-com/hyperframes",
+          "HKUDS/DeepTutor",
+          "anthropics/skills",
+          "debpalash/VoiceStudio",
+          "anthropics/claude-plugins-official",
+          "Leonxlnx/taste-skill",
+          "AgriciDaniel/claude-seo",
+          "anthropics/knowledge-work-plugins"
+        ]
+      }
+    },
+    {
+      "d": "2026-11-13",
+      "stars": {
+        "GoogleChrome/modern-web-guidance-src": 3600,
+        "openai/codex-security": 12647,
+        "nvm-sh/nvm": 96057,
+        "pookjw/HermesEnabler": 1646,
+        "we-promise/sure": 14161,
+        "QwenLM/qwen-code": 29973,
+        "ashhart/TensorFold": 2014,
+        "nodejs/node": 123649,
+        "addyosmani/agent-skills": 116840,
+        "meta/astryx": 26866,
+        "CopilotKit/OpenBot": 11829,
+        "Alishahryar1/free-claude-code": 69524,
+        "ggml-org/llama.cpp": 134707,
+        "anthropics/skills": 193829,
+        "milind-soni/OpenMausBot": 21847,
+        "vercel-labs/agent-browser": 50426,
+        "NVIDIA/auto-ontology": 12335,
+        "cloudflare/security-audit-skill": 71364,
+        "vercel-labs/agent-desktop": 22884,
+        "mattpocock/skills": 323214,
+        "zed-industries/zed": 94880,
+        "google-deepmind/mujoco": 17801,
+        "google/skills": 24099,
+        "D4Vinci/Scrapling": 102275,
+        "morluto/rea": 455918,
+        "Nutlope/hallmark": 54153,
+        "thedotmack/claude-mem": 116637,
+        "pingdotgg/t3code": 58695,
+        "pbakaus/impeccable": 109139,
+        "heygen-com/hyperframes": 83561,
+        "HKUDS/DeepTutor": 58740,
+        "debpalash/VoiceStudio": 109395,
+        "anthropics/claude-plugins-official": 47083,
+        "Leonxlnx/taste-skill": 114503,
+        "AgriciDaniel/claude-seo": 28779,
+        "anthropics/knowledge-work-plugins": 35604
       },
       "ranks": {
         "daily": [
