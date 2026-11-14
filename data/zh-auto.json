@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794567516358,
+  "updatedAt": 1794637354761,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1832,6 +1832,18 @@
         "TypeScript"
       ],
       "generatedAt": 1794567516357,
+      "model": "deepseek-chat"
+    },
+    "google/elephant-goldfish-model": {
+      "purpose": "为软件设计与评审提供智能体插件的开发者工具",
+      "detail": "该项目是谷歌开源的插件，用于借助智能体辅助软件设计与评审流程。仓库以 Python 实现，主语言为 Python，适合需要在开发中引入智能体协作的工程师与团队参考使用。",
+      "tags": [
+        "智能体",
+        "软件设计",
+        "代码评审",
+        "Python"
+      ],
+      "generatedAt": 1794637354761,
       "model": "deepseek-chat"
     }
   }
