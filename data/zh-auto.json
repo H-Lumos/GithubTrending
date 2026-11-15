@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794637354761,
+  "updatedAt": 1794724314527,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1844,6 +1844,65 @@
         "Python"
       ],
       "generatedAt": 1794637354761,
+      "model": "deepseek-chat"
+    },
+    "dream-num/univer": {
+      "purpose": "为开发者提供可嵌入的办公套件 SDK，支持文档编辑、表格计算与协作。",
+      "detail": "Univer 是一个基于 TypeScript 的开源办公 SDK，可把编辑、计算、协作和文件处理能力集成进自有产品。它面向人类用户和 AI 代理，核心可扩展，适合需要在应用中内嵌表格或文档功能的团队。",
+      "tags": [
+        "办公套件",
+        "SDK",
+        "TypeScript",
+        "协作"
+      ],
+      "generatedAt": 1794724309269,
+      "model": "deepseek-chat"
+    },
+    "ag-ui-protocol/ag-ui": {
+      "purpose": "为前端开发者提供把 AI 智能体接入应用的交互协议",
+      "detail": "AG-UI 定义智能体与用户界面之间的交互协议，用 TypeScript 实现，目标是让智能体能力进入前端应用。仓库提供协议规范与配套代码，便于开发者在 Web 前端集成智能体交互。适合需要为 AI 应用构建前端交互层的开发者参考使用。",
+      "tags": [
+        "智能体",
+        "前端",
+        "协议",
+        "TypeScript"
+      ],
+      "generatedAt": 1794724310611,
+      "model": "deepseek-chat"
+    },
+    "JuliusBrussee/caveman": {
+      "purpose": "给编码智能体用户降低 token 消耗的代理工具",
+      "detail": "这是一个 Go 编写的代理与技能，让编码智能体用类似穴居人的简短表达来减少约 65% 的 token 消耗。适合关注 API 成本或上下文长度的开发者，在接入编码代理时使用。",
+      "tags": [
+        "Go",
+        "token优化",
+        "编码代理",
+        "代理"
+      ],
+      "generatedAt": 1794724312183,
+      "model": "deepseek-chat"
+    },
+    "Tencent/LoopForge": {
+      "purpose": "给需要编排编码智能体交付流程的团队，自托管运行工作流",
+      "detail": "LoopForge 是一个用 Go 编写的自托管工作流引擎，用于编排 CodeBuddy、Codex 和 Claude Code 等编码智能体。它通过脚本和人工审批关卡控制交付流程，并提供面向编码助手的本地工作流。适合希望把智能体接入可控、可审计交付流水线的开发团队。",
+      "tags": [
+        "工作流编排",
+        "编码智能体",
+        "自托管",
+        "Go"
+      ],
+      "generatedAt": 1794724313489,
+      "model": "deepseek-chat"
+    },
+    "martin-olivier/airgorah": {
+      "purpose": "面向无线安全测试人员，用于审计和评估WiFi网络安全状况。",
+      "detail": "这是一个用Rust编写的WiFi安全审计工具，帮助用户检查无线网络的安全配置。仓库描述仅说明其用途为WiFi安全审计，未提供更多功能细节。适合进行无线网络安全性评估的安全研究人员或网络管理员。",
+      "tags": [
+        "WiFi安全",
+        "安全审计",
+        "Rust"
+      ],
+      "generatedAt": 1794724314527,
       "model": "deepseek-chat"
     }
   }
