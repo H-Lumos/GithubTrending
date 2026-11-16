@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794724314527,
+  "updatedAt": 1794810571566,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1903,6 +1903,54 @@
         "Rust"
       ],
       "generatedAt": 1794724314527,
+      "model": "deepseek-chat"
+    },
+    "google-labs-code/stitch-skills": {
+      "purpose": "为使用 Stitch MCP 服务器的编码智能体提供可复用技能库",
+      "detail": "这是一个面向编码智能体的技能集合，需配合 Stitch MCP 服务器使用。每个技能遵循 Agent Skills 开放标准，可与 Antigravity、Gemini CLI、Claude Code、Cursor 等工具兼容。适合需要为多种编码智能体统一扩展能力的开发者。",
+      "tags": [
+        "Agent Skills",
+        "MCP",
+        "TypeScript",
+        "编码智能体"
+      ],
+      "generatedAt": 1794810567185,
+      "model": "deepseek-chat"
+    },
+    "ggml-org/ggml": {
+      "purpose": "为机器学习开发者提供底层张量运算库",
+      "detail": "ggml 是一个用 C++ 编写的张量库，面向需要在多种硬件上实现机器学习推理的开发者。它提供张量运算与内存管理的基础能力，可作为上层推理框架的底层依赖。适合关注底层实现、希望自行构建或移植推理引擎的工程师使用。",
+      "tags": [
+        "张量库",
+        "C++",
+        "机器学习",
+        "推理"
+      ],
+      "generatedAt": 1794810568820,
+      "model": "deepseek-chat"
+    },
+    "elementalsouls/Claude-BugHunter": {
+      "purpose": "为漏洞赏金与外部红队人员提供 Claude Code 技能包，辅助安全测试。",
+      "detail": "该仓库是面向 Claude Code 的技能集合，包含 82 个技能、15 个斜杠命令，以及按 24 类核心漏洞整理的 681 条已披露报告模式。还提供企业身份与基础设施攻击矩阵，适合从事漏洞挖掘和外部红队评估的安全人员使用。",
+      "tags": [
+        "漏洞赏金",
+        "红队",
+        "Claude Code",
+        "安全测试"
+      ],
+      "generatedAt": 1794810570324,
+      "model": "deepseek-chat"
+    },
+    "NVIDIA/SkillEvaluator": {
+      "purpose": "供 AI 智能体开发者评估技能质量与效果的多层级框架",
+      "detail": "该项目用于评估 AI 智能体技能，提供质量门禁、语义重叠检测、合成评估数据集生成，以及衡量技能如何影响智能体行为的实时评估。适合需要系统化验证技能可靠性与效果的智能体开发者使用。",
+      "tags": [
+        "AI智能体",
+        "技能评估",
+        "评估框架",
+        "Python"
+      ],
+      "generatedAt": 1794810571566,
       "model": "deepseek-chat"
     }
   }
