@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794810571566,
+  "updatedAt": 1794902086245,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -1951,6 +1951,78 @@
         "Python"
       ],
       "generatedAt": 1794810571566,
+      "model": "deepseek-chat"
+    },
+    "getarcaneapp/arcane": {
+      "purpose": "面向普通用户的现代化 Docker 管理工具，降低容器管理门槛",
+      "detail": "Arcane 是一个用 Go 编写的 Docker 管理项目，定位为面向所有人的现代 Docker 管理界面。仓库描述强调易用性，适合希望以更直观方式管理 Docker 容器的用户。当前仓库未提供更详细的功能说明，具体能力需进仓库查看。",
+      "tags": [
+        "Docker",
+        "容器管理",
+        "Go",
+        "运维工具"
+      ],
+      "generatedAt": 1794902079355,
+      "model": "deepseek-chat"
+    },
+    "DeanChensj/jiangshan-map": {
+      "purpose": "面向历史爱好者与学习者，用交互地图和时间轴查看中国历代疆域变迁。",
+      "detail": "该项目以时间轴方式呈现从公元前403年至今的中国历史地图，覆盖18个朝代和198个疆域快照。它包含古今地名沿革对照与古典诗词路线，便于在浏览器中交互浏览。适合历史爱好者、学生和教师作为辅助参考工具。",
+      "tags": [
+        "历史地图",
+        "时间轴",
+        "数据可视化",
+        "中国历史"
+      ],
+      "generatedAt": 1794902080763,
+      "model": "deepseek-chat"
+    },
+    "mvanhorn/last30days-skill": {
+      "purpose": "为 AI 代理提供跨平台话题调研与摘要能力",
+      "detail": "这是一个 AI 代理技能，可针对任意话题在 Reddit、X、YouTube、Hacker News、Polymarket 和网页上检索信息，再综合成有依据的摘要。适合需要快速了解近期讨论与舆情动态的代理开发者或研究者使用。",
+      "tags": [
+        "AI代理",
+        "信息检索",
+        "摘要生成",
+        "多平台"
+      ],
+      "generatedAt": 1794902082271,
+      "model": "deepseek-chat"
+    },
+    "google-research/paper-orchestra": {
+      "purpose": "帮助研究者用多智能体自动完成 AI 论文写作",
+      "detail": "PaperOrchestra 是一个多智能体框架，用于自动化 AI 研究论文的写作流程。它由多个智能体分工协作，覆盖论文撰写中的不同环节。适合需要辅助起草或组织 AI 研究论文的研究人员使用。",
+      "tags": [
+        "多智能体",
+        "论文写作",
+        "自动化",
+        "Python"
+      ],
+      "generatedAt": 1794902083384,
+      "model": "deepseek-chat"
+    },
+    "sveltejs/svelte": {
+      "purpose": "帮助前端开发者用编译式框架构建高性能网页界面",
+      "detail": "Svelte 是一个前端 UI 框架，在构建阶段把组件编译为原生 JavaScript，运行时无需额外框架代码。它支持响应式状态与组件化开发，适合希望减少运行时开销、编写简洁代码的 Web 开发者。",
+      "tags": [
+        "前端框架",
+        "JavaScript",
+        "编译时",
+        "UI"
+      ],
+      "generatedAt": 1794902084754,
+      "model": "deepseek-chat"
+    },
+    "kajisho5/ffmpeg-skill": {
+      "purpose": "让编码智能体在本地调用 FFmpeg 完成视频剪辑的工具集",
+      "detail": "该项目为 Claude Code、Cursor、Codex 等编码智能体提供 42 个 FFmpeg 工具，配有机器可读的接口约定和 MCP 服务器。支持剪切、字幕、画面重构图、响度调整和平台导出等操作，全部在本地运行，无需云端服务或 API 密钥。适合希望让智能体自动处理视频任务的开发者。",
+      "tags": [
+        "FFmpeg",
+        "MCP",
+        "视频编辑",
+        "智能体工具"
+      ],
+      "generatedAt": 1794902086245,
       "model": "deepseek-chat"
     }
   }
