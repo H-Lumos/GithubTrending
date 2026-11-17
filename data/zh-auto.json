@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794902086245,
+  "updatedAt": 1794916345229,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2023,6 +2023,18 @@
         "智能体工具"
       ],
       "generatedAt": 1794902086245,
+      "model": "deepseek-chat"
+    },
+    "jingyaogong/minimind": {
+      "purpose": "供学习者在两小时内从零训练 64M 参数小语言模型",
+      "detail": "该项目用 Python 实现从零训练一个 64M 参数的语言模型，官方描述称训练约需 2 小时。适合想了解大模型训练流程、动手复现小规模训练的学习者。",
+      "tags": [
+        "语言模型",
+        "从零训练",
+        "Python",
+        "教学项目"
+      ],
+      "generatedAt": 1794916345229,
       "model": "deepseek-chat"
     }
   }
