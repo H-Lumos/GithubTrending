@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1794916345229,
+  "updatedAt": 1795002109283,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2035,6 +2035,89 @@
         "教学项目"
       ],
       "generatedAt": 1794916345229,
+      "model": "deepseek-chat"
+    },
+    "astral-sh/uv": {
+      "purpose": "为 Python 开发者提供极快的包与项目管理工具",
+      "detail": "用 Rust 编写的 Python 包和项目管理器，主打安装与依赖解析速度。可替代 pip、pip-tools、virtualenv 等常用工具，统一处理包安装、虚拟环境和项目依赖。适合希望加快 CI 与本地开发流程的 Python 团队和个人。",
+      "tags": [
+        "Python",
+        "包管理",
+        "Rust",
+        "开发工具"
+      ],
+      "generatedAt": 1795002100199,
+      "model": "deepseek-chat"
+    },
+    "jquery/jquery": {
+      "purpose": "为网页开发者提供简化 DOM 操作与事件处理的 JavaScript 库",
+      "detail": "jQuery 是一个经典的 JavaScript 库，主要简化 HTML 文档遍历、DOM 操作、事件处理和 Ajax 交互。它提供跨浏览器兼容的 API，让前端代码更简洁易写。适合需要维护传统网页项目或快速实现交互效果的开发者使用。",
+      "tags": [
+        "JavaScript",
+        "DOM操作",
+        "前端库",
+        "跨浏览器"
+      ],
+      "generatedAt": 1795002101927,
+      "model": "deepseek-chat"
+    },
+    "appwrite/appwrite": {
+      "purpose": "为开发者和 AI 代理提供开源自托管后端云平台，省去重复搭建基础服务",
+      "detail": "Appwrite 是一个开源云平台，集成认证、数据库、存储、函数、消息、托管、实时通信和 WAF 等模块。开发者可用它统一搭建应用后端，减少自行组合和维护多个基础服务的工作。适合需要自托管后端、希望快速交付应用的团队与独立开发者。",
+      "tags": [
+        "后端即服务",
+        "自托管",
+        "开源",
+        "开发者工具"
+      ],
+      "generatedAt": 1795002103520,
+      "model": "deepseek-chat"
+    },
+    "openvinotoolkit/openvino": {
+      "purpose": "帮助开发者在各类硬件上优化并部署 AI 推理",
+      "detail": "OpenVINO 是开源的 AI 推理优化与部署工具包，主语言为 C++。它面向需要将训练好的模型高效部署到实际硬件的开发者，提供推理优化与部署能力。适合关注推理性能与跨硬件部署的工程团队使用。",
+      "tags": [
+        "AI推理",
+        "模型部署",
+        "C++",
+        "开源工具"
+      ],
+      "generatedAt": 1795002104988,
+      "model": "deepseek-chat"
+    },
+    "n8n-io/n8n": {
+      "purpose": "为需要自动化工作流的团队提供可视化搭建与自托管方案",
+      "detail": "n8n 是一个 fair-code 工作流自动化平台，支持可视化编排与自定义代码结合，内置原生 AI 能力，并提供 400 多个集成。用户可以自行部署或使用云版本，适合需要灵活控制数据与流程的开发者、运维和业务团队。",
+      "tags": [
+        "工作流自动化",
+        "可视化编排",
+        "自托管",
+        "AI集成"
+      ],
+      "generatedAt": 1795002106454,
+      "model": "deepseek-chat"
+    },
+    "solidjs/solid": {
+      "purpose": "为前端开发者提供构建用户界面的声明式 JavaScript 库",
+      "detail": "Solid 是一个用于构建用户界面的声明式 JavaScript 库，以高效和灵活为特点。它采用细粒度响应式更新机制，适合希望获得接近原生性能体验的前端开发者。项目使用 TypeScript 编写，可用于开发 Web 界面。",
+      "tags": [
+        "JavaScript",
+        "UI框架",
+        "响应式",
+        "TypeScript"
+      ],
+      "generatedAt": 1795002107654,
+      "model": "deepseek-chat"
+    },
+    "punkpeye/awesome-mcp-servers": {
+      "purpose": "为想接入 MCP 生态的开发者汇总各类 MCP 服务器资源。",
+      "detail": "这是一个 MCP 服务器资源合集，按类别整理可用的服务器项目，方便查找和对比。适合正在构建或使用 MCP 客户端、需要挑选现成服务器的开发者参考。仓库本身以列表形式组织，不包含具体实现代码。",
+      "tags": [
+        "MCP",
+        "资源合集",
+        "开发者工具"
+      ],
+      "generatedAt": 1795002109282,
       "model": "deepseek-chat"
     }
   }
