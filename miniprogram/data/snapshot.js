@@ -1,11 +1,11 @@
 /* 自动生成，勿手改：node scripts/snapshot.js */
 module.exports = {
-  "generatedAt": 1795002093985,
-  "date": "2026-11-18",
+  "generatedAt": 1795073163812,
+  "date": "2026-11-19",
   "source": "official-snapshot",
-  "historyDays": 32,
+  "historyDays": 33,
   "hasPrevDay": true,
-  "prevDate": "2026-11-17",
+  "prevDate": "2026-11-18",
   "languages": [
     {
       "name": "全部",
@@ -13,14 +13,14 @@ module.exports = {
       "color": ""
     },
     {
-      "name": "Python",
-      "value": "python",
-      "color": "#3572A5"
-    },
-    {
       "name": "TypeScript",
       "value": "typescript",
       "color": "#3178c6"
+    },
+    {
+      "name": "Python",
+      "value": "python",
+      "color": "#3572A5"
     },
     {
       "name": "Go",
@@ -66,52 +66,6 @@ module.exports = {
   "periods": {
     "daily": [
       {
-        "id": "elementalsouls/Claude-BugHunter",
-        "owner": "elementalsouls",
-        "repo": "Claude-BugHunter",
-        "fullName": "elementalsouls/Claude-BugHunter",
-        "url": "https://github.com/elementalsouls/Claude-BugHunter",
-        "descEn": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
-        "language": "Python",
-        "languageColor": "#3572A5",
-        "stars": 10330,
-        "forks": 1445,
-        "hot": 2322,
-        "hotUnit": "今日新增",
-        "avatars": [
-          "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/66463177?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/49252733?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4"
-        ],
-        "topics": [],
-        "license": "",
-        "initial": "C",
-        "rank": 1,
-        "dataSource": "official",
-        "purpose": "为漏洞赏金与外部红队人员提供 Claude Code 技能包，辅助安全测试。",
-        "detail": "该仓库是面向 Claude Code 的技能集合，包含 82 个技能、15 个斜杠命令，以及按 24 类核心漏洞整理的 681 条已披露报告模式。还提供企业身份与基础设施攻击矩阵，适合从事漏洞挖掘和外部红队评估的安全人员使用。",
-        "tags": [
-          "漏洞赏金",
-          "红队",
-          "Claude Code",
-          "安全测试"
-        ],
-        "trend": [
-          6987,
-          8071,
-          10330
-        ],
-        "trendEstimated": true,
-        "prevRank": null,
-        "rankChange": 0,
-        "isNew": false,
-        "trendRealPoints": 3,
-        "hasZh": true,
-        "zhSource": "auto"
-      },
-      {
         "id": "cursor/plugins",
         "owner": "cursor",
         "repo": "plugins",
@@ -120,9 +74,9 @@ module.exports = {
         "descEn": "Cursor plugin specification and official plugins",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 17039,
-        "forks": 1858,
-        "hot": 315,
+        "stars": 17334,
+        "forks": 1914,
+        "hot": 314,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/199161495?s=40&amp;v=4",
@@ -134,7 +88,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "P",
-        "rank": 2,
+        "rank": 1,
         "dataSource": "official",
         "purpose": "Cursor 的插件规范与官方插件。",
         "detail": "定义了 Cursor 编辑器的插件接口规范，并给出官方示例插件，适合想给 Cursor 写扩展的人。",
@@ -156,13 +110,14 @@ module.exports = {
           14781,
           14931,
           16735,
-          17039
+          17039,
+          17334
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 6,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 17,
+        "trendRealPoints": 18,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -175,9 +130,9 @@ module.exports = {
         "descEn": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 59318,
-        "forks": 5367,
-        "hot": 384,
+        "stars": 60021,
+        "forks": 5452,
+        "hot": 389,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43330997?s=40&amp;v=4",
@@ -189,7 +144,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "C",
-        "rank": 3,
+        "rank": 2,
         "dataSource": "official",
         "purpose": "把任意软件变成 AI 代理能直接调用的命令行入口（Agent 原生）。",
         "detail": "目标是「让所有软件都对代理友好」：为软件生成结构化的 CLI 入口，代理就能稳定地操作它，而不是靠模拟点击。配套有 CLI-Hub 做分发。",
@@ -204,13 +159,14 @@ module.exports = {
           56697,
           56908,
           57521,
-          59318
+          59318,
+          60021
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 10,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 11,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -223,9 +179,9 @@ module.exports = {
         "descEn": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 69559,
-        "forks": 6195,
-        "hot": 1062,
+        "stars": 70288,
+        "forks": 6261,
+        "hot": 1059,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/455140?s=40&amp;v=4",
@@ -237,7 +193,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "L",
-        "rank": 4,
+        "rank": 3,
         "dataSource": "official",
         "purpose": "为 AI 代理提供跨平台话题调研与摘要能力",
         "detail": "这是一个 AI 代理技能，可针对任意话题在 Reddit、X、YouTube、Hacker News、Polymarket 和网页上检索信息，再综合成有依据的摘要。适合需要快速了解近期讨论与舆情动态的代理开发者或研究者使用。",
@@ -249,13 +205,14 @@ module.exports = {
         ],
         "trend": [
           68542,
-          69559
+          69559,
+          70288
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -268,8 +225,8 @@ module.exports = {
         "descEn": "Modern Docker Management, Designed for Everyone",
         "language": "Go",
         "languageColor": "#00ADD8",
-        "stars": 9574,
-        "forks": 531,
+        "stars": 9963,
+        "forks": 570,
         "hot": 547,
         "hotUnit": "今日新增",
         "avatars": [
@@ -282,7 +239,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 5,
+        "rank": 4,
         "dataSource": "official",
         "purpose": "面向普通用户的现代化 Docker 管理工具，降低容器管理门槛",
         "detail": "Arcane 是一个用 Go 编写的 Docker 管理项目，定位为面向所有人的现代 Docker 管理界面。仓库描述强调易用性，适合希望以更直观方式管理 Docker 容器的用户。当前仓库未提供更详细的功能说明，具体能力需进仓库查看。",
@@ -294,13 +251,14 @@ module.exports = {
         ],
         "trend": [
           9041,
-          9574
+          9574,
+          9963
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -310,12 +268,12 @@ module.exports = {
         "repo": "SkillEvaluator",
         "fullName": "NVIDIA/SkillEvaluator",
         "url": "https://github.com/NVIDIA/SkillEvaluator",
-        "descEn": "Multi-tier framework for evaluating AI agent skills and plugins with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.",
+        "descEn": "Multi-tier framework for evaluating AI agent skills and plugins with quality gates, security scanning, harness compatibility checks, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior. Ships reusable CI templates that bring every check to any repository.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 3447,
-        "forks": 477,
-        "hot": 869,
+        "stars": 3893,
+        "forks": 531,
+        "hot": 312,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/32655573?s=40&amp;v=4",
@@ -327,7 +285,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 6,
+        "rank": 5,
         "dataSource": "official",
         "purpose": "供 AI 智能体开发者评估技能质量与效果的多层级框架",
         "detail": "该项目用于评估 AI 智能体技能，提供质量门禁、语义重叠检测、合成评估数据集生成，以及衡量技能如何影响智能体行为的实时评估。适合需要系统化验证技能可靠性与效果的智能体开发者使用。",
@@ -339,13 +297,14 @@ module.exports = {
         ],
         "trend": [
           2171,
-          3447
+          3447,
+          3893
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 2,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -358,9 +317,9 @@ module.exports = {
         "descEn": "Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 96108,
-        "forks": 10762,
-        "hot": 199,
+        "stars": 96190,
+        "forks": 10791,
+        "hot": 237,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/45469?s=40&amp;v=4",
@@ -372,7 +331,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "N",
-        "rank": 7,
+        "rank": 6,
         "dataSource": "official",
         "purpose": "帮助开发者在同一台机器上切换和管理多个 Node.js 版本",
         "detail": "nvm 是一个符合 POSIX 规范的 bash 脚本，用于安装、切换和卸载多个 Node.js 版本，并管理当前激活的版本。它适合需要在不同项目间使用不同 Node.js 版本的开发者，在类 Unix 系统的 shell 环境中运行。",
@@ -384,13 +343,14 @@ module.exports = {
         ],
         "trend": [
           95915,
-          96108
+          96108,
+          96190
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 2,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -403,9 +363,9 @@ module.exports = {
         "descEn": "An extremely fast Python package and project manager, written in Rust.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 92112,
-        "forks": 3896,
-        "hot": 260,
+        "stars": 92319,
+        "forks": 3927,
+        "hot": 258,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/1309177?s=40&amp;v=4",
@@ -417,7 +377,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "U",
-        "rank": 8,
+        "rank": 7,
         "dataSource": "official",
         "purpose": "为 Python 开发者提供极快的包与项目管理工具",
         "detail": "用 Rust 编写的 Python 包和项目管理器，主打安装与依赖解析速度。可替代 pip、pip-tools、virtualenv 等常用工具，统一处理包安装、虚拟环境和项目依赖。适合希望加快 CI 与本地开发流程的 Python 团队和个人。",
@@ -428,13 +388,14 @@ module.exports = {
           "开发工具"
         ],
         "trend": [
-          92112
+          92112,
+          92319
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -447,9 +408,9 @@ module.exports = {
         "descEn": "PaperOrchestra is a multi-agent framework for automated AI research paper writing.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 3622,
-        "forks": 464,
-        "hot": 1529,
+        "stars": 4587,
+        "forks": 568,
+        "hot": 1524,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/34639474?s=40&amp;v=4",
@@ -458,7 +419,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "P",
-        "rank": 9,
+        "rank": 8,
         "dataSource": "official",
         "purpose": "帮助研究者用多智能体自动完成 AI 论文写作",
         "detail": "PaperOrchestra 是一个多智能体框架，用于自动化 AI 研究论文的写作流程。它由多个智能体分工协作，覆盖论文撰写中的不同环节。适合需要辅助起草或组织 AI 研究论文的研究人员使用。",
@@ -470,13 +431,14 @@ module.exports = {
         ],
         "trend": [
           2111,
-          3622
+          3622,
+          4587
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 6,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -489,9 +451,9 @@ module.exports = {
         "descEn": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 10269,
-        "forks": 1346,
-        "hot": 369,
+        "stars": 10508,
+        "forks": 1372,
+        "hot": 365,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43076783?s=40&amp;v=4",
@@ -503,7 +465,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 10,
+        "rank": 9,
         "dataSource": "official",
         "purpose": "为使用 Stitch MCP 服务器的编码智能体提供可复用技能库",
         "detail": "这是一个面向编码智能体的技能集合，需配合 Stitch MCP 服务器使用。每个技能遵循 Agent Skills 开放标准，可与 Antigravity、Gemini CLI、Claude Code、Cursor 等工具兼容。适合需要为多种编码智能体统一扩展能力的开发者。",
@@ -516,13 +478,14 @@ module.exports = {
         "trend": [
           9554,
           9915,
-          10269
+          10269,
+          10508
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -3,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 3,
+        "trendRealPoints": 4,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -535,9 +498,9 @@ module.exports = {
         "descEn": "web development for the rest of us",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 89633,
-        "forks": 6199,
-        "hot": 694,
+        "stars": 89700,
+        "forks": 6217,
+        "hot": 692,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/1162160?s=40&amp;v=4",
@@ -549,7 +512,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 11,
+        "rank": 10,
         "dataSource": "official",
         "purpose": "帮助前端开发者用编译式框架构建高性能网页界面",
         "detail": "Svelte 是一个前端 UI 框架，在构建阶段把组件编译为原生 JavaScript，运行时无需额外框架代码。它支持响应式状态与组件化开发，适合希望减少运行时开销、编写简洁代码的 Web 开发者。",
@@ -561,13 +524,14 @@ module.exports = {
         ],
         "trend": [
           89204,
-          89633
+          89633,
+          89700
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 2,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -580,9 +544,9 @@ module.exports = {
         "descEn": "jQuery JavaScript Library",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 59967,
-        "forks": 20696,
-        "hot": 268,
+        "stars": 60063,
+        "forks": 20711,
+        "hot": 266,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/1615?s=40&amp;v=4",
@@ -594,7 +558,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "J",
-        "rank": 12,
+        "rank": 11,
         "dataSource": "official",
         "purpose": "为网页开发者提供简化 DOM 操作与事件处理的 JavaScript 库",
         "detail": "jQuery 是一个经典的 JavaScript 库，主要简化 HTML 文档遍历、DOM 操作、事件处理和 Ajax 交互。它提供跨浏览器兼容的 API，让前端代码更简洁易写。适合需要维护传统网页项目或快速实现交互效果的开发者使用。",
@@ -605,13 +569,14 @@ module.exports = {
           "跨浏览器"
         ],
         "trend": [
-          59967
+          59967,
+          60063
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -624,9 +589,9 @@ module.exports = {
         "descEn": "The open-source cloud for agents & devs. Including Auth, Databases, Storage, Functions, Messaging, Hosting, Realtime, WAF and more",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 58117,
-        "forks": 5874,
-        "hot": 239,
+        "stars": 58312,
+        "forks": 5888,
+        "hot": 232,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/1297371?s=40&amp;v=4",
@@ -638,7 +603,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 13,
+        "rank": 12,
         "dataSource": "official",
         "purpose": "为开发者和 AI 代理提供开源自托管后端云平台，省去重复搭建基础服务",
         "detail": "Appwrite 是一个开源云平台，集成认证、数据库、存储、函数、消息、托管、实时通信和 WAF 等模块。开发者可用它统一搭建应用后端，减少自行组合和维护多个基础服务的工作。适合需要自托管后端、希望快速交付应用的团队与独立开发者。",
@@ -649,13 +614,14 @@ module.exports = {
           "开发者工具"
         ],
         "trend": [
-          58117
+          58117,
+          58312
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -668,9 +634,9 @@ module.exports = {
         "descEn": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
         "language": "C++",
         "languageColor": "#f34b7d",
-        "stars": 11208,
-        "forks": 3573,
-        "hot": 18,
+        "stars": 11407,
+        "forks": 3609,
+        "hot": 24,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/2566854?s=40&amp;v=4",
@@ -682,7 +648,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "O",
-        "rank": 14,
+        "rank": 13,
         "dataSource": "official",
         "purpose": "帮助开发者在各类硬件上优化并部署 AI 推理",
         "detail": "OpenVINO 是开源的 AI 推理优化与部署工具包，主语言为 C++。它面向需要将训练好的模型高效部署到实际硬件的开发者，提供推理优化与部署能力。适合关注推理性能与跨硬件部署的工程团队使用。",
@@ -693,13 +659,14 @@ module.exports = {
           "开源工具"
         ],
         "trend": [
-          11208
+          11208,
+          11407
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -712,9 +679,9 @@ module.exports = {
         "descEn": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 319680,
-        "forks": 28510,
-        "hot": 823,
+        "stars": 321504,
+        "forks": 28578,
+        "hot": 822,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/45416?s=40&amp;v=4",
@@ -726,7 +693,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 15,
+        "rank": 14,
         "dataSource": "official",
         "purpose": "为使用 AI 编码代理的开发者提供可复用的技能框架与开发方法论",
         "detail": "该项目是一个面向 AI 代理的技能框架，同时提供一套软件开发方法论。仓库以 Shell 为主，说明其实现偏向命令行与脚本集成。适合希望把 AI 代理纳入日常开发流程、并需要结构化方法约束的开发者参考使用。",
@@ -750,13 +717,14 @@ module.exports = {
           313802,
           314205,
           318935,
-          319680
+          319680,
+          321504
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -6,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 14,
+        "trendRealPoints": 15,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -769,9 +737,9 @@ module.exports = {
         "descEn": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 306014,
-        "forks": 45041,
-        "hot": 1109,
+        "stars": 306774,
+        "forks": 45158,
+        "hot": 1108,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/124439313?s=40&amp;v=4",
@@ -783,7 +751,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "E",
-        "rank": 16,
+        "rank": 15,
         "dataSource": "official",
         "purpose": "给 AI 编程代理做「驾驭层」优化：技能、直觉、记忆、安全一整套。",
         "detail": "面向 Claude Code、Codex、Opencode、Cursor 等代理的性能与安全增强层。核心是让代理拥有可复用的技能库、长期记忆和更稳的执行策略，走研究驱动的开发路子。",
@@ -808,13 +776,14 @@ module.exports = {
           296050,
           296820,
           304968,
-          306014
+          306014,
+          306774
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -3,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 20,
+        "trendRealPoints": 21,
         "hasZh": true,
         "zhSource": "manual"
       },
@@ -827,9 +796,9 @@ module.exports = {
         "descEn": "江山时序 · 中国历史交互地图时间轴 (403 BCE – Present) | Interactive Historical Atlas of China across 18 dynasties, 198 territory snapshots, ancient-to-modern place genealogy & classical poetry routes",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 7762,
-        "forks": 937,
-        "hot": 991,
+        "stars": 8232,
+        "forks": 1007,
+        "hot": 218,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/9414763?s=40&amp;v=4",
@@ -841,7 +810,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "J",
-        "rank": 17,
+        "rank": 16,
         "dataSource": "official",
         "purpose": "面向历史爱好者与学习者，用交互地图和时间轴查看中国历代疆域变迁。",
         "detail": "该项目以时间轴方式呈现从公元前403年至今的中国历史地图，覆盖18个朝代和198个疆域快照。它包含古今地名沿革对照与古典诗词路线，便于在浏览器中交互浏览。适合历史爱好者、学生和教师作为辅助参考工具。",
@@ -852,13 +821,14 @@ module.exports = {
           "中国历史"
         ],
         "trend": [
-          7762
+          7762,
+          8232
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -871,9 +841,9 @@ module.exports = {
         "descEn": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 210824,
-        "forks": 61545,
-        "hot": 315,
+        "stars": 211259,
+        "forks": 61579,
+        "hot": 325,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/6249596?s=40&amp;v=4",
@@ -885,7 +855,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "N",
-        "rank": 18,
+        "rank": 17,
         "dataSource": "official",
         "purpose": "为需要自动化工作流的团队提供可视化搭建与自托管方案",
         "detail": "n8n 是一个 fair-code 工作流自动化平台，支持可视化编排与自定义代码结合，内置原生 AI 能力，并提供 400 多个集成。用户可以自行部署或使用云版本，适合需要灵活控制数据与流程的开发者、运维和业务团队。",
@@ -896,13 +866,14 @@ module.exports = {
           "AI集成"
         ],
         "trend": [
-          210824
+          210824,
+          211259
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -915,9 +886,9 @@ module.exports = {
         "descEn": "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 36320,
-        "forks": 1152,
-        "hot": 37,
+        "stars": 36689,
+        "forks": 1190,
+        "hot": 40,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/2768267?s=40&amp;v=4",
@@ -928,7 +899,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 19,
+        "rank": 18,
         "dataSource": "official",
         "purpose": "为前端开发者提供构建用户界面的声明式 JavaScript 库",
         "detail": "Solid 是一个用于构建用户界面的声明式 JavaScript 库，以高效和灵活为特点。它采用细粒度响应式更新机制，适合希望获得接近原生性能体验的前端开发者。项目使用 TypeScript 编写，可用于开发 Web 界面。",
@@ -939,13 +910,14 @@ module.exports = {
           "TypeScript"
         ],
         "trend": [
-          36320
+          36320,
+          36689
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -958,9 +930,9 @@ module.exports = {
         "descEn": "A collection of MCP servers.",
         "language": "Unknown",
         "languageColor": "#8b949e",
-        "stars": 97849,
-        "forks": 20272,
-        "hot": 52,
+        "stars": 98148,
+        "forks": 20377,
+        "hot": 53,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/108313943?s=40&amp;v=4",
@@ -972,7 +944,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 20,
+        "rank": 19,
         "dataSource": "official",
         "purpose": "为想接入 MCP 生态的开发者汇总各类 MCP 服务器资源。",
         "detail": "这是一个 MCP 服务器资源合集，按类别整理可用的服务器项目，方便查找和对比。适合正在构建或使用 MCP 客户端、需要挑选现成服务器的开发者参考。仓库本身以列表形式组织，不包含具体实现代码。",
@@ -982,13 +954,14 @@ module.exports = {
           "开发者工具"
         ],
         "trend": [
-          97849
+          97849,
+          98148
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 1,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 2,
         "hasZh": true,
         "zhSource": "auto"
       }
@@ -1003,9 +976,9 @@ module.exports = {
         "descEn": "Keep your coding agent up to date with the latest web best practices",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 8649,
-        "forks": 731,
-        "hot": 7015,
+        "stars": 8932,
+        "forks": 744,
+        "hot": 7257,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/39191?s=40&amp;v=4",
@@ -1035,13 +1008,14 @@ module.exports = {
           6477,
           7688,
           8243,
-          8649
+          8649,
+          8932
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 8,
+        "trendRealPoints": 9,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1054,16 +1028,16 @@ module.exports = {
         "descEn": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 13253,
-        "forks": 1335,
-        "hot": 2926,
+        "stars": 13533,
+        "forks": 1364,
+        "hot": 3290,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/7244317?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
+          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/110197373?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/47978193?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/1078682?s=40&amp;v=4"
+          "https://avatars.githubusercontent.com/u/47978193?s=40&amp;v=4"
         ],
         "topics": [],
         "license": "",
@@ -1084,59 +1058,14 @@ module.exports = {
           11488,
           12183,
           12880,
-          13253
+          13253,
+          13533
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 6,
-        "hasZh": true,
-        "zhSource": "auto"
-      },
-      {
-        "id": "elementalsouls/Claude-BugHunter",
-        "owner": "elementalsouls",
-        "repo": "Claude-BugHunter",
-        "fullName": "elementalsouls/Claude-BugHunter",
-        "url": "https://github.com/elementalsouls/Claude-BugHunter",
-        "descEn": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
-        "language": "Python",
-        "languageColor": "#3572A5",
-        "stars": 10330,
-        "forks": 1445,
-        "hot": 2508,
-        "hotUnit": "本周新增",
-        "avatars": [
-          "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/66463177?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/49252733?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4"
-        ],
-        "topics": [],
-        "license": "",
-        "initial": "C",
-        "rank": 3,
-        "dataSource": "official",
-        "purpose": "为漏洞赏金与外部红队人员提供 Claude Code 技能包，辅助安全测试。",
-        "detail": "该仓库是面向 Claude Code 的技能集合，包含 82 个技能、15 个斜杠命令，以及按 24 类核心漏洞整理的 681 条已披露报告模式。还提供企业身份与基础设施攻击矩阵，适合从事漏洞挖掘和外部红队评估的安全人员使用。",
-        "tags": [
-          "漏洞赏金",
-          "红队",
-          "Claude Code",
-          "安全测试"
-        ],
-        "trend": [
-          6987,
-          8071,
-          10330
-        ],
-        "trendEstimated": true,
-        "prevRank": null,
-        "rankChange": 4,
-        "isNew": false,
-        "trendRealPoints": 3,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1149,9 +1078,9 @@ module.exports = {
         "descEn": "An open source design system that's fully customizable and agent ready",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 30395,
-        "forks": 2372,
-        "hot": 8700,
+        "stars": 30692,
+        "forks": 2404,
+        "hot": 6250,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/in/15368?s=40&amp;v=4",
@@ -1163,7 +1092,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 4,
+        "rank": 3,
         "dataSource": "official",
         "purpose": "为需要可定制设计系统的前端团队提供组件与规范",
         "detail": "Astryx 是一个开源设计系统，使用 TypeScript 编写，强调完全可定制，并面向智能体（agent）场景做了适配。适合希望统一界面风格、又需要按品牌或产品调整样式的开发团队参考或直接使用。",
@@ -1182,13 +1111,14 @@ module.exports = {
           28424,
           29269,
           29895,
-          30395
+          30395,
+          30692
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 9,
+        "trendRealPoints": 10,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1201,9 +1131,9 @@ module.exports = {
         "descEn": "The personal finance app for everyone (by everyone)",
         "language": "Ruby",
         "languageColor": "#701516",
-        "stars": 16372,
-        "forks": 1430,
-        "hot": 4786,
+        "stars": 16567,
+        "forks": 1452,
+        "hot": 3866,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/187772?s=40&amp;v=4",
@@ -1215,7 +1145,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 5,
+        "rank": 4,
         "dataSource": "official",
         "purpose": "面向普通用户的个人财务管理应用，帮助记录和掌握收支",
         "detail": "这是一个用 Ruby 开发的个人财务应用，定位为面向所有人的记账与理财工具。仓库未提供更多功能说明，具体特性需进仓库查看。适合希望自行管理个人或家庭财务的用户。",
@@ -1233,13 +1163,14 @@ module.exports = {
           15493,
           15847,
           16145,
-          16372
+          16372,
+          16567
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 9,
+        "trendRealPoints": 10,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1252,9 +1183,9 @@ module.exports = {
         "descEn": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
         "language": "Go",
         "languageColor": "#00ADD8",
-        "stars": 54076,
-        "forks": 4469,
-        "hot": 3675,
+        "stars": 54241,
+        "forks": 4487,
+        "hot": 4383,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/254839944?s=40&amp;v=4",
@@ -1266,7 +1197,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "O",
-        "rank": 6,
+        "rank": 5,
         "dataSource": "official",
         "purpose": "为需要自动化代码审查的团队提供行级评论工具",
         "detail": "该项目是阿里巴巴开源的代码审查工具，采用确定性流水线加 LLM Agent 的混合架构，可给出精确到行的评论。内置多语言规则集，覆盖空指针、线程安全、XSS、SQL 注入等常见问题，并兼容 OpenAI 与 Anthropic 接口。适合在规模化场景下需要快速、安全代码审查的研发团队。",
@@ -1282,13 +1213,14 @@ module.exports = {
           51658,
           52596,
           53354,
-          54076
+          54076,
+          54241
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 2,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1301,9 +1233,9 @@ module.exports = {
         "descEn": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 10269,
-        "forks": 1346,
-        "hot": 1197,
+        "stars": 10508,
+        "forks": 1372,
+        "hot": 1567,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43076783?s=40&amp;v=4",
@@ -1315,7 +1247,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 7,
+        "rank": 6,
         "dataSource": "official",
         "purpose": "为使用 Stitch MCP 服务器的编码智能体提供可复用技能库",
         "detail": "这是一个面向编码智能体的技能集合，需配合 Stitch MCP 服务器使用。每个技能遵循 Agent Skills 开放标准，可与 Antigravity、Gemini CLI、Claude Code、Cursor 等工具兼容。适合需要为多种编码智能体统一扩展能力的开发者。",
@@ -1328,13 +1260,14 @@ module.exports = {
         "trend": [
           9554,
           9915,
-          10269
+          10269,
+          10508
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 5,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 3,
+        "trendRealPoints": 4,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1347,9 +1280,9 @@ module.exports = {
         "descEn": "Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 6978,
-        "forks": 1421,
-        "hot": 2985,
+        "stars": 7118,
+        "forks": 1445,
+        "hot": 3242,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
@@ -1361,7 +1294,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "C",
-        "rank": 8,
+        "rank": 7,
         "dataSource": "official",
         "purpose": "为股票投资者和交易者提供 Claude Code 技能，用于市场分析与策略开发",
         "detail": "该项目是一组面向股票投资者和交易者的 Claude Code 技能集合，覆盖市场分析、技术图表、经济日历、筛选器和交易策略开发等场景。仓库以 Python 为主要语言，未提供更多实现细节。适合使用 Claude Code 并希望把投研与交易流程自动化的个人投资者和交易者参考。",
@@ -1377,13 +1310,14 @@ module.exports = {
           5098,
           5942,
           6714,
-          6978
+          6978,
+          7118
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": 3,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1396,9 +1330,9 @@ module.exports = {
         "descEn": "Chrome DevTools for coding agents",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 58141,
-        "forks": 4873,
-        "hot": 2948,
+        "stars": 58257,
+        "forks": 4879,
+        "hot": 3143,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/399150?s=40&amp;v=4",
@@ -1410,7 +1344,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "C",
-        "rank": 9,
+        "rank": 8,
         "dataSource": "official",
         "purpose": "让编码智能体通过 MCP 控制 Chrome DevTools 调试网页",
         "detail": "该项目为编码智能体提供 Chrome DevTools 的 MCP 接口，使其能够操作浏览器调试能力。仓库描述仅说明面向编码智能体，未提供更多功能细节。适合需要让 AI 编码工具接入浏览器调试流程的开发者参考。",
@@ -1426,13 +1360,14 @@ module.exports = {
           56549,
           57378,
           57918,
-          58141
+          58141,
+          58257
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1445,9 +1380,9 @@ module.exports = {
         "descEn": "Public repository for Agent Skills",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 196985,
-        "forks": 23080,
-        "hot": 4847,
+        "stars": 197361,
+        "forks": 23111,
+        "hot": 4381,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/122662504?s=40&amp;v=4",
@@ -1459,7 +1394,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "S",
-        "rank": 10,
+        "rank": 9,
         "dataSource": "official",
         "purpose": "为开发者提供构建和运行 Agent Skills 的公开代码仓库",
         "detail": "该仓库是 Anthropic 公开的 Agent Skills 相关代码集合，主语言为 Python。可用于了解 Agent Skills 的组织方式与实现示例，适合需要为智能体扩展技能能力的开发者参考使用。",
@@ -1488,13 +1423,14 @@ module.exports = {
           194931,
           195636,
           196392,
-          196985
+          196985,
+          197361
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -4,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 19,
+        "trendRealPoints": 20,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1507,9 +1443,9 @@ module.exports = {
         "descEn": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 73247,
-        "forks": 57856,
-        "hot": 3653,
+        "stars": 73409,
+        "forks": 57919,
+        "hot": 3566,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/42829555?s=40&amp;v=4",
@@ -1521,7 +1457,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "D",
-        "rank": 11,
+        "rank": 10,
         "dataSource": "official",
         "purpose": "为个人投资者提供多市场股票智能分析与决策看板",
         "detail": "该项目用大模型整合多源行情与实时新闻，生成分析结果并展示在决策看板上，同时支持自动推送和零成本定时运行。适合希望低成本搭建个人股票分析流程的投资者或开发者参考使用。",
@@ -1539,13 +1475,14 @@ module.exports = {
           72358,
           72679,
           72979,
-          73247
+          73247,
+          73409
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -6,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 8,
+        "trendRealPoints": 9,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1558,9 +1495,9 @@ module.exports = {
         "descEn": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 69559,
-        "forks": 6195,
-        "hot": 1548,
+        "stars": 70288,
+        "forks": 6261,
+        "hot": 2423,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/455140?s=40&amp;v=4",
@@ -1572,7 +1509,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "L",
-        "rank": 12,
+        "rank": 11,
         "dataSource": "official",
         "purpose": "为 AI 代理提供跨平台话题调研与摘要能力",
         "detail": "这是一个 AI 代理技能，可针对任意话题在 Reddit、X、YouTube、Hacker News、Polymarket 和网页上检索信息，再综合成有依据的摘要。适合需要快速了解近期讨论与舆情动态的代理开发者或研究者使用。",
@@ -1584,13 +1521,14 @@ module.exports = {
         ],
         "trend": [
           68542,
-          69559
+          69559,
+          70288
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 2,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 3,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1603,9 +1541,9 @@ module.exports = {
         "descEn": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 20266,
-        "forks": 2084,
-        "hot": 2773,
+        "stars": 20513,
+        "forks": 2109,
+        "hot": 3221,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/11162004?s=40&amp;v=4",
@@ -1617,7 +1555,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 13,
+        "rank": 12,
         "dataSource": "official",
         "purpose": "为前端开发者提供把 AI 智能体接入应用的交互协议",
         "detail": "AG-UI 定义智能体与用户界面之间的交互协议，用 TypeScript 实现，目标是让智能体能力进入前端应用。仓库提供协议规范与配套代码，便于开发者在 Web 前端集成智能体交互。适合需要为 AI 应用构建前端交互层的开发者参考使用。",
@@ -1631,13 +1569,14 @@ module.exports = {
           17516,
           18315,
           19753,
-          20266
+          20266,
+          20513
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 4,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1650,9 +1589,9 @@ module.exports = {
         "descEn": "Browser automation CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 52517,
-        "forks": 3672,
-        "hot": 3429,
+        "stars": 52717,
+        "forks": 3692,
+        "hot": 2987,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/366502?s=40&amp;v=4",
@@ -1664,7 +1603,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "A",
-        "rank": 14,
+        "rank": 13,
         "dataSource": "official",
         "purpose": "为 AI 代理提供浏览器自动化命令行工具，解决其网页操作问题。",
         "detail": "这是一个用 Rust 编写的浏览器自动化 CLI，面向 AI 代理场景，让代理通过命令行驱动浏览器完成网页操作。仓库未提供更多 README 说明，具体能力与用法需进仓库查看。",
@@ -1686,13 +1625,14 @@ module.exports = {
           51366,
           51824,
           52222,
-          52517
+          52517,
+          52717
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -5,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 12,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1705,9 +1645,9 @@ module.exports = {
         "descEn": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 14031,
-        "forks": 1096,
-        "hot": 2531,
+        "stars": 14143,
+        "forks": 1104,
+        "hot": 2630,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/269034524?s=40&amp;v=4",
@@ -1719,7 +1659,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "C",
-        "rank": 15,
+        "rank": 14,
         "dataSource": "official",
         "purpose": "为开发者提供命令行工具与 TypeScript SDK，用于发现、验证并修复安全漏洞。",
         "detail": "该项目是 OpenAI 的 Codex Security 工具，包含 CLI 和 TypeScript SDK，主语言为 TypeScript，可通过 npm 包 @openai/codex-security 安装使用。它面向需要在开发流程中查找、确认和修复安全漏洞的开发者与安全团队。",
@@ -1735,13 +1675,14 @@ module.exports = {
           12774,
           13356,
           13867,
-          14031
+          14031,
+          14143
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 1,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1754,9 +1695,9 @@ module.exports = {
         "descEn": "Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 29760,
-        "forks": 2658,
-        "hot": 5845,
+        "stars": 30052,
+        "forks": 2714,
+        "hot": 6840,
         "hotUnit": "本周新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/14025786?s=40&amp;v=4",
@@ -1768,7 +1709,7 @@ module.exports = {
         "topics": [],
         "license": "",
         "initial": "U",
-        "rank": 16,
+        "rank": 15,
         "dataSource": "official",
         "purpose": "为开发者提供可嵌入的办公套件 SDK，支持文档编辑、表格计算与协作。",
         "detail": "Univer 是一个基于 TypeScript 的开源办公 SDK，可把编辑、计算、协作和文件处理能力集成进自有产品。它面向人类用户和 AI 代理，核心可扩展，适合需要在应用中内嵌表格或文档功能的团队。",
@@ -1782,13 +1723,14 @@ module.exports = {
           25172,
           27059,
           28646,
-          29760
+          29760,
+          30052
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 4,
+        "rankChange": 1,
+        "isNew": false,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       }
@@ -1803,9 +1745,9 @@ module.exports = {
         "descEn": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
         "languageColor": "#663399",
-        "stars": 57226,
-        "forks": 3099,
-        "hot": 26594,
+        "stars": 57692,
+        "forks": 3131,
+        "hot": 27295,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/154055839?s=40&amp;v=4",
@@ -1852,13 +1794,14 @@ module.exports = {
           55208,
           55810,
           56525,
-          57226
+          57226,
+          57692
         ],
         "trendEstimated": true,
         "prevRank": null,
         "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 25,
+        "trendRealPoints": 26,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -1871,9 +1814,9 @@ module.exports = {
         "descEn": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 75085,
-        "forks": 5040,
-        "hot": 44314,
+        "stars": 75495,
+        "forks": 5072,
+        "hot": 44600,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/9935415?s=40&amp;v=4",
@@ -1889,7 +1832,6 @@ module.exports = {
         "detail": "给编码代理用的安全审计流程：分阶段执行，输出可独立验证、机器可读的审计结论，而不是「看起来没问题」的口头判断。",
         "tags": [],
         "trend": [
-          32889,
           34843,
           37637,
           40346,
@@ -1918,7 +1860,8 @@ module.exports = {
           72850,
           73507,
           74344,
-          75085
+          75085,
+          75495
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -1937,9 +1880,9 @@ module.exports = {
         "descEn": "The best way to control Claude Code, Codex and more from any computer or phone",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 64704,
-        "forks": 11361,
-        "hot": 35748,
+        "stars": 65569,
+        "forks": 11480,
+        "hot": 36872,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/51714798?s=40&amp;v=4",
@@ -1957,7 +1900,6 @@ module.exports = {
         "detail": "作者把它叫「agent harness control surface」：代理仍旧跑在你自己的机器上，手机端（iOS / Android）负责查看进度、下指令、接管会话。适合长时间跑任务时人不在电脑前的情况。仓库本身没有填写描述，信息来自 README。",
         "tags": [],
         "trend": [
-          28459,
           28963,
           29253,
           29524,
@@ -1986,7 +1928,8 @@ module.exports = {
           60946,
           62142,
           63490,
-          64704
+          64704,
+          65569
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -2005,9 +1948,9 @@ module.exports = {
         "descEn": "The PHP Interpreter",
         "language": "C",
         "languageColor": "#555555",
-        "stars": 41794,
-        "forks": 8557,
-        "hot": 1447,
+        "stars": 41819,
+        "forks": 8575,
+        "hot": 1454,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/2510034?s=40&amp;v=4",
@@ -2033,13 +1976,14 @@ module.exports = {
           41377,
           41613,
           41732,
-          41794
+          41794,
+          41819
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 4,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 5,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2052,9 +1996,9 @@ module.exports = {
         "descEn": "Open-source Grok Bot alternative with a virtual machine that bots can use",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 25128,
-        "forks": 3549,
-        "hot": 20211,
+        "stars": 25528,
+        "forks": 3616,
+        "hot": 20270,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/46266943?s=40&amp;v=4",
@@ -2091,13 +2035,14 @@ module.exports = {
           22445,
           22985,
           23875,
-          25128
+          25128,
+          25528
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 15,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 16,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2110,9 +2055,9 @@ module.exports = {
         "descEn": "Public repository for Agent Skills",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 196985,
-        "forks": 23080,
-        "hot": 15351,
+        "stars": 197361,
+        "forks": 23111,
+        "hot": 15769,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/122662504?s=40&amp;v=4",
@@ -2153,13 +2098,14 @@ module.exports = {
           194931,
           195636,
           196392,
-          196985
+          196985,
+          197361
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 19,
+        "trendRealPoints": 20,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2172,9 +2118,9 @@ module.exports = {
         "descEn": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 118115,
-        "forks": 10263,
-        "hot": 17236,
+        "stars": 118297,
+        "forks": 10285,
+        "hot": 17311,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/683968?s=40&amp;v=4",
@@ -2222,13 +2168,14 @@ module.exports = {
           117216,
           117518,
           117836,
-          118115
+          118115,
+          118297
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 26,
+        "trendRealPoints": 27,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2241,9 +2188,9 @@ module.exports = {
         "descEn": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 112578,
-        "forks": 6708,
-        "hot": 30177,
+        "stars": 113056,
+        "forks": 6732,
+        "hot": 30662,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43004?s=40&amp;v=4",
@@ -2266,7 +2213,6 @@ module.exports = {
           "界面生成"
         ],
         "trend": [
-          83425,
           84049,
           84635,
           85157,
@@ -2295,11 +2241,12 @@ module.exports = {
           110435,
           111069,
           111776,
-          112578
+          112578,
+          113056
         ],
         "trendEstimated": false,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
         "trendRealPoints": 30,
         "hasZh": true,
@@ -2314,16 +2261,16 @@ module.exports = {
         "descEn": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 13253,
-        "forks": 1335,
-        "hot": 3475,
+        "stars": 13533,
+        "forks": 1364,
+        "hot": 3868,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/7244317?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
+          "https://avatars.githubusercontent.com/u/47457359?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/110197373?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/47978193?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/1078682?s=40&amp;v=4"
+          "https://avatars.githubusercontent.com/u/47978193?s=40&amp;v=4"
         ],
         "topics": [],
         "license": "",
@@ -2344,13 +2291,14 @@ module.exports = {
           11488,
           12183,
           12880,
-          13253
+          13253,
+          13533
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 6,
+        "trendRealPoints": 7,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2363,9 +2311,9 @@ module.exports = {
         "descEn": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 60288,
-        "forks": 7303,
-        "hot": 18753,
+        "stars": 60619,
+        "forks": 7337,
+        "hot": 19065,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/150592536?s=40&amp;v=4",
@@ -2403,13 +2351,14 @@ module.exports = {
           59348,
           59646,
           59945,
-          60288
+          60288,
+          60619
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -3,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 17,
+        "trendRealPoints": 18,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2422,9 +2371,9 @@ module.exports = {
         "descEn": "Hunt down social media accounts by username across social networks",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 114002,
-        "forks": 13113,
-        "hot": 19596,
+        "stars": 114306,
+        "forks": 13136,
+        "hot": 20046,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/27065646?s=40&amp;v=4",
@@ -2456,13 +2405,14 @@ module.exports = {
           112051,
           112848,
           113514,
-          114002
+          114002,
+          114306
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 10,
+        "trendRealPoints": 11,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2475,14 +2425,14 @@ module.exports = {
         "descEn": "AI video you can actually edit. HyperFrames is a free, open-source AI video editor. Describe any video and get a real project you can change down to the frame.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 86248,
-        "forks": 7996,
-        "hot": 20425,
+        "stars": 86677,
+        "forks": 8052,
+        "hot": 20375,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/229591595?s=40&amp;v=4",
-          "https://avatars.githubusercontent.com/u/337856?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
+          "https://avatars.githubusercontent.com/u/337856?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/7664106?s=40&amp;v=4",
           "https://avatars.githubusercontent.com/u/165517112?s=40&amp;v=4"
         ],
@@ -2495,7 +2445,6 @@ module.exports = {
         "detail": "把网页当视频模板：用 HTML/CSS 描述画面，由工具逐帧渲染成视频。适合程序化、批量生成视频内容的场景。",
         "tags": [],
         "trend": [
-          67946,
           68743,
           69506,
           70260,
@@ -2524,11 +2473,12 @@ module.exports = {
           84504,
           84968,
           85591,
-          86248
+          86248,
+          86677
         ],
         "trendEstimated": false,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
         "trendRealPoints": 30,
         "hasZh": true,
@@ -2543,9 +2493,9 @@ module.exports = {
         "descEn": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 30530,
-        "forks": 3809,
-        "hot": 11246,
+        "stars": 30747,
+        "forks": 3830,
+        "hot": 11532,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/223140489?s=40&amp;v=4",
@@ -2586,13 +2536,14 @@ module.exports = {
           29504,
           29868,
           30206,
-          30530
+          30530,
+          30747
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -1,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 19,
+        "trendRealPoints": 20,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2605,9 +2556,9 @@ module.exports = {
         "descEn": "Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 118096,
-        "forks": 7904,
-        "hot": 19688,
+        "stars": 118599,
+        "forks": 7935,
+        "hot": 20055,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/219127460?s=40&amp;v=4",
@@ -2643,13 +2594,14 @@ module.exports = {
           115842,
           116531,
           117319,
-          118096
+          118096,
+          118599
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -3,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 14,
+        "trendRealPoints": 15,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2662,9 +2614,9 @@ module.exports = {
         "descEn": "Browser automation CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 52517,
-        "forks": 3672,
-        "hot": 8282,
+        "stars": 52717,
+        "forks": 3692,
+        "hot": 8540,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/366502?s=40&amp;v=4",
@@ -2698,13 +2650,14 @@ module.exports = {
           51366,
           51824,
           52222,
-          52517
+          52517,
+          52717
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": -2,
+        "rankChange": 0,
         "isNew": false,
-        "trendRealPoints": 12,
+        "trendRealPoints": 13,
         "hasZh": true,
         "zhSource": "auto"
       },
@@ -2717,9 +2670,9 @@ module.exports = {
         "descEn": "AI video skill for Claude Code & Codex — cinematic, editable product promos with Remotion: 124 shot recipe cards, 150 motion previews, beat sync, sound design, Motion Workbench & JianYing (CapCut CN) export.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 21111,
-        "forks": 1946,
-        "hot": 8794,
+        "stars": 21463,
+        "forks": 1979,
+        "hot": 8934,
         "hotUnit": "本月新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
@@ -2745,18 +2698,19 @@ module.exports = {
           19300,
           19790,
           20346,
-          21111
+          21111,
+          21463
         ],
         "trendEstimated": true,
         "prevRank": null,
-        "rankChange": null,
-        "isNew": true,
-        "trendRealPoints": 5,
+        "rankChange": 0,
+        "isNew": false,
+        "trendRealPoints": 6,
         "hasZh": true,
         "zhSource": "auto"
       }
     ]
   },
-  "zhMissing": 7,
-  "zhAi": 7
+  "zhMissing": 0,
+  "zhAi": 0
 };
