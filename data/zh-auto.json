@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1795002109283,
+  "updatedAt": 1795158961819,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2118,6 +2118,101 @@
         "开发者工具"
       ],
       "generatedAt": 1795002109282,
+      "model": "deepseek-chat"
+    },
+    "firecrawl/firecrawl": {
+      "purpose": "为 AI 智能体提供网页搜索、抓取与数据接入的统一 API",
+      "detail": "该项目是面向 AI 智能体的知识基础设施，通过单一 API 提供搜索、网页抓取，并接入 550 多个数据源。它帮助开发者把外部实时数据接入智能体，减少逐个对接数据源的工作量。适合构建 AI 应用、需要为模型补充外部知识的开发者使用。",
+      "tags": [
+        "网页抓取",
+        "搜索API",
+        "AI智能体",
+        "数据接入"
+      ],
+      "generatedAt": 1795158951136,
+      "model": "deepseek-chat"
+    },
+    "nginx/nginx": {
+      "purpose": "供运维和开发者搭建高性能 Web 服务器、反向代理与负载均衡",
+      "detail": "这是 NGINX 开源版的官方代码仓库，主语言为 C。它提供 Web 服务、反向代理、负载均衡和缓存等基础能力，适合需要自行编译或研究其实现的服务端开发与运维人员。",
+      "tags": [
+        "Web服务器",
+        "反向代理",
+        "负载均衡",
+        "C"
+      ],
+      "generatedAt": 1795158952954,
+      "model": "deepseek-chat"
+    },
+    "mjmirza/app-store-compliance": {
+      "purpose": "帮助移动应用开发者避免应用商店审核被拒的检查工具",
+      "detail": "该项目是一个面向 App Store 和 Google Play 提交前检查的开源手册与防护工具，收录了 117 种有记录的拒绝模式及修复方法。它提供隐私清单与数据安全核查，并跟踪 95 项合规截止日期，涵盖欧盟 AI 法案、DSA、COPPA 和年龄相关法律。此外还包含供 AI 编码代理使用的技能，适合准备上架或频繁遭遇审核驳回的移动开发者。",
+      "tags": [
+        "应用商店审核",
+        "合规检查",
+        "移动开发",
+        "隐私合规"
+      ],
+      "generatedAt": 1795158954529,
+      "model": "deepseek-chat"
+    },
+    "Tracer-Cloud/opensre": {
+      "purpose": "面向 CI/CD 工程师，用开源智能体排查流水线可靠性问题",
+      "detail": "这是一个用于 CI/CD 可靠性的开源智能体项目，基于 Python 实现。仓库描述仅说明其定位为面向持续集成与持续交付可靠性的 agent，未提供更多功能细节。适合关注流水线稳定性、希望用自动化方式辅助排查 CI/CD 问题的开发者了解。",
+      "tags": [
+        "CI/CD",
+        "可靠性",
+        "智能体",
+        "Python"
+      ],
+      "generatedAt": 1795158955768,
+      "model": "deepseek-chat"
+    },
+    "toeverything/AFFiNE": {
+      "purpose": "面向需要整合文档、白板与任务管理的团队和个人，提供隐私优先的开源知识库。",
+      "detail": "AFFiNE 将规划、整理与创作集中在一个工作空间中，可替代 Notion 与 Miro 的部分场景。项目强调隐私优先、开源且可自定义，开箱即可使用。适合希望自托管或定制知识管理工具的团队与个人。",
+      "tags": [
+        "知识库",
+        "开源",
+        "隐私",
+        "协作"
+      ],
+      "generatedAt": 1795158957434,
+      "model": "deepseek-chat"
+    },
+    "XiaoYouChR/Ghost-Downloader-3": {
+      "purpose": "给需要统一下载工具的用户，整合多种下载能力解决分散管理问题",
+      "detail": "这是一个用 Python 编写的下载器项目，定位为集大成式的下载工具。仓库描述强调其覆盖多种下载场景，适合希望用单一工具替代多个下载软件的用户。具体支持的协议与功能需进仓库查看。",
+      "tags": [
+        "下载器",
+        "Python",
+        "文件下载"
+      ],
+      "generatedAt": 1795158958830,
+      "model": "deepseek-chat"
+    },
+    "zhouxiaoka/autoclip": {
+      "purpose": "给内容创作者把长视频自动剪成短视频并生成配套素材",
+      "detail": "AutoClip 是一款开源 AI 视频剪辑桌面工具，输入一个链接即可把播客、访谈、课程等长视频自动剪成短视频。它会生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts 等平台。适合需要批量做短视频分发的创作者和运营人员。",
+      "tags": [
+        "AI视频剪辑",
+        "短视频",
+        "内容再创作",
+        "开源工具"
+      ],
+      "generatedAt": 1795158960382,
+      "model": "deepseek-chat"
+    },
+    "Jakeschincariol/instagram-agent-skill": {
+      "purpose": "给运营 Instagram 账号的人用，用 Claude 技能自动生成内容和做研究。",
+      "detail": "仓库提供十三个 Claude 技能，用于运营 Instagram 账号。功能包括按 26 个打分钩子公式生成 Reels、做爆款选题研究、检查文案以及做拟人化改写。适合希望借助 Claude 提高内容产出效率的账号运营者，采用 MIT 许可，免费使用。",
+      "tags": [
+        "Instagram",
+        "Claude",
+        "内容运营",
+        "Python"
+      ],
+      "generatedAt": 1795158961819,
       "model": "deepseek-chat"
     }
   }
