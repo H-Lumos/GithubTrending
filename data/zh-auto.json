@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1795158961819,
+  "updatedAt": 1795514032992,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2213,6 +2213,18 @@
         "Python"
       ],
       "generatedAt": 1795158961819,
+      "model": "deepseek-chat"
+    },
+    "yetone/magpie": {
+      "purpose": "让用户在菜单栏统一为各类 AI 编程代理配置模型",
+      "detail": "Magpie 是一个 Go 编写的菜单栏工具，用于集中管理不同 AI 代理所使用的模型。它支持把 Codex 接到 DeepSeek、把 Claude Code 接到 Kimi 等组合，省去逐个配置的麻烦。适合同时使用多个编程代理、希望统一切换模型的开发者。",
+      "tags": [
+        "菜单栏工具",
+        "AI 代理",
+        "模型配置",
+        "Go"
+      ],
+      "generatedAt": 1795514032991,
       "model": "deepseek-chat"
     }
   }
