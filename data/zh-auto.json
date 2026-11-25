@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1795514032992,
+  "updatedAt": 1795595587071,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2225,6 +2225,18 @@
         "Go"
       ],
       "generatedAt": 1795514032991,
+      "model": "deepseek-chat"
+    },
+    "Ebony-Vinyl/dsh-our-free-model": {
+      "purpose": "让 dsh 用户免登录、免 API Key 直接使用前沿大模型",
+      "detail": "这是一个 dsh 插件，安装后即可调用 DeepSeek V4.1 Flash、Kimi K3 等模型，无需注册账号或填写 API Key。项目宣称完全免费且不限量，适合想快速试用前沿模型、不想处理鉴权配置的开发者。",
+      "tags": [
+        "dsh插件",
+        "免费模型",
+        "免API Key",
+        "JavaScript"
+      ],
+      "generatedAt": 1795595587071,
       "model": "deepseek-chat"
     }
   }
