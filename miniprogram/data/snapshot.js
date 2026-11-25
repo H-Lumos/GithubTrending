@@ -1,6 +1,6 @@
 /* 自动生成，勿手改：node scripts/snapshot.js */
 module.exports = {
-  "generatedAt": 1795595581320,
+  "generatedAt": 1795611298989,
   "date": "2026-11-25",
   "source": "official-snapshot",
   "historyDays": 39,
@@ -84,9 +84,9 @@ module.exports = {
         "descEn": "A Claude Code skill bundle for bug hunting and external red-team work - 84 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 21988,
-        "forks": 2273,
-        "hot": 1826,
+        "stars": 22290,
+        "forks": 2297,
+        "hot": 1644,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/81847?s=40&amp;v=4",
@@ -117,7 +117,7 @@ module.exports = {
           16757,
           18878,
           20762,
-          21988
+          22290
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -136,9 +136,9 @@ module.exports = {
         "descEn": "An agentic skills framework & software development methodology that works.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 326095,
-        "forks": 28938,
-        "hot": 1003,
+        "stars": 326245,
+        "forks": 28956,
+        "hot": 902,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/45416?s=40&amp;v=4",
@@ -181,7 +181,7 @@ module.exports = {
           323790,
           324617,
           325605,
-          326095
+          326245
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -200,9 +200,9 @@ module.exports = {
         "descEn": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 65164,
-        "forks": 5927,
-        "hot": 1074,
+        "stars": 65351,
+        "forks": 5942,
+        "hot": 1094,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43330997?s=40&amp;v=4",
@@ -236,7 +236,7 @@ module.exports = {
           62376,
           63218,
           64318,
-          65164
+          65351
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -255,9 +255,9 @@ module.exports = {
         "descEn": "🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 70577,
-        "forks": 9178,
-        "hot": 727,
+        "stars": 70743,
+        "forks": 9192,
+        "hot": 828,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/62287848?s=40&amp;v=4",
@@ -286,7 +286,7 @@ module.exports = {
           68361,
           69215,
           69949,
-          70577
+          70743
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -305,9 +305,9 @@ module.exports = {
         "descEn": "Cursor plugin specification and official plugins",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 19355,
-        "forks": 2089,
-        "hot": 360,
+        "stars": 19418,
+        "forks": 2095,
+        "hot": 408,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/199161495?s=40&amp;v=4",
@@ -348,7 +348,7 @@ module.exports = {
           18247,
           18662,
           19035,
-          19355
+          19418
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -367,9 +367,9 @@ module.exports = {
         "descEn": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 209288,
-        "forks": 10938,
-        "hot": 991,
+        "stars": 209554,
+        "forks": 10959,
+        "hot": 1131,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/20311743?s=40&amp;v=4",
@@ -397,7 +397,7 @@ module.exports = {
           206544,
           207471,
           208473,
-          209288
+          209554
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -416,9 +416,9 @@ module.exports = {
         "descEn": "The official NGINX Open Source repository.",
         "language": "C",
         "languageColor": "#555555",
-        "stars": 33281,
-        "forks": 8398,
-        "hot": 158,
+        "stars": 33302,
+        "forks": 8399,
+        "hot": 174,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/201187?s=40&amp;v=4",
@@ -446,7 +446,7 @@ module.exports = {
           32801,
           32977,
           33138,
-          33281
+          33302
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -465,9 +465,9 @@ module.exports = {
         "descEn": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
         "language": "C++",
         "languageColor": "#f34b7d",
-        "stars": 12537,
-        "forks": 3698,
-        "hot": 185,
+        "stars": 12571,
+        "forks": 3701,
+        "hot": 188,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/2566854?s=40&amp;v=4",
@@ -497,7 +497,7 @@ module.exports = {
           12009,
           12204,
           12387,
-          12537
+          12571
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -516,9 +516,9 @@ module.exports = {
         "descEn": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
         "language": "HTML",
         "languageColor": "#e34c26",
-        "stars": 72412,
-        "forks": 4820,
-        "hot": 802,
+        "stars": 72581,
+        "forks": 4827,
+        "hot": 1133,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/50469282?s=40&amp;v=4",
@@ -545,7 +545,7 @@ module.exports = {
           70032,
           70677,
           71537,
-          72412
+          72581
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -564,9 +564,9 @@ module.exports = {
         "descEn": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 74582,
-        "forks": 6573,
-        "hot": 703,
+        "stars": 74754,
+        "forks": 6588,
+        "hot": 950,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/455140?s=40&amp;v=4",
@@ -597,7 +597,7 @@ module.exports = {
           72324,
           73130,
           73854,
-          74582
+          74754
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -616,9 +616,9 @@ module.exports = {
         "descEn": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 12785,
-        "forks": 1530,
-        "hot": 403,
+        "stars": 12851,
+        "forks": 1533,
+        "hot": 352,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/43076783?s=40&amp;v=4",
@@ -650,7 +650,7 @@ module.exports = {
           11678,
           12109,
           12518,
-          12785
+          12851
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -669,9 +669,9 @@ module.exports = {
         "descEn": "Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 124 documented rejection patterns and fixes, privacy manifest and Data safety checks, 112 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents.",
         "language": "Shell",
         "languageColor": "#89e051",
-        "stars": 6092,
-        "forks": 396,
-        "hot": 928,
+        "stars": 6239,
+        "forks": 407,
+        "hot": 853,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/34001140?s=40&amp;v=4",
@@ -699,7 +699,7 @@ module.exports = {
           3662,
           4498,
           5464,
-          6092
+          6239
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -718,9 +718,9 @@ module.exports = {
         "descEn": "The open-source agent for CI/CD reliability.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 15307,
-        "forks": 2020,
-        "hot": 398,
+        "stars": 15360,
+        "forks": 2023,
+        "hot": 343,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/33206282?s=40&amp;v=4",
@@ -748,7 +748,7 @@ module.exports = {
           14172,
           14628,
           15040,
-          15307
+          15360
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -767,9 +767,9 @@ module.exports = {
         "descEn": "There can be more than Notion and Miro. AFFiNE(pronounced [ə‘fain]) is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 78155,
-        "forks": 5706,
-        "hot": 584,
+        "stars": 78243,
+        "forks": 5709,
+        "hot": 578,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/25152247?s=40&amp;v=4",
@@ -797,7 +797,7 @@ module.exports = {
           76526,
           77120,
           77708,
-          78155
+          78243
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -816,9 +816,9 @@ module.exports = {
         "descEn": "The only downloader you need. 下载器的集大成者。",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 17718,
-        "forks": 1061,
-        "hot": 1092,
+        "stars": 17896,
+        "forks": 1069,
+        "hot": 950,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/87308195?s=40&amp;v=4",
@@ -845,7 +845,7 @@ module.exports = {
           14758,
           15896,
           17002,
-          17718
+          17896
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -864,9 +864,9 @@ module.exports = {
         "descEn": "AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 15745,
-        "forks": 2297,
-        "hot": 980,
+        "stars": 15900,
+        "forks": 2307,
+        "hot": 868,
         "hotUnit": "今日新增",
         "avatars": [
           "https://avatars.githubusercontent.com/u/78066887?s=40&amp;v=4",
@@ -894,7 +894,7 @@ module.exports = {
           13134,
           14086,
           15089,
-          15745
+          15900
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -915,8 +915,8 @@ module.exports = {
         "descEn": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 14967,
-        "forks": 1438,
+        "stars": 15008,
+        "forks": 1443,
         "hot": 1956,
         "hotUnit": "本周新增",
         "avatars": [
@@ -952,7 +952,7 @@ module.exports = {
           14271,
           14581,
           14812,
-          14967
+          15008
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -971,8 +971,8 @@ module.exports = {
         "descEn": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 12785,
-        "forks": 1530,
+        "stars": 12851,
+        "forks": 1533,
         "hot": 2626,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1005,7 +1005,7 @@ module.exports = {
           11678,
           12109,
           12518,
-          12785
+          12851
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1024,8 +1024,8 @@ module.exports = {
         "descEn": "Keep your coding agent up to date with the latest web best practices",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 10910,
-        "forks": 826,
+        "stars": 10954,
+        "forks": 829,
         "hot": 2494,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1063,7 +1063,7 @@ module.exports = {
           10032,
           10386,
           10720,
-          10910
+          10954
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1082,8 +1082,8 @@ module.exports = {
         "descEn": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
         "language": "Go",
         "languageColor": "#00ADD8",
-        "stars": 56166,
-        "forks": 4635,
+        "stars": 56244,
+        "forks": 4641,
         "hot": 2638,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1119,7 +1119,7 @@ module.exports = {
           55241,
           55578,
           55942,
-          56166
+          56244
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1138,8 +1138,8 @@ module.exports = {
         "descEn": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 74582,
-        "forks": 6573,
+        "stars": 74754,
+        "forks": 6588,
         "hot": 5369,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1171,7 +1171,7 @@ module.exports = {
           72324,
           73130,
           73854,
-          74582
+          74754
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1190,8 +1190,8 @@ module.exports = {
         "descEn": "Chrome DevTools for coding agents",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 59271,
-        "forks": 4887,
+        "stars": 59301,
+        "forks": 4888,
         "hot": 1258,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1227,7 +1227,7 @@ module.exports = {
           58752,
           58949,
           59143,
-          59271
+          59301
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1246,8 +1246,8 @@ module.exports = {
         "descEn": "Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 8363,
-        "forks": 1540,
+        "stars": 8401,
+        "forks": 1547,
         "hot": 1504,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1283,7 +1283,7 @@ module.exports = {
           7702,
           7883,
           8225,
-          8363
+          8401
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1302,8 +1302,8 @@ module.exports = {
         "descEn": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 21641,
-        "forks": 2177,
+        "stars": 21676,
+        "forks": 2180,
         "hot": 1753,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1337,7 +1337,7 @@ module.exports = {
           21094,
           21302,
           21496,
-          21641
+          21676
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1356,8 +1356,8 @@ module.exports = {
         "descEn": "An open source design system that's fully customizable and agent ready",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 32958,
-        "forks": 2582,
+        "stars": 33011,
+        "forks": 2586,
         "hot": 2890,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1396,7 +1396,7 @@ module.exports = {
           31997,
           32406,
           32758,
-          32958
+          33011
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1415,7 +1415,7 @@ module.exports = {
         "descEn": "Enable Hermès Watch Faces on any Apple Watch devices",
         "language": "Objective-C",
         "languageColor": "#438eff",
-        "stars": 2501,
+        "stars": 2505,
         "forks": 206,
         "hot": 328,
         "hotUnit": "本周新增",
@@ -1446,7 +1446,7 @@ module.exports = {
           2373,
           2423,
           2477,
-          2501
+          2505
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1465,8 +1465,8 @@ module.exports = {
         "descEn": "The personal finance app for everyone (by everyone)",
         "language": "Ruby",
         "languageColor": "#701516",
-        "stars": 17829,
-        "forks": 1550,
+        "stars": 17865,
+        "forks": 1555,
         "hot": 1567,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1504,7 +1504,7 @@ module.exports = {
           17236,
           17450,
           17698,
-          17829
+          17865
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1523,8 +1523,8 @@ module.exports = {
         "descEn": "Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 31770,
-        "forks": 2865,
+        "stars": 31803,
+        "forks": 2866,
         "hot": 3278,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1558,7 +1558,7 @@ module.exports = {
           31174,
           31384,
           31633,
-          31770
+          31803
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1577,8 +1577,8 @@ module.exports = {
         "descEn": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 10844,
-        "forks": 925,
+        "stars": 10930,
+        "forks": 930,
         "hot": 2993,
         "hotUnit": "本周新增",
         "avatars": [
@@ -1607,7 +1607,7 @@ module.exports = {
           9465,
           10020,
           10500,
-          10844
+          10930
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1628,8 +1628,8 @@ module.exports = {
         "descEn": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
         "language": "CSS",
         "languageColor": "#663399",
-        "stars": 60753,
-        "forks": 3323,
+        "stars": 60863,
+        "forks": 3326,
         "hot": 29170,
         "hotUnit": "本月新增",
         "avatars": [
@@ -1682,7 +1682,7 @@ module.exports = {
           59252,
           59838,
           60361,
-          60753
+          60863
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -1701,8 +1701,8 @@ module.exports = {
         "descEn": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 78107,
-        "forks": 5275,
+        "stars": 78184,
+        "forks": 5283,
         "hot": 35068,
         "hotUnit": "本月新增",
         "avatars": [
@@ -1748,7 +1748,7 @@ module.exports = {
           76862,
           77325,
           77759,
-          78107
+          78184
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -1767,8 +1767,8 @@ module.exports = {
         "descEn": "Open-source Grok Bot alternative with a virtual machine that bots can use",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 27658,
-        "forks": 3950,
+        "stars": 27735,
+        "forks": 3957,
         "hot": 22073,
         "hotUnit": "本月新增",
         "avatars": [
@@ -1813,7 +1813,7 @@ module.exports = {
           26665,
           27052,
           27390,
-          27658
+          27735
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1832,8 +1832,8 @@ module.exports = {
         "descEn": "The best way to control Claude Code, Codex and more from any computer or phone",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 78358,
-        "forks": 13606,
+        "stars": 78781,
+        "forks": 13795,
         "hot": 47147,
         "hotUnit": "本月新增",
         "avatars": [
@@ -1881,7 +1881,7 @@ module.exports = {
           70476,
           73611,
           76603,
-          78358
+          78781
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -1900,8 +1900,8 @@ module.exports = {
         "descEn": "Public repository for Agent Skills",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 200161,
-        "forks": 23409,
+        "stars": 200265,
+        "forks": 23416,
         "hot": 16946,
         "hotUnit": "本月新增",
         "avatars": [
@@ -1950,7 +1950,7 @@ module.exports = {
           198717,
           199250,
           199722,
-          200161
+          200265
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -1969,8 +1969,8 @@ module.exports = {
         "descEn": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 119629,
-        "forks": 10396,
+        "stars": 119671,
+        "forks": 10399,
         "hot": 17462,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2023,7 +2023,7 @@ module.exports = {
           118934,
           119213,
           119453,
-          119629
+          119671
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -2042,8 +2042,8 @@ module.exports = {
         "descEn": "Thirteen Claude skills that run an Instagram account: Reels off 26 scored hook formulas, a viral research skill, a caption linter, and a humanizer. Free, MIT.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 9091,
-        "forks": 1594,
+        "stars": 9144,
+        "forks": 1595,
         "hot": 6218,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2069,7 +2069,7 @@ module.exports = {
           8111,
           8475,
           8814,
-          9091
+          9144
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2088,8 +2088,8 @@ module.exports = {
         "descEn": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 14967,
-        "forks": 1438,
+        "stars": 15008,
+        "forks": 1443,
         "hot": 5292,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2125,7 +2125,7 @@ module.exports = {
           14271,
           14581,
           14812,
-          14967
+          15008
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2144,8 +2144,8 @@ module.exports = {
         "descEn": "在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap.",
         "language": "JavaScript",
         "languageColor": "#f1e05a",
-        "stars": 86555,
-        "forks": 2453,
+        "stars": 86816,
+        "forks": 2457,
         "hot": 48193,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2169,7 +2169,7 @@ module.exports = {
           "JavaScript"
         ],
         "trend": [
-          86555
+          86816
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2188,8 +2188,8 @@ module.exports = {
         "descEn": "DeepTutor: Lifelong Personalized Tutoring. https://deeptutor.info/.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 62510,
-        "forks": 7524,
+        "stars": 62608,
+        "forks": 7537,
         "hot": 20099,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2235,7 +2235,7 @@ module.exports = {
           61466,
           61803,
           62182,
-          62510
+          62608
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2254,8 +2254,8 @@ module.exports = {
         "descEn": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
         "language": "Go",
         "languageColor": "#00ADD8",
-        "stars": 41239,
-        "forks": 3781,
+        "stars": 41349,
+        "forks": 3794,
         "hot": 20773,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2280,7 +2280,7 @@ module.exports = {
         ],
         "trend": [
           40912,
-          41239
+          41349
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2299,8 +2299,8 @@ module.exports = {
         "descEn": "The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 116488,
-        "forks": 6961,
+        "stars": 116619,
+        "forks": 6966,
         "hot": 30688,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2353,7 +2353,7 @@ module.exports = {
           114748,
           115336,
           116008,
-          116488
+          116619
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -2372,8 +2372,8 @@ module.exports = {
         "descEn": "Hunt down social media accounts by username across social networks",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 117248,
-        "forks": 13371,
+        "stars": 117371,
+        "forks": 13386,
         "hot": 22382,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2413,7 +2413,7 @@ module.exports = {
           115660,
           116088,
           116783,
-          117248
+          117371
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2432,8 +2432,8 @@ module.exports = {
         "descEn": "Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, llms.txt), backlinks, local SEO, e-commerce, international SEO, Google APIs, and PDF/Excel reporting. 9 optional extensions for live SEO data.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 32257,
-        "forks": 3943,
+        "stars": 32304,
+        "forks": 3948,
         "hot": 12213,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2482,7 +2482,7 @@ module.exports = {
           31503,
           31783,
           32078,
-          32257
+          32304
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2501,8 +2501,8 @@ module.exports = {
         "descEn": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 12785,
-        "forks": 1530,
+        "stars": 12851,
+        "forks": 1533,
         "hot": 4010,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2535,7 +2535,7 @@ module.exports = {
           11678,
           12109,
           12518,
-          12785
+          12851
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2554,8 +2554,8 @@ module.exports = {
         "descEn": "Open-source AI video editor: edit your own footage, or create and remake any video with Claude Code, Codex or the free Studio app. Write HTML, render MP4. By HeyGen.",
         "language": "TypeScript",
         "languageColor": "#3178c6",
-        "stars": 89772,
-        "forks": 8371,
+        "stars": 89894,
+        "forks": 8375,
         "hot": 18583,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2603,7 +2603,7 @@ module.exports = {
           88009,
           88629,
           89303,
-          89772
+          89894
         ],
         "trendEstimated": false,
         "prevRank": null,
@@ -2622,8 +2622,8 @@ module.exports = {
         "descEn": "A Claude Code skill bundle for bug hunting and external red-team work - 84 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 21988,
-        "forks": 2273,
+        "stars": 22290,
+        "forks": 2297,
         "hot": 15607,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2655,7 +2655,7 @@ module.exports = {
           16757,
           18878,
           20762,
-          21988
+          22290
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2674,8 +2674,8 @@ module.exports = {
         "descEn": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
         "language": "Python",
         "languageColor": "#3572A5",
-        "stars": 10844,
-        "forks": 925,
+        "stars": 10930,
+        "forks": 930,
         "hot": 8190,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2704,7 +2704,7 @@ module.exports = {
           9465,
           10020,
           10500,
-          10844
+          10930
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2723,8 +2723,8 @@ module.exports = {
         "descEn": "Browser automation CLI for AI agents",
         "language": "Rust",
         "languageColor": "#dea584",
-        "stars": 53870,
-        "forks": 3770,
+        "stars": 53903,
+        "forks": 3769,
         "hot": 9395,
         "hotUnit": "本月新增",
         "avatars": [
@@ -2766,7 +2766,7 @@ module.exports = {
           53311,
           53539,
           53720,
-          53870
+          53903
         ],
         "trendEstimated": true,
         "prevRank": null,
@@ -2778,6 +2778,6 @@ module.exports = {
       }
     ]
   },
-  "zhMissing": 1,
-  "zhAi": 1
+  "zhMissing": 0,
+  "zhAi": 0
 };
