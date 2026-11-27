@@ -1,5 +1,5 @@
 {
-  "updatedAt": 1795680999769,
+  "updatedAt": 1795768366832,
   "model": "deepseek-chat",
   "entries": {
     "Comfy-Org/ComfyUI": {
@@ -2249,6 +2249,18 @@
         "开源"
       ],
       "generatedAt": 1795680999769,
+      "model": "deepseek-chat"
+    },
+    "obsidianmd/obsidian-skills": {
+      "purpose": "让 AI 助手学会操作 Obsidian 与 Markdown 等开放格式",
+      "detail": "该项目提供一组技能定义，用于教会 AI 代理使用 Obsidian 及 Markdown、Bases、JSON Canvas 等开放格式。仓库以 Shell 脚本为主，面向希望让代理直接读写笔记库与结构化文件的 Obsidian 用户和开发者。",
+      "tags": [
+        "Obsidian",
+        "AI 代理",
+        "Markdown",
+        "开放格式"
+      ],
+      "generatedAt": 1795768366831,
       "model": "deepseek-chat"
     }
   }
